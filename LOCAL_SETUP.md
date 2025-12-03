@@ -274,4 +274,4 @@ If you encounter any issues not covered in this guide:
 
 ## License
 
-This project is licensed under the terms of the MIT open source license. Please refer to [LICENSE](LICENSE) for the full terms.
+This project is licensed under the terms of the MIT open source license. Please refer to [LICENSE](./LICENSE) for the full terms.
