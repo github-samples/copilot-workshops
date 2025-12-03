@@ -6,11 +6,15 @@ This repository contains the project for a 1 hour guided workshop to explore Git
 
 **To begin the workshop, start at [docs/README.md](./docs/README.md)**
 
-Or, if just want to run the app...
+The workshop is designed to be completed using [GitHub Codespaces](https://github.com/features/codespaces), which provides a pre-configured cloud development environment.
 
-## Launch the site
+## Run locally
 
-A script file has been created to launch the site. You can run it by:
+If you prefer to run the application on your local machine instead of using Codespaces, see the [Local Setup Guide](./LOCAL_SETUP.md) for detailed instructions on setting up your local development environment.
+
+## Quick start (local)
+
+If you already have Python 3.12+ and Node.js installed:
 
 ```bash
 ./scripts/start-app.sh
