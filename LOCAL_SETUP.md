@@ -268,10 +268,10 @@ If you're following the workshop, please refer to the [workshop documentation](.
 
 If you encounter any issues not covered in this guide:
 
-1. Check the [GitHub Issues](../../issues) for similar problems
+1. Check the GitHub Issues in the repository for similar problems
 2. Review the workshop documentation in the `docs/` directory
 3. Open a new issue with details about your environment and the error message
 
 ## License
 
-This project is licensed under the terms of the MIT open source license. Please refer to [LICENSE](./LICENSE) for the full terms.
+This project is licensed under the terms of the MIT open source license. Please refer to [LICENSE](LICENSE) for the full terms.
