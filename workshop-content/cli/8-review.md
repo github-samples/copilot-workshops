@@ -9,6 +9,7 @@ Over the last several exercises, you explored some of the most common uses cases
 - using instructions files to guide code generation.
 - implementing skills to add tools to the Copilot CLI toolbox.
 - calling custom agents for advanced and more complex tasks.
+- using slash commands to manage your session, and optionally bridging back to coding agent via `/delegate`.
 
 Let's talk about some slash commands, best practices, and next steps.
 

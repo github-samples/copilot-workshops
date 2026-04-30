@@ -69,3 +69,8 @@ msbuild.wrn
 
 # SQLite
 *.db
+# MkDocs build output
+site/
+
+# MkDocs docs venv (local docs builds)
+.venv-docs/

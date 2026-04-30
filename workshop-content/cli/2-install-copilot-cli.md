@@ -72,34 +72,23 @@ On first launch, Copilot CLI will prompt you to authenticate with your GitHub ac
 > [!NOTE]
 > In a codespace, you may already be authenticated through your GitHub session. If Copilot CLI starts without prompting for authentication, you're good to go!
 
-## Trust the directory
+## Trust the directory and verify everything is working
 
-When you first use Copilot CLI in a directory, it will ask you to confirm that you trust the files in that folder. This is a security feature to prevent Copilot from accidentally working with untrusted code.
+Now that you're at the Copilot CLI prompt for the first time, let's trust this workshop repository and make sure Copilot CLI is properly installed and connected.
 
-1. When prompted, you'll see three options:
+1. When Copilot CLI asks you to confirm that you trust the files in this folder, you'll see three options:
    - **Yes, proceed**: Trust for this session only
    - **Yes, and remember this folder for future sessions**: Trust permanently
    - **No, exit (Esc)**: Don't allow file access
 2. For this workshop, select **Yes, and remember this folder for future sessions** since you'll be working in this repository throughout.
-
-## Verify everything is working
-
-Let's make sure Copilot CLI is properly installed and connected.
-
-1. If you exited Copilot CLI, start it again:
-
-   ```bash
-   copilot
-   ```
-
-2. Ask Copilot a simple question to verify it's working:
+3. Ask Copilot a simple question to verify it's working:
 
    ```
    What files are in this project?
    ```
 
-3. Copilot should explore the repository and provide a summary of the project structure.
-4. Try the `/help` command to see available slash commands:
+4. Copilot should explore the repository and provide a summary of the project structure.
+5. Try the `/help` command to see available slash commands:
 
    ```
    /help

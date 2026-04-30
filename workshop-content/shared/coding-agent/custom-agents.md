@@ -1,7 +1,4 @@
-# Exercise 5 - Custom agents
-
-| [← Previous lesson: GitHub Copilot coding agent][previous-lesson] | [Next lesson: Managing agents →][next-lesson] |
-|:--|--:|
+# Custom agents
 
 [Custom agents][custom-agents] in GitHub Copilot allow you to create specialized AI assistants tailored to specific tasks or domains within your development workflow. By defining agents through markdown files in the `.github/agents` folder of your repository, you can provide Copilot with focused instructions, best practices, coding patterns, and domain-specific knowledge that guide it to perform particular types of work more effectively. This allows teams to codify their expertise and standards into reusable agents. You might create an accessibility agent that ensures [WCAG][wcag] compliance, a security agent that follows secure coding practices, or a testing agent that maintains consistent test patterns—enabling developers to leverage these specialized capabilities on-demand for faster, more consistent implementations.
 
@@ -10,11 +7,7 @@ You'll explore the following with custom agents:
 - how to create a custom agent.
 - assigning a task to a custom agent.
 
-## Scenario
-
-Tailspin Toys is committed to ensuring their crowdfunding platform is accessible to all users, regardless of their visual abilities or preferences. Recent user feedback has highlighted that some users find the current dark theme difficult to read due to insufficient contrast between text and background colors. To address this accessibility concern, the design team has requested the implementation of a high-contrast mode that users can toggle on and off.
-
-Because accessibility is critical, you want to ensure this is implemented as quickly as possible. You're going to utilize a custom agent to generate the functionality.
+--8<-- "scenarios/accessibility.md"
 
 ## Custom agents
 
@@ -59,7 +52,7 @@ Mission control is the central location for working with all agents for your env
 8. On the right side, select **Assign to Copilot** to open the assignment dialog.
 9.  Select **Accessibility agent** from the list of custom agents.
 
-  ![Screenshot of coding agent assignment, with custom agent and accessibility highlighted](./images/ex5-select-custom-agent.png)
+  ![Screenshot of coding agent assignment, with custom agent and accessibility highlighted](../../images/ex5-select-custom-agent.png)
 
 10. Select **Assign**.
 11. Copilot gets to work on the task in the background!
@@ -73,7 +66,7 @@ You explored these concepts:
 - how to create a custom agent.
 - assigning a task to a custom agent.
 
-With Copilot working on implementing the high contrast mode, we can now turn our attention to our next lesson, [using Copilot HQ to monitor and guide agent sessions][next-lesson]. Custom agents help ensure that Copilot follows your organization's best practices and domain-specific requirements, enabling faster and more consistent implementations across your team.
+With Copilot working on implementing the high contrast mode, we can now turn our attention to **monitoring and guiding agent sessions**. Custom agents help ensure that Copilot follows your organization's best practices and domain-specific requirements, enabling faster and more consistent implementations across your team.
 
 ## Resources
 
@@ -81,14 +74,16 @@ With Copilot working on implementing the high contrast mode, we can now turn our
 - [Preparing to use custom agents in your organization][org-custom-agents]
 - [Preparing to use custom agents in your enterprise][enterprise-custom-agents]
 
----
-
-| [← Previous lesson: GitHub Copilot coding agent][previous-lesson] | [Next lesson: Managing agents →][next-lesson] |
-|:--|--:|
-
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/coding-agent/about-custom-agents
 [wcag]: https://www.w3.org/WAI/standards-guidelines/wcag/
 [org-custom-agents]: https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents
 [enterprise-custom-agents]: https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents
-[next-lesson]: ./6-managing-agents.md
-[previous-lesson]: ./4-copilot-coding-agent.md
+
+---
+
+## Return to your path
+
+Continue with the next exercise in the path you started:
+
+- 🖥️ **VS Code path** → [Exercise 6: Monitoring and managing agents](../../vscode/6-managing-agents.md)
+- ☁️ **Cloud path** → [Exercise 4: Monitoring and managing agents](../../cloud/4-managing-agents.md)

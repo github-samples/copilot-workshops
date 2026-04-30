@@ -78,7 +78,7 @@ As highlighted previously, skills are automatically invoked by Copilot CLI. As a
 
 5. Copilot will acknowledge the request. After a few moments, you'll notice Copilot will indicate it's utilizing the **branches-commits-prs** skill.
 
-    ![Screenshot of the agent skill being called by Copilot CLI](https://raw.githubusercontent.com/GeekTrainer/tailspin-toys-workshop/main/workshop/images/5-agent-skill.png)
+    ![Screenshot of the agent skill being called by Copilot CLI](../images/cli-5-agent-skill.png)
 
 6. Copilot will then follow the instructions in the skill. It will start by running the tests, then create a branch, commits, and eventually the PR.
 7. Once the PR is created, return to your repository and open the PR. Note the sections follow the guidelines set forth in the skill, matching the requirements the team put forth.

@@ -16,6 +16,45 @@ In this exercise, you will:
 
 By the end of this exercise, you will have added new functionality to the project.
 
+## Warm-up: see custom instructions in action
+
+Before we dive into building filtering, let's see firsthand how the instruction files you explored in Exercise 1 shape Copilot CLI's output.
+
+1. Return to your codespace and open a fresh terminal window. Start Copilot CLI by issuing the following command:
+
+    ```bash
+    copilot --allow-all-tools
+    ```
+
+    If Copilot CLI is already running, clear Copilot's context by sending the `/clear` command in the prompt.
+
+2. Open **server/routes/publishers.py**, which is currently an empty file, so you can see Copilot's output land there. You can use `code server/routes/publishers.py` if you're in a codespace, or whatever editor you prefer.
+3. Send the following prompt to Copilot CLI:
+
+    ```
+    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
+    ```
+
+4. Review the generated code. You should notice that it includes type hints because those are already in **.github/copilot-instructions.md**, but it's missing a docstring and comment header.
+5. Open **.github/copilot-instructions.md**. In the **Code formatting requirements** section, right under the type-hints note, add the following guidance:
+
+    ```markdown
+    - Every function should have docstrings or the language equivalent.
+    - Before imports or any code, add a comment block to the file that explains its purpose.
+    ```
+
+6. Return to Copilot CLI, send `/clear`, and then send the same publishers prompt again. This time, the new output should include a comment header and a docstring.
+7. Don't keep the warm-up changes. Undo them in your editor, or run the following command:
+
+    ```bash
+    git checkout -- server/routes/publishers.py
+    ```
+
+    You'll do the real project work in the next section.
+
+> [!IMPORTANT]
+> AI output is non-deterministic, so your generated code may vary slightly. Focus on the pattern: updating the instructions changes the shape of Copilot CLI's next response.
+
 ## Utilize plan mode
 
 One of the best uses of AI is planning. Oftentimes you'll have a good concept of what you want to build, but just need to bounce some ideas off of something. AI tools can help you crystalize your thoughts by asking you follow up questions and working through different pitfalls or missing components. To support this process, Copilot CLI offers a plan mode.
@@ -52,10 +91,21 @@ You'll start the process of creating the new functionality by utilizing plan mod
 
 All AI code needs to be reviewed before being merged into production. Let's take the time now to explore the files Copilot created and modified in implementing the new feature.
 
-1. Hide the terminal window in your codespace by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>.
-2. Select **Source Control** in your codespace.
-3. Note the files changed. You should see updates to files such as **games.py**, the Games API, and **test_games.py**, the tests for that API. You should also see new files created, such as Svelte components for the new filter functionality, and Playwright tests to validate the frontend.
-4. Open the files and explore the changes. In particular, notice the comment sections which have been added. All of this comes from the instructions files you worked on previously in this workshop.
+1. Review the changed files using whichever workflow fits your environment:
+
+    - **Option A: Terminal**. If you're working from the terminal, you can use git directly:
+
+        ```bash
+        git status
+        git diff
+        ```
+
+        Use `git status` to see the changed files and `git diff` to see the specific changes. Open any files you want to inspect with your editor of choice, such as `code <file>` if you're in a codespace, or `$EDITOR <file>` otherwise.
+
+    - **Option B: VS Code GUI**. If you have VS Code open, hide the terminal window in your codespace by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>, then select **Source Control** in your codespace.
+
+2. Note the files changed. You should see updates to files such as **games.py**, the Games API, and **test_games.py**, the tests for that API. You should also see new files created, such as Svelte components for the new filter functionality, and Playwright tests to validate the frontend.
+3. Open the files and explore the changes. In particular, notice the comment sections which have been added. All of this comes from the instructions files you worked on previously in this workshop.
 
 ## Summary and next steps
 

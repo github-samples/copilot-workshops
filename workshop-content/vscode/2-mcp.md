@@ -1,9 +1,101 @@
-# Exercise 1 - Setting up the backlog with Copilot agent mode and GitHub's MCP Server
+# Exercise 2 - Setting up the backlog with Copilot agent mode and GitHub's MCP Server
 
 | [← Custom instructions][previous-lesson] | [Next lesson: Agent mode →][next-lesson] |
 |:--|--:|
 
 There's more to writing code than just writing code. Issues need to be filed, external services need to be called, and information needs to be gathered. Typically this involves interacting with external tools, which can break a developer's flow. Through the power of Model Context Protocol (MCP), you can access all of this functionality right from Copilot!
+
+## Custom instructions hands-on
+
+Before diving into MCP, let's put the concepts from Exercise 1 into practice in VS Code and see how custom instructions shape Copilot's suggestions.
+
+### Ensure your codespace is ready
+
+In a [prior exercise][prereqs-lesson] you launched the codespace you'll use for the remainder of the coding exercises in this lab. Let's put the final touches on it before you begin using it.
+
+The setup process for the codespace installed and set up many [VS Code extensions][vscode-extensions]. As with any software, updates may be needed. When your codespace is created you'll need to ensure everything is up-to-date.
+
+1. Return to the tab where you started your codespace. If you closed the tab, return to your repository, select **Code** > **Codespaces** and then the name of the codespace.
+2. Select **Extensions** on the workbench on the left side of your codespace.
+
+    ![Screenshot of the extensions window with multiple extensions showing either Update or Reload Window buttons](../images/ex1-extensions-updates.png)
+
+3. Select **Update** on any extensions with an **Update** button. Repeat as necessary.
+4. Select **Reload Window** on any extensions with a **Reload Window** button to reload the codespace.
+5. When prompted by a dialog, select **Reload** to reload the window. This will ensure the latest version is being used.
+
+### Examine the impact of custom instructions
+
+To see the impact of custom instructions, you'll start by sending a prompt with the current version of the files, and see how Copilot pulls those files into context. Then you'll make some updates, send the same prompt again, and note the difference.
+
+1. Return to your codespace.
+2. Close any files open in the codespace.
+3. Open `server/routes/publishers.py`, an empty file.
+4. If **Copilot Chat** is not already open, open it by selecting the Copilot icon towards the top of your codespace.
+5. Create a new chat session by typing `/clear` into the chat window and selecting <kbd>Enter</kbd> (or <kbd>return</kbd> on a Mac).
+6. Select **Ask** from the modes dropdown.
+7. Send the following prompt to create a new endpoint to return all publishers:
+
+   ```plaintext
+   Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
+   ```
+
+8. Copilot explores the project to learn how best to implement the code, and generates a list of suggestions, which may include code for `publishers.py`, `app.py`, and tests to ensure the new code runs correctly.
+9. Explore the code, noticing the generated code includes [type hints][python-type-hints] because, as you'll see, the custom instructions includes the directive to include them.
+10. Notice the generated code **is missing** either a docstring or a comment header - or both!
+
+> [!IMPORTANT]
+> As highlighted previously, GitHub Copilot and LLM tools are probabilistic, not deterministic. As a result, the exact code generated may vary, and there's even a chance it'll abide by your rules without you spelling it out! But to aid consistency in code you should always document anything you want to ensure Copilot should understand about how you want your code generated.
+
+### Add new repository standards to copilot-instructions.md
+
+As highlighted previously, `copilot-instructions.md` is designed to provide project-level information to Copilot. Let's ensure repository coding standards are documented to improve code suggestions from Copilot.
+
+1. Return to your codespace.
+2. Open `.github/copilot-instructions.md`.
+3. Locate the **Code formatting requirements** section. Note how it contains a note to use type hints. That's why you saw those in the code generated previously.
+4. Add the following lines of markdown right below the note about type hints to instruct Copilot to add comment headers to files and docstrings:
+
+   ```markdown
+   - Every function should have docstrings or the language equivalent.
+   - Before imports or any code, add a comment block to the file that explains its purpose.
+   ```
+
+5. Close **copilot-instructions.md**.
+6. Select **New Chat** in Copilot Chat to clear the buffer and start a new conversation.
+7. Return to **server/routes/publishers.py** to ensure focus is set correctly.
+8. Send the same prompt as before to create the endpoint.
+
+   ```plaintext
+   Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
+   ```
+
+9. Notice how the newly generated code includes a comment header at the top of the file which resembles the following:
+
+   ```python
+   """
+   Publisher API routes for the Tailspin Toys Crowd Funding platform.
+   This module provides endpoints to retrieve publisher information.
+   """
+   ```
+
+10. Notice how the newly generated code includes a docstring inside the function which resembles the following:
+
+   ```python
+   """
+   Returns a list of all publishers with their id and name.
+    
+   Returns:
+      Response: JSON response containing an array of publisher objects
+   """
+   ```
+
+11. Notice the generated code now includes a docstring as well as a comment block at the top!
+12. Also note how the existing code isn't updated, but of course you could ask Copilot to perform that operation if you so desired!
+13. **Don't implement the suggested changes**, as you'll be doing that in a later exercise.
+
+> [!NOTE]
+> If you accepted the changes, you can always select the **Undo** button towards the top right of the Copilot Chat window.
 
 ## Scenario
 
@@ -25,7 +117,7 @@ Agent mode in GitHub Copilot Chat transforms Copilot into an AI agent that can p
 
 These tools and resources are accessed through an MCP server, which acts as a bridge between the AI agent and the external tools and services. The MCP server is responsible for managing the communication between the AI agent and the external tools (such as existing APIs or local tools like NPM packages). Each MCP server represents a different set of tools and resources that the AI agent can access.
 
-![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions]((../images/)ex1-mcp-diagram.png)
+![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions](../images/ex1-mcp-diagram.png)
 
 A couple of popular existing MCP servers are:
 
@@ -46,7 +138,7 @@ The setup process for the codespace installed and setup many [VS Code extensions
 1. Return to the tab where you started your codespace. If you closed the tab, return to your repository, select **Code** > **Codespaces** and then the name of the codespace.
 2. Select **Extensions** on the workbench on the left side of your codespace.
 
-    ![Screenshot of the extensions window with multiple extensions showing either Update or Reload Window buttons]((../images/)ex1-extensions-updates.png)
+    ![Screenshot of the extensions window with multiple extensions showing either Update or Reload Window buttons](../images/ex1-extensions-updates.png)
 
 3. Select **Update** on any extensions with an **Update** button. Repeat as necessary.
 4. Select **Reload Window** on any extensions with a **Reload Window** button to reload the codespace.
@@ -66,16 +158,16 @@ Once you have the extension installed, you may need to authenticate with your Gi
 3. Type a message like "Hello world" in the Copilot Chat window and press enter. This should activate Copilot Chat.
 4. Alternatively, if you are not authenticated you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
 
-    ![Example of Copilot Chat authentication prompt]((../images/)ex1-copilot-authentication.png)
+    ![Example of Copilot Chat authentication prompt](../images/ex1-copilot-authentication.png)
 
 5. After authentication, you should see the Copilot Chat window appear.
 6. Switch to agent mode by selecting the dropdown in the Copilot Chat window and selecting **Agent**.
 
-    ![Example of switching to agent mode]((../images/)shared-agent-mode-dropdown.png)
+    ![Example of switching to agent mode](../images/shared-agent-mode-dropdown.png)
 
 7. Set the model to **Claude Sonnet 4.5**.
 
-    ![Example of selecting the Claude Sonnet 4.5 model]((../images/)ex1-select-model.png)
+    ![Example of selecting the Claude Sonnet 4.5 model](../images/ex1-select-model.png)
 
 > [!IMPORTANT]
 > The authors of this workshop are not indicating a preference towards one model or another. When building this workshop, we used Claude Sonnet 4.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the workshop. This is perfectly normal and expected.
@@ -113,19 +205,19 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
 1. Inside VS Code, open **.vscode/mcp.json**.
 2. To start the GitHub MCP server, select **Start** above the GitHub server.
 
-    ![The start button above the GitHub MCP server entry]((../images/)ex1-start-mcp-server.png)
+    ![The start button above the GitHub MCP server entry](../images/ex1-start-mcp-server.png)
 
 3. You should see a popup asking you to authenticate to GitHub.
 
-    ![A popup showing that the GitHub MCP server wants to authenticate to GitHub]((../images/)ex1-mcp-auth-popup.png)
+    ![A popup showing that the GitHub MCP server wants to authenticate to GitHub](../images/ex1-mcp-auth-popup.png)
 
 4. Select **Continue** on the user account that you're using for this lab.
 
-    ![A popup showing the user account selection for GitHub authentication]((../images/)ex1-mcp-select-account.png)
+    ![A popup showing the user account selection for GitHub authentication](../images/ex1-mcp-select-account.png)
 
 5. If the page appears, select **Authorize visual-studio-code** to allow the GitHub MCP server to login as your selected user account. Once complete, the page should say "You can now close the window.".
 
-    ![A popup showing the authorization for visual-studio-code app]((../images/)ex1-mcp-authorize-vscode.png)
+    ![A popup showing the authorization for visual-studio-code app](../images/ex1-mcp-authorize-vscode.png)
 
 6. After navigating back to the GitHub Codespace, you should see that the GitHub MCP server has started. You can check this in two places:
     - The line in **.vscode/mcp.json** which previously said start should now present several options, and show a number of tools available. 
@@ -156,7 +248,7 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 3. Press <kbd>enter</kbd> or select the **Send** button to send the prompt to Copilot.
 4. GitHub Copilot should process the request and respond with a dialog box asking you to confirm the creation of the issues.
 
-    ![Example of Copilot Chat dialog box asking for confirmation to run the create issue command]((../images/)ex1-create-issue-dialog.png)
+    ![Example of Copilot Chat dialog box asking for confirmation to run the create issue command](../images/ex1-create-issue-dialog.png)
 
 > [!IMPORTANT]
 > Remember, AI can make mistakes, so make sure to review the issues before confirming.
@@ -165,11 +257,11 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 6. Ensure the details in the **owner** and **repo**, **title** and **body** of the issue look correct. You can make any desired edits by double clicking the body and updating the content with the correct information.
 7. After reviewing the generated content, select **Continue** to create the issue.
 
-    ![Example of the expanded dialog box showing the GitHub Issue that will be created]((../images/)ex1-create-issue-review.png)
+    ![Example of the expanded dialog box showing the GitHub Issue that will be created](../images/ex1-create-issue-review.png)
 
 8. Repeat steps 4-6 for the remainder of the issues. Alternatively, if you are comfortable with Copilot automatically creating the issues you can select the down-arrow next to **Continue** and select **Allow in this session** to allow Copilot to create the issues for this session (the current chat).
 
-    ![Example of allowing Copilot to automatically create issues]((../images/)ex1-create-issue-allow.png)
+    ![Example of allowing Copilot to automatically create issues](../images/ex1-create-issue-allow.png)
 
 > [!IMPORTANT]
 > Ensure you are comfortable with Copilot automatically performing tasks on your behalf before you selecting **Allow in this session** or a similar option.
@@ -179,7 +271,7 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 
 You should notice that the issues are fairly detailed. This is where you benefit from the power of Large Language Models (LLMs) and Model Context Protocol (MCP), as it has been able to create a clear initial issue description.
 
-![Example of issues created in GitHub]((../images/)ex1-github-issues-created.png)
+![Example of issues created in GitHub](../images/ex1-github-issues-created.png)
 
 ## Summary and next steps
 

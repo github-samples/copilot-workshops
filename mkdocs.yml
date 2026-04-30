@@ -1,0 +1,86 @@
+site_name: Agents in the SDLC Workshop
+site_description: A hands-on workshop exploring GitHub Copilot agents across VS Code, the Copilot CLI, and the Copilot coding agent.
+site_url: https://github-samples.github.io/agents-in-sdlc/
+repo_url: https://github.com/github-samples/agents-in-sdlc
+edit_uri: edit/main/workshop-content/
+docs_dir: workshop-content
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - search.highlight
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
+      base_path:
+        - partials
+      check_paths: true
+
+plugins:
+  - search
+  - callouts
+
+# Files inside docs_dir that should not be published as standalone pages.
+# (Currently empty; partials live OUTSIDE docs_dir at repo root /partials.)
+not_in_nav: |
+  /shared/coding-agent/*.md
+
+nav:
+  - Home: README.md
+  - Prerequisites: shared/0-prereqs.md
+  - Custom instructions: shared/1-custom-instructions.md
+  - VS Code path:
+      - Overview: vscode/README.md
+      - 2. MCP with VS Code: vscode/2-mcp.md
+      - 3. Agent mode: vscode/3-agent-mode.md
+      - 4. Coding agent: vscode/4-coding-agent.md
+      - 5. Custom agents: vscode/5-custom-agents.md
+      - 6. Managing agents: vscode/6-managing-agents.md
+      - 7. Iterating: vscode/7-iterating.md
+  - Copilot CLI path:
+      - Overview: cli/README.md
+      - 2. Install Copilot CLI: cli/2-install-copilot-cli.md
+      - 3. MCP with CLI: cli/3-mcp.md
+      - 4. Generating code: cli/4-generating-code.md
+      - 5. Agent skills: cli/5-agent-skills.md
+      - 6. Custom agents: cli/6-custom-agents.md
+      - 7. Slash commands: cli/7-slash-commands.md
+      - 8. Review: cli/8-review.md
+  - Cloud agent path:
+      - Overview: cloud/README.md
+      - 2. Coding agent: cloud/2-coding-agent.md
+      - 3. Custom agents: cloud/3-custom-agents.md
+      - 4. Managing agents: cloud/4-managing-agents.md
+      - 5. Iterating: cloud/5-iterating.md

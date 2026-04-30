@@ -3,7 +3,7 @@
 | [← Previous lesson: Custom Agents][previous-lesson] | [Next lesson: Review →][next-lesson] |
 |:--|--:|
 
-Like any good CLI tool, GitHub Copilot CLI includes many slash commands to interact with it. These commands expose advanced functionality, "behind-the-scenes" information, or additional configuration options. You've already explored a couple with `/clear` to clear context and `/mcp` to register MCP servers. Let's explore a couple of other powerful ones, including `/context`, `/models` and `/share`.
+Like any good CLI tool, GitHub Copilot CLI includes many slash commands to interact with it. These commands expose advanced functionality, "behind-the-scenes" information, or additional configuration options. You've already explored a couple with `/clear` to clear context and `/mcp` to register MCP servers. Let's explore a couple of other powerful ones, including `/context`, `/models`, `/share`, and `/delegate`.
 
 ## Scenario
 
@@ -14,6 +14,7 @@ In this exercise you will use:
 - `/share` to create a GitHub gist to share your session with the team.
 - `/context` to see the context Copilot CLI is currently using.
 - `/models` to explore the list of available models and select a new one if you so desire.
+- `/delegate` to optionally hand off a task to coding agent. This requires Copilot Pro+, Business, or Enterprise with coding agent enabled.
 
 ## Sharing a session
 
@@ -49,7 +50,7 @@ When working on larger or more complex tasks you may bump into the maximum conte
 
 4. In just a couple of moments, Copilot CLI will generate a visual representation of its current context:
 
-    ![Screenshot of context window from Copilot CLI](https://raw.githubusercontent.com/GeekTrainer/tailspin-toys-workshop/main/workshop/images/7-context-window.png)
+    ![Screenshot of context window from Copilot CLI](../images/cli-7-context-window.png)
 
 5. Note the model displayed (which may be different than the one in the image), and the current percentage of tokens used. The rest of the information highlights:
 
@@ -105,13 +106,42 @@ Different models have different strengths, and different developers have differe
 > [!IMPORTANT]
 > Model selection persists in Copilot CLI.
 
+## Delegating to coding agent (optional)
+
+There are times when you want to keep working in your terminal but hand off a longer-running task to Copilot coding agent. The `/delegate` command sends the current Copilot CLI session to GitHub.com, where coding agent picks it up, works asynchronously, and opens a pull request when done.
+
+> [!NOTE]
+> `/delegate` requires Copilot Pro+, Business, or Enterprise with coding agent enabled. If you don't have access, read through this section and skip the hands-on steps.
+
+1. Clear the current session first so accumulated workshop context isn't delegated:
+
+    ```
+    /clear
+    ```
+
+2. Send a small, well-scoped prompt. For example, you could delegate the stretch-goal pagination from the backlog you created in Exercise 3:
+
+    ```
+    Implement pagination on the games list page. Add support for page and pageSize query parameters on the games API, update the frontend to render pagination controls, and add tests.
+    ```
+
+3. Send the following slash command to hand the session to coding agent, and confirm the prompt you want to delegate:
+
+    ```
+    /delegate
+    ```
+
+4. Open [Copilot agents](https://github.com/copilot/agents) in a browser to monitor progress.
+5. You don't need to wait for the pull request to complete in this path; you can return to it later. If you want to dig deeper into managing asynchronous agent work, continue with the [Cloud path](../cloud/README.md).
+
 ## Summary and next steps
 
-Using slash commands in Copilot CLI allows you to configure it, share sessions, and get internal information about how Copilot's working. In this lesson you used:
+Using slash commands in Copilot CLI allows you to configure it, share sessions, and get internal information about how Copilot's working. In this lesson you used or explored:
 
 - `/share` to create a GitHub gist to share your session with the team.
 - `/context` to see the context Copilot CLI is currently using.
 - `/models` to explore the list of available models and select a new one if you so desire.
+- Learned about `/delegate` as an optional bridge to coding agent.
 
 There are of course more slash commands available, and more to explore with Copilot CLI! Let's close out our journey by [reviewing what we've learned][next-lesson] and some next steps to continue learning.
 

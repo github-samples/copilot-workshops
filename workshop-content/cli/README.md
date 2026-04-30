@@ -13,7 +13,7 @@ Welcome to the **Copilot CLI** learning path! This path focuses on GitHub Copilo
 | [4. Generating Code][ex4] | Code Generation | Use plan mode and generate features |
 | [5. Agent Skills][ex5] | Skills | Enhance Copilot with specialized skills |
 | [6. Custom Agents][ex6] | Agents | Create and use custom agents |
-| [7. Slash Commands][ex7] | CLI Features | Explore context, models, and sharing |
+| [7. Slash Commands][ex7] | CLI Features | Explore context, models, sharing, and optional delegation to coding agent |
 | [8. Review][ex8] | Summary | Review key concepts and next steps |
 
 ## Prerequisites

@@ -12,17 +12,9 @@ You'll explore the following with Copilot coding agent:
 - the importance of clearly scoped issues.
 - assigning issues to Copilot.
 
-## Scenarios
+--8<-- "scenarios/tech-debt.md"
 
-Tailspin Toys has some tech debt they'd like to address. The contractors initially hired to create the first version of the site left the documentation in an unideal state - and by that you'll notice it's completely lacking. As a first step, they'd like to see docstrings or the equivalent added to all functions in the application.
-
-Additionally, the design team is ready to get to work on building the UX for managing games. They don't need a full implementation yet, but they at least need some endpoints they can use for testing. Specifically, they need endpoints for the games API which will allow them to create, update and delete games. This is currently a blocker, but there are other issues which are of higher priority at the moment.
-
-These are both examples of tasks which can quickly find themselves deprioritized, and are great to assign to Copilot coding agent. Copilot coding agent can then work on them asynchronously, allowing the developer to focus on other tasks, then return to review Copilot's work and ensure everything is as expected.
-
-## Introducing GitHub Copilot coding agent
-
-[GitHub Copilot coding agent][coding-agent-overview] can perform tasks in the background, much in the same way a human developer would. And, just like with working with a human developer, this can be done in multiple ways, including [assigning a GitHub issue to Copilot][assign-issue]. Once assigned, Copilot will create a draft pull request to track its progress, setup an environment, and begin working on the task. You can dig into Copilot's session while it's still in flight or after its completed. Once its ready for you to review the proposed solution, it'll tag you in the pull request!
+--8<-- "sections/coding-agent-intro.md"
 
 ## The importance of well-scoped instructions
 
@@ -105,11 +97,11 @@ While everyone understands the importance of documentation, most projects have e
 7. Select **Create** to create the issue.
 8. On the right side, select **Assign to Copilot** to open the assignment dialog.
 
-  ![Assigning Copilot to an issue]((../images/)shared-assign-copilot.png)
+  ![Assigning Copilot to an issue](../images/shared-assign-copilot.png)
 
 9. Select **Assign**.
 
-  ![Copilot assignment details]((../images/)ex4-assign-copilot-details.png)
+  ![Copilot assignment details](../images/ex4-assign-copilot-details.png)
 
 10. Select the **Pull Requests** tab.
 11. Open the newly generated pull request (PR), which will be titled something similar to **[WIP]: Code lacks documentation**. If a new PR doesn't appear on the list, wait for a moment or two and refresh the browser window.
@@ -122,7 +114,7 @@ While everyone understands the importance of documentation, most projects have e
 14. Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
 15. Select the **View session** button.
 
-  ![Copilot session view]((../images/)ex4-view-session.png)
+  ![Copilot session view](../images/ex4-view-session.png)
 
 > [!IMPORTANT]
 > You may need to refresh the window to see the updated indicator.
@@ -154,13 +146,13 @@ As has been highlighted, one of the great advantages of GitHub Copilot coding ag
 7. Select **Create** to create the issue.
 8. On the right side, select **Assign to Copilot** to open the assignment dialog.
 
-  ![Assigning Copilot to an issue]((../images/)shared-assign-copilot.png)
+  ![Assigning Copilot to an issue](../images/shared-assign-copilot.png)
 
 9. Select **Assign**.
 
 Shortly after, you should see a set of 👀 on the first comment in the issue, indicating Copilot is on the job!
 
-![Copilot uses the eyes emoji to indicate it's working on the issue]((../images/)ex4-issue-eyes-emoji.png)
+![Copilot uses the eyes emoji to indicate it's working on the issue](../images/ex4-issue-eyes-emoji.png)
 
 9. Select **Assign** to assign the issue to Copilot coding agent.
 

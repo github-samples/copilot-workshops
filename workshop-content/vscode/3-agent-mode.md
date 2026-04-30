@@ -97,7 +97,7 @@ Notice how Copilot has even prioritized the items for you, based on the ones tha
 
 ## Review instructions files
 
-Before kicking off the agent to generate the code, it's a good time to review the instructions file you'll use to provide Copilot context for its work. You're going to take advantage of the [user interface (UI)](../.github/instructions/ui.instructions.md) file, which contains context on how to approach adding functionality to the website.
+Before kicking off the agent to generate the code, it's a good time to review the instructions file you'll use to provide Copilot context for its work. You're going to take advantage of the [user interface (UI)](https://github.com/github-samples/agents-in-sdlc/blob/main/.github/instructions/ui.instructions.md) file, which contains context on how to approach adding functionality to the website.
 
 1. In your codespace, navigate to **.github/instructions/ui.instructions.md**.
 2. Take note of the overall guidance on how to approach adding functionality. This includes:
@@ -124,11 +124,11 @@ In addition, the tests need to run (and pass) before you merge everything into y
 1. You can continue in the current conversation with Copilot, or start a new one by selecting **New Chat**.
 2. Select **Add Context**, **Instructions**, and **ui** as the instructions file.
 
-   ![Screenshot showing an example of selecting the UI instructions file]((../images/)ex3-select-instructions-file.png)
+   ![Screenshot showing an example of selecting the UI instructions file](../images/ex3-select-instructions-file.png)
 
 3. Ensure **Agent** mode is still selected.
 
-   ![Screenshot of Copilot Chat mode selection with Agent highlighted](./(../images/)shared-agent-mode-dropdown.png)
+   ![Screenshot of Copilot Chat mode selection with Agent highlighted](../images/shared-agent-mode-dropdown.png)
 
 4. Ensure **Claude Sonnet 4.5** is still selected for the model.
 5. Prompt Copilot to implement the functionality based on the issue you created earlier by using the following prompt:
@@ -139,18 +139,18 @@ In addition, the tests need to run (and pass) before you merge everything into y
 
 6. Watch as Copilot begins by exploring the project, locating the files associated with the desired functionality. You should see it finding both the API and UI definitions, as well as the tests. It then begins modifying the files and running the tests.
 
-   ![Screenshot showing Copilot exploring the project files]((../images/)ex3-agent-mode-explores.png)
+   ![Screenshot showing Copilot exploring the project files](../images/ex3-agent-mode-explores.png)
 
 > [!NOTE]
 > You will notice that Copilot will perform several tasks, like exploring the project, modifying files, and running tests. It may take a few minutes depending on the complexity of the task and the codebase. During that process, you may notice **Keep** and **Undo**  buttons appear in the code editor. When Copilot is finished, you will have a **Keep** or **Undo** for all of the changes, so you do not need to select them while work is in progress.
 
 7. As prompted by Copilot, select **Continue** to run the tests.
 
-   ![Screenshot showing a dialog in the Copilot Chat pane asking the user to confirm they are happy to run tests]((../images/)ex3-agent-mode-run-tests.png)
+   ![Screenshot showing a dialog in the Copilot Chat pane asking the user to confirm they are happy to run tests](../images/ex3-agent-mode-run-tests.png)
 
 8. You may experience some pauses and even see some tests fail throughout the process. That's okay! Copilot works back and forth between code generation and tests until it completes the task and doesn't detect any errors.
 
-   ![Screenshot showing a complete Chat session with Copilot Agent Mode]((../images/)ex3-agent-mode-proposed-changes.png)
+   ![Screenshot showing a complete Chat session with Copilot Agent Mode](../images/ex3-agent-mode-proposed-changes.png)
 
 9. Explore the generated code for any potential issues.
 
@@ -168,7 +168,7 @@ With your changes created locally you're ready to create a pull request (PR) to 
 2. Stage the changes by selecting the **+** icon.
 3. Generate a commit message using the **Sparkle** button.
 
-   ![Screenshot of the Source Control panel showing the changes made]((../images/)ex3-source-control-changes.png)
+   ![Screenshot of the Source Control panel showing the changes made](../images/ex3-source-control-changes.png)
 
 4. Select **Publish** to push the branch to your repository.
 

@@ -11,7 +11,7 @@ Welcome to the **Cloud & Coding Agent** learning path! This path focuses on GitH
 | [2. Coding Agent][ex2] | Async Agent | Assign issues to Copilot coding agent |
 | [3. Custom Agents][ex3] | Specialized Agents | Create and use custom agents |
 | [4. Managing Agents][ex4] | Monitoring | Monitor and steer agent sessions |
-| [5. Iterating][ex5] | Review | Iterate on Copilot's generated work |
+| [5. Iterating][ex5] | Review | Review PRs, iterate on Copilot's work, and choose next steps |
 
 ## Prerequisites
 
@@ -21,7 +21,10 @@ Before attending this workshop, please ensure you have:
 - [ ] Copilot coding agent enabled for your account or organization
 
 > [!NOTE]
-> Copilot coding agent requires **Copilot Pro+, Business, or Enterprise**. Check with your administrator if you are unsure whether this feature is enabled.
+> Requires **Copilot Pro+, Business, or Enterprise** with coding agent enabled.
+
+> [!NOTE]
+> MCP isn't covered in this path. To explore using MCP servers with Copilot, see the [CLI path](../cli/README.md) or the [VS Code path](../vscode/README.md).
 
 ## Get Started
 

@@ -1,7 +1,4 @@
-# Exercise 6 - Monitoring and managing agents
-
-| [← Previous lesson: Custom agents][previous-lesson] | [Next lesson: Iterating on Copilot's work →][next-lesson] |
-|:--|--:|
+# Monitoring and managing agents
 
 In the last couple of exercises you asked Copilot coding agent to take on three separate tasks focused on improving the user experience and adding functionality. While coding agent is built to operate asynchronously and autonomously, the ability to monitor these tasks is still important.
 
@@ -42,7 +39,7 @@ Now that you've seen the tasks which are active, let's request Copilot include t
 
 1. Select the session which refers to adding a high contrast mode. The exact title will vary depending on the name Copilot uses and the current state of work.
 
-    ![Accessibility session in mission control](images/ex6-accessibility-session.png)
+    ![Accessibility session in mission control](../../images/ex6-accessibility-session.png)
 
 2. Watch the session for a few of minutes, until it indicates it's completed the setup and begun its work. You'll know this has happened when you start seeing messages similar to the ones below.
 3. In the **Steer active session while Copilot is working** dialog, add the following prompt:
@@ -51,7 +48,7 @@ Now that you've seen the tasks which are active, let's request Copilot include t
     While we are working on a high contrast mode, let's also add a light mode. There should be a switch for this mode as well where users can select their desired display mode.
     ```
 
-    ![Screenshot of the coding agent task in the agents page with the steer active session while copilot is working dialogue highlighted](./images/ex6-steer-coding-agent-task.png)
+    ![Screenshot of the coding agent task in the agents page with the steer active session while copilot is working dialogue highlighted](../../images/ex6-steer-coding-agent-task.png)
 
 4. Press <kbd>Enter</kbd> to send the prompt.
 5. Notice how Copilot acknowledges the prompt and includes it in its flow.
@@ -71,22 +68,21 @@ You explored these concepts:
 - explored Copilot HQ and the agents page to monitor coding agent tasks.
 - redirected an in-flight session to request additional functionality.
 
-With Copilot completing its work on the accessibility features, we can now turn our attention to our next lesson, [iterating on the pull requests Copilot created][next-lesson]. Mission control provides visibility into agent work and enables dynamic collaboration with coding agents as they work on tasks.
+With Copilot completing its work on the accessibility features, we can now turn our attention to **iterating on the pull requests Copilot created**. Mission control provides visibility into agent work and enables dynamic collaboration with coding agents as they work on tasks.
 
 ## Resources
 
 - [Copilot HQ agents page][agents-page]
 - [Custom agents][custom-agents]
 
----
-
-| [← Previous lesson: Custom agents][previous-lesson] | [Next lesson: Iterating on coding agent's work →][next-lesson] |
-|:--|--:|
-
 [agents-page]: https://github.blog/changelog/2025-10-28-a-agents-page-to-assign-steer-and-track-copilot-coding-agent-tasks
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/coding-agent/about-custom-agents
-[next-lesson]: 
+
 ---
 
-[next-lesson]: ./7-iterating-copilot-work.md
-[previous-lesson]: ./5-custom-agents.md
+## Return to your path
+
+Continue with the next exercise in the path you started:
+
+- 🖥️ **VS Code path** → [Exercise 7: Iterating on Copilot's work](../../vscode/7-iterating.md)
+- ☁️ **Cloud path** → [Exercise 5: Iterating on Copilot's work](../../cloud/5-iterating.md)

@@ -13,7 +13,7 @@ Welcome to the **VS Code** learning path! This path focuses on GitHub Copilot fe
 | [4. Coding Agent][ex4] | Async Agent | Assign issues to Copilot coding agent |
 | [5. Custom Agents][ex5] | Specialized Agents | Create and use custom agents |
 | [6. Managing Agents][ex6] | Monitoring | Monitor and steer agent sessions |
-| [7. Iterating][ex7] | Review | Iterate on Copilot's generated work |
+| [7. Iterating][ex7] | Review | Review Copilot's work, iterate on PRs, and choose next steps |
 
 ## Prerequisites
 
