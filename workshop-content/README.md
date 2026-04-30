@@ -2,30 +2,91 @@
 
 The recent additions to the capabilities of GitHub Copilot provide powerful tools to the developer across the entire software development lifecycle (SDLC). This includes working with issues and pull requests on GitHub, interacting with external services, and of course code creation. This lab explores the functionality, providing real-world use cases and tips on how to get the most out of the tools.
 
-## Lab overview
-
 > [!IMPORTANT]
-> Because GitHub Copilot, and generative AI at large, is probabilistic rather than deterministic, the exact code, files changed, etc., may vary. As a result, you may notice slight difference between screenshots and code snippets in the lab and your experience. This is to be expected, and is just the nature of working with this class of tools.
+> Because GitHub Copilot, and generative AI at large, is probabilistic rather than deterministic, the exact code, files changed, etc., may vary. As a result, you may notice slight differences between screenshots and code snippets in the lab and your experience. This is to be expected, and is just the nature of working with this class of tools.
 >
 > If something appears broken or isn't running correctly, please ask a mentor!
 
-These labs will walk you through the most common workloads with the agent capabilities of GitHub Copilot.
+## Choose your learning path
 
-0. [Setup the environment](./0-prereqs.md).
-1. [Configure and interact with external services](./1-mcp.md) through Model Context Protocol (MCP).
-2. [Provide context to Copilot](./2-custom-instructions.md) through the use of custom instructions, prompt files, and chat participants.
-3. [Complete a site-wide update](./3-copilot-agent-mode-vscode.md) with the help of Copilot agent mode.
-4. [Assign issues to GitHub Copilot coding agent](./4-copilot-coding-agent.md) to allow Copilot to work on tasks asynchronously.
-5. [Create and use custom agents](./5-custom-agents.md) to provide specialized guidance for specific tasks.
-6. [Manage agents](./6-managing-agents.md) to control who has access to your agents and how they're used.
-7. [Iterate on Copilot's work](./7-iterating-copilot-work.md) to refine and improve the generated code.
+This workshop offers multiple paths depending on how you want to interact with GitHub Copilot. All paths begin with the same shared setup and custom instructions exercises before branching into tool-specific content.
 
-## Conclusion
+### 🖥️ [VS Code Path](./vscode/README.md)
+
+Focused on GitHub Copilot features within **Visual Studio Code** and GitHub Codespaces. Covers Copilot Chat agent mode, MCP integration, the Copilot coding agent, and custom agents — all from your IDE.
+
+**Best for**: Developers who prefer IDE-based workflows.
+
+| # | Exercise |
+|---|---------|
+| 0 | [Prerequisites](./shared/0-prereqs.md) |
+| 1 | [Custom instructions](./shared/1-custom-instructions.md) |
+| 2 | [MCP with VS Code](./vscode/2-mcp.md) |
+| 3 | [Agent mode](./vscode/3-agent-mode.md) |
+| 4 | [Coding agent](./vscode/4-coding-agent.md) |
+| 5 | [Custom agents](./vscode/5-custom-agents.md) |
+| 6 | [Managing agents](./vscode/6-managing-agents.md) |
+| 7 | [Iterating on Copilot's work](./vscode/7-iterating.md) |
+
+---
+
+### 💻 [CLI Path](./cli/README.md)
+
+Focused on **GitHub Copilot CLI** — a powerful agentic assistant that runs in your terminal. Covers installation, MCP, code generation with plan mode, agent skills, custom agents, and slash commands.
+
+**Best for**: Developers who live in the terminal and want AI assistance without leaving the command line.
+
+| # | Exercise |
+|---|---------|
+| 0 | [Prerequisites](./shared/0-prereqs.md) |
+| 1 | [Custom instructions](./shared/1-custom-instructions.md) |
+| 2 | [Install Copilot CLI](./cli/2-install-copilot-cli.md) |
+| 3 | [MCP with CLI](./cli/3-mcp.md) |
+| 4 | [Generating code](./cli/4-generating-code.md) |
+| 5 | [Agent skills](./cli/5-agent-skills.md) |
+| 6 | [Custom agents](./cli/6-custom-agents.md) |
+| 7 | [Slash commands](./cli/7-slash-commands.md) |
+| 8 | [Review](./cli/8-review.md) |
+
+---
+
+### ☁️ [Cloud / Coding Agent Path](./cloud/README.md)
+
+Focused on **Copilot coding agent** — the asynchronous peer programmer that works on GitHub issues in the background. Covers assigning issues, custom agents, monitoring with the agents dashboard, and reviewing generated work.
+
+**Best for**: Developers who want to offload tasks and let Copilot work asynchronously.
+
+> [!NOTE]
+> Requires **Copilot Pro+, Business, or Enterprise** with coding agent enabled.
+
+| # | Exercise |
+|---|---------|
+| 0 | [Prerequisites](./shared/0-prereqs.md) |
+| 1 | [Custom instructions](./shared/1-custom-instructions.md) |
+| 2 | [Copilot coding agent](./cloud/2-coding-agent.md) |
+| 3 | [Custom agents](./cloud/3-custom-agents.md) |
+| 4 | [Managing agents](./cloud/4-managing-agents.md) |
+| 5 | [Iterating on Copilot's work](./cloud/5-iterating.md) |
+
+---
+
+### 🗺️ Complete Path
+
+Want to explore everything? Work through all three paths to experience the full breadth of GitHub Copilot's agent capabilities.
+
+**Recommended order:**
+
+1. **Shared setup**: [Prerequisites](./shared/0-prereqs.md) → [Custom instructions](./shared/1-custom-instructions.md)
+2. **VS Code**: [MCP](./vscode/2-mcp.md) → [Agent mode](./vscode/3-agent-mode.md)
+3. **CLI**: [Install CLI](./cli/2-install-copilot-cli.md) → [MCP](./cli/3-mcp.md) → [Generating code](./cli/4-generating-code.md) → [Agent skills](./cli/5-agent-skills.md) → [Slash commands](./cli/7-slash-commands.md)
+4. **Cloud**: [Coding agent](./cloud/2-coding-agent.md) → [Custom agents](./cloud/3-custom-agents.md) → [Managing agents](./cloud/4-managing-agents.md) → [Iterating](./cloud/5-iterating.md)
+
+---
 
 ## Scenario
 
-You are a new developer for Tailspin Toys, a fictional company who provides crowdfunding for boardgames with a DevOps theme - a huge market! You are tasked with creating issues to document the desired updates to the application and DevOps flow, then implementing the ability to filter games by both category and publisher. You'll work iteratively, exploring both the site and Copilot's capabilities, to complete the tasks.
+You are a new developer for Tailspin Toys, a fictional company who provides crowdfunding for board games with a developer theme - a huge market! You are tasked with creating issues to document the desired updates to the application and implementing the ability to filter games by both category and publisher. You'll work iteratively, exploring both the site and Copilot's capabilities, to complete the tasks.
 
 ## Get started
 
-OK, let's [get going by starting with the setup](./0-prereqs.md)!
+Choose your path above and start with [Exercise 0: Prerequisites](./shared/0-prereqs.md)!
