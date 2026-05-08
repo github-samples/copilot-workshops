@@ -4,7 +4,7 @@ title: "Exercise 4 - Adding project features with GitHub Copilot CLI"
 
 import { Aside } from '@astrojs/starlight/components';
 
-As you might expect, the core tasks you'll perform with GitHub Copilot CLI is to add features, functionality, and code to a project. As you've already explored, you can add instructions files and MCP servers to help guide Copilot and ensure you're getting the code you expect, following the best practices laid out by the team and community. Let's take one of the issues we generated previously and ask Copilot to help us implement it.
+As you might expect, the core tasks you'll perform with GitHub Copilot CLI is to add features, functionality, and code to a project. Let's take one of the issues we generated previously and ask Copilot to help us implement it.
 
 ## Scenario
 
@@ -16,46 +16,6 @@ In this exercise, you will:
 - generate the code necessary to add filtering to the website with Copilot.
 
 By the end of this exercise, you will have added new functionality to the project.
-
-## Warm-up: see custom instructions in action
-
-Before we dive into building filtering, let's see firsthand how the instruction files you explored in Exercise 1 shape Copilot CLI's output.
-
-1. Return to your codespace and open a fresh terminal window. Start Copilot CLI by issuing the following command:
-
-    ```bash
-    copilot --allow-all-tools
-    ```
-
-    If Copilot CLI is already running, clear Copilot's context by sending the `/clear` command in the prompt.
-
-2. Open **server/routes/publishers.py**, which is currently an empty file, so you can see Copilot's output land there. You can use `code server/routes/publishers.py` if you're in a codespace, or whatever editor you prefer.
-3. Send the following prompt to Copilot CLI:
-
-    ```
-    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
-    ```
-
-4. Review the generated code. You should notice that it includes type hints because those are already in **.github/copilot-instructions.md**, but it's missing a docstring and comment header.
-5. Open **.github/copilot-instructions.md**. In the **Code formatting requirements** section, right under the type-hints note, add the following guidance:
-
-    ```markdown
-    - Every function should have docstrings or the language equivalent.
-    - Before imports or any code, add a comment block to the file that explains its purpose.
-    ```
-
-6. Return to Copilot CLI, send `/clear`, and then send the same publishers prompt again. This time, the new output should include a comment header and a docstring.
-7. Don't keep the warm-up changes. Undo them in your editor, or run the following command:
-
-    ```bash
-    git checkout -- server/routes/publishers.py
-    ```
-
-    You'll do the real project work in the next section.
-
-<Aside type="caution">
-  AI output is non-deterministic, so your generated code may vary slightly. Focus on the pattern: updating the instructions changes the shape of Copilot CLI's next response.
-</Aside>
 
 ## Utilize plan mode
 
@@ -70,6 +30,10 @@ You'll start the process of creating the new functionality by utilizing plan mod
     ```bash
     copilot --allow-all-tools
     ```
+
+    <Aside type="caution">
+      `--allow-all-tools` (and its more aggressive cousins `--allow-all` and `--yolo`) gives Copilot CLI full, automatic permission to run shell commands, modify files, and reach external URLs without asking. GitHub strongly recommends only using it in an **isolated environment** like a codespace, sandbox VM, or other disposable workspace — and never aliasing it on by default. For day-to-day use, prefer fine-grained `--allow-tool` rules. See [Allowing and denying tool use][allowing-tools] for the full picture.
+    </Aside>
 
 4. If already running, clear Copilot's context by sending the `/clear` command in the prompt.
 5. Switch Copilot CLI into plan mode by selecting <kbd>Shift</kbd>+<kbd>Tab</kbd> until you see **Plan mode** just below the prompt window.
@@ -130,3 +94,4 @@ Of course, the next step from here is to [create the PR][next-lesson], which we'
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [context-management]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#context-management
+[allowing-tools]: https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools

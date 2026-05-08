@@ -66,11 +66,6 @@ To see the impact of custom instructions, start by generating code with the curr
 5. Notice the function signatures use [type hints][python-type-hints] — that's coming from a directive already in **`.github/copilot-instructions.md`**.
 6. Notice the generated code **is missing** docstrings and a file-level comment header.
 7. Exit Copilot CLI by typing `/exit` (or press <kbd>Ctrl</kbd>+<kbd>C</kbd>).
-8. Discard the generated file so you can regenerate it cleanly:
-
-   ```bash
-   git checkout -- server/routes/publishers.py 2>/dev/null || rm -f server/routes/publishers.py
-   ```
 
 <Aside type="caution">
   Copilot is probabilistic — there's a chance it'll add docstrings even without being told. If that happens, that's fine; the *consistency* improvement after the instruction update is still the takeaway.
@@ -82,19 +77,21 @@ To see the impact of custom instructions, start by generating code with the curr
 
 ## Re-run the prompt and observe the change
 
+Now that the instructions have a docstring rule, ask Copilot CLI to update the publishers file you just generated. The same standards directive will steer the rewrite.
+
 1. Start a fresh Copilot CLI session from the repo root:
 
    ```bash
    copilot
    ```
 
-2. Send the **same prompt** as before:
+2. Send the following prompt:
 
    ```plaintext
-   Create a new endpoint at server/routes/publishers.py to return a list of all publishers. It should return the name and id for all publishers. Do not run the tests yet.
+   Update server/routes/publishers.py to follow the latest documentation conventions in .github/copilot-instructions.md.
    ```
 
-3. Approve the file write when prompted, then open **`server/routes/publishers.py`**.
+3. Approve the file edit when prompted, then reopen **`server/routes/publishers.py`**.
 4. Notice that the file now opens with a comment block similar to:
 
    ```python
@@ -115,12 +112,7 @@ To see the impact of custom instructions, start by generating code with the curr
    """
    ```
 
-6. Exit Copilot CLI with `/exit`.
-7. **Don't keep the changes yet** — you'll generate publishers code properly in a later exercise. Reset the file:
-
-   ```bash
-   git checkout -- server/routes/publishers.py 2>/dev/null || rm -f server/routes/publishers.py
-   ```
+6. Exit Copilot CLI with `/exit`. Leave the generated file in place — there's no harm in keeping it, and you'll build on this work in a later exercise.
 
 You just steered Copilot CLI to follow a new project standard with a single line of markdown — no flags, no plugins, no MCP servers. That's the power of repository custom instructions.
 
