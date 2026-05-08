@@ -7,12 +7,10 @@ on:
   push:
     branches: [main]
     paths:
-      - 'workshop-content/**'
       - 'docs/**'
       - '.github/workflows/pages.yml'
   pull_request:
     paths:
-      - 'workshop-content/**'
       - 'docs/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
@@ -39,14 +37,6 @@ jobs:
           node-version: '20'
           cache: 'npm'
           cache-dependency-path: docs/package-lock.json
-
-      # Astro/MDX content lives in `workshop-content/` (outside the project root).
-      # A `node_modules` symlink there lets Vite resolve `@astrojs/starlight/components`
-      # and other packages from `docs/node_modules/`. Re-create after checkout to be safe.
-      - name: Link node_modules into workshop-content
-        run: |
-          rm -f workshop-content/node_modules
-          ln -s ../docs/node_modules workshop-content/node_modules
 
       - name: Install dependencies
         working-directory: docs

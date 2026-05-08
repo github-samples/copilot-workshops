@@ -6,19 +6,19 @@ name: Render workshop
 #
 # On push to main: regenerate workshop/ and commit any diff back to main as
 # github-actions[bot]. The commit message contains [skip ci] to avoid
-# triggering this workflow recursively. pages.yml watches workshop-content/**
-# and docs/**, not workshop/**, so it also will not re-fire on the bot commit.
+# triggering this workflow recursively. pages.yml watches docs/**, not
+# workshop/**, so it also will not re-fire on the bot commit.
 
 on:
   pull_request:
     paths:
-      - 'workshop-content/**'
+      - 'docs/src/content/docs/**'
       - 'scripts/render-markdown.py'
       - '.github/workflows/render-markdown.yml'
   push:
     branches: [main]
     paths:
-      - 'workshop-content/**'
+      - 'docs/src/content/docs/**'
       - 'scripts/render-markdown.py'
       - '.github/workflows/render-markdown.yml'
   workflow_dispatch:
@@ -62,7 +62,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add workshop/
-          git commit -m "chore(workshop): regenerate workshop/ from workshop-content/
+          git commit -m "chore(workshop): regenerate workshop/ from docs/src/content/docs/
 
           Triggered by ${{ github.sha }} (${{ github.actor }}).
 

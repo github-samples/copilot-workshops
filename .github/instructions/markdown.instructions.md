@@ -35,7 +35,7 @@ The `[!TYPE]` marker must be on its own `>`-prefixed line, with the body on subs
 ## Headings
 
 - Repository docs (README, CONTRIBUTING, etc.): start with `# Title` then `##` for sections.
-- Lesson MDX (`workshop-content/**/*.mdx`): no H1 in body — title comes from frontmatter. See `mdx.instructions.md`.
+- Lesson MDX (`docs/src/content/docs/**/*.mdx`): no H1 in body — title comes from frontmatter. See `mdx.instructions.md`.
 
 ## Code fences
 

@@ -1,19 +1,8 @@
 # Docs site (Astro + Starlight)
 
-Site shell that publishes the workshop content from [`../workshop-content/`](../workshop-content/) to GitHub Pages at <https://github-samples.github.io/agents-in-sdlc/>.
+Site shell that publishes the workshop content to GitHub Pages at <https://github-samples.github.io/agents-in-sdlc/>.
 
-This project is a **thin wrapper** — lesson authoring happens in `../workshop-content/`, not here.
-
-## Authoring
-
-Edit the `.mdx` files under `../workshop-content/`. The dev server picks up changes automatically.
-
-Reusable content:
-
-- **Prose partials** — files in `../workshop-content/_partials/` (prefixes: `callout-*`, `section-*`, `exercise-*`). Imported into lesson pages as MDX components.
-- **Typed callouts and prereqs** — `.astro` components in `src/components/`. Imported via the `@components/*` alias.
-
-See [`../.github/instructions/astro.instructions.md`](../.github/instructions/astro.instructions.md) and [`../.github/copilot-instructions.md`](../.github/copilot-instructions.md) for conventions.
+Lesson MDX lives in `src/content/docs/` (the standard Starlight content collection location). For author-focused guidance, see [`../AUTHORING.md`](../AUTHORING.md).
 
 ## Local development
 
@@ -21,13 +10,16 @@ From this directory:
 
 ```sh
 npm install
-ln -sfn $PWD/node_modules ../workshop-content/node_modules   # so MDX outside docs/ resolves Starlight imports
 npm run dev      # http://localhost:4321/agents-in-sdlc/
 npm run build    # outputs to dist/
 npm run preview  # preview the production build
 ```
 
-The `workshop-content/node_modules` symlink mirrors what `pages.yml` does in CI.
+## Site config
+
+- `astro.config.mjs` — Site URL, base path, sidebar (manually maintained).
+- `src/content.config.ts` — Content collection loader. Excludes `_partials/**` from routing so partials aren't published as pages.
+- `src/components/` — Site-shell components (`.astro`). Lesson content does **not** live here.
 
 ## Deployment
 

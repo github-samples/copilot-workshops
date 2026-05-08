@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/vscode/3-agent-mode.mdx
+  Source: docs/src/content/docs/vscode/3-agent-mode.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

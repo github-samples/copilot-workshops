@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/vscode/5-custom-agents.mdx
+  Source: docs/src/content/docs/vscode/5-custom-agents.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

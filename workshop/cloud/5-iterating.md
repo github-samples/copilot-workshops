@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/cloud/5-iterating.mdx
+  Source: docs/src/content/docs/cloud/5-iterating.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

@@ -1,6 +1,6 @@
 ---
-description: 'Conventions for reusable MDX partials in workshop-content/_partials/'
-applyTo: 'workshop-content/_partials/**'
+description: 'Conventions for reusable MDX partials in docs/src/content/docs/_partials/'
+applyTo: 'docs/src/content/docs/_partials/**'
 ---
 
 # Partials Conventions

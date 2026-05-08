@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Render workshop-content/ MDX into workshop/ Markdown for GitHub.com.
+"""Render docs/src/content/docs/ MDX into workshop/ Markdown for GitHub.com.
 
 This script is the single source of truth for the workshop/ folder.
 workshop/ is generated output and should never be hand-edited.
 
 Pipeline:
-1. Walk workshop-content/, build slug map: source mdx -> (slug, output rel path).
+1. Walk docs/src/content/docs/, build slug map: source mdx -> (slug, output rel path).
 2. For each non-stub lesson page, render it: strip frontmatter, prepend H1,
    strip imports, inline partials, convert <Aside> -> GitHub admonitions,
    rewrite internal slug-style links to .md paths, copy images.
@@ -13,7 +13,7 @@ Pipeline:
    referenced shared content with link/image resolution rebased to the stub
    location, strip the shared file's "Return to your path" tail, and synthesize
    a Next lesson footer from the stub's [next-lesson] ref.
-4. Copy workshop-content/images/ -> workshop/images/.
+4. Copy docs/src/content/docs/images/ -> workshop/images/.
 5. Validate: every component invocation, partial path, internal link, and
    image reference must resolve. Otherwise exit non-zero.
 
@@ -36,7 +36,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SOURCE_DIR = REPO_ROOT / "workshop-content"
+SOURCE_DIR = REPO_ROOT / "docs" / "src" / "content" / "docs"
 OUTPUT_DIR = REPO_ROOT / "workshop"
 PARTIALS_DIR = SOURCE_DIR / "_partials"
 IMAGES_DIR_NAME = "images"
@@ -64,7 +64,7 @@ class RenderError(Exception):
 
 
 def source_to_slug(rel: Path) -> str:
-    """Convert a workshop-content-relative .mdx path to its Starlight slug.
+    """Convert a content-collection-relative .mdx path to its Starlight slug.
 
     cli/1-install-copilot-cli.mdx -> "cli/1-install-copilot-cli"
     cli/index.mdx                 -> "cli"
@@ -78,7 +78,7 @@ def source_to_slug(rel: Path) -> str:
 
 
 def source_to_output(rel: Path) -> Path:
-    """Convert a workshop-content-relative .mdx path to its workshop/ output path.
+    """Convert a content-collection-relative .mdx path to its workshop/ output path.
 
     cli/index.mdx                 -> cli/README.md
     cli/1-install-copilot-cli.mdx -> cli/1-install-copilot-cli.md
@@ -454,7 +454,7 @@ def canonicalize_images(body: str, source_path: Path, image_set: set[str]) -> st
     """Rewrite every image target into a sentinel form '@@workshop-image:foo.png'.
 
     Image targets are FILE-relative (not URL-relative): `../images/x.png` from
-    a partial in workshop-content/_partials/ means workshop-content/images/x.png,
+    a partial in `_partials/` means `images/x.png` at the content root,
     regardless of which page later imports the partial. We do this resolution
     here, against source_path's directory.
     """
@@ -468,7 +468,7 @@ def canonicalize_images(body: str, source_path: Path, image_set: set[str]) -> st
             rel = resolved.relative_to(SOURCE_DIR)
         except ValueError:
             raise RenderError(
-                f"{source_path}: image {target!r} resolves outside workshop-content/ ({resolved})"
+                f"{source_path}: image {target!r} resolves outside content root ({resolved})"
             )
         rel_posix = rel.as_posix()
         if not rel_posix.startswith(IMAGES_DIR_NAME + "/"):
@@ -478,7 +478,7 @@ def canonicalize_images(body: str, source_path: Path, image_set: set[str]) -> st
         basename = rel_posix[len(IMAGES_DIR_NAME) + 1 :]
         if basename not in image_set:
             raise RenderError(
-                f"{source_path}: image {target!r} -> {basename!r} not present in workshop-content/{IMAGES_DIR_NAME}/"
+                f"{source_path}: image {target!r} -> {basename!r} not present in {IMAGES_DIR_NAME}/"
             )
         return f"![{alt}]({_IMAGE_SENTINEL_PREFIX}{basename})"
 
@@ -795,7 +795,7 @@ def _stub_nav(
 GENERATED_BANNER = (
     "<!--\n"
     "  GENERATED FILE — do not edit.\n"
-    "  Source: workshop-content/{src_rel}\n"
+    "  Source: docs/src/content/docs/{src_rel}\n"
     "  Run `python scripts/render-markdown.py` to regenerate.\n"
     "-->\n\n"
 )

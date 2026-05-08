@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/cloud/1-custom-instructions.mdx
+  Source: docs/src/content/docs/cloud/1-custom-instructions.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

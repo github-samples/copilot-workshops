@@ -21,7 +21,7 @@ export default defineConfig({
       ],
       editLink: {
         baseUrl:
-          'https://github.com/github-samples/agents-in-sdlc/edit/main/workshop-content/',
+          'https://github.com/github-samples/agents-in-sdlc/edit/main/docs/',
       },
       sidebar: [
         { label: 'Home', link: '/' },

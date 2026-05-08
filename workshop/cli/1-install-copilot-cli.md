@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/cli/1-install-copilot-cli.mdx
+  Source: docs/src/content/docs/cli/1-install-copilot-cli.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

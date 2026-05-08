@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/shared/cloud-agent/custom-agents.mdx
+  Source: docs/src/content/docs/shared/cloud-agent/custom-agents.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

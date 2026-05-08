@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/shared/0-prereqs.mdx
+  Source: docs/src/content/docs/shared/0-prereqs.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

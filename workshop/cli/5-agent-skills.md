@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/cli/5-agent-skills.mdx
+  Source: docs/src/content/docs/cli/5-agent-skills.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

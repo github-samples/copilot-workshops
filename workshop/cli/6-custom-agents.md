@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/cli/6-custom-agents.mdx
+  Source: docs/src/content/docs/cli/6-custom-agents.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

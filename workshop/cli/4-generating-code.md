@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/cli/4-generating-code.mdx
+  Source: docs/src/content/docs/cli/4-generating-code.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

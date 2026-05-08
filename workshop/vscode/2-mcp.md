@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/vscode/2-mcp.mdx
+  Source: docs/src/content/docs/vscode/2-mcp.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

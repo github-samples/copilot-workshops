@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/vscode/4-cloud-agent.mdx
+  Source: docs/src/content/docs/vscode/4-cloud-agent.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

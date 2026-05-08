@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/vscode/6-managing-agents.mdx
+  Source: docs/src/content/docs/vscode/6-managing-agents.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/vscode/7-iterating.mdx
+  Source: docs/src/content/docs/vscode/7-iterating.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 

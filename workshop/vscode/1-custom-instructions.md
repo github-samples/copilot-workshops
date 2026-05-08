@@ -1,6 +1,6 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: workshop-content/vscode/1-custom-instructions.mdx
+  Source: docs/src/content/docs/vscode/1-custom-instructions.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 
