@@ -1,0 +1,104 @@
+<!--
+  GENERATED FILE — do not edit.
+  Source: workshop-content/cli/4-generating-code.mdx
+  Run `python scripts/render-markdown.py` to regenerate.
+-->
+
+# Exercise 4 - Adding project features with GitHub Copilot CLI
+
+As you might expect, the core tasks you'll perform with GitHub Copilot CLI is to add features, functionality, and code to a project. Let's take one of the issues we generated previously and ask Copilot to help us implement it.
+
+## Scenario
+
+The time has come to finally implement filtering in the project. You've already got the issue in GitHub. Let's have Copilot retrieve the details from the issue and put together a plan to implement it. Then we'll get Copilot on the job to create the code and run the tests.
+
+In this exercise, you will:
+
+- utilize plan mode to generate a plan for implementing the filtering functionality.
+- generate the code necessary to add filtering to the website with Copilot.
+
+By the end of this exercise, you will have added new functionality to the project.
+
+## Utilize plan mode
+
+> [!TIP]
+> **Start a Copilot CLI session**
+>
+> Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with the `--allow-all-tools` flag so it can run commands without prompting for each one:
+>
+> ```bash
+> copilot --allow-all-tools
+> ```
+>
+> To pick up your most recent session for this project instead of starting fresh, run `copilot --allow-all-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
+>
+> > [!WARNING]
+> > `--allow-all-tools` skips Copilot's per-action approval prompts. Only use it in an isolated environment like a Codespace or VM, and never alias it as your default. See [Generating code with Copilot CLI][allow-all-warning] for the full explanation.
+
+[allow-all-warning]: 4-generating-code.md#utilize-plan-mode
+
+One of the best uses of AI is planning. Oftentimes you'll have a good concept of what you want to build, but just need to bounce some ideas off of something. AI tools can help you crystalize your thoughts by asking you follow up questions and working through different pitfalls or missing components. To support this process, Copilot CLI offers a plan mode.
+
+You'll start the process of creating the new functionality by utilizing plan mode in Copilot CLI.
+
+> [!WARNING]
+> `--allow-all-tools` (and its more aggressive cousins `--allow-all` and `--yolo`) gives Copilot CLI full, automatic permission to run shell commands, modify files, and reach external URLs without asking. GitHub strongly recommends only using it in an **isolated environment** like a codespace, sandbox VM, or other disposable workspace — and never aliasing it on by default. For day-to-day use, prefer fine-grained `--allow-tool` rules. See [Allowing and denying tool use][allowing-tools] for the full picture.
+
+1. Switch Copilot CLI into plan mode by selecting <kbd>Shift</kbd>+<kbd>Tab</kbd> until you see **Plan mode** just below the prompt window.
+2. Enter the following prompt into Copilot CLI to have it retrieve the issue from your repository and put forth a plan for implementing the functionality:
+
+    ```
+    Retrieve the issue on the repository related to adding filtering. Help me build a good plan to implement this functionality.
+    ```
+
+3. Copilot may ask follow-up questions as it builds out its plan. As those arise, answer them based on how you'd build out the functionality.
+4. Once the plan is generated, review the blueprint. You should notice it recommends changes to the backend and frontend, as well as generating tests. You can utilize <kbd>Ctrl</kbd>+<kbd>Y</kbd> to view the full details as a markdown file in VS Code.
+5. If you wish to make any suggestions to the plan Copilot generated, feel free to do so!
+6. Once you're satisfied, switch out of plan mode by selecting <kbd>Shift</kbd>+<kbd>Tab</kbd>.
+7. Tell Copilot to start the work by sending a `start` prompt (or another similar phrase like "Let's do it!") to Copilot.
+8. Copilot will get to work generating the files!
+
+> [!NOTE]
+> This operation will likely take several minutes. You will see Copilot edit and create files, update and generate tests, and run all of the tests to ensure everything succeeds. Now's a good time to reflect on what you've explored thus far, or to enjoy a beverage.
+
+## Review the code
+
+All AI code needs to be reviewed before being merged into production. Let's take the time now to explore the files Copilot created and modified in implementing the new feature.
+
+1. Review the changed files using whichever workflow fits your environment:
+
+    - **Option A: Terminal**. If you're working from the terminal, you can use git directly:
+
+        ```bash
+        git status
+        git diff
+        ```
+
+        Use `git status` to see the changed files and `git diff` to see the specific changes. Open any files you want to inspect with your editor of choice, such as `code <file>` if you're in a codespace, or `$EDITOR <file>` otherwise.
+
+    - **Option B: VS Code GUI**. If you have VS Code open, hide the terminal window in your codespace by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>, then select **Source Control** in your codespace.
+
+2. Note the files changed. You should see updates to files such as **games.py**, the Games API, and **test_games.py**, the tests for that API. You should also see new files created, such as Svelte components for the new filter functionality, and Playwright tests to validate the frontend.
+3. Open the files and explore the changes. In particular, notice the comment sections which have been added. All of this comes from the instructions files you worked on previously in this workshop.
+
+## Summary and next steps
+
+You've now added filtering functionality to the website with the help of Copilot CLI! Specifically, you:
+
+- utilized plan mode to generate a plan for implementing the filtering functionality.
+- generated the code necessary to add filtering to the website with Copilot.
+
+Of course, the next step from here is to [create the PR][next-lesson], which we'll do with the help of a skill.
+
+## Resources
+
+- [Using Copilot CLI][using-copilot-cli]
+- [About Copilot CLI][about-copilot-cli]
+- [Context management in Copilot CLI][context-management]
+
+[previous-lesson]: 3-mcp.md
+[next-lesson]: 5-agent-skills.md
+[using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
+[about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
+[context-management]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#context-management
+[allowing-tools]: https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
