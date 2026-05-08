@@ -3,7 +3,8 @@ title: "Exercise 3 - Adding new functionality with Copilot Agent Mode"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
-import StartCopilotChat from '../_partials/start-copilot-chat.mdx';
+import StartCopilotChat from '../_partials/callout-start-copilot-chat.mdx';
+import ModelChoiceCaution from '../_partials/callout-model-choice-caution.mdx';
 
 Even the simplest of updates to an application typically require updates to multiple files and operations to be performed like running tests. As a developer your flow typically involves tracking down all the necessary files, making the changes, running the tests, debugging, figuring out which file was missed, making another update... The list goes on and on.
 
@@ -76,9 +77,7 @@ The initial implementation of the website is functional, but we want to enhance 
 1. Ensure **Agent** is selected from the list of modes.
 2. Select **Claude Sonnet 4.5** from the list of available models.
 
-<Aside type="caution">
-  The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude Sonnet 4.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
-</Aside>
+<ModelChoiceCaution />
 
 <Aside type="note">
   Because of the probabilistic nature of LLMs, Copilot may utilize a different MCP command, but should still be able to complete the task.
