@@ -12,10 +12,14 @@ Exit codes:
 """
 
 import sys
-import os
-import re
 from pathlib import Path
 from typing import Any
+
+
+# Sentinel used by the minimal YAML parser to indicate that a field was
+# detected in the file but its value is a block scalar or nested map that
+# the parser did not fully deserialise (e.g. `description: >`).
+_PRESENT_MARKER = "__present__"
 
 
 # ---------------------------------------------------------------------------
@@ -112,7 +116,7 @@ def _parse_block(
         if rest in (">", "|"):
             # Block scalar: consume its content lines and mark as present
             i = _skip_to_next_indent(lines, i, base_indent)
-            result[key] = "__present__"
+            result[key] = _PRESENT_MARKER
         elif rest == "":
             # Could be a nested map or an empty value; peek ahead
             j = i
@@ -131,9 +135,9 @@ def _parse_block(
                         nested, i = _parse_block(lines, j, next_indent)
                         result[key] = nested
                 else:
-                    result[key] = "__present__"
+                    result[key] = _PRESENT_MARKER
             else:
-                result[key] = "__present__"
+                result[key] = _PRESENT_MARKER
         elif rest == "[]":
             result[key] = []
         else:
@@ -266,7 +270,7 @@ class Validator:
             val = variables.get(var)
             if val is None:
                 self.err(f"scenario.yml: variables.{var} is missing.")
-            elif isinstance(val, str) and (val.upper().startswith("TODO") or val == "__present__"):
+            elif isinstance(val, str) and (val.upper().startswith("TODO") or val == _PRESENT_MARKER):
                 self.warn(f"scenario.yml: variables.{var} still contains a TODO placeholder.")
 
         # Check top-level fields for TODOs

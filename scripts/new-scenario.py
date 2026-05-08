@@ -132,7 +132,7 @@ See [docs/authoring/new-scenario-guide.md](../../../docs/authoring/new-scenario-
 # Scaffolding logic
 # ---------------------------------------------------------------------------
 
-def title_case(scenario_id: str) -> str:
+def scenario_id_to_display_name(scenario_id: str) -> str:
     """Convert 'my-scenario-id' to 'My Scenario Id' as a placeholder name."""
     return " ".join(word.capitalize() for word in scenario_id.split("-"))
 
@@ -149,7 +149,7 @@ def create_scenario(scenario_id: str) -> None:
             "Remove it first or choose a different scenario ID."
         )
 
-    display_name = title_case(scenario_id)
+    display_name = scenario_id_to_display_name(scenario_id)
 
     # Create directories
     overrides_dir.mkdir(parents=True)

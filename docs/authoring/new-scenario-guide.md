@@ -4,7 +4,7 @@ This guide walks you through every step needed to introduce a new sample applica
 
 ## Prerequisites
 
-- Python 3.8 or later (for the scaffolding and validation scripts).
+- Python 3.9 or later (for the scaffolding and validation scripts).
 - A sample application repository accessible on GitHub. If you don't have one yet, see [Using the AI prompt to create a sample app](#using-the-ai-prompt-to-create-a-sample-app).
 - Familiarity with the workshop structure — skim through `workshop-content/README.md` and a couple of the exercise files before you begin.
 
