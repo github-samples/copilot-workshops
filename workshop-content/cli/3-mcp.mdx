@@ -7,8 +7,6 @@ import StartCopilotCli from '../_partials/start-copilot-cli.mdx';
 
 There's more to writing code than just writing code. Issues need to be filed, external services need to be called, and information needs to be gathered. Typically this involves interacting with external tools, which can break a developer's flow. Through the power of Model Context Protocol (MCP), you can access all of this functionality right from Copilot CLI!
 
-<StartCopilotCli />
-
 ## Scenario
 
 You are a part-time developer for Tailspin Toys - a crowdfunding platform for board games with a developer theme. You've been assigned various tasks to introduce new functionality to the website. Being a good team member, you want to file issues to track your work. To help future you, you've decided to enlist the help of Copilot. You will set up your backlog of work for the rest of the lab, using GitHub Copilot CLI and the GitHub Model Context Protocol (MCP) server to create the issues for you.
@@ -39,6 +37,8 @@ There are many other MCP servers available that provide access to different tool
 </Aside>
 
 ## Setting up the GitHub MCP server in Copilot CLI
+
+<StartCopilotCli />
 
 Copilot CLI supports MCP servers via a configuration file at **~/.copilot/mcp.json**. Additionally, in your project the **.vscode/mcp.json** file can configure MCP servers for VS Code-based workflows, and Copilot CLI also reads from this file.
 
