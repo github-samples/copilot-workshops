@@ -77,3 +77,7 @@ site/
 
 # Symlink into docs/node_modules so MDX content outside docs/ can resolve packages
 workshop-content/node_modules
+
+# Local-only artifacts
+.playwright-mcp/
+sidebar-vscode.png
