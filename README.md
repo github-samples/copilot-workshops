@@ -4,7 +4,24 @@ This repository contains the project for a 1 hour guided workshop to explore Git
 
 ## Start the workshop
 
-**To begin the workshop, start at [workshop-content/README.md](./workshop-content/README.md)**
+**To begin the workshop, start at [workshop-content/index.mdx](./workshop-content/index.mdx)**
+
+The workshop content is published as an [Astro](https://astro.build/) +
+[Starlight](https://starlight.astro.build/) site under [`docs/`](./docs/).
+To preview it locally:
+
+```bash
+cd docs
+npm install
+npm run dev          # local dev server
+# or
+npm run build        # produce static site under docs/dist/
+npm run preview      # serve the built site under the GitHub Pages base path
+```
+
+Authored content lives in [`workshop-content/`](./workshop-content/) (Markdown/MDX).
+Reusable prose blocks live in [`workshop-content/_partials/`](./workshop-content/_partials/)
+and are imported as MDX components.
 
 Or, if just want to run the app...
 

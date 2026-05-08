@@ -74,3 +74,6 @@ site/
 
 # MkDocs docs venv (local docs builds)
 .venv-docs/
+
+# Symlink into docs/node_modules so MDX content outside docs/ can resolve packages
+workshop-content/node_modules
