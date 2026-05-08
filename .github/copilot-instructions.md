@@ -21,19 +21,15 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
   - `agents/` — Custom agents available to Copilot.
   - `skills/` — Skills available to Copilot.
   - `workflows/pages.yml` — Builds and deploys the site.
-  - `workflows/render-markdown.yml` — Verifies `workshop/` is in sync on every PR.
+  - `workflows/render-markdown.yml` — Auto-regenerates `workshop/` on push to `main` (hard-fail validation gate on PRs).
 
 ## Render pipeline
 
-The `workshop/` folder is the GitHub.com-readable view of the workshop, generated from `workshop-content/`. **Whenever you edit anything under `workshop-content/`** (or change the renderer, or touch a partial / shared file / image), you must regenerate and commit `workshop/`:
+The `workshop/` folder is the GitHub.com-readable view of the workshop, auto-generated from `workshop-content/` by the `render-markdown.yml` CI workflow. **Never edit `workshop/` by hand** — every push to `main` regenerates it and the bot commits any diff back. Manual edits will be overwritten.
 
-```bash
-python scripts/render-markdown.py
-```
+Authors only ever edit `workshop-content/`. The renderer (`scripts/render-markdown.py`) is available locally for previewing the rendered Markdown if you want, but running it is optional — the CI flow will regenerate after merge regardless.
 
-Then `git add workshop/` and include those changes in the same commit (or at least the same PR) as the source change. The `render-markdown.yml` workflow runs the renderer in CI and fails the PR with `git diff --exit-code workshop/` if the output is stale.
-
-The renderer is hard-fail: missing partial imports, unresolved component tags, broken internal links, and missing images all error out. If it fails locally, fix the source — don't try to patch `workshop/` directly.
+PR CI runs the renderer as a hard-fail gate: missing partial imports, unresolved component tags, broken internal links, and missing images all error out and block merge. Fix those at the source — don't try to patch `workshop/` directly (the bot will overwrite it anyway).
 
 ## Authoring conventions
 
