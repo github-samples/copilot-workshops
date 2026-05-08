@@ -1,0 +1,46 @@
+name: Verify rendered workshop
+
+# Re-runs scripts/render-markdown.py and fails the PR if the committed
+# workshop/ folder is stale relative to workshop-content/. Also runs lychee
+# against the rendered output to catch broken-but-self-consistent links.
+
+on:
+  pull_request:
+    paths:
+      - 'workshop-content/**'
+      - 'workshop/**'
+      - 'scripts/render-markdown.py'
+      - '.github/workflows/render-markdown.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Render workshop and check for drift
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Render workshop content
+        run: python scripts/render-markdown.py
+
+      - name: Fail if workshop/ is out of date
+        run: |
+          if ! git diff --exit-code workshop/; then
+            echo "::error::workshop/ is stale. Run \`python scripts/render-markdown.py\` locally and commit the result."
+            exit 1
+          fi
+
+      - name: Link check (lychee)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress 'workshop/**/*.md'
+          fail: true
