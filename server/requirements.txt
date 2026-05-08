@@ -1,4 +1,0 @@
-flask
-sqlalchemy
-flask_sqlalchemy
-flask-cors

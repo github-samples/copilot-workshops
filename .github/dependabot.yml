@@ -1,14 +1,10 @@
-# This is the dependabot configuration file that automates dependency updates
-# Updates section configures how dependabot should handle dependency updates:
-# - Monitors NPM dependencies in the root directory
-# - Checks for updates weekly
-# - Groups updates based on their type (dev grouped by minor/patch or prod grouped by patch)
-#
-# Learn more at https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file
+# Dependabot configuration for the workshop site (Astro + Starlight under docs/).
+# The application learners build now lives at github.com/github-samples/tailspin-toys.
+# Learn more: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: /client
+    directory: /docs
     schedule:
       interval: weekly
     groups:
@@ -21,7 +17,3 @@ updates:
         dependency-type: production
         update-types:
           - patch
-  - package-ecosystem: "devcontainers"
-    directory: "/"
-    schedule:
-      interval: weekly
