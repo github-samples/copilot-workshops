@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GameList from '../components/GameList.svelte';
+import "../styles/global.css";
+---
+
+<Layout title="Tailspin Toys - Crowdfunding your new favorite game!">
+  <div class="py-8">
+    <div class="max-w-3xl mb-10">
+      <h1 class="text-4xl font-bold mb-4 text-slate-100">Welcome to Tailspin Toys</h1>
+      <p class="text-xl text-slate-300">Find your next game! And maybe even back one! Explore our collection!</p>
+    </div>
+    
+    <GameList client:only="svelte" />
+  </div>
+</Layout>

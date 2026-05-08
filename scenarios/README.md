@@ -39,6 +39,7 @@ See [docs/authoring/new-scenario-guide.md](../docs/authoring/new-scenario-guide.
 | Scenario ID | Application | Tech stack | Status |
 |---|---|---|---|
 | `tailspin-toys` | Tailspin Toys (crowdfunding for board games) | Python/Flask · Astro/Svelte | ✅ Default |
+| `tailspin-toys-dotnet` | Tailspin Toys .NET (crowdfunding for board games) | ASP.NET Core · Astro/Svelte | ✅ Available |
 
 ## Adding a new scenario
 

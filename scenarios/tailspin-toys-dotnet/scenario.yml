@@ -1,0 +1,56 @@
+# tailspin-toys-dotnet — scenario configuration
+# See docs/authoring/new-scenario-guide.md for full documentation.
+
+# Human-readable name displayed in the workshop
+name: Tailspin Toys (.NET)
+
+# Short description of the application used in this scenario
+description: >
+  A crowdfunding platform for board games with a developer theme.
+  The app uses an ASP.NET Core Web API, a SQLite database, and an
+  Astro/Svelte frontend with Tailwind CSS.
+
+# GitHub repository for the sample application (org/repo)
+# The app is stored as a subfolder in this repository.
+repository: github-samples/agents-in-sdlc
+
+# Technology stack — used when generating scenario-specific content
+tech_stack:
+  frontend:
+    name: Astro + Svelte
+    language: TypeScript / JavaScript
+    notes: >
+      Astro handles routing and static rendering.
+      Svelte components (with runes-based reactivity) handle interactivity.
+      The frontend proxies all /api/* requests to the ASP.NET Core backend.
+  backend:
+    name: ASP.NET Core Web API
+    language: C#
+    notes: >
+      RESTful API using ASP.NET Core controllers and Entity Framework Core ORM.
+      C# nullable reference types are enabled on all files.
+      XML documentation comments are required on all public types and members.
+  database: SQLite (via Entity Framework Core)
+
+# Content variables — substituted into workshop content and prompts
+variables:
+  company_name: Tailspin Toys
+  company_description: a crowdfunding platform for board games with a developer theme
+  product_type: crowdfunding platform
+  primary_entities: games, publishers, categories
+  filter_feature: filter games by category and publisher
+  new_endpoints_feature: endpoints to create, update, and delete games
+  accessibility_feature: high-contrast mode toggle
+  documentation_feature: XML documentation comments for all public types and methods
+
+# Exercises to skip for this scenario.
+# List exercise filenames (without the .md extension) from workshop-content/
+# that are NOT applicable to this scenario.
+skip: []
+
+# Notes for workshop authors or maintainers (not shown to participants)
+author_notes: >
+  This scenario uses an ASP.NET Core Web API backend instead of Flask/Python.
+  The frontend (Astro + Svelte) is identical to the canonical tailspin-toys scenario.
+  The app lives in the tailspin-toys-dotnet/ subfolder of this repository.
+  Exercises 2, 3, 4, and 7 require overrides due to .NET-specific references.

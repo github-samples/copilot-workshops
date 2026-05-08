@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+---
+
+<Layout title="About - Tailspin Toys">
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="bg-slate-800/70 backdrop-blur-sm border border-slate-700 rounded-xl shadow-lg p-8 transition-colors duration-300">
+      <h2 class="text-blue-400 text-4xl mb-8 pb-3 border-b border-slate-600 font-bold">About Tailspin Toys</h2>
+      
+      <div class="space-y-6">
+        <p class="text-lg leading-relaxed text-slate-300">
+          Tailspin Toys is the premier crowdfunding platform dedicated to bringing board games with a development and DevOps twist to life. We believe that the same collaborative spirit, iteration cycles, and problem-solving that power modern software teams can make for endlessly engaging tabletop experiences. By focusing exclusively on games that explore themes like continuous integration, agile planning, container orchestration, and incident response, we offer a unique space where both seasoned developers and curious newcomers can back - and even contribute to - the games they're most passionate about.
+        </p>
+        
+        <p class="text-lg leading-relaxed text-slate-300">
+          Our platform empowers creators at every stage of the design journey. From early-concept sketches through final prototype testing, Tailspin Toys provides tools for community feedback, stretch-goal planning, and beta-play sessions. Backers can join forums to share house rules, vote on art directions, or fund expansion modules that introduce new mechanics like "pipeline bottleneck" challenges or "rollback" rescue cards. We handle all the logistics of manufacturing and fulfillment, so designers can focus on the fun stuff - and supporters can look forward to high-quality components delivered right to their door.
+        </p>
+
+        <p class="text-lg leading-relaxed text-slate-300">
+          The name "Tailspin Toys" reflects our love of both flight metaphors and that moment when a project takes on a life of its own - spinning through sprints, releases, and hotfixes until it soars. Founded by a team of developers who were always gamers at heart, we know firsthand how satisfying it is to conquer a tricky bug or pull off a flawless deployment - and how much more rewarding it can be to beat your friends on a table (or work with them cooperatively to win together). Whether you're here to back your next favorite game or to launch your own DevOps-inspired design, welcome aboard. Let's game from here, together!
+        </p>
+      </div>
+      
+      <div class="mt-12 flex justify-center">
+        <a href="/" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+          </svg>
+          Back to Games
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

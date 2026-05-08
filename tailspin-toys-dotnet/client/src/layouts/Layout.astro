@@ -1,0 +1,49 @@
+---
+import Header from "../components/Header.astro"
+import "../styles/global.css"
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Tailspin Toys" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <!-- Preconnect to improve font loading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </head>
+    <body class="min-h-screen bg-slate-900 text-white transition-colors duration-300 m-0 w-full h-full font-sans">
+        <Header />
+        <main class="container mx-auto py-6 h-full max-w-7xl">
+            <div class="px-4 sm:px-6 lg:px-8">
+                <slot />
+            </div>
+        </main>
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    html {
+        font-family: var(--font-sans);
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>

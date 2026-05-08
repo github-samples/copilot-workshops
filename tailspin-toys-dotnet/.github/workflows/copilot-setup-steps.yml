@@ -1,0 +1,37 @@
+name: "Copilot Setup Steps"
+
+# Allows you to test the setup steps from your repository's "Actions" tab
+on: workflow_dispatch
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Backend setup - .NET
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0"
+
+      - name: Restore .NET dependencies
+        run: dotnet restore server/TailspinToys.sln
+
+      - name: Build .NET project
+        run: dotnet build server/TailspinToys.sln --no-restore
+
+      # Frontend setup - Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: "./client/package.json"
+
+      - name: Install JavaScript dependencies
+        working-directory: ./client
+        run: npm ci

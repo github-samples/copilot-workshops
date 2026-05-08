@@ -1,0 +1,28 @@
+{
+	"name": "Tailspin Toys .NET",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/dotnet:2": {
+			"version": "8.0"
+		},
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
+	},
+	"postCreateCommand": "./scripts/setup-env.sh",
+	"forwardPorts": [
+		4321,
+		5100
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"github.copilot",
+				"github.copilot-chat",
+				"ms-dotnettools.csdevkit",
+				"ms-dotnettools.csharp",
+				"svelte.svelte-vscode",
+				"astro-build.astro-vscode"
+			]
+		}
+	}
+}
