@@ -45,6 +45,14 @@ If a partial drops into the middle of a numbered list, write its items as plain 
 1. Third step.
 ```
 
-## No `<Aside>` imports inside callout partials
+## Imports inside callout partials
 
-When the partial *is* a single `<Aside>`, the import for `Aside` lives in the host MDX page. The partial just contains the JSX. (Imports inside partials are allowed but the convention is to keep partials minimal.)
+Callout partials should be **self-contained**: import any Starlight component they use (typically `Aside`) at the top of the partial itself, rather than expecting the host page to provide the import. This matches how every existing `callout-*.mdx` is written and means a host page can drop in a callout partial without remembering to also add an `import { Aside } ...` line.
+
+```mdx
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip" title="Start a Copilot CLI session">
+  …
+</Aside>
+```

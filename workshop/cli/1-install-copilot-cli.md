@@ -4,7 +4,7 @@
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 
-# Exercise 2 - Installing GitHub Copilot CLI
+# Exercise 1 - Installing GitHub Copilot CLI
 
 [GitHub Copilot CLI][about-copilot-cli] is a powerful agentic coding assistant that runs in your terminal, enabling you to explore codebases, generate code, run commands, and interact with external tools - all from the command line.
 
@@ -106,7 +106,7 @@ Congratulations! You've successfully installed and authenticated GitHub Copilot 
 - trust a directory for Copilot CLI to work with.
 - verify the installation is working correctly.
 
-Now that Copilot CLI is installed, let's see how it picks up your repository's custom instructions. Continue to [Exercise 3 - Custom instructions hands-on][next-lesson].
+Now that Copilot CLI is installed, let's see how it picks up your repository's custom instructions. Continue to [Exercise 2 - Custom instructions hands-on][next-lesson].
 
 ## Resources
 
