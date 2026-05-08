@@ -1,0 +1,30 @@
+## Summary
+
+<!-- One- to two-sentence description of what this PR changes and why. -->
+
+## Type of change
+
+<!-- Check all that apply. -->
+
+- [ ] Workshop content (lesson MDX, partials, images)
+- [ ] Site shell (`docs/` Astro + Starlight wrapper)
+- [ ] Copilot configuration (`.github/copilot-instructions.md`, instructions, agents, skills)
+- [ ] Repo housekeeping (CI, dependabot, README, license)
+- [ ] Other:
+
+## Verification
+
+<!-- Confirm the build + link checks pass before requesting review. -->
+
+- [ ] `cd docs && rm -rf dist && npm run build` succeeds (target: 29 pages, or note any intentional change)
+- [ ] Lychee link check passes:
+      `mkdir -p /tmp/lychee-root && ln -sfn $PWD/docs/dist /tmp/lychee-root/agents-in-sdlc && lychee --offline --no-progress --root-dir /tmp/lychee-root 'docs/dist/**/*.html'`
+- [ ] External GitHub URLs that I changed have been clicked manually (lychee runs offline)
+
+## Screenshots
+
+<!-- For visual changes only. Otherwise delete this section. -->
+
+## Notes for reviewers
+
+<!-- Anything reviewers should know: areas of uncertainty, follow-ups intentionally deferred, etc. -->
