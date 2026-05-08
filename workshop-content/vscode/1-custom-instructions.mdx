@@ -1,25 +1,29 @@
 ---
-title: "Exercise 2 - Custom instructions hands-on (VS Code)"
+title: "Exercise 1 - Custom instructions (VS Code)"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import InstructionsOverview from '../_partials/instructions-overview.mdx';
 import AddDocstringInstructions from '../_partials/instructions-add-docstring.mdx';
 
-[← Previous lesson: Custom instructions][previous-lesson] · [Next lesson: MCP with VS Code →][next-lesson]
+[← Previous lesson: Prerequisites][previous-lesson] · [Next lesson: MCP with VS Code →][next-lesson]
 
-In the [previous exercise][previous-lesson] you learned how custom instructions give Copilot the project context it needs to generate code that matches your team's standards. Now you'll see that play out in your editor: send a prompt with the *current* instructions, then update **`.github/copilot-instructions.md`** and watch the output change.
+Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want to make sure that context is reachable. [Instruction files][instruction-files] are how you provide that guidance, so Copilot understands not just *what* you want it to do but *how* you want it done.
 
 In this exercise, you will:
 
-- Send a code-generation prompt to Copilot Chat in VS Code.
-- Add a new repository-wide standard to **`.github/copilot-instructions.md`**.
-- Re-run the same prompt and observe how the generated code changes.
+- explore how project-specific context, coding guidelines, and documentation standards reach Copilot through repository custom instructions and path-scoped instruction files,
+- send a code-generation prompt with the *current* instructions in place,
+- add a new repository-wide standard to **`.github/copilot-instructions.md`**,
+- re-run the same prompt and watch the generated code adopt the new standard.
 
 <Aside type="caution">
-  GitHub Copilot is non-deterministic — the exact code it generates may vary between runs. The goal here is to see the *trend* in behavior change after updating the instructions, not to match the output character-for-character.
+  Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The point of this exercise is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
 </Aside>
 
-## Before you begin
+<InstructionsOverview />
+
+## Before you begin the hands-on
 
 You'll be making code changes, so create a branch to work in.
 
@@ -33,11 +37,11 @@ You'll be making code changes, so create a branch to work in.
 
 ## Use Copilot Chat *before* updating the instructions
 
-To see the impact of custom instructions, you'll start by sending a prompt with the current instruction file in place. Later, you'll update it and re-send the same prompt.
+To see the impact of custom instructions, start by sending a prompt with the current instruction file in place. Later, you'll update it and re-send the same prompt.
 
-1. Close any open editor tabs from previous exercises so Copilot picks up only the context you want it to have.
+1. Close any open editor tabs from previous exercises so Copilot picks up only the context you want.
 2. Open `server/routes/publishers.py` (an empty file).
-3. Open Copilot Chat by selecting the Copilot icon at the top of the codespace if it isn't already open.
+3. Open Copilot Chat by selecting the Copilot icon at the top of the codespace.
 4. Start a fresh conversation by typing `/clear` in the chat input and pressing <kbd>Enter</kbd>.
 5. Select **Ask** from the chat mode dropdown.
 6. Send the following prompt:
@@ -51,7 +55,7 @@ To see the impact of custom instructions, you'll start by sending a prompt with 
 9. Notice the generated code **is missing** docstrings and a file-level comment header.
 
 <Aside type="caution">
-  Because Copilot is probabilistic, there's a chance it'll add docstrings even without being told to. If that happens, that's fine — proceed with the exercise; the *consistency* improvement after the instruction update is still the point.
+  Because Copilot is probabilistic, there's a chance it'll add docstrings even without being told to. If that happens, that's fine — the *consistency* improvement after the instruction update is still the point.
 </Aside>
 
 ## Add a new repository standard
@@ -94,7 +98,7 @@ You just steered Copilot to follow a new project standard with a single line of 
 
 ## Summary and next steps
 
-You used Copilot Chat in VS Code to:
+You explored how Copilot picks up context from instruction files in this project, then used Copilot Chat in VS Code to:
 
 - send a code-generation prompt and observe what Copilot produces with the *existing* instructions,
 - add a new repository-wide standard to **`.github/copilot-instructions.md`**,
@@ -107,12 +111,14 @@ Next, you'll connect VS Code to external systems with [MCP][next-lesson] so Copi
 - [Instruction files for GitHub Copilot customization][instruction-files]
 - [Best practices for creating custom instructions][instructions-best-practices]
 - [5 tips for writing better custom instructions for Copilot][copilot-instructions-five-tips]
+- [Personal custom instructions for GitHub Copilot][personal-instructions]
 - [Awesome Copilot — a collection of instruction files and other resources][awesome-copilot]
 
-[previous-lesson]: ../../shared/1-custom-instructions/
-[next-lesson]: ../3-mcp/
+[previous-lesson]: ../../shared/0-prereqs/
+[next-lesson]: ../2-mcp/
 [instruction-files]: https://code.visualstudio.com/docs/copilot/copilot-customization
 [python-type-hints]: https://docs.python.org/3/library/typing.html
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository
+[personal-instructions]: https://docs.github.com/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot
 [copilot-instructions-five-tips]: https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/
 [awesome-copilot]: https://github.com/github/awesome-copilot

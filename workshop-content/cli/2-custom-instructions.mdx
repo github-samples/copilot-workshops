@@ -1,25 +1,31 @@
 ---
-title: "Exercise 3 - Custom instructions hands-on (Copilot CLI)"
+title: "Exercise 2 - Custom instructions (Copilot CLI)"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import InstructionsOverview from '../_partials/instructions-overview.mdx';
 import AddDocstringInstructions from '../_partials/instructions-add-docstring.mdx';
 
 [← Previous lesson: Install Copilot CLI][previous-lesson] · [Next lesson: MCP with CLI →][next-lesson]
 
-In the [Custom instructions][shared-custom-instructions] lesson you learned how **`.github/copilot-instructions.md`** gives Copilot the project context it needs. Now that Copilot CLI is installed, you'll see those instructions in action: ask the CLI to generate an endpoint with the *current* instructions, then add a new standard and watch the regenerated code change.
+Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want to make sure that context is reachable. [Instruction files][instruction-files] are how you provide that guidance, so Copilot understands not just *what* you want it to do but *how* you want it done.
+
+Now that Copilot CLI is installed, you'll see those instruction files in action.
 
 In this exercise, you will:
 
-- Send a code-generation prompt to Copilot CLI.
-- Add a new repository-wide standard to **`.github/copilot-instructions.md`**.
-- Re-run the same prompt and observe how the generated code changes.
+- explore how project-specific context, coding guidelines, and documentation standards reach Copilot through repository custom instructions and path-scoped instruction files,
+- send a code-generation prompt to Copilot CLI with the *current* instructions in place,
+- add a new repository-wide standard to **`.github/copilot-instructions.md`**,
+- re-run the same prompt and watch the regenerated code adopt the new standard.
 
 <Aside type="caution">
-  GitHub Copilot is non-deterministic — exact output will vary between runs. The point is to see Copilot's *behavior* shift after the instruction update, not to match output character-for-character.
+  Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The goal is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
 </Aside>
 
-## Before you begin
+<InstructionsOverview />
+
+## Before you begin the hands-on
 
 You'll be making code changes, so create a branch to work in.
 
@@ -120,7 +126,7 @@ You just steered Copilot CLI to follow a new project standard with a single line
 
 ## Summary and next steps
 
-You used Copilot CLI to:
+You explored how Copilot picks up context from instruction files in this project, then used Copilot CLI to:
 
 - generate a Flask endpoint with the *existing* instructions,
 - add a new repository-wide standard to **`.github/copilot-instructions.md`**,
@@ -135,9 +141,8 @@ Next, you'll extend Copilot CLI's reach beyond the repo by [connecting to MCP se
 - [5 tips for writing better custom instructions for Copilot][copilot-instructions-five-tips]
 - [Awesome Copilot — a collection of instruction files and other resources][awesome-copilot]
 
-[previous-lesson]: ../2-install-copilot-cli/
-[next-lesson]: ../4-mcp/
-[shared-custom-instructions]: ../../shared/1-custom-instructions/
+[previous-lesson]: ../1-install-copilot-cli/
+[next-lesson]: ../3-mcp/
 [instruction-files]: https://docs.github.com/en/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [python-type-hints]: https://docs.python.org/3/library/typing.html
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository

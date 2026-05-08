@@ -1,0 +1,77 @@
+---
+title: "Exercise 1 - Custom instructions (Cloud agent)"
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import InstructionsOverview from '../_partials/instructions-overview.mdx';
+import AddDocstringInstructions from '../_partials/instructions-add-docstring.mdx';
+
+[← Previous lesson: Prerequisites][previous-lesson] · [Next lesson: Copilot cloud agent →][next-lesson]
+
+Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want to make sure that context is reachable. [Instruction files][instruction-files] are how you provide that guidance, so Copilot understands not just *what* you want it to do but *how* you want it done.
+
+In this exercise, you will:
+
+- explore how project-specific context, coding guidelines, and documentation standards reach Copilot through repository custom instructions and path-scoped instruction files,
+- add a new repository-wide standard to **`.github/copilot-instructions.md`**.
+
+<Aside type="note">
+  Unlike the VS Code and CLI paths, you won't run a *before/after* prompt here — Copilot cloud agent works asynchronously on GitHub issues, so the impact is harder to demonstrate side-by-side in real time. You'll see your instruction file's influence later in this path when you review the pull requests cloud agent produces.
+</Aside>
+
+<InstructionsOverview />
+
+## Add a new repository standard
+
+The next step is the one bit of editing you'll do here: add a project-wide rule that documentation should live in code as docstrings and a file-level comment header. Cloud agent will pick this up when it works on issues you assign to it later in this path.
+
+Before you edit, set up a branch to work on (cloud agent will read your instructions from whatever branch the issue targets, but you'll commit your edits cleanly anyway):
+
+1. From your codespace terminal (or a local clone), create and switch to a new branch:
+
+   ```bash
+   git checkout -b custom-instructions-cloud
+   ```
+
+<AddDocstringInstructions />
+
+## Commit and push your instruction update
+
+Cloud agent reads instruction files from the branch the issue targets. Push this branch so it's available when you assign work to cloud agent in the next exercise.
+
+1. Stage and commit:
+
+   ```bash
+   git add .github/copilot-instructions.md
+   git commit -m "Add docstring and file-header standards to copilot instructions"
+   ```
+
+2. Push the branch (and, optionally, open a PR / merge to `main` so cloud agent picks it up automatically when assigned issues on `main`):
+
+   ```bash
+   git push -u origin custom-instructions-cloud
+   ```
+
+<Aside type="tip">
+  If you'd rather work on `main` directly for this workshop, you can skip the branch and commit straight to `main`. The branch step is here so the workshop mirrors the way you'd handle this on a real project.
+</Aside>
+
+## Summary and next steps
+
+You explored how Copilot picks up context from instruction files in this project and added a new repository-wide standard to **`.github/copilot-instructions.md`**. You'll see that standard exercised in the pull requests cloud agent generates over the rest of this path.
+
+Next, you'll [assign your first issue to Copilot cloud agent][next-lesson].
+
+## Resources
+
+- [Instruction files for GitHub Copilot customization][instruction-files]
+- [Best practices for creating custom instructions][instructions-best-practices]
+- [5 tips for writing better custom instructions for Copilot][copilot-instructions-five-tips]
+- [Awesome Copilot — a collection of instruction files and other resources][awesome-copilot]
+
+[previous-lesson]: ../../shared/0-prereqs/
+[next-lesson]: ../2-cloud-agent/
+[instruction-files]: https://docs.github.com/en/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
+[instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository
+[copilot-instructions-five-tips]: https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/
+[awesome-copilot]: https://github.com/github/awesome-copilot
