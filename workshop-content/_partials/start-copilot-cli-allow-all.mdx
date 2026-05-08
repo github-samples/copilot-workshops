@@ -1,0 +1,17 @@
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip" title="Start a Copilot CLI session">
+  Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with the `--allow-all-tools` flag so it can run commands without prompting for each one:
+
+  ```bash
+  copilot --allow-all-tools
+  ```
+
+  To pick up your most recent session for this project instead of starting fresh, run `copilot --allow-all-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
+
+  <Aside type="caution">
+    `--allow-all-tools` skips Copilot's per-action approval prompts. Only use it in an isolated environment like a Codespace or VM, and never alias it as your default. See [Generating code with Copilot CLI][allow-all-warning] for the full explanation.
+  </Aside>
+</Aside>
+
+[allow-all-warning]: ../4-generating-code/#utilize-plan-mode

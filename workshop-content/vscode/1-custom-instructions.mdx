@@ -5,6 +5,7 @@ title: "Exercise 1 - Custom instructions (VS Code)"
 import { Aside } from '@astrojs/starlight/components';
 import InstructionsOverview from '../_partials/instructions-overview.mdx';
 import AddDocstringInstructions from '../_partials/instructions-add-docstring.mdx';
+import StartCopilotChat from '../_partials/start-copilot-chat.mdx';
 
 [← Previous lesson: Prerequisites][previous-lesson] · [Next lesson: MCP with VS Code →][next-lesson]
 
@@ -37,22 +38,22 @@ You'll be making code changes, so create a branch to work in.
 
 ## Use Copilot Chat *before* updating the instructions
 
+<StartCopilotChat />
+
 To see the impact of custom instructions, start by sending a prompt with the current instruction file in place. Later, you'll update it and re-send the same prompt.
 
 1. Close any open editor tabs from previous exercises so Copilot picks up only the context you want.
 2. Open `server/routes/publishers.py` (an empty file).
-3. Open Copilot Chat by selecting the Copilot icon at the top of the codespace.
-4. Start a fresh conversation by typing `/clear` in the chat input and pressing <kbd>Enter</kbd>.
-5. Select **Ask** from the chat mode dropdown.
-6. Send the following prompt:
+3. Select **Ask** from the chat mode dropdown.
+4. Send the following prompt:
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
-7. Copilot explores the project and proposes code, often spanning `publishers.py`, `app.py`, and tests.
-8. Notice the generated function signatures use [type hints][python-type-hints] — that's coming from a directive already in **`.github/copilot-instructions.md`**.
-9. Notice the generated code **is missing** docstrings and a file-level comment header.
+5. Copilot explores the project and proposes code, often spanning `publishers.py`, `app.py`, and tests.
+6. Notice the generated function signatures use [type hints][python-type-hints] — that's coming from a directive already in **`.github/copilot-instructions.md`**.
+7. Notice the generated code **is missing** docstrings and a file-level comment header.
 
 <Aside type="caution">
   Because Copilot is probabilistic, there's a chance it'll add docstrings even without being told to. If that happens, that's fine — the *consistency* improvement after the instruction update is still the point.

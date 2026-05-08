@@ -5,6 +5,7 @@ title: "Exercise 2 - Custom instructions (Copilot CLI)"
 import { Aside } from '@astrojs/starlight/components';
 import InstructionsOverview from '../_partials/instructions-overview.mdx';
 import AddDocstringInstructions from '../_partials/instructions-add-docstring.mdx';
+import StartCopilotCli from '../_partials/start-copilot-cli.mdx';
 
 [← Previous lesson: Install Copilot CLI][previous-lesson] · [Next lesson: MCP with CLI →][next-lesson]
 
@@ -45,16 +46,11 @@ You'll be making code changes, so create a branch to work in.
 
 ## Use Copilot CLI *before* updating the instructions
 
+<StartCopilotCli />
+
 To see the impact of custom instructions, start by generating code with the current instructions in place. Later, you'll update the file and re-run the same prompt.
 
-1. From the **repository root** in your terminal, start a Copilot CLI session:
-
-   ```bash
-   copilot
-   ```
-
-   Starting from the repo root ensures Copilot CLI picks up **`.github/copilot-instructions.md`** automatically.
-
+1. Make sure your Copilot CLI session is running from the **repository root** so it picks up **`.github/copilot-instructions.md`** automatically.
 2. At the Copilot CLI prompt, ask it to generate the publishers endpoint:
 
    ```plaintext
@@ -65,7 +61,6 @@ To see the impact of custom instructions, start by generating code with the curr
 4. Open the generated **`server/routes/publishers.py`** in your editor.
 5. Notice the function signatures use [type hints][python-type-hints] — that's coming from a directive already in **`.github/copilot-instructions.md`**.
 6. Notice the generated code **is missing** docstrings and a file-level comment header.
-7. Exit Copilot CLI by typing `/exit` (or press <kbd>Ctrl</kbd>+<kbd>C</kbd>).
 
 <Aside type="caution">
   Copilot is probabilistic — there's a chance it'll add docstrings even without being told. If that happens, that's fine; the *consistency* improvement after the instruction update is still the takeaway.
@@ -79,12 +74,7 @@ To see the impact of custom instructions, start by generating code with the curr
 
 Now that the instructions have a docstring rule, ask Copilot CLI to update the publishers file you just generated. The same standards directive will steer the rewrite.
 
-1. Start a fresh Copilot CLI session from the repo root:
-
-   ```bash
-   copilot
-   ```
-
+1. Send `/clear` in your Copilot CLI session to start with a clean conversation.
 2. Send the following prompt:
 
    ```plaintext
@@ -112,7 +102,7 @@ Now that the instructions have a docstring rule, ask Copilot CLI to update the p
    """
    ```
 
-6. Exit Copilot CLI with `/exit`. Leave the generated file in place — there's no harm in keeping it, and you'll build on this work in a later exercise.
+6. Leave the generated file in place — there's no harm in keeping it, and you'll build on this work in a later exercise.
 
 You just steered Copilot CLI to follow a new project standard with a single line of markdown — no flags, no plugins, no MCP servers. That's the power of repository custom instructions.
 

@@ -3,8 +3,11 @@ title: "Exercise 2 - Setting up the backlog with Copilot agent mode and GitHub's
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import StartCopilotChat from '../_partials/start-copilot-chat.mdx';
 
 There's more to writing code than just writing code. Issues need to be filed, external services need to be called, and information needs to be gathered. Typically this involves interacting with external tools, which can break a developer's flow. Through the power of Model Context Protocol (MCP), you can access all of this functionality right from Copilot!
+
+<StartCopilotChat />
 
 ## Custom instructions hands-on
 
@@ -29,21 +32,18 @@ The setup process for the codespace installed and set up many [VS Code extension
 
 To see the impact of custom instructions, you'll start by sending a prompt with the current version of the files, and see how Copilot pulls those files into context. Then you'll make some updates, send the same prompt again, and note the difference.
 
-1. Return to your codespace.
-2. Close any files open in the codespace.
-3. Open `server/routes/publishers.py`, an empty file.
-4. If **Copilot Chat** is not already open, open it by selecting the Copilot icon towards the top of your codespace.
-5. Create a new chat session by typing `/clear` into the chat window and selecting <kbd>Enter</kbd> (or <kbd>return</kbd> on a Mac).
-6. Select **Ask** from the modes dropdown.
-7. Send the following prompt to create a new endpoint to return all publishers:
+1. Close any files open in the codespace.
+2. Open `server/routes/publishers.py`, an empty file.
+3. Select **Ask** from the modes dropdown.
+4. Send the following prompt to create a new endpoint to return all publishers:
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
-8. Copilot explores the project to learn how best to implement the code, and generates a list of suggestions, which may include code for `publishers.py`, `app.py`, and tests to ensure the new code runs correctly.
-9. Explore the code, noticing the generated code includes [type hints][python-type-hints] because, as you'll see, the custom instructions includes the directive to include them.
-10. Notice the generated code **is missing** either a docstring or a comment header - or both!
+5. Copilot explores the project to learn how best to implement the code, and generates a list of suggestions, which may include code for `publishers.py`, `app.py`, and tests to ensure the new code runs correctly.
+6. Explore the code, noticing the generated code includes [type hints][python-type-hints] because, as you'll see, the custom instructions includes the directive to include them.
+7. Notice the generated code **is missing** either a docstring or a comment header - or both!
 
 <Aside type="caution">
   As highlighted previously, GitHub Copilot and LLM tools are probabilistic, not deterministic. As a result, the exact code generated may vary, and there's even a chance it'll abide by your rules without you spelling it out! But to aid consistency in code you should always document anything you want to ensure Copilot should understand about how you want your code generated.
@@ -53,26 +53,25 @@ To see the impact of custom instructions, you'll start by sending a prompt with 
 
 As highlighted previously, `copilot-instructions.md` is designed to provide project-level information to Copilot. Let's ensure repository coding standards are documented to improve code suggestions from Copilot.
 
-1. Return to your codespace.
-2. Open `.github/copilot-instructions.md`.
-3. Locate the **Code formatting requirements** section. Note how it contains a note to use type hints. That's why you saw those in the code generated previously.
-4. Add the following lines of markdown right below the note about type hints to instruct Copilot to add comment headers to files and docstrings:
+1. Open `.github/copilot-instructions.md`.
+2. Locate the **Code formatting requirements** section. Note how it contains a note to use type hints. That's why you saw those in the code generated previously.
+3. Add the following lines of markdown right below the note about type hints to instruct Copilot to add comment headers to files and docstrings:
 
    ```markdown
    - Every function should have docstrings or the language equivalent.
    - Before imports or any code, add a comment block to the file that explains its purpose.
    ```
 
-5. Close **copilot-instructions.md**.
-6. Select **New Chat** in Copilot Chat to clear the buffer and start a new conversation.
-7. Return to **server/routes/publishers.py** to ensure focus is set correctly.
-8. Send the same prompt as before to create the endpoint.
+4. Close **copilot-instructions.md**.
+5. Select **New Chat** in Copilot Chat to clear the buffer and start a new conversation.
+6. Return to **server/routes/publishers.py** to ensure focus is set correctly.
+7. Send the same prompt as before to create the endpoint.
 
    ```plaintext
    Create a new endpoint to return a list of all publishers. It should return the name and id for all publishers.
    ```
 
-9. Notice how the newly generated code includes a comment header at the top of the file which resembles the following:
+8. Notice how the newly generated code includes a comment header at the top of the file which resembles the following:
 
    ```python
    """
@@ -81,7 +80,7 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    """
    ```
 
-10. Notice how the newly generated code includes a docstring inside the function which resembles the following:
+9. Notice how the newly generated code includes a docstring inside the function which resembles the following:
 
    ```python
    """
@@ -92,9 +91,9 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
    """
    ```
 
-11. Notice the generated code now includes a docstring as well as a comment block at the top!
-12. Also note how the existing code isn't updated, but of course you could ask Copilot to perform that operation if you so desired!
-13. **Don't implement the suggested changes**, as you'll be doing that in a later exercise.
+10. Notice the generated code now includes a docstring as well as a comment block at the top!
+11. Also note how the existing code isn't updated, but of course you could ask Copilot to perform that operation if you so desired!
+12. **Don't implement the suggested changes**, as you'll be doing that in a later exercise.
 
 <Aside type="note">
   If you accepted the changes, you can always select the **Undo** button towards the top right of the Copilot Chat window.

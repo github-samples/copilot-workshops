@@ -3,6 +3,7 @@ title: "Exercise 3 - Adding new functionality with Copilot Agent Mode"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import StartCopilotChat from '../_partials/start-copilot-chat.mdx';
 
 Even the simplest of updates to an application typically require updates to multiple files and operations to be performed like running tests. As a developer your flow typically involves tracking down all the necessary files, making the changes, running the tests, debugging, figuring out which file was missed, making another update... The list goes on and on.
 
@@ -68,21 +69,12 @@ Once the website is running, you can explore its functionality. The main feature
 
 ## Explore the backlog with Copilot
 
+<StartCopilotChat />
+
 The initial implementation of the website is functional, but we want to enhance it by adding new capabilities. Let's start off by reviewing the backlog. Ask GitHub Copilot to show you the backlog of items that we created in the previous exercise.
 
-1. Return to your codespace.
-2. Open **Copilot Chat**.
-3. Create a new chat session by selecting the **New Chat** button, which will remove any previous context.
-4. Ensure **Agent** is selected from the list of modes.
-5. Select **Claude Sonnet 4.5** from the list of available models.
-
-<Aside type="caution">
-  The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude Sonnet 4.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
-</Aside>
-
-6. Open the GitHub Copilot Chat, if it is not already open.
-7. Switch to **Agent** mode, if you are not already in agent mode.
-8. Select **Claude Sonnet 4.5** from the list of available models.
+1. Ensure **Agent** is selected from the list of modes.
+2. Select **Claude Sonnet 4.5** from the list of available models.
 
 <Aside type="caution">
   The authors of this lab are not indicating a preference towards one model or another. When building this lab, we used Claude Sonnet 4.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the lab. This is perfectly normal and expected.
@@ -92,13 +84,13 @@ The initial implementation of the website is functional, but we want to enhance 
   Because of the probabilistic nature of LLMs, Copilot may utilize a different MCP command, but should still be able to complete the task.
 </Aside>
 
-8. Ask Copilot about the backlog of issues by sending the following prompt to Copilot:
+3. Ask Copilot about the backlog of issues by sending the following prompt to Copilot:
 
    ```plaintext
    Please show me the backlog of items from my GitHub repository. Help me prioritize them based on those which will be most useful to the user.
    ```
-9. Select **Continue** to run the command to list all issues.
-10. Review the generated list of issues.
+4. Select **Continue** to run the command to list all issues.
+5. Review the generated list of issues.
 
 Notice how Copilot has even prioritized the items for you, based on the ones that it thinks will be most useful to the user.
 

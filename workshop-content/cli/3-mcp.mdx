@@ -3,8 +3,11 @@ title: "Exercise 3 - MCP Servers with GitHub Copilot CLI"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import StartCopilotCli from '../_partials/start-copilot-cli.mdx';
 
 There's more to writing code than just writing code. Issues need to be filed, external services need to be called, and information needs to be gathered. Typically this involves interacting with external tools, which can break a developer's flow. Through the power of Model Context Protocol (MCP), you can access all of this functionality right from Copilot CLI!
+
+<StartCopilotCli />
 
 ## Scenario
 
@@ -39,22 +42,14 @@ There are many other MCP servers available that provide access to different tool
 
 Copilot CLI supports MCP servers via a configuration file at **~/.copilot/mcp.json**. Additionally, in your project the **.vscode/mcp.json** file can configure MCP servers for VS Code-based workflows, and Copilot CLI also reads from this file.
 
-1. Return to your codespace.
-2. Open a terminal window by pressing <kbd>Ctrl</kbd>+<kbd>\`</kbd>.
-3. Start Copilot CLI:
-
-   ```bash
-   copilot
-   ```
-
-4. Register the GitHub MCP server in Copilot CLI using the `/mcp` command:
+1. Register the GitHub MCP server in Copilot CLI using the `/mcp` command:
 
    ```
    /mcp add github https://api.githubcopilot.com/mcp/
    ```
 
-5. Copilot CLI will prompt you to authenticate with GitHub. Follow the on-screen instructions to authorize.
-6. Once authentication is complete, confirm the server is registered:
+2. Copilot CLI will prompt you to authenticate with GitHub. Follow the on-screen instructions to authorize.
+3. Once authentication is complete, confirm the server is registered:
 
    ```
    /mcp list
