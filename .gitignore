@@ -18,6 +18,17 @@ pnpm-debug.log*
 # JetBrains
 .idea/
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
 # Lychee / local-only artifacts
 .playwright-mcp/
 sidebar-vscode.png
