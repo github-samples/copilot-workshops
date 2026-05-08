@@ -1,0 +1,55 @@
+# Tailspin Toys Scenario
+# This is the default scenario for the "Agents in the SDLC" workshop.
+# See scenarios/README.md for full documentation on the scenario format.
+
+# Human-readable name displayed in the workshop
+name: Tailspin Toys
+
+# Short description of the application used in this scenario
+description: >
+  A crowdfunding platform for board games with a developer theme.
+  The app uses a Python/Flask REST API, a SQLite database, and an
+  Astro/Svelte frontend with Tailwind CSS.
+
+# GitHub repository for the sample application (org/repo)
+repository: github-samples/tailspin-toys
+
+# Technology stack — used when generating scenario-specific content
+tech_stack:
+  frontend:
+    name: Astro + Svelte
+    language: TypeScript / JavaScript
+    notes: >
+      Astro handles routing and static rendering.
+      Svelte components (with runes-based reactivity) handle interactivity.
+  backend:
+    name: Flask
+    language: Python
+    notes: >
+      RESTful API using Flask blueprints and SQLAlchemy ORM.
+      Python type hints are required on all function signatures.
+  database: SQLite (via SQLAlchemy)
+
+# Content variables — these values are substituted into workshop content
+# and override prompts when rendering scenario-specific materials.
+variables:
+  company_name: Tailspin Toys
+  company_description: a crowdfunding platform for board games with a developer theme
+  product_type: crowdfunding platform
+  primary_entities: games, publishers, categories
+  filter_feature: filter games by category and publisher
+  new_endpoints_feature: endpoints to create, update, and delete games
+  accessibility_feature: high-contrast mode toggle
+  documentation_feature: docstrings for all functions
+
+# Exercises to skip for this scenario.
+# List exercise filenames (without the .md extension) from workshop-content/
+# that are NOT applicable to this scenario.
+# Leave empty (or omit) if all exercises apply.
+skip: []
+
+# Notes for workshop authors or maintainers (not shown to participants)
+author_notes: >
+  This is the canonical scenario. All workshop-content/ exercises were
+  written against this scenario, so no overrides are needed.
+  When creating a new scenario, use this file as a reference.

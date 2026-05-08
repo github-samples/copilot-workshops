@@ -60,6 +60,8 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
     - `scripts/setup-env.sh`: Performs installation of all Python and Node dependencies
     - `scripts/run-server-tests.sh`: Calls setup-env, then runs all Python tests
     - `scripts/start-app.sh`: Calls setup-env, then starts both backend and frontend servers
+    - `scripts/new-scenario.py`: Scaffolds a new workshop scenario (run with `python scripts/new-scenario.py <scenario-id>`)
+    - `scripts/validate-scenario.py`: Validates a scenario's structure and configuration (run with `python scripts/validate-scenario.py <scenario-id>` or `--all`)
 
 ## Repository Structure
 
@@ -75,4 +77,8 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
   - `src/styles/`: CSS and Tailwind configuration
 - `scripts/`: Development and deployment scripts
 - `data/`: Database files
+- `scenarios/`: Workshop scenario packs (one subdirectory per scenario)
+  - Each scenario has a `scenario.yml` and optional `overrides/` for exercise-specific content
+- `docs/authoring/`: Documentation for workshop authors
+- `.github/prompts/`: Copilot prompt files (e.g. `create-scenario-app.prompt.md`)
 - `README.md`: Project documentation
