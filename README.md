@@ -1,48 +1,82 @@
-# Tailspin Toys
+# Agents in SDLC — Workshop Content
 
-This repository contains the project for a 1 hour guided workshop to explore GitHub Copilot Agent Mode and related features in Visual Studio Code. The project is a website for a fictional game crowd-funding company, with a [Flask](https://flask.palletsprojects.com/en/stable/) backend using [SQLAlchemy](https://www.sqlalchemy.org/) and [Astro](https://astro.build/) frontend using [Svelte](https://svelte.dev/) for dynamic pages.
+Workshop content for **Agents in SDLC**, a guided exploration of GitHub Copilot's agentic capabilities (Copilot CLI, VS Code agent mode, and the Copilot cloud agent) across the software development lifecycle.
+
+The published site lives at **<https://github-samples.github.io/agents-in-sdlc/>**.
+
+> [!NOTE]
+> The demo application learners build through during the workshop — Tailspin Toys, a Flask + Astro/Svelte crowdfunding site — lives in a separate repository: **<https://github.com/github-samples/tailspin-toys>**. This repo holds only the *content*: lesson MDX, partials, images, and the Astro + Starlight site that publishes them.
 
 ## Start the workshop
 
-**To begin the workshop, start at [workshop-content/index.mdx](./workshop-content/index.mdx)**
+Begin at the [workshop landing page](https://github-samples.github.io/agents-in-sdlc/) on the published site, or open [`workshop-content/index.mdx`](./workshop-content/index.mdx) locally.
 
-The workshop content is published as an [Astro](https://astro.build/) +
-[Starlight](https://starlight.astro.build/) site under [`docs/`](./docs/).
-To preview it locally:
+## Repository structure
+
+- **`workshop-content/`** — Lesson source (MDX).
+  - `cli/`, `vscode/`, `cloud/` — Per-path lessons (Copilot CLI / VS Code / cloud agent).
+  - `shared/` — Lessons shared across paths (referenced via redirect-stub pages in the per-path folders).
+  - `_partials/` — Reusable MDX fragments (`callout-*`, `section-*`, `exercise-*` prefixes).
+  - `images/` — Screenshots and diagrams.
+- **`docs/`** — Astro + Starlight site that publishes `workshop-content/` to GitHub Pages.
+- **`.github/`**
+  - `copilot-instructions.md` + `instructions/*.md` — Authoring guidance for Copilot.
+  - `agents/`, `skills/` — Custom agents and skills available to Copilot in this repo.
+  - `workflows/pages.yml` — Builds and deploys the site on pushes to `main`.
+
+## Local development
+
+From the repo root:
 
 ```bash
 cd docs
 npm install
-npm run dev          # local dev server
-# or
-npm run build        # produce static site under docs/dist/
-npm run preview      # serve the built site under the GitHub Pages base path
+ln -sfn $PWD/node_modules ../workshop-content/node_modules   # MDX outside docs/ needs to resolve @astrojs/starlight/components
+npm run dev
 ```
 
-Authored content lives in [`workshop-content/`](./workshop-content/) (Markdown/MDX).
-Reusable prose blocks live in [`workshop-content/_partials/`](./workshop-content/_partials/)
-and are imported as MDX components.
+The site runs at <http://localhost:4321/agents-in-sdlc/>.
 
-Or, if just want to run the app...
+The `workshop-content/node_modules` symlink mirrors what `pages.yml` does in CI. It is gitignored.
 
-## Launch the site
+## Verification
 
-A script file has been created to launch the site. You can run it by:
+Before opening a PR, run both checks:
+
+**Build (target: 29 pages):**
 
 ```bash
-./scripts/start-app.sh
+cd docs && rm -rf dist && npm run build
 ```
 
-Then navigate to the [website](http://localhost:4321) to see the site!
+**Link check (offline):**
 
-## License 
+```bash
+mkdir -p /tmp/lychee-root && ln -sfn $PWD/docs/dist /tmp/lychee-root/agents-in-sdlc \
+  && lychee --offline --no-progress --root-dir /tmp/lychee-root 'docs/dist/**/*.html'
+```
 
-This project is licensed under the terms of the MIT open source license. Please refer to the [LICENSE](./LICENSE) for the full terms.
+Lychee runs offline and won't catch broken external GitHub URLs — click those manually after changes.
 
-## Maintainers 
+## Authoring conventions
 
-You can find the list of maintainers in [CODEOWNERS](./.github/CODEOWNERS).
+See [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) for the full playbook (partials naming, shared-module pattern, link conventions, commit hygiene).
+
+Per-file-type guidance lives in [`.github/instructions/`](./.github/instructions/) and is auto-applied based on each file's `applyTo` glob:
+
+- `mdx.instructions.md` — Workshop MDX patterns.
+- `markdown.instructions.md` — Repo-level Markdown (no hard-wrap; GitHub admonitions).
+- `partials.instructions.md` — `workshop-content/_partials/` conventions.
+- `astro.instructions.md` — `docs/` site wrapper.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
+
+## Maintainers
+
+See [CODEOWNERS](./.github/CODEOWNERS).
 
 ## Support
 
-This project is provided as-is, and may be updated over time. If you have questions, please open an issue.
+Provided as-is. Open an issue if you have questions.
