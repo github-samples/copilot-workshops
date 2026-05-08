@@ -25,7 +25,7 @@ Refer to technology-specific instruction files:
 
 - Every interactive element MUST include a `data-testid` attribute
 - Use descriptive test IDs that identify the element's purpose and context
-- Examples: `data-testid="game-card"`, `data-testid="submit-button"`, `data-testid="nav-home"`
+- Examples: `data-testid="game-card"`, `data-testid="game-card-{game.id}"`, `data-testid="submit-button"`, `data-testid="nav-home"`
 
 ### Accessibility
 
