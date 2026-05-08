@@ -26,11 +26,11 @@ export default defineConfig({
       sidebar: [
         { label: 'Home', link: '/' },
         { label: 'Prerequisites', link: '/shared/0-prereqs/' },
-        { label: 'Custom instructions', link: '/shared/1-custom-instructions/' },
         {
           label: 'VS Code path',
           items: [
             { label: 'Overview', link: '/vscode/' },
+            { label: '1. Custom instructions', link: '/shared/1-custom-instructions/' },
             { label: '2. Custom instructions hands-on', link: '/vscode/2-custom-instructions/' },
             { label: '3. MCP with VS Code', link: '/vscode/3-mcp/' },
             { label: '4. Agent mode', link: '/vscode/4-agent-mode/' },
@@ -44,6 +44,7 @@ export default defineConfig({
           label: 'Copilot CLI path',
           items: [
             { label: 'Overview', link: '/cli/' },
+            { label: '1. Custom instructions', link: '/shared/1-custom-instructions/' },
             { label: '2. Install Copilot CLI', link: '/cli/2-install-copilot-cli/' },
             { label: '3. MCP with CLI', link: '/cli/3-mcp/' },
             { label: '4. Generating code', link: '/cli/4-generating-code/' },
@@ -57,6 +58,7 @@ export default defineConfig({
           label: 'Cloud agent path',
           items: [
             { label: 'Overview', link: '/cloud/' },
+            { label: '1. Custom instructions', link: '/shared/1-custom-instructions/' },
             { label: '2. Cloud agent', link: '/cloud/2-cloud-agent/' },
             { label: '3. Custom agents', link: '/cloud/3-custom-agents/' },
             { label: '4. Managing agents', link: '/cloud/4-managing-agents/' },
