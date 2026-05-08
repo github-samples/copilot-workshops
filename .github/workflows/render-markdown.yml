@@ -4,10 +4,14 @@ name: Render workshop
 # render error (missing partial, unresolved component, broken link, missing
 # image) or lychee error. Does NOT commit anywhere.
 #
-# On push to main: regenerate workshop/ and commit any diff back to main as
-# github-actions[bot]. The commit message contains [skip ci] to avoid
-# triggering this workflow recursively. pages.yml watches docs/**, not
-# workshop/**, so it also will not re-fire on the bot commit.
+# On push to main: re-runs validation, then regenerates workshop/ and commits
+# any diff back to main as github-actions[bot]. The commit message contains
+# [skip ci] to avoid triggering this workflow recursively. pages.yml watches
+# docs/**, not workshop/**, so it also will not re-fire on the bot commit.
+#
+# The validate and commit steps are split into separate jobs so that PR runs
+# (which never push) execute with read-only contents permission. Only the
+# main-branch commit job is granted contents:write.
 
 on:
   pull_request:
@@ -24,19 +28,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # required to push the regenerated workshop/ back to main
+  contents: read
 
 jobs:
-  render:
-    name: Render workshop content
+  validate:
+    name: Validate render + links
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-        with:
-          # Default GITHUB_TOKEN; sufficient to push to the same repo unless
-          # branch protection blocks bot pushes (see plan.md risks).
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -47,13 +49,33 @@ jobs:
         run: python scripts/render-markdown.py
 
       - name: Link check (lychee)
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.6.1
         with:
           args: --offline --no-progress 'workshop/**/*.md'
           fail: true
 
-      - name: Commit regenerated workshop/ (main only)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  commit:
+    name: Regenerate workshop/ on main
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # only granted on the push-to-main path so the bot can push the regenerated workshop/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Render workshop content
+        run: python scripts/render-markdown.py
+
+      - name: Commit regenerated workshop/
         run: |
           if [[ -z "$(git status --porcelain workshop/)" ]]; then
             echo "workshop/ is already in sync — nothing to commit."
@@ -68,4 +90,3 @@ jobs:
 
           [skip ci]"
           git push
-
