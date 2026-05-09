@@ -85,8 +85,5 @@ With Copilot completing its work on the accessibility features, we can now turn 
 
 [agents-page]: https://github.blog/changelog/2025-10-28-a-agents-page-to-assign-steer-and-track-copilot-coding-agent-tasks
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/coding-agent/about-custom-agents
-[next-lesson]: 
----
-
 [next-lesson]: ./7-iterating-copilot-work.md
 [previous-lesson]: ./5-custom-agents.md
