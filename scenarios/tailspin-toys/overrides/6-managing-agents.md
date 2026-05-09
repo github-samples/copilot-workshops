@@ -14,7 +14,7 @@ In this lesson you will:
 
 ## Scenario
 
-While reviewing the agent session for the accessibility feature, the team identified an additional related requirement to include. Since the agent is already making changes to the UI styling and adding toggle functionality, it makes sense to incorporate this new request while the work is in progress. You want to steer the active session to incorporate the additional requirement.
+After assigning the agent to create a high-contrast mode, the team realized it would be a good time to add a light mode as well. Since work was already being done to update the style of the site and add toggle functionality, it seemed logical to include this functionality. You want to steer the agent's work to ensure it adds a light mode as well as high contrast.
 
 ## Review Copilot coding agent tasks
 
@@ -23,8 +23,8 @@ Let's see the current status of all tasks assigned to Copilot coding agent.
 1. Navigate to agents page at [https://github.com/copilot/agents](https://github.com/copilot/agents).
 2. Note the list of tasks, both on the main pane and on the left pane. You should see the list of the tasks you've assigned to Copilot, including:
     - Updating documentation for your codebase.
-    - Generating new API endpoints.
-    - Adding an accessibility feature to the website.
+    - Generating new API endpoints for games.
+    - Adding a high contrast mode for the website.
 3. Select one of the running tasks. Review the tasks which have been performed by Copilot. These can include:
     - Checking out the code from the repository.
     - Creating the environment for Copilot to work.
@@ -85,8 +85,5 @@ With Copilot completing its work on the accessibility features, we can now turn 
 
 [agents-page]: https://github.blog/changelog/2025-10-28-a-agents-page-to-assign-steer-and-track-copilot-coding-agent-tasks
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/coding-agent/about-custom-agents
-[next-lesson]: 
----
-
 [next-lesson]: ./7-iterating-copilot-work.md
 [previous-lesson]: ./5-custom-agents.md

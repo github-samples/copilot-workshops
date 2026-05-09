@@ -4,7 +4,15 @@ This directory holds exercise-specific content overrides for the **Tailspin Toys
 
 ## About overrides
 
-Because Tailspin Toys is the **default scenario** — meaning all of the exercises in `workshop-content/` were authored against it — this directory is intentionally empty. No overrides are needed.
+Tailspin Toys is the **default scenario** — the core exercises in `workshop-content/` were originally authored against it. However, as the base workshop content has been generalized to support any language or framework, overrides are used here to restore the Python/Flask-specific and Tailspin Toys-specific details where needed.
+
+## Files in this directory
+
+| File | Purpose |
+|------|---------|
+| `2-custom-instructions.md` | Restores Python/Flask-specific file references (`publishers.py`, `flask-endpoint.instructions.md`, `python-tests.instructions.md`) and Python docstring code examples removed from the generic base |
+| `5-custom-agents.md` | Restores the Tailspin Toys high-contrast mode accessibility scenario |
+| `6-managing-agents.md` | Restores the Tailspin Toys light-mode steering scenario and the Tailspin-specific task list |
 
 ## When to add an override
 
