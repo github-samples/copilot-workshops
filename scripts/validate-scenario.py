@@ -228,10 +228,10 @@ class Validator:
             self._check_required_fields(config)
             self._check_variables(config)
             skip_list = self._check_skip_list(config)
-            self._check_overrides(skip_list)
+            self._check_steps(skip_list)
         else:
-            # scenario.yml missing — overrides check may still be useful
-            self._check_overrides([])
+            # scenario.yml missing — steps check may still be useful
+            self._check_steps([])
 
         return len(self.errors) == 0
 
@@ -296,29 +296,29 @@ class Validator:
                 )
         return [s for s in skip if isinstance(s, str)]
 
-    def _check_overrides(self, skip_list: list[str]) -> None:
-        overrides_dir = self.scenario_dir / "overrides"
-        if not overrides_dir.is_dir():
+    def _check_steps(self, skip_list: list[str]) -> None:
+        steps_dir = self.scenario_dir / "steps"
+        if not steps_dir.is_dir():
             self.warn(
-                f"scenarios/{self.scenario_id}/overrides/ does not exist. "
-                "Create it (even empty) to hold exercise overrides."
+                f"scenarios/{self.scenario_id}/steps/ does not exist. "
+                "Create it (even empty) to hold exercise steps files."
             )
             return
 
         valid_exercises = set(self.exercises())
-        for override_file in overrides_dir.glob("*.md"):
-            if override_file.name == "README.md":
+        for steps_file in steps_dir.glob("*.md"):
+            if steps_file.name == "README.md":
                 continue
-            stem = override_file.stem
+            stem = steps_file.stem
             if stem not in valid_exercises:
                 self.err(
-                    f"overrides/{override_file.name}: does not correspond to any exercise "
+                    f"steps/{steps_file.name}: does not correspond to any exercise "
                     f"in workshop-content/."
                 )
             elif stem in skip_list:
                 self.err(
-                    f"overrides/{override_file.name}: exercise '{stem}' is in the skip "
-                    "list but also has an override — remove one or the other."
+                    f"steps/{steps_file.name}: exercise '{stem}' is in the skip "
+                    "list but also has a steps file — remove one or the other."
                 )
 
 

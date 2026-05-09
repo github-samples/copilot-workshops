@@ -35,7 +35,6 @@ Let's see the current status of all tasks assigned to Copilot coding agent.
 > The exact steps listed will vary depending on the state of Copilot's work and the approach it took.
 
 4. Also note the pull request (PR) pane which appears on the right side. This allows you to see the PR and files changed for additional monitoring.
-
 ## Steering coding agent
 
 Now that you've seen the tasks which are active, let's request Copilot include the light mode toggle while it works on the high-contrast mode.
@@ -85,5 +84,8 @@ With Copilot completing its work on the accessibility features, we can now turn 
 
 [agents-page]: https://github.blog/changelog/2025-10-28-a-agents-page-to-assign-steer-and-track-copilot-coding-agent-tasks
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/coding-agent/about-custom-agents
+[next-lesson]: 
+---
+
 [next-lesson]: ./7-iterating-copilot-work.md
 [previous-lesson]: ./5-custom-agents.md

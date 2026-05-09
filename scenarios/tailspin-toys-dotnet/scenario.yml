@@ -53,4 +53,4 @@ author_notes: >
   This scenario uses an ASP.NET Core Web API backend instead of Flask/Python.
   The frontend (Astro + Svelte) is identical to the canonical tailspin-toys scenario.
   The app lives in the tailspin-toys-dotnet/ subfolder of this repository.
-  Exercises 2, 3, 4, and 7 require overrides due to .NET-specific references.
+  Steps files in steps/ inject .NET-specific content into exercises 2, 3, 4, 5, and 6.

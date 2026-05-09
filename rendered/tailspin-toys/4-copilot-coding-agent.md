@@ -12,9 +12,9 @@ You'll explore the following with Copilot coding agent:
 - the importance of clearly scoped issues.
 - assigning issues to Copilot.
 
-## Scenarios
+## Scenario
 
-Tailspin Toys has some tech debt they'd like to address. The contractors initially hired to create the first version of the site left the documentation in an unideal state - and by that you'll notice it's completely lacking. As a first step, they'd like to see docstrings or the equivalent added to all functions in the application.
+Tailspin Toys has some tech debt they'd like to address. The contractors initially hired to create the first version of the site left the documentation in an unideal state - and by that you'll notice it's completely lacking. As a first step, they'd like to see docstrings added to all functions in the application.
 
 Additionally, the design team is ready to get to work on building the UX for managing games. They don't need a full implementation yet, but they at least need some endpoints they can use for testing. Specifically, they need endpoints for the games API which will allow them to create, update and delete games. This is currently a blocker, but there are other issues which are of higher priority at the moment.
 
@@ -36,7 +36,7 @@ As always, the fundamentals of software development do not change with the addit
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
-Coding agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the **.github/workflows/copilot-setup-steps.yml** file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to .NET, Node.JS, and the required dependencies for the client and server:
+Coding agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the **.github/workflows/copilot-setup-steps.yml** file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot has access to Python, Node.JS, and the required dependencies for the client and server:
 
 ```yaml
 name: "Copilot Setup Steps"
@@ -53,17 +53,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Backend setup - .NET
-      - name: Set up .NET
-        uses: actions/setup-dotnet@v4
+      # Backend setup - Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          dotnet-version: "8.0"
+          python-version: "3.12"
 
-      - name: Restore .NET dependencies
-        run: dotnet restore server/TailspinToys.sln
-
-      - name: Build .NET project
-        run: dotnet build server/TailspinToys.sln --no-restore
+      - name: Install Python dependencies
+        working-directory: ./server
+        run: pip install -r requirements.txt
 
       # Frontend setup - Node.js
       - name: Set up Node.js
@@ -95,7 +93,7 @@ While everyone understands the importance of documentation, most projects have e
 6. Set the **Description** to:
    
     ```plaintext
-    Our organization has a requirement that all functions have XML documentation comments (or the language equivalent). Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure docstrings (or the equivalent) are included with every function or method.
+    Our organization has a requirement that all functions have docstrings or the language equivalent. Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure docstrings (or the equivalent) are included with every function or method.
     ```
 
 7. Select **Create** to create the issue.
@@ -127,7 +125,7 @@ While everyone understands the importance of documentation, most projects have e
 
 This will likely take several minutes. One of the primary goals of Copilot coding agent is to allow it to perform tasks asynchronously, freeing us to focus on other tasks. We're going to take advantage of that very feature by both assigning another task to Copilot coding agent, then turning our attention to writing some code to add features to our application.
 
-## Create new endpoints to modify games
+## Create new API endpoints
 
 As has been highlighted, one of the great advantages of GitHub Copilot coding agent is the ability to divide work, where you can focus on one set of tasks while it focuses on another. While creating the endpoints for modifying games for the design team might not necessarily take a long time, it's still time which could be used for other tasks. Let's assign it to Copilot coding agent!
 
@@ -145,7 +143,7 @@ As has been highlighted, one of the great advantages of GitHub Copilot coding ag
    - There should be appropriate error handling for all new endpoints
    - There should be unit tests created for all new endpoints
    - Before creating the PR, ensure all tests pass
-   ```
+    ```
 
 7. Select **Create** to create the issue.
 8. On the right side, select **Assign to Copilot** to open the assignment dialog.
@@ -161,7 +159,6 @@ Shortly after, you should see a set of 👀 on the first comment in the issue, i
 9. Select **Assign** to assign the issue to Copilot coding agent.
 
 Copilot is now diligently working on your second request! Copilot coding agent works in a similar fashion to a SWE, so you don't need to actively monitor it, but instead review once it's completed. Let's turn your attention to writing code and adding other features.
-
 ## Summary and next steps
 
 With coding agent working diligently in the background, you can now turn your attention to your next lesson, [creating and using custom agents][next-lesson]. [Copilot coding agent can also use MCP servers][coding-agent-mcp], and has custom instructions available to it, which you explored in earlier modules.

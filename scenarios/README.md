@@ -12,8 +12,8 @@ A scenario is a specific sample application (e.g. Tailspin Toys, a Java e-commer
 scenarios/
   <scenario-id>/
     scenario.yml          # Required: metadata, variables, skip list
-    overrides/            # Optional: exercise content overrides
-      <exercise>.md       # Replaces or supplements the named exercise
+    steps/                # Optional: scenario-specific exercise sections
+      <exercise>.md       # Injects sections into the named core exercise
     README.md             # Optional: notes for maintainers
 ```
 
@@ -28,9 +28,9 @@ scenarios/
 | `variables` | map | Content variables (company name, features, etc.) |
 | `skip` | list | Exercise filenames (without `.md`) to omit from this scenario |
 
-### `overrides/` — optional
+### `steps/` — optional
 
-When the core workshop exercises contain scenario-specific wording (company name, feature descriptions, etc.) that does not match your application, create a replacement Markdown file in `overrides/` with the same filename as the exercise. The replacement file should contain a `## Scenario` section that describes what learners are building in the context of your application, plus any other section-level rewrites needed.
+The core exercises in `workshop-content/` are generic templates. When your scenario needs to inject application-specific content (company name, tech-stack details, feature descriptions), create a steps file in `steps/` with the same filename as the exercise. A steps file contains only the `## ` sections that differ from the core — each matching section replaces its counterpart in the core exercise when exercises are rendered for this scenario.
 
 See [docs/authoring/new-scenario-guide.md](../docs/authoring/new-scenario-guide.md) for step-by-step instructions.
 

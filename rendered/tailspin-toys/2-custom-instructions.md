@@ -12,7 +12,7 @@ In this exercise, you will learn how to:
 - implement both repository-wide instructions and task-specific instructions.
 
 > [!IMPORTANT]
-> Note that the code generated may diverge from some of the standards you set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in the codebase do not contain docstrings or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
+> Note that the code generated may diverge from some of the standards you set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in the codebase do not contain documentation or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
 
 ## Scenario
 
@@ -204,7 +204,7 @@ You want to create a new endpoint to list all publishers, and to follow the same
 > Note that the code generated may diverge from some of the standards we set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in our codebase do not contain docstrings or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
 
 16. After reviewing the code, select **Keep** in Copilot Chat to accept the changes.
-17. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>\`</kbd>.
+17. Open a terminal window by selecting <kbd>Ctl</kbd>+<kbd>`</kbd>.
 18. Run the tests by running the script with the following command:
 
    ```sh

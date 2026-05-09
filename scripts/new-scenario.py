@@ -100,31 +100,37 @@ author_notes: >
   TODO: Add any notes for future maintainers about this scenario.
 """
 
-OVERRIDES_README_TEMPLATE = """\
-# {display_name} — Exercise Overrides
+STEPS_README_TEMPLATE = """\
+# {display_name} — Exercise Steps
 
-This directory contains exercise-specific content overrides for the **{display_name}** scenario.
+This directory contains scenario-specific step content for the **{display_name}** scenario.
 
-## How overrides work
+## How steps work
 
-Place a Markdown file here with the **same filename** as an exercise in `workshop-content/` to replace
-its contents for this scenario. Typically you only need to rewrite the `## Scenario` section of each
-exercise to match your application — copy the original exercise file and replace every Tailspin-specific
-reference with your application's equivalent.
+Place a Markdown file here with the **same filename** as an exercise in `workshop-content/` to inject
+scenario-specific sections into that exercise. A steps file contains only the `## ` sections that differ
+from the generic core exercise — each matching section replaces the corresponding section in the core
+file when exercises are rendered for this scenario.
 
+For example, to customise only the `## Scenario` and `## Running the application` sections of exercise 3:
+
+```markdown
+## Scenario
+
+Your application-specific scenario description here.
+
+## Running the application
+
+Your application-specific startup instructions here.
 ```
-overrides/
-  1-mcp.md                        ← replaces Scenario section for exercise 1
-  3-copilot-agent-mode-vscode.md  ← replaces Scenario section for exercise 3
-```
 
-Overrides must NOT be created for exercises listed in the `skip` field of `scenario.yml`.
+Steps files must NOT be created for exercises listed in the `skip` field of `scenario.yml`.
 
 See [docs/authoring/new-scenario-guide.md](../../../docs/authoring/new-scenario-guide.md) for full instructions.
 
 ## Files in this directory
 
-*(None yet — add override files as needed.)*
+*(None yet — add steps files as needed.)*
 """
 
 
@@ -140,7 +146,7 @@ def scenario_id_to_display_name(scenario_id: str) -> str:
 def create_scenario(scenario_id: str) -> None:
     root = repo_root()
     scenario_dir = root / "scenarios" / scenario_id
-    overrides_dir = scenario_dir / "overrides"
+    steps_dir = scenario_dir / "steps"
 
     # Guard against overwriting an existing scenario
     if scenario_dir.exists():
@@ -152,9 +158,9 @@ def create_scenario(scenario_id: str) -> None:
     display_name = scenario_id_to_display_name(scenario_id)
 
     # Create directories
-    overrides_dir.mkdir(parents=True)
+    steps_dir.mkdir(parents=True)
     print(f"Created: scenarios/{scenario_id}/")
-    print(f"Created: scenarios/{scenario_id}/overrides/")
+    print(f"Created: scenarios/{scenario_id}/steps/")
 
     # Write scenario.yml
     yml_content = SCENARIO_YML_TEMPLATE.format(
@@ -164,10 +170,10 @@ def create_scenario(scenario_id: str) -> None:
     (scenario_dir / "scenario.yml").write_text(yml_content, encoding="utf-8")
     print(f"Created: scenarios/{scenario_id}/scenario.yml")
 
-    # Write overrides/README.md
-    overrides_readme = OVERRIDES_README_TEMPLATE.format(display_name=display_name)
-    (overrides_dir / "README.md").write_text(overrides_readme, encoding="utf-8")
-    print(f"Created: scenarios/{scenario_id}/overrides/README.md")
+    # Write steps/README.md
+    steps_readme = STEPS_README_TEMPLATE.format(display_name=display_name)
+    (steps_dir / "README.md").write_text(steps_readme, encoding="utf-8")
+    print(f"Created: scenarios/{scenario_id}/steps/README.md")
 
     # Summary
     print()
@@ -175,7 +181,7 @@ def create_scenario(scenario_id: str) -> None:
     print()
     print("Next steps:")
     print(f"  1. Edit scenarios/{scenario_id}/scenario.yml — fill in every TODO field.")
-    print(f"  2. Add exercise overrides to scenarios/{scenario_id}/overrides/ as needed.")
+    print(f"  2. Add exercise steps files to scenarios/{scenario_id}/steps/ as needed.")
     print(f"  3. Run: python scripts/validate-scenario.py {scenario_id}")
     print(f"  4. Update the scenario table in scenarios/README.md.")
     print()

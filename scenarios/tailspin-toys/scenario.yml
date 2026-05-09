@@ -50,6 +50,7 @@ skip: []
 
 # Notes for workshop authors or maintainers (not shown to participants)
 author_notes: >
-  This is the canonical scenario. All workshop-content/ exercises were
-  written against this scenario, so no overrides are needed.
+  This is the canonical scenario. The core workshop-content/ exercises are written
+  as generic templates. Steps files in steps/ inject Tailspin-specific content
+  (Flask/Python details, Tailspin Toys narrative) into the rendered exercises.
   When creating a new scenario, use this file as a reference.

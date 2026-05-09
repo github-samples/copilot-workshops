@@ -12,7 +12,7 @@ In this exercise, you will learn how to:
 - implement both repository-wide instructions and task-specific instructions.
 
 > [!IMPORTANT]
-> Note that the code generated may diverge from some of the standards you set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in the codebase do not contain XML documentation comments or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
+> Note that the code generated may diverge from some of the standards you set. AI tools like Copilot are non-deterministic, and may not always provide the same result. The other files in the codebase do not contain documentation or comment headers, which could lead Copilot in another direction. Consistency is key, so making sure that your code follows the established patterns is important. You can always follow-up in chat and ask Copilot to follow your coding standards, which will help guide it in the right direction.
 
 ## Scenario
 
@@ -101,7 +101,7 @@ As highlighted previously, `copilot-instructions.md` is designed to provide proj
 1. Return to your codespace.
 2. Open `.github/copilot-instructions.md`.
 3. Explore the file, noting the brief description of the project and sections for **Code standards**, **Scripts** and **GitHub Actions Workflows**. These are applicable to any interactions you'd have with Copilot, are robust, and provide clear guidance on what you're doing and how you want to accomplish it.
-4. Locate the **Code formatting requirements** section. Note how it contains a note to use C# nullable reference types and standard C# naming conventions.
+4. Locate the **Code formatting requirements** section. Note how it contains a note to use C# nullable reference types and standard C# naming conventions. That's why you saw those in the code generated previously.
 5. Add the following lines of markdown right below the note about nullable reference types to instruct Copilot to add XML documentation comments and file headers:
 
    ```markdown
@@ -160,7 +160,7 @@ You want to create a new endpoint to list all publishers, following the same pat
 
    - an overview of requirements, including that tests must be created, and controllers inherit from `ControllerBase` with `[ApiController]`.
    - a link to the previously mentioned `csharp-tests.instructions.md` file.
-   - links to two existing files which follow the patterns you want - both the games controller and its tests. Notice how these are setup as normal markdown links, allowing an instruction file to incorporate additional files for context.
+   - links to two existing files which follow the patterns you want — both the games controller and its tests. Notice how these are set up as normal markdown links, allowing an instruction file to incorporate additional files for context.
 
 6. Return to `server/TailspinToys.Api/Controllers/PublishersController.cs` to ensure focus is set correctly.
 7. Return to Copilot Chat and select **New Chat** to start a new session.

@@ -33,7 +33,7 @@ Skipped exercises are listed in `scenario.yml` and are omitted when the workshop
 
 ## Step 2 — Create the scaffolding
 
-Run the scaffolding script from the repository root:
+Use the scaffolding script to get started:
 
 ```bash
 python scripts/new-scenario.py <scenario-id>
@@ -47,8 +47,8 @@ The script creates:
 scenarios/
   <scenario-id>/
     scenario.yml          ← pre-filled template; edit this next
-    overrides/
-      README.md           ← placeholder for exercise overrides
+    steps/
+      README.md           ← placeholder for exercise steps files
 ```
 
 ---
@@ -120,39 +120,53 @@ Add each exercise to be skipped to the `skip` list in `scenario.yml`.
 
 ---
 
-## Step 5 — Write exercise overrides (as needed)
+## Step 5 — Write exercise steps files (as needed)
 
-Each exercise in `workshop-content/` contains a `## Scenario` section that describes the task in the context of Tailspin Toys. You will need to override this section for any exercise where the Tailspin-specific context does not make sense for your application.
+The core exercises in `workshop-content/` are generic templates. Each contains a `## Scenario` section and other sections describing tasks in application-neutral language. When your scenario needs scenario-specific content — your company name, tech-stack details, feature descriptions — create a steps file.
 
-Create the override file at:
+A steps file lives at:
 
 ```
-scenarios/<scenario-id>/overrides/<exercise-filename>.md
+scenarios/<scenario-id>/steps/<exercise-filename>.md
 ```
 
-The override file should be a **complete exercise file** structured identically to the original in `workshop-content/`, with the `## Scenario` section rewritten for your application and any Tailspin-specific references replaced.
+It contains **only the `## ` sections that differ from the core**. When exercises are rendered for your scenario, each matching section in the steps file replaces its counterpart in the core exercise. Sections not present in the steps file are taken unchanged from the core.
 
 > [!TIP]
-> Start by copying the original exercise file, then search for "Tailspin" and replace every occurrence with your scenario's equivalent. Update code snippets and prompts to match your tech stack.
+> Only include the sections that genuinely differ. If only `## Scenario` needs to change, your steps file only needs that one section.
 
-### Minimal override example
+### Minimal steps file example
 
-If only the `## Scenario` section needs to change:
+If only the `## Scenario` section needs to change for exercise 1:
 
 ```markdown
-<!-- scenarios/my-scenario/overrides/1-mcp.md -->
-
-# Exercise 1 - Setting up the backlog with Copilot agent mode and GitHub's MCP Server
-
-...same content as workshop-content/1-mcp.md, except:...
-
 ## Scenario
 
 You are a developer for <Company Name> — <company_description>. You've been
 assigned tasks to introduce new functionality. To file your backlog of issues
 you'll enlist the help of Copilot Chat in agent mode and the GitHub MCP server.
+```
 
-...rest of file unchanged...
+### Multi-section steps file example
+
+If exercises 3 needs a custom scenario description and application startup instructions:
+
+```markdown
+## Scenario
+
+As the list of <primary_entities> grows, <company_name> wants to allow users
+to filter by <filter_feature>. With the help of Copilot Agent Mode you'll add
+the new feature!
+
+## Running the application
+
+The <company_name> application is a <company_description>. It has two main
+components: a frontend written in <frontend_language> and a backend written
+in <backend_language>.
+
+### Starting the application
+
+...your tech-stack-specific startup steps here...
 ```
 
 ---
@@ -169,8 +183,8 @@ The script checks:
 
 - All required fields are present in `scenario.yml`.
 - Every exercise listed in `skip` exists in `workshop-content/`.
-- Every override file in `overrides/` corresponds to an exercise in `workshop-content/`.
-- No override exists for an exercise in the `skip` list (that would be a conflict).
+- Every steps file in `steps/` corresponds to an exercise in `workshop-content/`.
+- No steps file exists for an exercise in the `skip` list (that would be a conflict).
 
 Fix any issues reported before continuing.
 
@@ -220,7 +234,7 @@ Use this checklist to track your progress:
 - [ ] Created scaffolding with `scripts/new-scenario.py`
 - [ ] Completed all fields in `scenario.yml`
 - [ ] Identified exercises to skip
-- [ ] Written overrides for exercises with Tailspin-specific content
+- [ ] Written steps files for exercises with scenario-specific content
 - [ ] Validated with `scripts/validate-scenario.py` (zero errors)
 - [ ] Updated `scenarios/README.md` table
 - [ ] Tested the scenario end-to-end
