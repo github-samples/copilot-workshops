@@ -12,11 +12,11 @@ You'll explore the following with Copilot coding agent:
 - the importance of clearly scoped issues.
 - assigning issues to Copilot.
 
-## Scenarios
+## Scenario
 
-Tailspin Toys has some tech debt they'd like to address. The contractors initially hired to create the first version of the site left the documentation in an unideal state - and by that you'll notice it's completely lacking. As a first step, they'd like to see docstrings or the equivalent added to all functions in the application.
+Your organization has some tech debt to address. The initial version of the application left the documentation lacking. As a first step, they'd like to see documentation or the equivalent added to all functions in the application.
 
-Additionally, the design team is ready to get to work on building the UX for managing games. They don't need a full implementation yet, but they at least need some endpoints they can use for testing. Specifically, they need endpoints for the games API which will allow them to create, update and delete games. This is currently a blocker, but there are other issues which are of higher priority at the moment.
+Additionally, the design team is ready to get to work on building the UX for managing the primary entities. They don't need a full implementation yet, but they at least need some endpoints they can use for testing. Specifically, they need endpoints to create, update and delete items. This is currently a blocker, but there are other higher-priority issues at the moment.
 
 These are both examples of tasks which can quickly find themselves deprioritized, and are great to assign to Copilot coding agent. Copilot coding agent can then work on them asynchronously, allowing the developer to focus on other tasks, then return to review Copilot's work and ensure everything is as expected.
 
@@ -36,51 +36,7 @@ As always, the fundamentals of software development do not change with the addit
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
-Coding agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the **.github/workflows/copilot-setup-steps.yml** file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
-
-```yaml
-name: "Copilot Setup Steps"
-
-# Allows you to test the setup steps from your repository's "Actions" tab
-on: workflow_dispatch
-
-jobs:
-  copilot-setup-steps:
-    runs-on: ubuntu-latest
-    # Set the permissions to the lowest permissions possible needed for *your steps*. Copilot will be given its own token for its operations.
-    permissions:
-      # If you want to clone the repository as part of your setup steps, for example to install dependencies, you'll need the `contents: read` permission. If you don't clone the repository in your setup steps, Copilot will do this for you automatically after the steps complete.
-      contents: read
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      # Backend setup - Python
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-          cache: "pip"
-
-      - name: Install Python dependencies
-        run: ./scripts/setup-env.sh
-
-      # Frontend setup - Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-          cache: "npm"
-          cache-dependency-path: "./client/package.json"
-
-      - name: Install JavaScript dependencies
-        working-directory: ./client
-        run: npm ci
-
-      - name: Install Playwright
-        working-directory: ./client
-        run: npx playwright install
-```
+Coding agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the **.github/workflows/copilot-setup-steps.yml** file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity.
 
 It looks like any other GitHub workflow file, but it has a few key points:
 
@@ -99,7 +55,7 @@ While everyone understands the importance of documentation, most projects have e
 6. Set the **Description** to:
    
     ```plaintext
-    Our organization has a requirement that all functions have docstrings or the language equivalent. Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure docstrings (or the equivalent) are included with every function or method.
+    Our organization has a requirement that all functions have documentation or the language equivalent. Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure documentation (or the equivalent) is included with every function or method.
     ```
 
 7. Select **Create** to create the issue.
@@ -131,26 +87,16 @@ While everyone understands the importance of documentation, most projects have e
 
 This will likely take several minutes. One of the primary goals of Copilot coding agent is to allow it to perform tasks asynchronously, freeing us to focus on other tasks. We're going to take advantage of that very feature by both assigning another task to Copilot coding agent, then turning our attention to writing some code to add features to our application.
 
-## Create new endpoints to modify games
+## Create new API endpoints
 
-As has been highlighted, one of the great advantages of GitHub Copilot coding agent is the ability to divide work, where you can focus on one set of tasks while it focuses on another. While creating the endpoints for modifying games for the design team might not necessarily take a long time, it's still time which could be used for other tasks. Let's assign it to Copilot coding agent!
+As has been highlighted, one of the great advantages of GitHub Copilot coding agent is the ability to divide work, where you can focus on one set of tasks while it focuses on another. While creating the new API endpoints for the design team might not necessarily take a long time, it's still time which could be used for other tasks. Let's assign it to Copilot coding agent!
 
 1. Return to your repository on github.com.
 2. Select the **Issues** tab.
 3. Select **New issue** to open the new issue dialogue.
 4. Select **Blank issue** to use the blank template.
-5. Set the **Title** to: `Add endpoints to create and edit games`
-6. Set the **Description** to:
-
-    ```markdown
-    We're going to be creating functionality in the future to allow for the submission (and editing) of games. For now we just want the endpoints so we can explore how we want to create the UX and do some acceptance testing. Our requirements are:
-
-   - Add new endpoints to the Games API to support creating, updating and deleting games
-   - There should be appropriate error handling for all new endpoints
-   - There should be unit tests created for all new endpoints
-   - Before creating the PR, ensure all tests pass
-   ```
-
+5. Set the **Title** to describe the new endpoints you need to create.
+6. Set the **Description** to capture the requirements for the new endpoints, including what endpoints to add, error handling, and test requirements.
 7. Select **Create** to create the issue.
 8. On the right side, select **Assign to Copilot** to open the assignment dialog.
 

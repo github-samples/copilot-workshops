@@ -135,7 +135,7 @@ You have made great progress through the lab, and you're approaching the end. Ho
 
 - Create a backer interest form on the game details page
 - Implement pagination on the game listing endpoint
-- Add input validation and error handling to the Flask API
+- Add input validation and error handling to the API
 - Something else? What else might you consider?
 
 ## Summary

@@ -1,0 +1,44 @@
+name: "Render Exercises"
+
+# Runs whenever workshop content or scenario steps change, and on demand.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "workshop-content/**"
+      - "scenarios/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "workshop-content/**"
+      - "scenarios/**"
+  workflow_dispatch:
+
+jobs:
+  render:
+    name: Render all scenarios
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Validate all scenarios
+        run: python scripts/validate-scenario.py --all
+
+      - name: Render all scenarios
+        run: python scripts/render-scenario.py --all rendered/
+
+      - name: Upload rendered exercises
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-exercises
+          path: rendered/
+          retention-days: 30
