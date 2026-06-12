@@ -30,13 +30,12 @@ export default defineConfig({
           label: 'VS Code path',
           items: [
             { label: 'Overview', link: '/vscode/' },
-            { label: '1. Custom instructions', link: '/vscode/1-custom-instructions/' },
-            { label: '2. MCP with VS Code', link: '/vscode/2-mcp/' },
+            { label: '1. MCP with VS Code', link: '/vscode/1-mcp/' },
+            { label: '2. Custom instructions', link: '/vscode/2-custom-instructions/' },
             { label: '3. Agent mode', link: '/vscode/3-agent-mode/' },
-            { label: '4. Cloud agent', link: '/vscode/4-cloud-agent/' },
-            { label: '5. Custom agents', link: '/vscode/5-custom-agents/' },
-            { label: '6. Managing agents', link: '/vscode/6-managing-agents/' },
-            { label: '7. Iterating', link: '/vscode/7-iterating/' },
+            { label: '4. Custom agents', link: '/vscode/4-custom-agents/' },
+            { label: '5. Managing agents', link: '/vscode/5-managing-agents/' },
+            { label: '6. Iterating', link: '/vscode/6-iterating/' },
           ],
         },
         {

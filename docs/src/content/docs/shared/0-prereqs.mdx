@@ -44,10 +44,28 @@ The creation of the codespace will take several minutes, although it's still far
 </Aside>
 
 <Aside type="note">
-  This workshop is built to run inside of a codespace or container. This ensures the environment you're working in has all of the necessary prerequisites installed and you'll have a smooth experience. If you wish to run the workshop locally on your system, you will need recent versions of Node.js and Python installed, as well as Visual Studio Code.
-
-  If you are running the workshop locally, rather than creating a codespace, clone the newly created repository. Then open the cloned repository in VS Code, which you will use in place of Codespaces.
+  This workshop is built to run inside a codespace or local [dev container][dev-containers]. Both ensure the environment has all the necessary prerequisites installed for a smooth experience. If you'd prefer to run it locally, open the cloned repository in VS Code and select **Reopen in Container** when prompted — VS Code will build the same dev container the codespace uses.
 </Aside>
+
+
+## Using GitHub Copilot Chat and agent mode
+
+To access GitHub Copilot Chat agent mode, you need to have the GitHub Copilot Chat extension installed in your IDE, which should already be the case if you are using a GitHub Codespace.
+
+<Aside type="tip">
+  If you do not have the GitHub Copilot Chat extension installed, you can [install it from the Visual Studio Code Marketplace][copilot-chat-extension]. Or open the Extensions view in Visual Studio Code, search for **GitHub Copilot Chat**, and select **Install**.
+</Aside>
+
+Once you have the extension installed, you may need to authenticate with your GitHub account to enable it.
+
+1. Return to your codespace.
+2. If you don't already see Copilot Chat on the right side of your editor, select the **Copilot Chat** icon at the top of your codespace.
+3. Type a message like "Hello world" in the Copilot Chat window and press enter. This should activate Copilot Chat.
+4. Alternatively, if you are not authenticated you will be prompted to sign in to your GitHub account. Follow the instructions to authenticate.
+
+    ![Example of Copilot Chat authentication prompt](../images/ex1-copilot-authentication.png)
+
+5. After authentication, you should see the Copilot Chat window appear.
 
 ## Summary
 
@@ -55,7 +73,7 @@ Congratulations, you have created a copy of the lab repository! You also began t
 
 ## Next step
 
-Let's explore how you can provide context to Copilot using instruction files! Continue to [Exercise 1 - Custom Instructions][next-lesson].
+Let's explore how you can provide context to Copilot using instruction files! Continue to the next exercise in your chosen path using the links below.
 
 ## Resources
 
@@ -71,6 +89,8 @@ Let's explore how you can provide context to Copilot using instruction files! Co
 [codespaces]: https://github.com/features/codespaces
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [codespaces-quickstart]: https://docs.github.com/codespaces/getting-started/quickstart
-[next-vscode]: ../../vscode/1-custom-instructions/
+[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
+[next-vscode]: ../../vscode/1-mcp/
 [next-cli]: ../../cli/1-install-copilot-cli/
 [next-cloud]: ../../cloud/1-custom-instructions/
+[copilot-chat-extension]: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat

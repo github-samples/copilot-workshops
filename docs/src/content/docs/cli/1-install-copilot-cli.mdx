@@ -4,11 +4,7 @@ title: "Exercise 1 - Installing GitHub Copilot CLI"
 
 import { Aside } from '@astrojs/starlight/components';
 
-[GitHub Copilot CLI][about-copilot-cli] is a powerful agentic coding assistant that runs in your terminal, enabling you to explore codebases, generate code, run commands, and interact with external tools - all from the command line.
-
-## Scenario
-
-Tailspin Toys is a nascent organization with a website that's lacking in many features. Their backlog is continuing to grow, and there's a strong demand to grow. To aid the developers, they want to begin utilizing AI agents through Copilot CLI. This will allow developers to be more productive, as they can focus on the bigger picture while moving faster. The first step to doing this is, of course, to install Copilot CLI!
+[GitHub Copilot CLI][about-copilot-cli] is a powerful agentic coding assistant that runs in your terminal, enabling you to explore codebases, generate code, run commands, and interact with external tools - all from the command line. It allows you to offload tasks, request changes, and stay in the zone. The first step, as you might imagine, is to install the tool! Fortunately this can be done using tools you're already familiar with.
 
 In this exercise, you will learn how to:
 
@@ -16,9 +12,13 @@ In this exercise, you will learn how to:
 - authenticate with your GitHub account.
 - verify the installation.
 
+## Scenario
+
+Your team is starting to use AI agents to work through a growing backlog. Copilot CLI brings that capability into the terminal, where many developers already live. This exercise gets you installed, authenticated, and ready to use it for the rest of the workshop.
+
 ## Open a terminal in your codespace
 
-Before installing Copilot CLI, you need to open a terminal window in VS Code.
+Before installing Copilot CLI, you need to open a terminal window in your codespace.
 
 1. Return to your codespace if you're not already there.
 2. Open a terminal window by pressing <kbd>Ctrl</kbd>+<kbd>\`</kbd>.
@@ -26,7 +26,7 @@ Before installing Copilot CLI, you need to open a terminal window in VS Code.
 
 ## Install Copilot CLI
 
-GitHub Codespaces come with Node.js pre-installed, so you can use npm to install Copilot CLI globally.
+You can install Copilot CLI through [npm][install-npm], [WinGet][install-winget], and [Homebrew][install-homebrew]. Since GitHub Codespaces come with Node.js pre-installed you'll use npm to install Copilot CLI.
 
 1. In the terminal, verify Node.js is installed and meets the version requirement:
 
@@ -36,7 +36,7 @@ GitHub Codespaces come with Node.js pre-installed, so you can use npm to install
 
    You should see version 22 or higher (e.g., `v22.x.x`).
 
-2. Install Copilot CLI globally using npm:
+2. Install Copilot CLI globally in the codespace using npm:
 
    ```bash
    npm install -g @github/copilot
@@ -48,7 +48,7 @@ GitHub Codespaces come with Node.js pre-installed, so you can use npm to install
    copilot --version
    ```
 
-   You should see the version number displayed (e.g., `v0.0.393`).
+   You should see the version number displayed (e.g., `v1.0.XX`).
 
 <Aside type="tip">
   If you encounter permission errors, you may need to use `sudo npm install -g @github/copilot` on some systems. However, this shouldn't be necessary in GitHub Codespaces.
@@ -97,6 +97,12 @@ Now that you're at the Copilot CLI prompt for the first time, let's trust this w
    /help
    ```
 
+6. Exit Copilot CLI by entering the following command in the terminal. We will return back to Copilot CLI in a future exercise!
+
+   ```
+   exit
+   ```
+
 ## Summary and next steps
 
 Congratulations! You've successfully installed and authenticated GitHub Copilot CLI. You learned how to:
@@ -117,5 +123,8 @@ Now that Copilot CLI is installed, let's see how it picks up your repository's c
 [previous-lesson]: ../../shared/0-prereqs/
 [next-lesson]: ../2-custom-instructions/
 [install-copilot-cli]: https://docs.github.com/copilot/how-tos/set-up/install-copilot-cli
+[install-npm]: https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-npm-all-platforms
+[install-winget]: https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-winget-windows
+[install-homebrew]: https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-homebrew-macos-and-linux
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli

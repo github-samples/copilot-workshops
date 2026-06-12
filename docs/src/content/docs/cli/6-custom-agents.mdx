@@ -3,40 +3,30 @@ title: "Exercise 6 - Custom agents with GitHub Copilot CLI"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
-import AccessibilityScenario from '../_partials/section-accessibility-scenario.mdx';
-import StartCopilotCliAllowAll from '../_partials/callout-start-copilot-cli-allow-all.mdx';
+import SectionAccessibilityScenario from '@partials/section-accessibility-scenario.mdx';
+import SectionCustomAgentsOverview from '@partials/section-custom-agents-overview.mdx';
+import CalloutStartCopilotCliAllowAll from '@partials/callout-start-copilot-cli-allow-all.mdx';
 
-[Custom agents][custom-agents] in GitHub Copilot allow you to create specialized AI assistants tailored to specific tasks or domains within your development workflow. By defining agents through markdown files in the `.github/agents` folder of your repository, you can provide Copilot with focused instructions, best practices, coding patterns, and domain-specific knowledge that guide it to perform particular types of work more effectively. This allows teams to codify their expertise and standards into reusable agents. You might create an accessibility agent that ensures [WCAG][wcag] compliance, a security agent that follows secure coding practices, or a testing agent that maintains consistent test patterns—enabling developers to leverage these specialized capabilities on-demand for faster, more consistent implementations.
+## What are custom agents?
 
-You'll explore the following with custom agents:
+<SectionCustomAgentsOverview />
 
-- how to create a custom agent.
-- using a custom agent in Copilot CLI.
+## Scenario
 
-<AccessibilityScenario />
+Many web applications fall short of being accessible to all users, and the website you're working in is no exception. You'll use a custom agent to identify and resolve accessibility shortcomings.
+
+<SectionAccessibilityScenario />
 
 In this exercise, you will:
 
 - explore custom agents.
 - enable a custom agent and assign it a task using Copilot CLI.
 
-## Custom agents
-
-Custom agents are defined by markdown files in the **.github/agents** folder of your project, or globally in **~/.copilot/agents**. The markdown files will contain guidance for Copilot on how best to perform at task.
-
-## Custom agents vs skills
-
-There is some logical overlap between custom agents and skills. Both are primarily defined with markdown files, and provide an AI guidance on how to perform operations. The best way to breakdown the difference is to think of a custom agent as the worker, and skills as tools.
-
-Custom agents have their own context window, and are built to use skills as part of their orchestration. In our example, we have an accessibility custom agent, which is designed to review and make updates to the site based on defined accessibility guidelines. As part of its work, it could then call skills such as the pull request skill we saw previously, or one to run and manage tests.
-
-Custom agents are launched by using the `/agent` command in Copilot CLI. Skills are launched dynamically, thus can be reused across multiple agents.
-
 ## Reviewing the accessibility custom agent
 
 A custom agent has already been created for you for accessibility. Let's review the contents to understand how it will guide Copilot.
 
-1. Open **.github/agents/accessibility.md**.
+1. Open `.github/agents/accessibility.md`.
 2. Note the header section with the name and description of the agent.
 
 <Aside type="caution">
@@ -49,15 +39,11 @@ A custom agent has already been created for you for accessibility. Let's review 
     - Code examples for HTML, CSS and JavaScript.
     - A list of common pitfalls and mistakes.
 
-<Aside type="note">
-  There is no "best markdown" for a custom agent. As with anything in AI, you will want to test and explore to determine what works best for your environments and scenarios.
-</Aside>
-
 ## Using a custom agent in Copilot CLI
 
-<StartCopilotCliAllowAll />
-
 You can start a custom agent in Copilot CLI by using the `/agent` command. Let's perform an accessibility pass on our website.
+
+<CalloutStartCopilotCliAllowAll />
 
 1. Bring up the list of agents by typing `/agent` in the prompt window in Copilot CLI and selecting <kbd>Enter</kbd>.
 2. Select the **Accessibility agent** from the list of available agents.

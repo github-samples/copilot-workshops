@@ -3,37 +3,42 @@ title: "Exercise 2 - Custom instructions (Copilot CLI)"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
-import InstructionsOverview from '../_partials/section-instructions-overview.mdx';
-import AddDocstringInstructions from '../_partials/exercise-instructions-add-docstring.mdx';
-import StartCopilotCli from '../_partials/callout-start-copilot-cli.mdx';
+import SectionInstructionsOverview from '@partials/section-instructions-overview.mdx';
+import ExerciseExploreInstructionsFiles from '@partials/exercise-explore-instructions-files.mdx';
+import ExerciseInstructionsAddDocstring from '@partials/exercise-instructions-add-docstring.mdx';
+import CalloutStartCopilotCli from '@partials/callout-start-copilot-cli.mdx';
 
 [← Previous lesson: Install Copilot CLI][previous-lesson] · [Next lesson: MCP with CLI →][next-lesson]
 
-Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want to make sure that context is reachable. [Instruction files][instruction-files] are how you provide that guidance, so Copilot understands not just *what* you want it to do but *how* you want it done.
-
-Now that Copilot CLI is installed, you'll see those instruction files in action.
+Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want to make sure that context is available. There are several tools available to you to help Copilot, which we'll explore throughout this workshop. We're going to start with [instruction files][instruction-files], which are typically focused on how the code itself should be structured. This helps Copilot understand not just *what* code you want but *how* it should be structured.
 
 In this exercise, you will:
 
 - explore how project-specific context, coding guidelines, and documentation standards reach Copilot through repository custom instructions and path-scoped instruction files,
 - send a code-generation prompt to Copilot CLI with the *current* instructions in place,
-- add a new repository-wide standard to **`.github/copilot-instructions.md`**,
+- add a new repository-wide standard to `.github/copilot-instructions.md`,
 - re-run the same prompt and watch the regenerated code adopt the new standard.
 
 <Aside type="caution">
   Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The goal is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
 </Aside>
 
-<InstructionsOverview />
+## Instruction files
 
-## Before you begin the hands-on
+<SectionInstructionsOverview />
+
+## Explore the custom instructions files in this project
+
+<ExerciseExploreInstructionsFiles />
+
+## Create a branch
 
 You'll be making code changes, so create a branch to work in.
 
 1. From your codespace terminal, create and switch to a new branch:
 
    ```bash
-   git checkout -b custom-instructions-cli
+   git checkout -b update-custom-instructions
    ```
 
 2. Confirm Copilot CLI is installed and authenticated:
@@ -46,11 +51,11 @@ You'll be making code changes, so create a branch to work in.
 
 ## Use Copilot CLI *before* updating the instructions
 
-<StartCopilotCli />
-
 To see the impact of custom instructions, start by generating code with the current instructions in place. Later, you'll update the file and re-run the same prompt.
 
-1. Make sure your Copilot CLI session is running from the **repository root** so it picks up **`.github/copilot-instructions.md`** automatically.
+<CalloutStartCopilotCli />
+
+1. Make sure your Copilot CLI session is running from the **repository root** so it picks up `.github/copilot-instructions.md` automatically.
 2. At the Copilot CLI prompt, ask it to generate the publishers endpoint:
 
    ```plaintext
@@ -58,8 +63,8 @@ To see the impact of custom instructions, start by generating code with the curr
    ```
 
 3. Copilot CLI will explore the project, propose a plan, and (with your approval) write the file. Approve the file write when prompted.
-4. Open the generated **`server/routes/publishers.py`** in your editor.
-5. Notice the function signatures use [type hints][python-type-hints] — that's coming from a directive already in **`.github/copilot-instructions.md`**.
+4. Open the generated `server/routes/publishers.py` in your editor.
+5. Notice the function signatures use [type hints][python-type-hints] — that's coming from a directive already in `.github/copilot-instructions.md`.
 6. Notice the generated code **is missing** docstrings and a file-level comment header.
 
 <Aside type="caution">
@@ -68,7 +73,7 @@ To see the impact of custom instructions, start by generating code with the curr
 
 ## Add a new repository standard
 
-<AddDocstringInstructions />
+<ExerciseInstructionsAddDocstring />
 
 ## Re-run the prompt and observe the change
 
@@ -81,7 +86,7 @@ Now that the instructions have a docstring rule, ask Copilot CLI to update the p
    Update server/routes/publishers.py to follow the latest documentation conventions in .github/copilot-instructions.md.
    ```
 
-3. Approve the file edit when prompted, then reopen **`server/routes/publishers.py`**.
+3. Approve the file edit when prompted, then reopen `server/routes/publishers.py`.
 4. Notice that the file now opens with a comment block similar to:
 
    ```python
@@ -102,16 +107,14 @@ Now that the instructions have a docstring rule, ask Copilot CLI to update the p
    """
    ```
 
-6. Leave the generated file in place — there's no harm in keeping it, and you'll build on this work in a later exercise.
-
-You just steered Copilot CLI to follow a new project standard with a single line of markdown — no flags, no plugins, no MCP servers. That's the power of repository custom instructions.
+6. Leave the generated file in place — you'll build on this work in a later exercise.
 
 ## Summary and next steps
 
 You explored how Copilot picks up context from instruction files in this project, then used Copilot CLI to:
 
 - generate a Flask endpoint with the *existing* instructions,
-- add a new repository-wide standard to **`.github/copilot-instructions.md`**,
+- add a new repository-wide standard to `.github/copilot-instructions.md`,
 - re-run the same prompt and watch the regenerated code adopt the new standard.
 
 Next, you'll extend Copilot CLI's reach beyond the repo by [connecting to MCP servers][next-lesson] so it can talk to GitHub and other external systems.
@@ -125,7 +128,7 @@ Next, you'll extend Copilot CLI's reach beyond the repo by [connecting to MCP se
 
 [previous-lesson]: ../1-install-copilot-cli/
 [next-lesson]: ../3-mcp/
-[instruction-files]: https://docs.github.com/en/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
+[instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [python-type-hints]: https://docs.python.org/3/library/typing.html
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository
 [copilot-instructions-five-tips]: https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/
