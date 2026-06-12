@@ -11,6 +11,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Generated workshop mirror (no longer committed; renderer was retired)
+workshop/
+
 # Environment
 .env
 .env.production
