@@ -33,27 +33,29 @@ The website is a crowdfunding platform for board games with a developer theme. I
 
 ### Starting the website
 
-To make running the website easier, a script has been provided that will start both the front-end and back-end servers. You can run this script in your GitHub Codespace to start the website with the following instructions:
+To make running the website easier, an `npm run dev` task has been provided that starts both the front-end and back-end servers together. You can run it in your GitHub Codespace with the following steps:
 
 1. Return to your codespace. You'll continue working in your current branch.
-2. Open a new terminal window inside your codespace by selecting <kbd>Ctl</kbd> + <kbd>\`</kbd>.
-3. Run the following script to start the website:
+2. Open a new terminal window inside your codespace by selecting <kbd>Ctrl</kbd> + <kbd>\`</kbd>.
+3. Run the following command to start the website:
 
    ```bash
-   scripts/start-app.sh
+   npm run dev
    ```
 
-   Once the script is running, you should see output indicating that both the front-end and back-end servers are running, similar to the below:
+   Once both servers are ready, you should see a banner indicating the URLs, similar to the below:
 
    ```bash
-   Server (Flask) running at: http://localhost:5100
-   Client (Astro) server running at: http://localhost:4321
+   🚀 Tailspin Toys is ready!
+      Server (Flask):   http://localhost:5100
+      Client (Astro):   http://localhost:4321
+      Press Ctrl-C to stop both.
    ```
 
 > [!NOTE]
 > If a dialog box opens prompting you to open a browser window for `http://localhost:5100` close it by selecting the **x**.
 
-4. Open the website by using <kbd>Ctrl</kbd>-**Click** (or <kbd>Cmd</kbd>-**Click** on a Mac) on the client address `http://localhost:4321` in the terminal.
+4. Open the website by holding <kbd>Command</kbd> (Mac) or <kbd>Ctrl</kbd> (Windows/Linux) and selecting the client address `http://localhost:4321` in the terminal.
 
 > [!NOTE]
 > When using a codespace, selecting a link for the localhost URL from the Codespace terminal will automatically redirect you to `https://<your-codespace-name>-4321.app.github.dev/`. This is a private tunnel to your codespace, which is now hosting your web server!
@@ -74,7 +76,10 @@ Once the website is running, you can explore its functionality. The main feature
 
 The initial implementation of the website is functional, but we want to enhance it by adding new capabilities. Let's start off by reviewing the backlog. Ask GitHub Copilot to show you the backlog of items that we created in the previous exercise.
 
-1. Ensure **Agent** is selected from the list of modes.
+1. Select **Agent** from the agents dropdown in the Chat view. The **Agent** agent autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
+
+   ![Screenshot showing the agent picker in the Chat view.](../images/shared-chat-mode-selector.png)
+
 2. Select **Claude Sonnet 4.5** from the list of available models.
 
 > [!WARNING]
@@ -97,7 +102,7 @@ Notice how Copilot has even prioritized the items for you, based on the ones tha
 
 Before kicking off the agent to generate the code, it's a good time to review the instructions file you'll use to provide Copilot context for its work. You're going to take advantage of the [user interface (UI)](https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/ui.instructions.md) file, which contains context on how to approach adding functionality to the website.
 
-1. In your codespace, navigate to **.github/instructions/ui.instructions.md**.
+1. In your codespace, navigate to `.github/instructions/ui.instructions.md`.
 2. Take note of the overall guidance on how to approach adding functionality. This includes:
    - An overview of the architecture.
    - Principles for component design, testability and accessibility.
@@ -124,9 +129,9 @@ In addition, the tests need to run (and pass) before you merge everything into y
 
    ![Screenshot showing an example of selecting the UI instructions file](../images/ex3-select-instructions-file.png)
 
-3. Ensure **Agent** mode is still selected.
+3. Ensure **Agent** is still selected from the agents dropdown in the Chat view.
 
-   ![Screenshot of Copilot Chat mode selection with Agent highlighted](../images/shared-agent-mode-dropdown.png)
+   ![Screenshot showing the agent picker in the Chat view.](../images/shared-chat-mode-selector.png)
 
 4. Ensure **Claude Sonnet 4.5** is still selected for the model.
 5. Prompt Copilot to implement the functionality based on the issue you created earlier by using the following prompt:
@@ -178,7 +183,7 @@ There are several ways to create a pull request, including through github.com an
 2. Ask Copilot to create a PR for you:
 
    ```plaintext
-   Find the issue in the repo related to filtering by category and publisher. Create a new pull request for the current add-filters branch, and associate it with the correct issue.
+   Find the issue in the repo related to filtering by category and publisher. Create a new pull request for the current branch, and associate it with the correct issue.
    ```
 
 3. As needed, select **Continue** to allow Copilot to perform the tasks necessary to gather information and perform operations.
@@ -193,7 +198,7 @@ Congratulations! In this exercise, we explored how to use GitHub Copilot Agent M
 - Copilot Agent Mode can explore your project, identify relevant files, and make coordinated changes.
 - to review changes and tests generated by Copilot Agent Mode before merging into your codebase.
 
-Now let's [return to our cloud agent][next-lesson] to see how well it did with the issues we assigned to it.
+Now let's [create a custom agent][next-lesson] to streamline focused tasks like accessibility reviews.
 
 ### Bonus exploration exercise – Implement paging
 
@@ -206,12 +211,10 @@ As the list of games grows there will be a need for paging to be enabled. Using 
 
 ## Resources
 
-- [Cloud agent 101][cloud-agent-101]
 - [Copilot ask, edit, and agent modes: What they do and when to use them][choose-mode]
 - [Agent mode in VS Code][vs-code-agent-mode]
 
-[previous-lesson]: 2-mcp.md
-[next-lesson]: 4-cloud-agent.md
-[cloud-agent-101]: https://github.blog/ai-and-ml/github-copilot/agent-mode-101-all-about-github-copilots-powerful-mode/
+[previous-lesson]: 2-custom-instructions.md
+[next-lesson]: 4-custom-agents.md
 [choose-mode]: https://github.blog/ai-and-ml/github-copilot/copilot-ask-edit-and-agent-modes-what-they-do-and-when-to-use-them/
 [vs-code-agent-mode]: https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode

@@ -6,13 +6,30 @@
 
 # Exercise 5 - Using agent skills
 
-Agent Skills are folders of instructions, scripts, and resources that Copilot can load when relevant to improve its performance in specialized tasks. [Agent Skills is an open standard][agent-skills-repo], used by a range of different agents. Agent skills works in Copilot Chat in Agent Mode, Copilot Cloud Agent (CCA), and Copilot CLI.
+Doing app development often involves repeatable tasks like generating builds, running tests, or creating pull requests. **Agent skills** let you give Copilot — and other AI agents — guidance on how to perform those tasks. A skill is a folder of instructions, scripts, and resources that the agent can load on demand. [Agent Skills is an open standard][agent-skills-repo] used by a range of agents, so the same skill can work across Copilot Chat in agent mode, Copilot cloud agent, and Copilot CLI.
 
-Let's explore skills, how they're utilized by AI agents, and how we can use a skill to ensure actions are performed according to the specifications set forth by our team.
+Skills live in the `.github/skills` folder of a project, or globally in `~/.copilot/skills`. Each skill is a folder containing a `SKILL.md` file with YAML frontmatter (a `name` and a `description`) followed by the markdown instructions:
+
+```yaml
+---
+name: branching-commits-prs
+description: All changes to the repository must be done through a pull request (PR). A branch must always be created, and commits grouped together logically. Whenever asked to create commit messages, to push code, or create a pull request (PR), use this skill so everything is done correctly.
+---
+```
+
+Skills can also include subfolders with scripts, assets, and reference material. The full structure is covered in the [agent skills specification][agent-skills-spec].
+
+> [!TIP]
+> Skills are loaded dynamically. The agent decides which skill applies based on the `description` field — a clear, scenario-specific description is the difference between a skill that gets used and one that gets ignored.
+
+[agent-skills-repo]: https://github.com/agentskills/agentskills
+[agent-skills-spec]: https://agentskills.io/specification
+
+Let's explore how a skill can ensure pull requests follow the specifications set forth by our team.
 
 ## Scenario
 
-You are a part-time developer for Tailspin Toys - a crowdfunding platform for board games with a developer theme. The team has a set of requirements for pull requests (PR):
+The team has a set of requirements for pull requests (PR):
 
 - clear commit messages, with files grouped logically.
 - all tests must pass before a PR is created.
@@ -30,37 +47,21 @@ In this exercise you will:
 - learn how skills are utilized by the AI agent.
 - create a PR which matches the guidelines with the help of the skill.
 
-## Agent skills
-
-Skills allow you to tell Copilot and other AI agents how to perform specific tasks. This might include how to run tests, deploy projects, or create a PR. Skills are included in the project in the **.github/skills** folder, or globally in **~/.copilot/skills**.
-
-Each skill is defined as a folder with a name. Each folder then contains a **SKILL.md** file, which defines the skill. The **SKILL.md** file must have YAML frontmatter with a name and description.
-
-```yaml
----
-name: branching-commits-prs
-description: All changes to the repository must be done through a pull request (PR). A branch must always be created, and commits grouped together logically. Whenever asked to create commit messages, to push code, or create a pull request (PR), use this skill so everything is done correctly.
----
-```
-
-> [!TIP]
-> Skills are loaded dynamically by the agent when the agent determines they're needed. It does so by utilizing the description. Having clear descriptions which defines when they should be used is key to success.
-
-Skills can also have subfolders with scripts, assets and references to provide additional information and capabilities. You can explore the full [specification][agent-skills-spec] to learn more about how skills are defined.
-
 ## Executing skills
 
-Skills are loaded dynamically when the agent determines they're necessary. The decision of what skills to use is driven by the description in the **SKILL.md** file. As such, it's important to have clear descriptions which define the use case for the skill.
+Skills are loaded dynamically when the agent determines they're necessary. The decision of what skills to use is driven by the description in the `SKILL.md` file. As such, it's important to have clear descriptions which define the use case for the skill.
 
 ## Exploring the PR skill
 
 Because Tailspin Toys has a set of requirements for creating PRs, they created a skill to help AI tools be able to generate PRs which follow these guidelines. Let's explore the skill to understand what it'll do.
 
-1. Open **.github/skills/branches-commits-prs/SKILL.md**.
+1. Open `.github/skills/branches-commits-prs/SKILL.md`.
 2. Note the name and description. Notice how the description highlights the scenario in which it should be used, which is whenever a request is made to create a pull request or committing code.
 3. Read through the skill. Notice the rules are defined about how branches should be created, commits generated, and the contents of the pull request.
 
 ## Using the skill
+
+As highlighted previously, skills are automatically invoked by Copilot CLI. As a result, all we need to do is ask Copilot to create a PR!
 
 > [!TIP]
 > **Start a Copilot CLI session**
@@ -77,8 +78,6 @@ Because Tailspin Toys has a set of requirements for creating PRs, they created a
 > > `--allow-all-tools` skips Copilot's per-action approval prompts. Only use it in an isolated environment like a Codespace or VM, and never alias it as your default. See [Generating code with Copilot CLI][allow-all-warning] for the full explanation.
 
 [allow-all-warning]: 4-generating-code.md#utilize-plan-mode
-
-As highlighted previously, skills are automatically invoked by Copilot CLI. As a result, all we need to do is ask Copilot to create a PR!
 
 1. Ask Copilot to create a PR by using the following prompt:
 

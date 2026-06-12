@@ -1,24 +1,25 @@
 <!--
   GENERATED FILE — do not edit.
-  Source: docs/src/content/docs/cli/2-custom-instructions.mdx
+  Source: docs/src/content/docs/vscode/2-custom-instructions.mdx
   Run `python scripts/render-markdown.py` to regenerate.
 -->
 
-# Exercise 2 - Custom instructions (Copilot CLI)
+# Exercise 1 - Custom instructions (VS Code)
 
-[← Previous lesson: Install Copilot CLI][previous-lesson] · [Next lesson: MCP with CLI →][next-lesson]
+[← Previous lesson: MCP with VS Code][previous-lesson] · [Next lesson: Agent mode →][next-lesson]
 
-Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want to make sure that context is available. There are several tools available to you to help Copilot, which we'll explore throughout this workshop. We're going to start with [instruction files][instruction-files], which are typically focused on how the code itself should be structured. This helps Copilot understand not just *what* code you want but *how* it should be structured.
+Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want to make sure that context is reachable. There are several ways to share specific context with Copilot. Key among these is [instruction files][instruction-files], which are how you provide that guidance about code generation.
 
 In this exercise, you will:
 
 - explore how project-specific context, coding guidelines, and documentation standards reach Copilot through repository custom instructions and path-scoped instruction files,
-- send a code-generation prompt to Copilot CLI with the *current* instructions in place,
+- send a code-generation prompt with the *current* instructions in place,
 - add a new repository-wide standard to `.github/copilot-instructions.md`,
-- re-run the same prompt and watch the regenerated code adopt the new standard.
+- re-run the same prompt and watch the generated code adopt the new standard,
+- commit the instructions update to `main` Copilot can use the updated guidance.
 
 > [!WARNING]
-> Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The goal is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
+> Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The point of this exercise is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
 
 ## Instruction files
 
@@ -85,53 +86,45 @@ Take a moment to read the instruction files this repository ships with — there
 > [!NOTE]
 > The **Code formatting requirements** section in `copilot-instructions.md` already includes the rule about Python type hints. In the next steps, you'll add additional rules about docstrings and comment headers.
 
-## Create a branch
+## Create a branch for our changes
 
-You'll be making code changes, so create a branch to work in.
+Let's follow some best practices here and create a branch for our changes.
 
-1. From your codespace terminal, create and switch to a new branch:
-
-   ```bash
-   git checkout -b update-custom-instructions
-   ```
-
-2. Confirm Copilot CLI is installed and authenticated:
+1. Return to your codespace from the previous exercise.
+2. Open a new terminal by selecting <kbd>Ctrl</kbd>+<kbd>`</kbd>.
+3. Create and switch to a new branch:
 
    ```bash
-   copilot --version
+   git checkout -b custom-instructions
    ```
 
-   If the command isn't found or you haven't logged in, return to the [previous lesson][previous-lesson].
-
-## Use Copilot CLI *before* updating the instructions
-
-To see the impact of custom instructions, start by generating code with the current instructions in place. Later, you'll update the file and re-run the same prompt.
+## Use Copilot Chat *before* updating the instructions
 
 > [!TIP]
-> **Start a Copilot CLI session**
+> **Open Copilot Chat**
 >
-> Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI:
->
-> ```bash
-> copilot
-> ```
->
-> To pick up your most recent session for this project instead of starting fresh, run `copilot --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
+> Before you start the exercises below, return to your codespace, open the Copilot Chat panel, and select **New Chat** to start a clean conversation. Mode and model selection vary per exercise — each step calls those out where it matters.
 
-1. Make sure your Copilot CLI session is running from the **repository root** so it picks up `.github/copilot-instructions.md` automatically.
-2. At the Copilot CLI prompt, ask it to generate the publishers endpoint:
+To see the impact of custom instructions, start by sending a prompt with the current instruction file in place. Later, you'll update it and re-send the same prompt to see the difference.
+
+1. Close any open editor tabs from previous exercises so Copilot picks up only the context you want.
+2. Open `server/routes/publishers.py` (an empty file) so Copilot knows where the endpoint would live.
+3. Select **Ask** from the agents dropdown in the Chat view. The **Ask** agent answers questions about coding concepts, your codebase, or VS Code itself without making file changes.
+
+   ![Screenshot showing the agent picker in the Chat view.](../images/shared-chat-mode-selector.png)
+
+4. Send the following prompt:
 
    ```plaintext
-   Create a new endpoint at server/routes/publishers.py to return a list of all publishers. It should return the name and id for all publishers. Do not run the tests yet.
+   Show me the code for a new endpoint in server/routes/publishers.py that returns a list of all publishers, with the name and id for each. Display the code in chat only — don't apply or write any files.
    ```
 
-3. Copilot CLI will explore the project, propose a plan, and (with your approval) write the file. Approve the file write when prompted.
-4. Open the generated `server/routes/publishers.py` in your editor.
-5. Notice the function signatures use [type hints][python-type-hints] — that's coming from a directive already in `.github/copilot-instructions.md`.
-6. Notice the generated code **is missing** docstrings and a file-level comment header.
+5. Copilot explores the project and proposes code in the chat panel, often spanning `publishers.py`, `app.py`, and tests.
+6. Notice the proposed function signatures use [type hints][python-type-hints] — that's coming from a directive already in `.github/copilot-instructions.md`.
+7. Notice the proposed code **is missing** docstrings and a file-level comment header.
 
 > [!WARNING]
-> Copilot is probabilistic — there's a chance it'll add docstrings even without being told. If that happens, that's fine; the *consistency* improvement after the instruction update is still the takeaway.
+> Because Copilot is probabilistic, there's a chance it'll add docstrings even without being told to. If that happens, that's fine — the *consistency* improvement after the instruction update is still the point.
 
 ## Add a new repository standard
 
@@ -153,17 +146,15 @@ As highlighted previously, `.github/copilot-instructions.md` is designed to prov
 
 ## Re-run the prompt and observe the change
 
-Now that the instructions have a docstring rule, ask Copilot CLI to update the publishers file you just generated. The same standards directive will steer the rewrite.
-
-1. Send `/clear` in your Copilot CLI session to start with a clean conversation.
-2. Send the following prompt:
+1. Return to Copilot Chat and select **New Chat** to clear the buffer.
+2. Click back into `server/routes/publishers.py` so Copilot focuses on the right file.
+3. Send the **same prompt** as before:
 
    ```plaintext
-   Update server/routes/publishers.py to follow the latest documentation conventions in .github/copilot-instructions.md.
+   Show me the code for a new endpoint in server/routes/publishers.py that returns a list of all publishers, with the name and id for each. Display the code in chat only — don't apply or write any files.
    ```
 
-3. Approve the file edit when prompted, then reopen `server/routes/publishers.py`.
-4. Notice that the file now opens with a comment block similar to:
+4. Notice that the proposed file now opens with a comment block similar to:
 
    ```python
    """
@@ -172,7 +163,7 @@ Now that the instructions have a docstring rule, ask Copilot CLI to update the p
    """
    ```
 
-5. Notice that the generated function now includes a docstring similar to:
+5. Notice that the proposed function now includes a docstring similar to:
 
    ```python
    """
@@ -183,29 +174,83 @@ Now that the instructions have a docstring rule, ask Copilot CLI to update the p
    """
    ```
 
-6. Leave the generated file in place — you'll build on this work in a later exercise.
+You just steered Copilot to follow a new project standard with a single line of markdown — no code changes, no tool configuration. That's the power of repository custom instructions.
+
+## Commit the instructions and push the branch
+
+Instructions files are just like any asset in the repository, meaning they're managed using the same source control approach you'd take with any other item. So let's commit and push the branch to our repository.
+
+1. Open a new terminal window in your codespace by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>.
+2. From the terminal, confirm `.github/copilot-instructions.md` is the only modified file by running the following command:
+
+   ```bash
+   git status
+   ```
+
+> [!TIP]
+> If `git status` shows additional changes to `server/routes/publishers.py` or other files, **Ask** mode wasn't selected when the prompt ran. Discard those changes with `git restore server/routes/publishers.py` before committing so the commit stays focused on the instructions update.
+
+2. From the terminal, stage and commit the instructions update:
+
+   ```bash
+   git add .github/copilot-instructions.md
+   git commit -m "Add docstring and file-header standards to custom instructions"
+   ```
+
+3. From the terminal, push the branch to the repository:
+
+   ```bash
+   git push -u origin custom-instructions
+   ```
+
+## Create and merge a pull request
+
+With our branch pushed, we should create a pull request and tie it to the issue we created earlier about updating our instructions with our coding standards. We could manually do that, but Copilot, through MCP, can do that our our behalf! Let's prompt Copilot to find the issue, to create the PR to close the issue, then we can merge the PR.
+
+1. Open Copilot Chat inside of your codespace.
+2. Select <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) to open the Copilot Chat view, and ensure **Agent** is selected from the agent picker.
+3. Ask Copilot to find the issue related to updating instructions files and ask it to create the PR using our current branch, and reference the issue in its comment, by using the following prompt:
+
+   ```
+   Find the issue related to updating the instructions file. Create a new PR from the current branch, and highlight that the PR closes that issue. Ensure there's a good description of the updates made in the PR.
+   ```
+
+4. Copilot will begin work on finding the issue and creating the PR.
+5. As prompted to **Allow** Copilot to perform tasks through the MCP server, review the command and select **Allow** as appropriate.
+6. Once the PR is created, ask Copilot to merge the PR and to return your branch to main by using the following prompt:
+
+   ```
+   Merge the PR into main. Then return to main locally, and pull the latest code so we are up to date.
+   ```
+
+7. As prompted to **Allow** Copilot to perform tasks through the MCP server and the shell, review the command and select **Allow** as appropriate.
+
+You have now created and merged a pull request with the help of GitHub Copilot!
 
 ## Summary and next steps
 
-You explored how Copilot picks up context from instruction files in this project, then used Copilot CLI to:
+You explored how Copilot picks up context from instruction files in this project, then used Copilot Chat in VS Code to:
 
-- generate a Flask endpoint with the *existing* instructions,
+- send a code-generation prompt and observe what Copilot produces with the *existing* instructions,
 - add a new repository-wide standard to `.github/copilot-instructions.md`,
-- re-run the same prompt and watch the regenerated code adopt the new standard.
+- re-run the same prompt and watch the proposed code adopt the new standard,
+- commit the instructions update to `main` Copilot can use the updated guidance.
 
-Next, you'll extend Copilot CLI's reach beyond the repo by [connecting to MCP servers][next-lesson] so it can talk to GitHub and other external systems.
+Next, you'll put those instructions to work in [agent mode][next-lesson] as Copilot adds a new feature across the codebase.
 
 ## Resources
 
 - [Instruction files for GitHub Copilot customization][instruction-files]
 - [Best practices for creating custom instructions][instructions-best-practices]
 - [5 tips for writing better custom instructions for Copilot][copilot-instructions-five-tips]
+- [Personal custom instructions for GitHub Copilot][personal-instructions]
 - [Awesome Copilot — a collection of instruction files and other resources][awesome-copilot]
 
-[previous-lesson]: 1-install-copilot-cli.md
-[next-lesson]: 3-mcp.md
-[instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
+[previous-lesson]: 1-mcp.md
+[next-lesson]: 3-agent-mode.md
+[instruction-files]: https://code.visualstudio.com/docs/copilot/copilot-customization
 [python-type-hints]: https://docs.python.org/3/library/typing.html
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository
+[personal-instructions]: https://docs.github.com/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot
 [copilot-instructions-five-tips]: https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/
 [awesome-copilot]: https://github.com/github/awesome-copilot

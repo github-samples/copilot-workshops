@@ -19,20 +19,19 @@ This workshop offers multiple paths depending on how you want to interact with G
 
 ### 🖥️ [VS Code Path](vscode/README.md)
 
-Focused on GitHub Copilot features within **Visual Studio Code** and GitHub Codespaces. Covers Copilot Chat agent mode, MCP integration, the Copilot cloud agent, and custom agents — all from your IDE.
+Focused on GitHub Copilot features within **Visual Studio Code** and GitHub Codespaces. Covers Copilot Chat agent mode, MCP integration, and custom agents — all from your IDE.
 
 **Best for**: Developers who prefer IDE-based workflows.
 
 | # | Exercise |
 |---|---------|
 | 0 | [Prerequisites](shared/0-prereqs.md) |
-| 1 | [Custom instructions](vscode/1-custom-instructions.md) |
-| 2 | [MCP with VS Code](vscode/2-mcp.md) |
+| 1 | [MCP with VS Code](vscode/1-mcp.md) |
+| 2 | [Custom instructions](vscode/2-custom-instructions.md) |
 | 3 | [Agent mode](vscode/3-agent-mode.md) |
-| 4 | [Cloud agent](vscode/4-cloud-agent.md) |
-| 5 | [Custom agents](vscode/5-custom-agents.md) |
-| 6 | [Managing agents](vscode/6-managing-agents.md) |
-| 7 | [Iterating on Copilot's work](vscode/7-iterating.md) |
+| 4 | [Custom agents](vscode/4-custom-agents.md) |
+| 5 | [Managing agents](vscode/5-managing-agents.md) |
+| 6 | [Iterating on Copilot's work](vscode/6-iterating.md) |
 
 ---
 
@@ -83,7 +82,7 @@ Want to explore everything? Work through all three paths to experience the full 
 **Recommended order:**
 
 1. **Shared setup**: [Prerequisites](shared/0-prereqs.md)
-2. **VS Code**: [Custom instructions](vscode/1-custom-instructions.md) → [MCP](vscode/2-mcp.md) → [Agent mode](vscode/3-agent-mode.md)
+2. **VS Code**: [MCP](vscode/1-mcp.md) → [Custom instructions](vscode/2-custom-instructions.md) → [Agent mode](vscode/3-agent-mode.md)
 3. **CLI**: [Install CLI](cli/1-install-copilot-cli.md) → [Custom instructions](cli/2-custom-instructions.md) → [MCP](cli/3-mcp.md) → [Generating code](cli/4-generating-code.md) → [Agent skills](cli/5-agent-skills.md) → [Slash commands](cli/7-slash-commands.md)
 4. **Cloud**: [Custom instructions](cloud/1-custom-instructions.md) → [Cloud agent](cloud/2-cloud-agent.md) → [Custom agents](cloud/3-custom-agents.md) → [Managing agents](cloud/4-managing-agents.md) → [Iterating](cloud/5-iterating.md)
 

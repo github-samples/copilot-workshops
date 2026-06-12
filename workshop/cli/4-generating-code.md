@@ -21,6 +21,13 @@ By the end of this exercise, you will have added new functionality to the projec
 
 ## Utilize plan mode
 
+One of the best uses of AI is planning. Oftentimes you'll have a good concept of what you want to build, but just need to bounce some ideas off of something. AI tools can help you crystalize your thoughts by asking you follow up questions and working through different pitfalls or missing components. To support this process, Copilot CLI offers a plan mode. Additionally, that time you spend planning will help Copilot generate code that best matches the requirements set forth.
+
+You'll start the process of creating the new functionality by utilizing plan mode in Copilot CLI.
+
+> [!WARNING]
+> `--allow-all-tools` (along with the broader `--allow-all` and `--yolo` options) gives Copilot CLI full, automatic permission to run shell commands, modify files, and reach external URLs without asking. GitHub strongly recommends only using it in an **isolated environment** like a codespace, sandbox VM, or other disposable workspace — and never aliasing it on by default. For day-to-day use, prefer fine-grained `--allow-tool` rules. See [Allowing and denying tool use][allowing-tools] for the full picture.
+
 > [!TIP]
 > **Start a Copilot CLI session**
 >
@@ -37,26 +44,25 @@ By the end of this exercise, you will have added new functionality to the projec
 
 [allow-all-warning]: 4-generating-code.md#utilize-plan-mode
 
-One of the best uses of AI is planning. Oftentimes you'll have a good concept of what you want to build, but just need to bounce some ideas off of something. AI tools can help you crystalize your thoughts by asking you follow up questions and working through different pitfalls or missing components. To support this process, Copilot CLI offers a plan mode.
-
-You'll start the process of creating the new functionality by utilizing plan mode in Copilot CLI.
-
-> [!WARNING]
-> `--allow-all-tools` (and its more aggressive cousins `--allow-all` and `--yolo`) gives Copilot CLI full, automatic permission to run shell commands, modify files, and reach external URLs without asking. GitHub strongly recommends only using it in an **isolated environment** like a codespace, sandbox VM, or other disposable workspace — and never aliasing it on by default. For day-to-day use, prefer fine-grained `--allow-tool` rules. See [Allowing and denying tool use][allowing-tools] for the full picture.
-
-1. Switch Copilot CLI into plan mode by selecting <kbd>Shift</kbd>+<kbd>Tab</kbd> until you see **Plan mode** just below the prompt window.
-2. Enter the following prompt into Copilot CLI to have it retrieve the issue from your repository and put forth a plan for implementing the functionality:
+1. Enter the following prompt into Copilot CLI to create a plan based on the issue you created earlier for adding filtering capabilities to the app:
 
     ```
-    Retrieve the issue on the repository related to adding filtering. Help me build a good plan to implement this functionality.
+    /plan Retrieve the issue on the repository related to adding filtering. Help me build a good plan to implement this functionality.
     ```
 
-3. Copilot may ask follow-up questions as it builds out its plan. As those arise, answer them based on how you'd build out the functionality.
-4. Once the plan is generated, review the blueprint. You should notice it recommends changes to the backend and frontend, as well as generating tests. You can utilize <kbd>Ctrl</kbd>+<kbd>Y</kbd> to view the full details as a markdown file in VS Code.
-5. If you wish to make any suggestions to the plan Copilot generated, feel free to do so!
-6. Once you're satisfied, switch out of plan mode by selecting <kbd>Shift</kbd>+<kbd>Tab</kbd>.
-7. Tell Copilot to start the work by sending a `start` prompt (or another similar phrase like "Let's do it!") to Copilot.
-8. Copilot will get to work generating the files!
+2. Copilot may ask follow-up questions as it builds out its plan. As those arise, answer them based on how you'd build out the functionality.
+3. Once the plan is generated, review the blueprint. You should notice it recommends changes to the backend and frontend, as well as generating tests.
+4. Copilot CLI will offer you the ability to provide additional feedback to the plan. You can cursor down to the indicated section, then type your suggestions. Copilot will incorporate your suggestions into a new version of the plan.
+5. Once you're satisfied, select the option provided by Copilot to begin work building the new feature!
+
+> [!NOTE]
+> Because Copilot is probabilistic, the exact text and options provided will vary. But you will notice an option to begin building that will read something similar to:
+>
+> `Yes, and switch to autopilot mode`.
+>
+> Copilot may offer you the option to enable [autopilot mode](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot), as shown in the example above. Autopilot mode allows Copilot CLI to work through a task without waiting for your input after each step. Once you give the initial instruction, Copilot CLI works through each step autonomously until it determines the task is complete. As we are running in a contained environment, we're OK running autopilot and allowing all tools.
+
+6. Copilot will get to work generating the files!
 
 > [!NOTE]
 > This operation will likely take several minutes. You will see Copilot edit and create files, update and generate tests, and run all of the tests to ensure everything succeeds. Now's a good time to reflect on what you've explored thus far, or to enjoy a beverage.
@@ -65,21 +71,13 @@ You'll start the process of creating the new functionality by utilizing plan mod
 
 All AI code needs to be reviewed before being merged into production. Let's take the time now to explore the files Copilot created and modified in implementing the new feature.
 
-1. Review the changed files using whichever workflow fits your environment:
+1. Use Copilot CLI to display the "diff" or code changes by using the following command in Copilot CLI:
 
-    - **Option A: Terminal**. If you're working from the terminal, you can use git directly:
+    ```
+    /diff
+    ```
 
-        ```bash
-        git status
-        git diff
-        ```
-
-        Use `git status` to see the changed files and `git diff` to see the specific changes. Open any files you want to inspect with your editor of choice, such as `code <file>` if you're in a codespace, or `$EDITOR <file>` otherwise.
-
-    - **Option B: VS Code GUI**. If you have VS Code open, hide the terminal window in your codespace by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>, then select **Source Control** in your codespace.
-
-2. Note the files changed. You should see updates to files such as **games.py**, the Games API, and **test_games.py**, the tests for that API. You should also see new files created, such as Svelte components for the new filter functionality, and Playwright tests to validate the frontend.
-3. Open the files and explore the changes. In particular, notice the comment sections which have been added. All of this comes from the instructions files you worked on previously in this workshop.
+2. Note the files changed. Use your arrow keys to switch left and right to view the different files. You should see updates to files such as `games.py`, the Games API, and `test_games.py`, the tests for that API. You should also see new files created, such as Svelte components for the new filter functionality, and Playwright tests to validate the frontend.
 
 ## Summary and next steps
 
@@ -101,4 +99,4 @@ Of course, the next step from here is to [create the PR][next-lesson], which we'
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [context-management]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#context-management
-[allowing-tools]: https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
+[allowing-tools]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools

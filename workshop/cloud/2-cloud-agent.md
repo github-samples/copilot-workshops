@@ -6,9 +6,8 @@
 
 # Exercise 2 - GitHub Copilot cloud agent
 
-⬅️ **Previous lesson:** [Exercise 1 - Custom instructions (Cloud agent)](1-custom-instructions.md)
-
-You're in the **Cloud path**. Working with cloud agent happens entirely on github.com and is identical for both paths, so this exercise lives in a shared module.
+| [← Previous lesson: Custom instructions][previous-lesson] |
+|:--|
 
 There are likely very few, if any, organizations who don't struggle with tech debt. This could be unresolved security issues, legacy code requiring updates, or feature requests which have languished on the backlog because there just wasn't the time to implement them. GitHub Copilot's cloud agent is built to perform tasks such as updating code and adding functionality, all in an autonomous fashion. Once the agent completes its work, it generates a draft PR ready for a human developer to review. This allows offloading of tedious tasks and an acceleration of the development process, and frees developers to focus on larger picture items.
 
@@ -33,28 +32,24 @@ These are both examples of tasks which can quickly find themselves deprioritized
 
 ## The importance of well-scoped instructions
 
-While it can often feel like it, there is no magic in GitHub Copilot. There are no magic solutions available, where you can with just a couple of sentences snap your fingers and let AI perform the entire task for you. In fact, even seemingly straight-forward operations can often have fair amount of complexity when you peel back the layers.
-
-As a result, you want to [be mindful about how you approach assigning tasks to Copilot cloud agent][cloud-agent-best-practices]. Working with Copilot as an AI pair programmer is typically the best approach. Approach tasks, big and small, following the same strategy you would without Copilot - work in stages, learn, experiment, and adapt accordingly.
-
-As always, the fundamentals of software development do not change with the addition of generative AI.
+There's no magic in GitHub Copilot — you don't get to skip the thinking. Even seemingly straightforward operations carry complexity once you peel back the layers, so [be mindful about how you scope tasks for Copilot cloud agent][cloud-agent-best-practices]. Treat it like an AI pair programmer: work in stages, learn, experiment, and adapt as you go. The fundamentals of software development don't change with the addition of generative AI.
 
 ## Custom instructions in this repository
 
-Earlier exercises introduced custom instructions and how they guide Copilot. If you've already worked through a custom-instructions hands-on you've seen **.github/copilot-instructions.md** in action; if not, this is a good moment to take a quick look. Before assigning work to Copilot cloud agent, take a read-only look at the instruction files already included in this repository so you can spot their effect later.
+Earlier exercises introduced custom instructions and how they guide Copilot. If you've already worked through a custom-instructions hands-on you've seen `.github/copilot-instructions.md` in action; if not, this is a good moment to take a quick look. Before assigning work to Copilot cloud agent, take a read-only look at the instruction files already included in this repository so you can spot their effect later.
 
 Open the following files in the GitHub web UI for your repository, or in a codespace if you already have one running:
 
-- **.github/copilot-instructions.md** - Review the **Code standards** section, especially the requirement that Python code includes type hints.
-- **.github/instructions/python-tests.instructions.md** - Notice the `applyTo` frontmatter, which scopes these instructions to `server/tests/test_*.py` files.
+- `.github/copilot-instructions.md` - Review the **Code standards** section, especially the requirement that Python code includes type hints.
+- `.github/instructions/python-tests.instructions.md` - Notice the `applyTo` frontmatter, which scopes these instructions to `server/tests/test_*.py` files.
 
-When you assign the *Code lacks documentation* issue to cloud agent in the next section, watch the resulting pull request for type hints, docstrings, and comment headers - these come from these instruction files. We'll call this out again when reviewing PRs in a later exercise.
+When you assign the `Code lacks documentation` issue to cloud agent in the next section, watch the resulting pull request for type hints, docstrings, and comment headers - these come from these instruction files. We'll call this out again when reviewing PRs in a later exercise.
 
 ## Setting up the dev environment for the Copilot cloud agent
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
-Cloud agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the **.github/workflows/copilot-setup-steps.yml** file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
+Cloud agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the `.github/workflows/copilot-setup-steps.yml` file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
 
 ```yaml
 name: "Copilot Setup Steps"
@@ -80,20 +75,18 @@ jobs:
           python-version: "3.13"
           cache: "pip"
 
-      - name: Install Python dependencies
-        run: ./scripts/setup-env.sh
-
       # Frontend setup - Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
           node-version: "22"
           cache: "npm"
-          cache-dependency-path: "./client/package.json"
+          cache-dependency-path: |
+            package-lock.json
+            client/package-lock.json
 
-      - name: Install JavaScript dependencies
-        working-directory: ./client
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
       - name: Install Playwright
         working-directory: ./client
@@ -102,8 +95,8 @@ jobs:
 
 It looks like any other GitHub workflow file, but it has a few key points:
 
-- It contains a single job called **copilot-setup-steps**. This job is executed in GitHub Actions before Copilot starts working on the pull request.
-- Notice the **workflow_dispatch** trigger, which allows you to run the workflow manually from the Actions tab of your repository. This is useful for testing that the workflow runs successfully instead of waiting for Copilot to run it.
+- It contains a single job called `copilot-setup-steps`. This job is executed in GitHub Actions before Copilot starts working on the pull request.
+- Notice the `workflow_dispatch` trigger, which allows you to run the workflow manually from the **Actions** tab of your repository. This is useful for testing that the workflow runs successfully instead of waiting for Copilot to run it.
 
 ## Adding documentation
 
@@ -130,11 +123,11 @@ While everyone understands the importance of documentation, most projects have e
   ![Copilot assignment details](../images/ex4-assign-copilot-details.png)
 
 10. Select the **Pull Requests** tab.
-11. Open the newly generated pull request (PR), which will be titled something similar to **[WIP]: Code lacks documentation**. If a new PR doesn't appear on the list, wait for a moment or two and refresh the browser window.
+11. Open the newly generated pull request (PR), which will be titled something similar to `[WIP]: Code lacks documentation`. If a new PR doesn't appear on the list, wait for a moment or two and refresh the browser window.
 12. After a few minutes, you should see that Copilot has created a todo list.
 
 > [!NOTE]
-> It make take several minutes for the todo list from Copilot to appear in the PR. Copilot is creating its environment (running the workflow highlighted previously), analyzing the project, and determining the best approach to tackling the problem.
+> It may take several minutes for the todo list from Copilot to appear in the PR. Copilot is creating its environment (running the workflow highlighted previously), analyzing the project, and determining the best approach to tackling the problem.
 
 13. Review the list and the tasks it's going to complete.
 14. Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
@@ -155,7 +148,7 @@ As has been highlighted, one of the great advantages of GitHub Copilot cloud age
 
 1. Return to your repository on github.com.
 2. Select the **Issues** tab.
-3. Select **New issue** to open the new issue dialogue.
+3. Select **New issue** to open the new issue dialog.
 4. Select **Blank issue** to use the blank template.
 5. Set the **Title** to: `Add endpoints to create and edit games`
 6. Set the **Description** to:
@@ -180,11 +173,11 @@ Shortly after, you should see a set of 👀 on the first comment in the issue, i
 
 ![Copilot uses the eyes emoji to indicate it's working on the issue](../images/ex4-issue-eyes-emoji.png)
 
-Copilot is now diligently working on your second request! Copilot cloud agent works in a similar fashion to a SWE, so you don't need to actively monitor it, but instead review once it's completed. Let's turn your attention to writing code and adding other features.
+Copilot is now diligently working on your second request! Copilot cloud agent works in a similar fashion to a SWE, so you don't need to actively monitor it, but instead review once it's completed. Let's turn your attention to creating and using custom agents.
 
 ## Summary and next steps
 
-This lesson explored [GitHub Copilot cloud agent][copilot-agents], your AI peer programmer. With cloud agent you can assign issues to Copilot to perform asynchronously. You can use Copilot to address tech debt, create new features, or aid in migrating code from one framework to another.
+This lesson explored [GitHub Copilot cloud agent][copilot-agents]. With cloud agent you can assign issues to Copilot to perform asynchronously. You can use Copilot to address tech debt, create new features, or aid in migrating code from one framework to another.
 
 You explored these concepts:
 
@@ -201,14 +194,14 @@ With cloud agent working diligently in the background, we can now turn our atten
 - [Assigning GitHub issues to Copilot][assign-issue]
 - [Copilot cloud agent setup workflow best practices][cloud-agent-best-practices]
 
-[cloud-agent-mcp]: https://docs.github.com/copilot/how-tos/agents/copilot-cloud-agent/extending-copilot-cloud-agent-with-mcp
-[assign-issue]: https://docs.github.com/copilot/using-github-copilot/cloud-agent/using-copilot-to-work-on-an-issue
-[setup-workflow]: https://docs.github.com/copilot/using-github-copilot/cloud-agent/best-practices-for-using-copilot-to-work-on-tasks#pre-installing-dependencies-in-github-copilots-environment
-[copilot-agents]: https://docs.github.com/copilot/using-github-copilot/cloud-agent/about-assigning-tasks-to-copilot
-[cloud-agent-best-practices]: https://docs.github.com/copilot/using-github-copilot/cloud-agent/best-practices-for-using-copilot-to-work-on-tasks
+| [Next lesson: Custom agents →][next-lesson] |
+|--:|
+
+[previous-lesson]: 1-custom-instructions.md
+[next-lesson]: 3-custom-agents.md
+[cloud-agent-mcp]: https://docs.github.com/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/extend-cloud-agent-with-mcp
+[assign-issue]: https://docs.github.com/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions
+[setup-workflow]: https://docs.github.com/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment
+[copilot-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-cloud-agent
+[cloud-agent-best-practices]: https://docs.github.com/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/customize-the-agent-environment
 [github-actions]: https://docs.github.com/actions
-
----
-
-⬅️ **Previous lesson:** [Exercise 1 - Custom instructions (Cloud agent)](1-custom-instructions.md)
-➡️ **Next lesson:** [Exercise 3 - Custom agents](3-custom-agents.md)

@@ -10,7 +10,7 @@ Like any good CLI tool, GitHub Copilot CLI includes many slash commands to inter
 
 ## Scenario
 
-As a part-time developer for Tailspin Toys, you want to share your experience with Copilot CLI with the rest of the team. You also want to explore different options inside the tool to ensure you're getting the most out of it.
+You've wrapped the core CLI flows. Now let's look at a few additional capabilities — sharing sessions, switching models, and delegating tasks to [Copilot cloud agent][about-cloud-agent].
 
 In this exercise you will use:
 
@@ -20,6 +20,10 @@ In this exercise you will use:
 - `/delegate` to optionally hand off a task to cloud agent. This requires Copilot Pro+, Business, or Enterprise with cloud agent enabled.
 
 ## Sharing a session
+
+Using any tool, including an AI tool, is a skill. Working together as a team, sharing learnings with each other, is the best way to help improve everyone's experience and generate higher quality code. To support this, Copilot CLI provides a `/share` command. The `/share` command can generate a markdown file or GitHub gist with the details of the session, including the prompts used and logic Copilot followed.
+
+Let's create a GitHub gist we could share with our team.
 
 > [!TIP]
 > **Start a Copilot CLI session**
@@ -36,10 +40,6 @@ In this exercise you will use:
 > > `--allow-all-tools` skips Copilot's per-action approval prompts. Only use it in an isolated environment like a Codespace or VM, and never alias it as your default. See [Generating code with Copilot CLI][allow-all-warning] for the full explanation.
 
 [allow-all-warning]: 4-generating-code.md#utilize-plan-mode
-
-Using any tool, including an AI tool, is a skill. Working together as a team, sharing learnings with each other, is the best way to help improve everyone's experience and generate higher quality code. To support this, Copilot CLI provides a `/share` command. The `/share` command can generate a markdown file or GitHub gist with the details of the session, including the prompts used and logic Copilot followed.
-
-Let's create a GitHub gist we could share with our team.
 
 1. In the prompt window for Copilot CLI, send the following command:
 
@@ -170,6 +170,7 @@ There are of course more slash commands available, and more to explore with Copi
 [next-lesson]: 8-review.md
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
+[about-cloud-agent]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-cloud-agent
 [context-management]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#context-management
 [share-sessions]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#share-sessions
 [selecting-models]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#select-an-llm

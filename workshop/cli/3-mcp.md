@@ -8,17 +8,15 @@
 
 There's more to writing code than just writing code. Issues need to be filed, external services need to be called, and information needs to be gathered. Typically this involves interacting with external tools, which can break a developer's flow. Through the power of Model Context Protocol (MCP), you can access all of this functionality right from Copilot CLI!
 
-## Scenario
-
-You are a part-time developer for Tailspin Toys - a crowdfunding platform for board games with a developer theme. You've been assigned various tasks to introduce new functionality to the website. Being a good team member, you want to file issues to track your work. To help future you, you've decided to enlist the help of Copilot. You will set up your backlog of work for the rest of the lab, using GitHub Copilot CLI and the GitHub Model Context Protocol (MCP) server to create the issues for you.
-
 In this exercise, you will:
 
 - understand what Model Context Protocol (MCP) is and how it works with Copilot CLI.
 - set up the GitHub MCP server in your repository.
 - use GitHub Copilot CLI to create issues in your repository.
 
-By the end of this exercise, you will have created a backlog of GitHub issues for use throughout the remainder of the lab.
+## Scenario
+
+You've been assigned various tasks to introduce new functionality to the website. Being a good team member, you want to file issues to track your work. To help future you, you've decided to enlist the help of Copilot. You will set up your backlog of work for the rest of the lab, using GitHub Copilot CLI and the GitHub Model Context Protocol (MCP) server to create the issues for you.
 
 ## What is Model Context Protocol (MCP)?
 
@@ -36,7 +34,19 @@ There are many other MCP servers available that provide access to different tool
 > [!WARNING]
 > With regard to security, treat MCP servers as you would any other dependency in your project. Before using an MCP server, carefully review its source code, verify the publisher, and consider the security implications. Only use MCP servers that you trust and be cautious about granting access to sensitive resources or operations.
 
+You can register MCP servers for Copilot CLI to use in a couple of locations. These allow you to both ensure the right MCP servers are available for a project, and to always have access to the ones you use frequently across all projects.
+
+| Location | Access | Editing |
+| --- | --- | --- |
+| `<project-root>/.mcp.json` | Available to the current project. Becomes an asset in the project. | Manually update the file |
+| `~/.copilot/mcp.json` | Always available when you're using Copilot CLI on that system. | Manually update the file or through Copilot CLI directly by using `--mcp` or `/mcp` |
+
+> [!NOTE]
+> Copilot CLI always includes a readonly instance of the GitHub MCP server. In the next exercise you will register the full version to be able to create issues for your project.
+
 ## Setting up the GitHub MCP server in Copilot CLI
+
+Let's register the read/write GitHub MCP server for Copilot CLI.
 
 > [!TIP]
 > **Start a Copilot CLI session**
@@ -48,8 +58,6 @@ There are many other MCP servers available that provide access to different tool
 > ```
 >
 > To pick up your most recent session for this project instead of starting fresh, run `copilot --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
-
-Copilot CLI supports MCP servers via a configuration file at **~/.copilot/mcp.json**. Additionally, in your project the **.vscode/mcp.json** file can configure MCP servers for VS Code-based workflows, and Copilot CLI also reads from this file.
 
 1. Register the GitHub MCP server in Copilot CLI using the `/mcp` command:
 
@@ -68,7 +76,7 @@ You should see the GitHub MCP server listed and marked as active.
 
 ## Creating a backlog of tasks
 
-Now that you have set up the GitHub MCP server, you can use Copilot CLI to create a backlog of tasks for use in the rest of the lab.
+Now that you have set up the full GitHub MCP server, you can use Copilot CLI to create a backlog of tasks for use in the rest of the workshop.
 
 1. In the Copilot CLI prompt, type or paste the following prompt to create the issues you'll be working on in the lab:
 

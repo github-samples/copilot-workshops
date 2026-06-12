@@ -6,14 +6,28 @@
 
 # Exercise 6 - Custom agents with GitHub Copilot CLI
 
-[Custom agents][custom-agents] in GitHub Copilot allow you to create specialized AI assistants tailored to specific tasks or domains within your development workflow. By defining agents through markdown files in the `.github/agents` folder of your repository, you can provide Copilot with focused instructions, best practices, coding patterns, and domain-specific knowledge that guide it to perform particular types of work more effectively. This allows teams to codify their expertise and standards into reusable agents. You might create an accessibility agent that ensures [WCAG][wcag] compliance, a security agent that follows secure coding practices, or a testing agent that maintains consistent test patterns—enabling developers to leverage these specialized capabilities on-demand for faster, more consistent implementations.
+## What are custom agents?
 
-You'll explore the following with custom agents:
+[Custom agents][custom-agents-concept] in GitHub Copilot allow you to create specialized AI assistants tailored to specific tasks or domains within your development workflow. By defining agents through markdown files in the `.github/agents` folder of your repository, you can provide Copilot with focused instructions, best practices, coding patterns, and domain-specific knowledge that guide it to perform particular types of work more effectively. Teams can codify their expertise into reusable agents — an accessibility agent that enforces [WCAG][wcag] compliance, a security agent that follows secure coding practices, or a testing agent that maintains consistent test patterns.
 
-- how to create a custom agent.
-- using a custom agent in Copilot CLI.
+Custom agents are defined by markdown files in the `.github/agents` folder of your project, or globally in `~/.copilot/agents`. Each file has YAML frontmatter with at least a `name` and `description`, followed by a markdown prompt that defines the agent's behavior, expertise, and instructions.
+
+### Custom agents compared with agent skills
+
+There's some logical overlap between custom agents and [agent skills][agent-skills-concept]. Both are primarily defined with markdown files and tell an AI how to perform operations. The cleanest way to separate them: a **custom agent** is the worker, and **skills** are tools.
+
+Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills like the PR skill you saw earlier, or one that runs and manages tests.
+
+> [!NOTE]
+> There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
+
+[custom-agents-concept]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
+[agent-skills-concept]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
+[wcag]: https://www.w3.org/WAI/standards-guidelines/wcag/
 
 ## Scenario
+
+Many web applications fall short of being accessible to all users, and the website you're working in is no exception. You'll use a custom agent to identify and resolve accessibility shortcomings.
 
 Tailspin Toys is committed to ensuring their crowdfunding platform is accessible to all users, regardless of their visual abilities or preferences. Recent user feedback has highlighted that some users find the current dark theme difficult to read due to insufficient contrast between text and background colors. To address this accessibility concern, the design team has requested the implementation of a high-contrast mode that users can toggle on and off.
 
@@ -24,23 +38,11 @@ In this exercise, you will:
 - explore custom agents.
 - enable a custom agent and assign it a task using Copilot CLI.
 
-## Custom agents
-
-Custom agents are defined by markdown files in the **.github/agents** folder of your project, or globally in **~/.copilot/agents**. The markdown files will contain guidance for Copilot on how best to perform at task.
-
-## Custom agents vs skills
-
-There is some logical overlap between custom agents and skills. Both are primarily defined with markdown files, and provide an AI guidance on how to perform operations. The best way to breakdown the difference is to think of a custom agent as the worker, and skills as tools.
-
-Custom agents have their own context window, and are built to use skills as part of their orchestration. In our example, we have an accessibility custom agent, which is designed to review and make updates to the site based on defined accessibility guidelines. As part of its work, it could then call skills such as the pull request skill we saw previously, or one to run and manage tests.
-
-Custom agents are launched by using the `/agent` command in Copilot CLI. Skills are launched dynamically, thus can be reused across multiple agents.
-
 ## Reviewing the accessibility custom agent
 
 A custom agent has already been created for you for accessibility. Let's review the contents to understand how it will guide Copilot.
 
-1. Open **.github/agents/accessibility.md**.
+1. Open `.github/agents/accessibility.md`.
 2. Note the header section with the name and description of the agent.
 
 > [!WARNING]
@@ -52,10 +54,9 @@ A custom agent has already been created for you for accessibility. Let's review 
     - Code examples for HTML, CSS and JavaScript.
     - A list of common pitfalls and mistakes.
 
-> [!NOTE]
-> There is no "best markdown" for a custom agent. As with anything in AI, you will want to test and explore to determine what works best for your environments and scenarios.
-
 ## Using a custom agent in Copilot CLI
+
+You can start a custom agent in Copilot CLI by using the `/agent` command. Let's perform an accessibility pass on our website.
 
 > [!TIP]
 > **Start a Copilot CLI session**
@@ -72,8 +73,6 @@ A custom agent has already been created for you for accessibility. Let's review 
 > > `--allow-all-tools` skips Copilot's per-action approval prompts. Only use it in an isolated environment like a Codespace or VM, and never alias it as your default. See [Generating code with Copilot CLI][allow-all-warning] for the full explanation.
 
 [allow-all-warning]: 4-generating-code.md#utilize-plan-mode
-
-You can start a custom agent in Copilot CLI by using the `/agent` command. Let's perform an accessibility pass on our website.
 
 1. Bring up the list of agents by typing `/agent` in the prompt window in Copilot CLI and selecting <kbd>Enter</kbd>.
 2. Select the **Accessibility agent** from the list of available agents.
