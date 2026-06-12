@@ -60,17 +60,41 @@ Partials are reusable MDX fragments imported by lesson pages.
 
 1. **Pick a category prefix.** Partial filenames must start with one of:
    - `callout-` — single short callout (e.g., one `<Aside>`).
-   - `section-` — multi-paragraph reusable content (intros, recaps).
+   - `section-` — multi-paragraph reusable concept content (intros, recaps, overviews).
    - `exercise-` — self-contained hands-on steps that drop into a numbered list on the host page.
-2. **Create the file** at `docs/src/content/docs/_partials/<prefix>-name.mdx`. No frontmatter — the host page's frontmatter applies.
-3. **Self-contained links.** Any reference-style link (`[label][ref]`) used inside the partial must define `[ref]: url` *inside the same partial*. Don't depend on the host page to provide refs.
-4. **Import and use** in the host page:
-   ```mdx
-   import StartCli from '../_partials/callout-start-copilot-cli.mdx';
 
-   <StartCli />
+   Each partial is *single-purpose*: concept *or* exercise, never both. If you have explanation plus numbered steps, split it into a `section-…` partial and an `exercise-…` partial that the host page introduces under separate H2 headings.
+2. **Create the file** at `docs/src/content/docs/_partials/<prefix>-name.mdx`. No frontmatter — the host page's frontmatter applies.
+3. **Add the metadata block** as the very first lines of the file. `@summary` is one sentence; `@sections` lists every `##`/`###` heading the partial introduces (use `H2`/`H3` prefixes). Both Starlight and the Markdown renderer strip `{/* */}` comments, so this is invisible at runtime.
+  ```mdx
+  {/*
+  @summary One sentence describing what the partial drops into the host page.
+  @sections
+    - H3 First heading the partial introduces
+    - H3 Second heading
+    - H4 Subheading under the second
+  */}
+  ```
+   Partials must not contain `## H2` — host pages own H2. List `### H3` and deeper only.
+4. **Self-contained links.** Any reference-style link (`[label][ref]`) used inside the partial must define `[ref]: url` *inside the same partial*. Don't depend on the host page to provide refs.
+5. **Import and use** in the host page (always via the `@partials/` alias and bound to a name starting with the PascalCase form of the filename prefix):
+   ```mdx
+   import CalloutStartCli from '@partials/callout-start-copilot-cli.mdx';
+
+   <CalloutStartCli />
    ```
-5. **Threshold for extraction**: only extract a partial when the same content appears in 2+ places, or it's at least 5 lines and non-trivial. Single-use content stays inline.
+   The lint enforces both the alias and the prefix-matching binding.
+6. **Run sync** so the corresponding `docs/src/types/_partials/<name>.mdx.d.ts` (which powers VS Code hover tooltips at every `<StartCli />` use site) is generated:
+   ```bash
+   python scripts/sync_partial_metadata.py
+   ```
+7. **Lint** to confirm everything is consistent:
+   ```bash
+   python scripts/lint_partials.py
+   ```
+8. **Threshold for extraction**: only extract a partial when the same content appears in 2+ places, or it's at least 5 lines and non-trivial. Single-use content stays inline.
+
+CI runs both `lint_partials.py` and `sync_partial_metadata.py --check` on every PR — running them locally before pushing avoids surprises. The generated `<name>.mdx.d.ts` files in `docs/src/types/_partials/` are marked read-only in `.vscode/settings.json`; never edit them by hand.
 
 See [`.github/instructions/partials.instructions.md`](./.github/instructions/partials.instructions.md) for the full partial conventions.
 
@@ -157,7 +181,7 @@ You **don't** need to commit anything under `workshop/` in your PR. The bot owns
 - **"Module not found: `@astrojs/starlight/components`"** — run `npm install` inside `docs/`. Content lives under `docs/src/content/docs/`, so package resolution works automatically; no symlink hacks needed.
 - **"No matching exports" or component renders as text** — check that the import in the host MDX page matches the component name and path exactly. Imports go at the top of the MDX file, after frontmatter.
 - **Sidebar entry doesn't appear** — confirm you added it to `docs/astro.config.mjs` (it's manually maintained).
-- **A lesson page renders but a partial inside it doesn't** — check that the partial's relative import path is correct (`../_partials/foo.mdx` from a path-folder lesson; adjust depth for `shared/<topic>/` pages).
+- **A lesson page renders but a partial inside it doesn't** — check that the partial import uses the `@partials/` alias (e.g. `import Foo from '@partials/foo.mdx'`) and that the file exists in `docs/src/content/docs/_partials/`.
 - **Render script complains about a missing image** — confirm the image is in `docs/src/content/docs/images/` and the relative path matches.
 - **Lychee reports a broken link** — most often a renamed lesson breaking a `[ref]: ../old-name/` definition. Update both the link target and any cross-page refs.
 
@@ -165,8 +189,7 @@ You **don't** need to commit anything under `workshop/` in your PR. The bot owns
 
 The `.github/instructions/*.md` files have `applyTo` frontmatter that targets specific file globs. Read these when you need depth on a specific area:
 
-- [`mdx.instructions.md`](./.github/instructions/mdx.instructions.md) — workshop MDX patterns.
-- [`markdown.instructions.md`](./.github/instructions/markdown.instructions.md) — repo-level Markdown (no hard-wrap; GitHub admonitions).
+- [`markdown.instructions.md`](./.github/instructions/markdown.instructions.md) — Markdown + MDX conventions: no hard-wrap, admonitions, headings, filenames/UI formatting, partials patterns.
 - [`partials.instructions.md`](./.github/instructions/partials.instructions.md) — partial conventions (naming, self-containment, list resumption).
 - [`astro.instructions.md`](./.github/instructions/astro.instructions.md) — `docs/` site wrapper.
 

@@ -1,19 +1,22 @@
+{/*
+@summary Hands-on numbered steps to add docstring and file-header rules to .github/copilot-instructions.md, plus a tip about repo vs *.instructions.md scope.
+@sections
+*/}
 import { Aside } from '@astrojs/starlight/components';
 
-As highlighted previously, **`.github/copilot-instructions.md`** is designed to provide project-level information to Copilot. Let's ensure repository coding standards are documented to improve code suggestions.
+As highlighted previously, `.github/copilot-instructions.md` is designed to provide project-level information to Copilot. Let's ensure repository coding standards are documented to improve code suggestions.
 
-1. Open **`.github/copilot-instructions.md`**.
-2. Explore the file, noting the brief description of the project and sections for **Code standards**, **Scripts**, and **GitHub Actions Workflows**. These are applicable to any interactions you'd have with Copilot, are robust, and provide clear guidance on what you're doing and how you want to accomplish it.
-3. Locate the **Code formatting requirements** section, which should be near line 27. Note how it contains a directive to use type hints — that's why you saw those in the code generated previously.
-4. Add the following lines of markdown right below the note about type hints to instruct Copilot to add comment headers to files and docstrings:
+1. Re-open `.github/copilot-instructions.md`.
+2. Locate the **Code formatting requirements** section, which should be near line 27. Note how it contains a directive to use type hints — that's why you saw those in the code generated previously.
+3. Add the following lines of markdown right below the note about type hints to instruct Copilot to add comment headers to files and docstrings:
 
    ```markdown
    - Every function should have docstrings or the language equivalent.
    - Before imports or any code, add a comment block to the file that explains its purpose.
    ```
 
-5. Save **`copilot-instructions.md`**.
+4. Save `copilot-instructions.md`.
 
 <Aside type="tip">
-  As you saw in the previous lesson, instruction files can be created at the repository level (**`.github/copilot-instructions.md`**) for global guidance, or as **`*.instructions.md`** files for specific languages, file types, or tasks. The repository-level file is the right home for project-wide standards like the docstring rule you just added.
+  As you saw in the previous lesson, instruction files can be created at the repository level (`.github/copilot-instructions.md`) for global guidance, or as `*.instructions.md` files for specific languages, file types, or tasks. The repository-level file is the right home for project-wide standards like the docstring rule you just added.
 </Aside>

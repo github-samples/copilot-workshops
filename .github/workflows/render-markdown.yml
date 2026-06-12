@@ -18,12 +18,18 @@ on:
     paths:
       - 'docs/src/content/docs/**'
       - 'scripts/render-markdown.py'
+      - 'scripts/lint_partials.py'
+      - 'scripts/sync_partial_metadata.py'
+      - 'scripts/_partials_lib.py'
       - '.github/workflows/render-markdown.yml'
   push:
     branches: [main]
     paths:
       - 'docs/src/content/docs/**'
       - 'scripts/render-markdown.py'
+      - 'scripts/lint_partials.py'
+      - 'scripts/sync_partial_metadata.py'
+      - 'scripts/_partials_lib.py'
       - '.github/workflows/render-markdown.yml'
   workflow_dispatch:
 
@@ -44,6 +50,17 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: '3.13'
+
+      # Validate partial metadata blocks (@summary/@sections present, headings
+      # match) before any rendering so authors get a clear error message.
+      - name: Lint partials
+        run: python scripts/lint_partials.py
+
+      # Confirm the generated .mdx.d.ts files and import-site comments are in
+      # sync with the partial metadata. Fails the PR if running the sync
+      # script would produce a diff.
+      - name: Verify partial metadata is in sync
+        run: python scripts/sync_partial_metadata.py --check
 
       - name: Render workshop content
         run: python scripts/render-markdown.py

@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "agentic",
+        "winget"
+    ],
+    "files.readonlyInclude": {
+        "docs/src/types/_partials/*.mdx.d.ts": true,
+        "docs/src/types/_partials/README.md": true
+    },
+    "typescript.tsdk": "docs/node_modules/typescript/lib"
+}

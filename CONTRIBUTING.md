@@ -10,7 +10,7 @@ Contributions are released under the [project's open source license](./LICENSE).
 
 ## What to read first
 
-If you want to **author or edit content**, start with [**AUTHORING.md**](./AUTHORING.md). It covers the mental model, file layout, step-by-step recipes for adding/editing lessons, partials, and images, the local preview workflow, and style conventions.
+If you want to **author or edit content**, start with [`AUTHORING.md`](./AUTHORING.md). It covers the mental model, file layout, step-by-step recipes for adding/editing lessons, partials, and images, the local preview workflow, and style conventions.
 
 ## Submitting a pull request
 

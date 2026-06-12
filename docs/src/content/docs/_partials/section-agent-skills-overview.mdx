@@ -1,0 +1,25 @@
+{/*
+@summary Concept overview of agent skills: what they are, where they live (.github/skills + ~/.copilot/skills), and how they're loaded dynamically by descriptions in SKILL.md.
+@sections
+*/}
+import { Aside } from '@astrojs/starlight/components';
+
+Doing app development often involves repeatable tasks like generating builds, running tests, or creating pull requests. **Agent skills** let you give Copilot — and other AI agents — guidance on how to perform those tasks. A skill is a folder of instructions, scripts, and resources that the agent can load on demand. [Agent Skills is an open standard][agent-skills-repo] used by a range of agents, so the same skill can work across Copilot Chat in agent mode, Copilot cloud agent, and Copilot CLI.
+
+Skills live in the `.github/skills` folder of a project, or globally in `~/.copilot/skills`. Each skill is a folder containing a `SKILL.md` file with YAML frontmatter (a `name` and a `description`) followed by the markdown instructions:
+
+```yaml
+---
+name: branching-commits-prs
+description: All changes to the repository must be done through a pull request (PR). A branch must always be created, and commits grouped together logically. Whenever asked to create commit messages, to push code, or create a pull request (PR), use this skill so everything is done correctly.
+---
+```
+
+Skills can also include subfolders with scripts, assets, and reference material. The full structure is covered in the [agent skills specification][agent-skills-spec].
+
+<Aside type="tip">
+  Skills are loaded dynamically. The agent decides which skill applies based on the `description` field — a clear, scenario-specific description is the difference between a skill that gets used and one that gets ignored.
+</Aside>
+
+[agent-skills-repo]: https://github.com/agentskills/agentskills
+[agent-skills-spec]: https://agentskills.io/specification

@@ -3,9 +3,13 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "baseUrl": ".",
+    "allowArbitraryExtensions": true,
     "paths": {
-      "@components/*": ["./src/components/*"]
-    }
+      "@components/*": ["./src/components/*"],
+      "@partials/*": ["./src/types/_partials/*", "./src/content/docs/_partials/*"]
+    },
+    "plugins": [
+      { "name": "@mdx-js/typescript-plugin" }
+    ]
   }
 }

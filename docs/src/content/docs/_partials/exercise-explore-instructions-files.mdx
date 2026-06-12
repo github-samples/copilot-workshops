@@ -1,0 +1,18 @@
+{/*
+@summary Hands-on numbered steps that walk the learner through the repository's instruction files: copilot-instructions.md, the .github/instructions folder, and two representative *.instructions.md examples.
+@sections
+*/}
+import { Aside } from '@astrojs/starlight/components';
+
+Take a moment to read the instruction files this repository ships with — there's one core `copilot-instructions.md` and a collection of `*.instructions.md` files for various tasks. Open these in your codespace or the GitHub web UI.
+
+1. Open `.github/copilot-instructions.md`.
+2. Explore the file, noting the brief description of the project and sections for **Code standards**, **Scripts**, and **GitHub Actions Workflows**. These are applicable to any interactions you'd have with Copilot.
+3. Open the `.github/instructions` folder and look around. Note there are instructions for Astro files, Svelte files, tests, and more.
+4. Open `.github/instructions/python-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob (relative to the repo root) that determines which files the instructions apply to. Here, any Python file in `server/tests` whose name starts with `test_` will match.
+5. Note the instructions specific to creating Python tests for this project.
+6. Finally, open `.github/instructions/flask-endpoint.instructions.md` and scroll to the bottom. Note the links to other instruction files and existing files in the project. This lets you break larger instruction sets into smaller, reusable files, and point Copilot at examples to follow when generating code. (Paths there are relative to the instruction file rather than the repo root.)
+
+<Aside type="note">
+  The **Code formatting requirements** section in `copilot-instructions.md` already includes the rule about Python type hints. In the next steps, you'll add additional rules about docstrings and comment headers.
+</Aside>

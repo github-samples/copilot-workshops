@@ -1,5 +1,7 @@
-## Security and GitHub Copilot cloud agent
-
+{/*
+@summary Bullet list of the security guarantees around Copilot cloud agent: branch-scoped writes, ephemeral env, workflow approval, firewall.
+@sections
+*/}
 Because Copilot cloud agent performs its tasks asynchronously and without supervision, certain security constraints have been put in place to ensure everything remains safe. These include:
 
 - Copilot only has read access to your repository and write access **only** to the branch it will use for its code.

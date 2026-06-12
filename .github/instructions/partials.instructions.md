@@ -5,6 +5,93 @@ applyTo: 'docs/src/content/docs/_partials/**'
 
 # Partials Conventions
 
+## Heading levels (host owns H2)
+
+Partials must contain only `### H3` and below. The host page owns every `## H2`.
+
+- This keeps the use site descriptive: a reader scanning the host page sees what the partial is *about* before opening the partial body.
+- It also keeps two consumer pages free to introduce the same partial under different H2 wording when context calls for it.
+- `scripts/lint_partials.py` rejects any `^## ` line in a partial body.
+
+```mdx
+{/* host page (cli/2-custom-instructions.mdx) */}
+## Instruction files
+
+<SectionInstructionsOverview />
+```
+
+```mdx
+{/* partial (section-instructions-overview.mdx) */}
+### Scenario
+
+…
+```
+
+## Single purpose (concept *or* exercise)
+
+Each partial is either:
+
+- a **concept section** (multi-paragraph explanation) — filename starts with `section-`,
+- a **hands-on exercise** (numbered steps) — filename starts with `exercise-`,
+- or a **standalone callout** (a single `<Aside>` or short note) — filename starts with `callout-`.
+
+Don't mix. If a partial has both explanatory prose and numbered steps, split it into a `section-…` partial and an `exercise-…` partial. Each one then drops cleanly under its own host-page H2.
+
+## Component naming (matches the filename prefix)
+
+Always import a partial under a binding that begins with the PascalCase form of its filename prefix. The use site then signals intent at a glance:
+
+```mdx
+import SectionInstructionsOverview from '@partials/section-instructions-overview.mdx';
+import ExerciseExploreInstructionsFiles from '@partials/exercise-explore-instructions-files.mdx';
+import CalloutStartCopilotCli from '@partials/callout-start-copilot-cli.mdx';
+
+<SectionInstructionsOverview />
+<ExerciseExploreInstructionsFiles />
+<CalloutStartCopilotCli />
+```
+
+`scripts/lint_partials.py` rejects imports of `@partials/<prefix>-foo.mdx` whose binding doesn't start with `Section`, `Exercise`, or `Callout` to match.
+
+## Metadata block (required)
+
+Every partial **must** begin with an MDX comment block that documents what it contains. Authors who consume the partial rely on this metadata — both directly when editing the partial, and indirectly via tooltips at every use site (see "Editor tooltips" below).
+
+```mdx
+{/*
+@summary One sentence describing what the partial drops into the host page.
+@sections
+  - H2 First heading the partial introduces
+  - H2 Second heading
+  - H3 Subheading under the second
+*/}
+```
+
+Rules:
+
+- The block is the **first non-blank line** of the file, before any `import`.
+- `@summary` is a single sentence, max ~200 characters. It populates the JSDoc tooltip on every `<Component />` use site.
+- `@sections` lists every `###` and deeper heading the partial introduces into the host page, in document order. Each entry is `- H<level> <heading text>` (e.g., `- H3 Custom instructions`). It may be empty if the partial has no headings (callouts and short single-purpose exercises typically do). **Partials must not contain H2** — see "Heading levels" above.
+- Update this block whenever you meaningfully change the partial's content or headings. `scripts/lint_partials.py` rejects PRs where `@sections` doesn't match the actual headings, and `scripts/sync_partial_metadata.py --check` rejects PRs where the generated `.mdx.d.ts` files are stale.
+- Both Starlight and `scripts/render-markdown.py` strip MDX `{/* */}` comments from rendered output, so the block is invisible to readers.
+
+## Editor tooltips (`docs/src/types/_partials/<name>.mdx.d.ts`)
+
+Every partial has a **generated** TypeScript declaration file in `docs/src/types/_partials/`. Hovering a `<Component />` use site (or the imported identifier) in any consumer `.mdx` shows the JSDoc — the partial's `@summary` and `@sections` — as a tooltip.
+
+- These files are **regenerated** by `scripts/sync_partial_metadata.py` from each partial's metadata. Never edit them by hand — the file header says `// GENERATED FILE — do not edit` and `.vscode/settings.json` marks them read-only.
+- Tooltips work in any editor that uses the workspace's TypeScript server. The repo wires this up two ways: `.vscode/extensions.json` recommends `unifiedjs.vscode-mdx`, and `docs/tsconfig.json` registers `@mdx-js/typescript-plugin` and sets `allowArbitraryExtensions: true` so TS treats `<name>.mdx.d.ts` as the declaration for `<name>.mdx`.
+
+## Importing partials (use the `@partials/` alias)
+
+Always import partials via the `@partials/` path alias, not a relative path:
+
+```mdx
+import InstructionsOverview from '@partials/section-instructions-overview.mdx';
+```
+
+The alias is configured in `docs/tsconfig.json`. TypeScript resolves it against `docs/src/types/_partials/` first (so it sees the JSDoc-bearing `.mdx.d.ts`), then falls through to `docs/src/content/docs/_partials/` for the real `.mdx` (which is what Vite/Astro inlines at build time). `scripts/lint_partials.py` rejects PRs that still use `'../_partials/...'`; `scripts/sync_partial_metadata.py` will migrate them automatically.
+
 ## Naming prefix
 
 Every partial's filename uses a category prefix:

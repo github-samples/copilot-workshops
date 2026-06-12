@@ -1,0 +1,24 @@
+{/*
+@summary Concept overview of custom agents: what they are, where they live, how they relate to skills, and the "no best markdown" caveat. Surface-agnostic.
+@sections
+  - H3 Custom agents compared with agent skills
+*/}
+import { Aside } from '@astrojs/starlight/components';
+
+[Custom agents][custom-agents-concept] in GitHub Copilot allow you to create specialized AI assistants tailored to specific tasks or domains within your development workflow. By defining agents through markdown files in the `.github/agents` folder of your repository, you can provide Copilot with focused instructions, best practices, coding patterns, and domain-specific knowledge that guide it to perform particular types of work more effectively. Teams can codify their expertise into reusable agents — an accessibility agent that enforces [WCAG][wcag] compliance, a security agent that follows secure coding practices, or a testing agent that maintains consistent test patterns.
+
+Custom agents are defined by markdown files in the `.github/agents` folder of your project, or globally in `~/.copilot/agents`. Each file has YAML frontmatter with at least a `name` and `description`, followed by a markdown prompt that defines the agent's behavior, expertise, and instructions.
+
+### Custom agents compared with agent skills
+
+There's some logical overlap between custom agents and [agent skills][agent-skills-concept]. Both are primarily defined with markdown files and tell an AI how to perform operations. The cleanest way to separate them: a **custom agent** is the worker, and **skills** are tools.
+
+Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills like the PR skill you saw earlier, or one that runs and manages tests.
+
+<Aside type="note">
+  There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
+</Aside>
+
+[custom-agents-concept]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
+[agent-skills-concept]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
+[wcag]: https://www.w3.org/WAI/standards-guidelines/wcag/
