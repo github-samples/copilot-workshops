@@ -1,6 +1,6 @@
 """Shared parsing helpers for partials lint + sync scripts.
 
-A "partial" is an MDX file under docs/src/content/docs/_partials/. Every
+A "partial" is an MDX file under docs/src/content/docs/_shared/. Every
 partial begins with a metadata block:
 
     {/*
@@ -23,9 +23,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = REPO_ROOT / "docs" / "src" / "content" / "docs"
-PARTIALS_DIR = DOCS_DIR / "_partials"
-TYPES_DIR = REPO_ROOT / "docs" / "src" / "types" / "_partials"
-PARTIAL_ALIAS = "@partials/"
+PARTIALS_DIR = DOCS_DIR / "_shared"
+TYPES_DIR = REPO_ROOT / "docs" / "src" / "types" / "_shared"
+PARTIAL_ALIAS = "@shared/"
 
 SUMMARY_MAX_LEN = 200
 
@@ -50,7 +50,7 @@ class PartialMetadata:
 
 @dataclass
 class ImportRef:
-    """A single `import Var from '../_partials/foo.mdx';` line in a consumer."""
+    """A single `import Var from '../_shared/foo.mdx';` line in a consumer."""
 
     var: str
     partial_path: Path  # resolved absolute path to the partial
@@ -64,7 +64,7 @@ def list_partials() -> list[Path]:
 
 
 def list_consumer_pages() -> list[Path]:
-    """All MDX pages under docs/src/content/docs/ EXCEPT files in _partials/."""
+    """All MDX pages under docs/src/content/docs/ EXCEPT files in _shared/."""
     out: list[Path] = []
     for p in DOCS_DIR.rglob("*.mdx"):
         if PARTIALS_DIR in p.parents:
@@ -168,8 +168,8 @@ def extract_body_headings(partial_path: Path) -> list[str]:
 
 
 def find_partial_imports(consumer_path: Path) -> list[ImportRef]:
-    """Find every `import X from '@partials/foo.mdx';` line (alias) and,
-    for backward compatibility during migration, `'../_partials/foo.mdx'`
+    """Find every `import X from '@shared/foo.mdx';` line (alias) and,
+    for backward compatibility during migration, `'../_shared/foo.mdx'`
     (relative)."""
     text = consumer_path.read_text(encoding="utf-8")
     refs: list[ImportRef] = []
@@ -202,8 +202,8 @@ def find_partial_imports(consumer_path: Path) -> list[ImportRef]:
 
 
 def _resolve_partial_specifier(specifier: str, consumer_path: Path) -> Path | None:
-    """Resolve either an alias (`@partials/foo.mdx`) or a relative
-    (`../_partials/foo.mdx`) import specifier to an absolute partial path."""
+    """Resolve either an alias (`@shared/foo.mdx`) or a relative
+    (`../_shared/foo.mdx`) import specifier to an absolute partial path."""
     if specifier.startswith(PARTIAL_ALIAS):
         rest = specifier[len(PARTIAL_ALIAS):]
         return (PARTIALS_DIR / rest).resolve()

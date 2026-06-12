@@ -10,14 +10,14 @@ Checks (per partial):
 4. Each @sections entry matches `H<n> <text>`.
 5. The @sections list matches the actual ##/### headings in the body
    exactly (same entries, same order).
-6. The corresponding `docs/src/types/_partials/<name>.mdx.d.ts` exists
+6. The corresponding `docs/src/types/_shared/<name>.mdx.d.ts` exists
    and is up to date with the metadata (run sync to refresh it).
 7. The partial body contains no `^## ` (H2) headings — the host page
    owns every H2; partials use H3 and below only.
 
 Checks (across consumers):
-8. Every partial import uses the `@partials/` alias rather than a
-   relative `../_partials/` path.
+8. Every partial import uses the `@shared/` alias rather than a
+   relative `../_shared/` path or a legacy `@partials/` alias.
 9. The local binding for a partial import starts with the PascalCase
    form of the filename prefix (`Section`, `Exercise`, `Callout`).
 
@@ -49,7 +49,12 @@ from _partials_lib import (
 )
 
 _RELATIVE_PARTIAL_IMPORT = re.compile(
-    r"""^[ \t]*import\s+\w+\s+from\s+['"](?:\.\./)+_partials/[^'"]+\.mdx['"];?\s*$""",
+    r"""^[ \t]*import\s+\w+\s+from\s+['"](?:\.\./)+_shared/[^'"]+\.mdx['"];?\s*$""",
+    re.MULTILINE,
+)
+
+_LEGACY_ALIAS_IMPORT = re.compile(
+    r"""^[ \t]*import\s+\w+\s+from\s+['"]@partials/[^'"]+\.mdx['"];?\s*$""",
     re.MULTILINE,
 )
 
@@ -145,6 +150,12 @@ def lint() -> int:
                 f"{rel}:{line}: partial import uses a relative path; "
                 f"use the `{PARTIAL_ALIAS}` alias instead. "
                 f"Run `python scripts/sync_partial_metadata.py` to migrate."
+            )
+        for m in _LEGACY_ALIAS_IMPORT.finditer(text):
+            line = _line_of(text, m.start())
+            errors.append(
+                f"{rel}:{line}: partial import uses the legacy `@partials/` alias; "
+                f"rewrite to `{PARTIAL_ALIAS}`."
             )
         for ref in find_partial_imports(consumer):
             prefix = partial_prefix(ref.partial_path)

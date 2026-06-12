@@ -7,6 +7,9 @@ export default defineConfig({
   site: 'https://github-samples.github.io',
   base: '/agents-in-sdlc',
   trailingSlash: 'always',
+  redirects: {
+    '/shared/0-prereqs/': '/agents-in-sdlc/prereqs/',
+  },
   integrations: [
     starlight({
       title: 'Agents in the SDLC Workshop',
@@ -25,7 +28,7 @@ export default defineConfig({
       },
       sidebar: [
         { label: 'Home', link: '/' },
-        { label: 'Prerequisites', link: '/shared/0-prereqs/' },
+        { label: 'Prerequisites', link: '/prereqs/' },
         {
           label: 'VS Code path',
           items: [

@@ -6,7 +6,7 @@
     "allowArbitraryExtensions": true,
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@partials/*": ["./src/types/_partials/*", "./src/content/docs/_partials/*"]
+      "@shared/*": ["./src/types/_shared/*", "./src/content/docs/_shared/*"]
     },
     "plugins": [
       { "name": "@mdx-js/typescript-plugin" }

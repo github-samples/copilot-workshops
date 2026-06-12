@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
-"""Generate `<name>.mdx.d.ts` declaration files in docs/src/types/_partials/
-and migrate consumer pages to use the `@partials/...` import alias.
+"""Generate `<name>.mdx.d.ts` declaration files in docs/src/types/_shared/
+and migrate consumer pages to use the `@shared/...` import alias.
 
-For every partial under docs/src/content/docs/_partials/:
+For every partial under docs/src/content/docs/_shared/:
   - Parse the @summary / @sections metadata block.
-  - Write `docs/src/types/_partials/<name>.mdx.d.ts`. TypeScript resolves
-    the `@partials/<name>.mdx` alias against this types dir first (with
+  - Write `docs/src/types/_shared/<name>.mdx.d.ts`. TypeScript resolves
+    the `@shared/<name>.mdx` alias against this types dir first (with
     `allowArbitraryExtensions: true`) so VS Code shows a hover tooltip
     carrying the summary and section list at every <Component /> use site.
 
-For every consumer page under docs/src/content/docs/ (excluding _partials/):
-  - Rewrite `import X from '../_partials/foo.mdx';` to
-    `import X from '@partials/foo.mdx';`. The alias is resolved by
+For every consumer page under docs/src/content/docs/ (excluding _shared/):
+  - Rewrite `import X from '../_shared/foo.mdx';` to
+    `import X from '@shared/foo.mdx';`. The alias is resolved by
     Vite/Astro at build time via tsconfig `paths` (the second target,
-    pointing at the real `_partials/` directory).
+    pointing at the real `_shared/` directory).
+  - Also rewrite legacy `'../_partials/foo.mdx'` and `'@partials/foo.mdx'`
+    forms to the new alias for one-shot migration.
 
-Also writes/refreshes `docs/src/types/_partials/README.md` so anyone who
+Also writes/refreshes `docs/src/types/_shared/README.md` so anyone who
 opens that folder knows what it's for.
 
 The script is idempotent. Running it twice produces no changes.
@@ -44,22 +46,22 @@ from _partials_lib import (
 
 README_PATH = TYPES_DIR / "README.md"
 
-README_CONTENT = """# `_partials/` type declarations (generated)
+README_CONTENT = """# `_shared/` type declarations (generated)
 
 This directory holds **auto-generated** `<name>.mdx.d.ts` files — one per
-partial under `docs/src/content/docs/_partials/`. Each declaration carries
+partial under `docs/src/content/docs/_shared/`. Each declaration carries
 the partial's `@summary` and `@sections` as JSDoc.
 
-Together with the `@partials/*` path alias in `docs/tsconfig.json`,
+Together with the `@shared/*` path alias in `docs/tsconfig.json`,
 TypeScript resolves an import like:
 
 ```ts
-import Foo from '@partials/section-foo.mdx';
+import Foo from '@shared/section-foo.mdx';
 ```
 
 …by looking here **first** (where it finds `section-foo.mdx.d.ts` and uses
 its JSDoc for hover tooltips), then falling through to the real `.mdx`
-file in `docs/src/content/docs/_partials/` for runtime resolution by
+file in `docs/src/content/docs/_shared/` for runtime resolution by
 Vite/Astro.
 
 ## Do not edit these files by hand
@@ -172,18 +174,29 @@ def main() -> int:
 
 
 _RELATIVE_PARTIAL_IMPORT = re.compile(
-    r"""(import\s+\w+\s+from\s+['"])((?:\.\./)+_partials/[^'"]+\.mdx)(['"])""",
+    r"""(import\s+\w+\s+from\s+['"])((?:\.\./)+_(?:shared|partials)/[^'"]+\.mdx)(['"])""",
+)
+_LEGACY_ALIAS_IMPORT = re.compile(
+    r"""(import\s+\w+\s+from\s+['"])@partials/([^'"]+\.mdx)(['"])""",
 )
 
 
 def _rewrite_imports_to_alias(text: str) -> str:
-    def repl(m: re.Match[str]) -> str:
+    def repl_relative(m: re.Match[str]) -> str:
         rel = m.group(2)
-        # Strip the `../`-prefix and `_partials/` to get the bare filename.
-        idx = rel.index("_partials/") + len("_partials/")
-        return f"{m.group(1)}{PARTIAL_ALIAS}{rel[idx:]}{m.group(3)}"
+        # Strip the `../`-prefix and `_shared/`/`_partials/` to get the bare filename.
+        for needle in ("_shared/", "_partials/"):
+            if needle in rel:
+                idx = rel.index(needle) + len(needle)
+                return f"{m.group(1)}{PARTIAL_ALIAS}{rel[idx:]}{m.group(3)}"
+        return m.group(0)
 
-    return _RELATIVE_PARTIAL_IMPORT.sub(repl, text)
+    def repl_legacy_alias(m: re.Match[str]) -> str:
+        return f"{m.group(1)}{PARTIAL_ALIAS}{m.group(2)}{m.group(3)}"
+
+    text = _RELATIVE_PARTIAL_IMPORT.sub(repl_relative, text)
+    text = _LEGACY_ALIAS_IMPORT.sub(repl_legacy_alias, text)
+    return text
 
 
 if __name__ == "__main__":

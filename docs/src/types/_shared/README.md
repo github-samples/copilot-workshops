@@ -1,19 +1,19 @@
-# `_partials/` type declarations (generated)
+# `_shared/` type declarations (generated)
 
 This directory holds **auto-generated** `<name>.mdx.d.ts` files — one per
-partial under `docs/src/content/docs/_partials/`. Each declaration carries
+partial under `docs/src/content/docs/_shared/`. Each declaration carries
 the partial's `@summary` and `@sections` as JSDoc.
 
-Together with the `@partials/*` path alias in `docs/tsconfig.json`,
+Together with the `@shared/*` path alias in `docs/tsconfig.json`,
 TypeScript resolves an import like:
 
 ```ts
-import Foo from '@partials/section-foo.mdx';
+import Foo from '@shared/section-foo.mdx';
 ```
 
 …by looking here **first** (where it finds `section-foo.mdx.d.ts` and uses
 its JSDoc for hover tooltips), then falling through to the real `.mdx`
-file in `docs/src/content/docs/_partials/` for runtime resolution by
+file in `docs/src/content/docs/_shared/` for runtime resolution by
 Vite/Astro.
 
 ## Do not edit these files by hand
