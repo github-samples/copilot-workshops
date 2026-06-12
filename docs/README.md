@@ -18,7 +18,7 @@ npm run preview  # preview the production build
 ## Site config
 
 - `astro.config.mjs` — Site URL, base path, sidebar (manually maintained).
-- `src/content.config.ts` — Content collection loader. Excludes `_partials/**` from routing so partials aren't published as pages.
+- `src/content.config.ts` — Content collection loader. Excludes `_shared/**` from routing so partials aren't published as pages.
 - `src/components/` — Site-shell components (`.astro`). Lesson content does **not** live here.
 
 ## Deployment

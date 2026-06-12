@@ -123,11 +123,11 @@ When the same callout repeats across lessons, extract it to a `callout-*.mdx` pa
 
 ### Importing partials
 
-Use the `@partials/` alias (not relative paths):
+Use the `@shared/` alias (not relative paths):
 
 ```mdx
-import CalloutStartCopilotCli from '@partials/callout-start-copilot-cli.mdx';
-import ExerciseAddDocstring from '@partials/exercise-instructions-add-docstring.mdx';
+import CalloutStartCopilotCli from '@shared/callout-start-copilot-cli.mdx';
+import ExerciseAddDocstring from '@shared/exercise-instructions-add-docstring.mdx';
 
 <CalloutStartCopilotCli />
 
