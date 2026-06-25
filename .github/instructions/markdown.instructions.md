@@ -70,9 +70,9 @@ Follow the [GitHub Docs style guide][github-style]. In short:
 
 Rule of thumb: if the reader is going to select it, it's bold; if they're going to type it, read it in the filesystem, or see it in code, it's backticks.
 
-## Accessibility: action verbs
+## Accessibility
 
-Use input-agnostic verbs so instructions work for keyboard, screen reader, touch, and mouse users. Prefer **select** over "click", "press", or "tap" when referring to UI elements (buttons, tabs, menu items, links). Reserve "press" for physical keyboard shortcuts (e.g., "press <kbd>Enter</kbd>").
+Accessibility conventions — descriptive link text, alt text, heading hierarchy, plain language, input-agnostic action verbs (**select** not "click") — live in [`markdown-accessibility.instructions.md`](./markdown-accessibility.instructions.md).
 
 ## Keyboard shortcuts
 
@@ -88,8 +88,7 @@ Mac modifiers: spell out **Command**, **Option**, **Control** — don't use ⌘,
 
 - Use reference-style links. Define refs at the bottom of the file (or the bottom of the partial that owns them).
 - Strip locale codes (`/en/`, `/en-us/`, etc.) from URLs so readers land in their own locale.
-- Never use "click here", "here", "learn more", "read more", or "this link" as link text. Weave the link into the prose with descriptive text.
-- Never add a sentence whose only job is to point at a link.
+- For descriptive link text (no "click here"; no link-only sentences), see [`markdown-accessibility.instructions.md`](./markdown-accessibility.instructions.md).
 
 ## MDX-only conventions
 
@@ -126,10 +125,10 @@ When the same callout repeats across lessons, extract it to a `callout-*.mdx` pa
 Use the `@shared/` alias (not relative paths):
 
 ```mdx
-import CalloutStartCopilotCli from '@shared/callout-start-copilot-cli.mdx';
+import CalloutStartCopilotCliAllowAll from '@shared/callout-start-copilot-cli-allow-all.mdx';
 import ExerciseAddDocstring from '@shared/exercise-instructions-add-docstring.mdx';
 
-<CalloutStartCopilotCli />
+<CalloutStartCopilotCliAllowAll />
 
 <ExerciseAddDocstring />
 ```
@@ -147,15 +146,15 @@ When dropping an exercise partial into a numbered list, write the partial's item
 Use Markdown image syntax with paths relative to the MDX file:
 
 ```mdx
-![Alt text describing the image](../images/some-screenshot.png)
+![Alt text describing the image](../_images/some-screenshot.png)
 ```
 
-For shared lesson pages under `shared/<topic>/`, image paths are typically `../../images/...`.
+For an image referenced from a `_shared/` partial, use the same `../_images/...` relative path — `_shared/` sits one level under `docs/src/content/docs/`, just like `cli/`, `vscode/`, and `cloud/`, so the path resolves identically for the partial and its consumer pages.
 
 ### Path conventions
 
 - Per-path lessons: `cli/`, `vscode/`, `cloud/`. Files numbered by lesson order: `1-installing.mdx`, `2-custom-instructions.mdx`, etc.
-- Shared content: `shared/<topic>/<lesson>.mdx`. Per-path stubs redirect to the shared page and include a "Return to your path" footer.
+- Shared content: reusable fragments live in `_shared/` (e.g. `section-mcp-overview.mdx`) and are imported into lesson pages via the `@shared/` alias. They are body-only partials inlined at build time, not standalone routed pages — see [`partials.instructions.md`](./partials.instructions.md).
 
 ### Cross-repo links
 
