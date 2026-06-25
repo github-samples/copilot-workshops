@@ -2,7 +2,7 @@
 title: "Exercise 3 - Custom agents"
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import ExerciseReviewAccessibilityAgent from '@shared/exercise-review-accessibility-agent.mdx';
 import SectionAccessibilityScenario from '@shared/section-accessibility-scenario.mdx';
 import SectionCustomAgentsOverview from '@shared/section-custom-agents-overview.mdx';
 
@@ -23,19 +23,9 @@ You'll explore the following with custom agents:
 
 A custom agent has already been created for you for accessibility. Let's review the contents to understand how it will guide Copilot.
 
-1. Return to your codespace.
-2. Open `.github/agents/accessibility.md`.
-3. Note the header section with the name and description of the agent.
+Return to your codespace, then review the accessibility custom agent file:
 
-<Aside type="caution">
-  This section is required for custom agents.
-</Aside>
-
-4. From there, scan and review the next sections which highlight:
-    - Core responsibilities when generating code for an accessible website.
-    - Best practices for accessibility.
-    - Code examples for HTML, CSS and JavaScript.
-    - A list of common pitfalls and mistakes.
+<ExerciseReviewAccessibilityAgent />
 
 ## Create and assign an issue
 
@@ -56,7 +46,7 @@ Mission control is the central location for working with all agents for your env
 8. On the right side, select **Assign to Copilot** to open the assignment dialog.
 9. Select **Accessibility agent** from the list of custom agents.
 
-    ![Screenshot of cloud agent assignment, with custom agent and accessibility highlighted](../images/ex5-select-custom-agent.png)
+    ![Screenshot of cloud agent assignment, with custom agent and accessibility highlighted](../_images/ex5-select-custom-agent.png)
 
 10. Select **Assign**.
 11. Copilot gets to work on the task in the background!
