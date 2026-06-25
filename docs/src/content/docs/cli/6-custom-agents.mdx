@@ -3,6 +3,7 @@ title: "Exercise 6 - Custom agents with GitHub Copilot CLI"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import ExerciseReviewAccessibilityAgent from '@shared/exercise-review-accessibility-agent.mdx';
 import SectionAccessibilityScenario from '@shared/section-accessibility-scenario.mdx';
 import SectionCustomAgentsOverview from '@shared/section-custom-agents-overview.mdx';
 import CalloutStartCopilotCliAllowAll from '@shared/callout-start-copilot-cli-allow-all.mdx';
@@ -26,18 +27,7 @@ In this exercise, you will:
 
 A custom agent has already been created for you for accessibility. Let's review the contents to understand how it will guide Copilot.
 
-1. Open `.github/agents/accessibility.md`.
-2. Note the header section with the name and description of the agent.
-
-<Aside type="caution">
-  This section is required for custom agents.
-</Aside>
-
-3. From there, scan and review the next sections which highlight:
-    - Core responsibilities when generating code for an accessible website.
-    - Best practices for accessibility.
-    - Code examples for HTML, CSS and JavaScript.
-    - A list of common pitfalls and mistakes.
+<ExerciseReviewAccessibilityAgent />
 
 ## Using a custom agent in Copilot CLI
 
@@ -47,10 +37,10 @@ You can start a custom agent in Copilot CLI by using the `/agent` command. Let's
 
 1. Bring up the list of agents by typing `/agent` in the prompt window in Copilot CLI and selecting <kbd>Enter</kbd>.
 2. Select the **Accessibility agent** from the list of available agents.
-3. Use the following prompt to ask the accessibility agent to perform a review and generate fixes for one particular class of possible errors related to HTML headers:
+3. Use the following prompt to ask the accessibility agent to perform a review and generate fixes for the accessibility backlog item:
 
     ```
-    Perform an accessibility review of the site. Pull the related issue down from the repository for details. We're going to build in stages, so for now focus on headers, ensuring we're following good guidelines. Ensure there are e2e tests for any updates made to the project. Then create a PR with the updates.
+    Perform an accessibility review of the site. Pull the related issue down from the repository for details. Implement a high-contrast mode toggle that persists the user's preference across page reloads. Ensure there are e2e tests for any updates made to the project. Then create a PR with the updates.
     ```
 
 4. Copilot gets to work on the task! It will start by retrieving the issue, then performing the review, generating updates, and finally creating the PR. You should also notice when it creates the PR it utilizes the skill focused on PRs for the project.
@@ -65,7 +55,7 @@ This lesson explored [custom agents][custom-agents] in GitHub Copilot, specializ
 
 You explored these concepts:
 
-- how to create a custom agent.
+- how custom agents are defined.
 - using a custom agent in Copilot CLI.
 
 Next up, let's explore [some slash commands][next-lesson] to learn some additional tricks with Copilot CLI.
@@ -83,6 +73,5 @@ Next up, let's explore [some slash commands][next-lesson] to learn some addition
 [custom-agents]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents
 [creating-custom-agents]: https://docs.github.com/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents
 [awesome-copilot-agents]: https://github.com/github/awesome-copilot/tree/main/agents
-[wcag]: https://www.w3.org/WAI/standards-guidelines/wcag/
 [org-custom-agents]: https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents
 [enterprise-custom-agents]: https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents

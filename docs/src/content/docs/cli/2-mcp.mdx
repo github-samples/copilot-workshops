@@ -1,9 +1,9 @@
 ---
-title: "Exercise 3 - MCP Servers with GitHub Copilot CLI"
+title: "Exercise 2 - MCP Servers with GitHub Copilot CLI"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
-import CalloutStartCopilotCli from '@shared/callout-start-copilot-cli.mdx';
+import CalloutStartCopilotCliAllowAll from '@shared/callout-start-copilot-cli-allow-all.mdx';
 import SectionMcpOverview from '@shared/section-mcp-overview.mdx';
 
 There's more to writing code than just writing code. Issues need to be filed, external services need to be called, and information needs to be gathered. Typically this involves interacting with external tools, which can break a developer's flow. Through the power of Model Context Protocol (MCP), you can access all of this functionality right from Copilot CLI!
@@ -11,7 +11,7 @@ There's more to writing code than just writing code. Issues need to be filed, ex
 In this exercise, you will:
 
 - understand what Model Context Protocol (MCP) is and how it works with Copilot CLI.
-- set up the GitHub MCP server in your repository.
+- configure Copilot CLI for read/write access to the GitHub MCP server.
 - use GitHub Copilot CLI to create issues in your repository.
 
 ## Scenario
@@ -22,42 +22,34 @@ You've been assigned various tasks to introduce new functionality to the website
 
 <SectionMcpOverview />
 
-
 You can register MCP servers for Copilot CLI to use in a couple of locations. These allow you to both ensure the right MCP servers are available for a project, and to always have access to the ones you use frequently across all projects.
 
 | Location | Access | Editing |
 | --- | --- | --- |
 | `<project-root>/.mcp.json` | Available to the current project. Becomes an asset in the project. | Manually update the file |
-| `~/.copilot/mcp.json` | Always available when you're using Copilot CLI on that system. | Manually update the file or through Copilot CLI directly by using `--mcp` or `/mcp` |
+| `~/.copilot/mcp-config.json` | Always available when you're using Copilot CLI on that system. | Manually update the file, use `copilot mcp ...` subcommands, or use `/mcp` inside Copilot CLI |
 
 <Aside type="note">
-   Copilot CLI always includes a readonly instance of the GitHub MCP server. In the next exercise you will register the full version to be able to create issues for your project.
+   Copilot CLI includes a default read-only GitHub MCP tool subset. In this workshop flow, you'll launch Copilot CLI with read/write GitHub MCP tools enabled for the session.
 </Aside>
 
-## Setting up the GitHub MCP server in Copilot CLI
+## Starting Copilot CLI with read/write GitHub MCP access
 
-Let's register the read/write GitHub MCP server for Copilot CLI.
+Start Copilot CLI with the workshop launch flags so you can use both automatic tool approval and read/write GitHub MCP tools.
 
-<CalloutStartCopilotCli />
+<CalloutStartCopilotCliAllowAll />
 
-1. Register the GitHub MCP server in Copilot CLI using the `/mcp` command:
-
-   ```
-   /mcp add github https://api.githubcopilot.com/mcp/
-   ```
-
-2. Copilot CLI will prompt you to authenticate with GitHub. Follow the on-screen instructions to authorize.
-3. Once authentication is complete, confirm the server is registered:
+1. Confirm the GitHub MCP server is active by running:
 
    ```
    /mcp list
    ```
 
-You should see the GitHub MCP server listed and marked as active.
+2. You should see the GitHub MCP server listed and marked as active.
 
 ## Creating a backlog of tasks
 
-Now that you have set up the full GitHub MCP server, you can use Copilot CLI to create a backlog of tasks for use in the rest of the workshop.
+Now that your session has read/write GitHub MCP tools enabled, you can use Copilot CLI to create a backlog of tasks for use in the rest of the workshop.
 
 1. In the Copilot CLI prompt, type or paste the following prompt to create the issues you'll be working on in the lab:
 
@@ -70,15 +62,16 @@ Now that you have set up the full GitHub MCP server, you can use Copilot CLI to 
    From our recent planning meeting, the upcoming backlog includes the following tasks:
 
    1. Allow users to filter games by category and publisher
-   2. Update our repository coding standards (including rules about Python formatting and docstrings) in a custom instructions file
-   3. Stretch Goal: Implement pagination on the game list page
+   2. Add a custom instructions standard so generated Python code includes clear module and function docstrings
+   3. Improve accessibility by adding a high-contrast mode with a persistent user toggle
+   4. Stretch Goal: Implement pagination on the game list page
    ```
 
 2. Press <kbd>Enter</kbd> to send the prompt to Copilot.
-3. Copilot will ask you to confirm any write operations before proceeding. Review the issue details and confirm each one.
+3. Because this workshop session was started with `--yolo`, Copilot can run write operations without prompting for each one. Watch the output to review what it creates. If you prefer per-operation approvals, restart Copilot CLI without `--yolo`.
 
 <Aside type="caution">
-  Remember, AI can make mistakes, so make sure to review the issues before confirming.
+  Remember, AI can make mistakes. Review the generated issues in GitHub and edit anything that isn't right.
 </Aside>
 
 4. In a separate browser tab, navigate to your GitHub repository and select the **Issues** tab.
@@ -91,25 +84,19 @@ Congratulations, you have created issues on GitHub using Copilot CLI and MCP!
 To recap, in this exercise you:
 
 - understood what Model Context Protocol (MCP) is and how it works with Copilot CLI.
-- set up the GitHub MCP server in your repository.
+- configured Copilot CLI for read/write GitHub MCP access in your workshop session.
 - used GitHub Copilot CLI to create issues in your repository.
 
-You can now continue to the next exercise, where you will [add project features with GitHub Copilot CLI][next-lesson].
-
-### Optional exploration exercise – Set up the Microsoft Playwright MCP server
-
-If you are feeling adventurous, you can try installing and configuring another MCP server, such as the [Microsoft Playwright MCP server][playwright-mcp-server]. This will allow you to use Copilot CLI to perform browser automation tasks, such as navigating to web pages, filling out forms, and clicking buttons.
+You can now continue to the next exercise, where you will [add and validate custom instructions][next-lesson].
 
 ## Resources
 
 - [What the heck is MCP and why is everyone talking about it?][mcp-blog-post]
 - [GitHub MCP Server][github-mcp-server]
-- [Microsoft Playwright MCP Server][playwright-mcp-server]
 - [GitHub MCP Registry][mcp-registry]
 
-[previous-lesson]: ../2-custom-instructions/
-[next-lesson]: ../4-generating-code/
+[previous-lesson]: ../1-install-copilot-cli/
+[next-lesson]: ../3-custom-instructions/
 [mcp-blog-post]: https://github.blog/ai-and-ml/llms/what-the-heck-is-mcp-and-why-is-everyone-talking-about-it/
 [github-mcp-server]: https://github.com/github/github-mcp-server
-[playwright-mcp-server]: https://github.com/microsoft/playwright-mcp
 [mcp-registry]: https://github.com/mcp
