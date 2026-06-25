@@ -25,7 +25,7 @@ For PR/CI rules, see **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
     - `prereqs.mdx` — Shared setup lesson (Exercise 0).
     - `cli/`, `vscode/`, `cloud/` — Per-path lessons (Copilot CLI / VS Code / cloud agent).
     - `_shared/` — Reusable MDX fragments (`callout-*`, `section-*`, `exercise-*` prefixes), imported via the `@shared/*` alias.
-    - `images/` — Screenshots and diagrams.
+    - `_images/` — Screenshots and diagrams.
 - **`AUTHORING.md`** — Author entry point (recipes for adding/editing content).
 - **`CONTRIBUTING.md`** — PR flow + CI requirements.
 - **`.github/`**
@@ -47,28 +47,7 @@ The site runs at <http://localhost:4321/agents-in-sdlc/>.
 
 ## Verification
 
-Before opening a PR:
-
-**Build:**
-
-```bash
-cd docs && rm -rf dist && npm run build
-```
-
-**Link check (offline):**
-
-```bash
-mkdir -p /tmp/lychee-root && ln -sfn $PWD/docs/dist /tmp/lychee-root/agents-in-sdlc \
-  && lychee --offline --no-progress --root-dir /tmp/lychee-root 'docs/dist/**/*.html'
-```
-
-Lychee runs offline and won't catch broken external GitHub URLs — click those manually after changes.
-
-**Partial metadata lint:**
-
-```bash
-python scripts/lint_partials.py
-```
+Before opening a PR, build the site and run the full verification sequence — clean build, page-count check, offline link check (lychee), and the local partial guardrails. The canonical commands live in **[AUTHORING.md → Building and verifying](./AUTHORING.md#building-and-verifying)** and the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill. CI (`pages.yml`) runs only the build and the lychee link check; the partial guardrails are local-only.
 
 ## License
 

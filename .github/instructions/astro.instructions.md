@@ -18,12 +18,6 @@ applyTo: 'docs/**/*.{astro,mjs,ts,js}'
 
 This is a docs wrapper. Don't add interactive Svelte islands, Tailwind utility-class styling layers, custom routing, or other application-style code. Anything beyond Starlight defaults should be justified.
 
-## When changing site config
+## Building and verifying
 
-After modifying `astro.config.mjs` or anything in `docs/src/`:
-
-```bash
-cd docs && rm -rf dist && npm run build
-```
-
-Verify the page count is still **29** unless you intentionally added or removed lessons. A build that produces a different count without an MDX change is a sign of a routing or content-collection misconfiguration — most likely partials being routed as pages (check the loader's exclude pattern).
+After changing `astro.config.mjs` or anything under `docs/src/`, build and verify the site with the [`build-and-verify-docs`](../skills/build-and-verify-docs/SKILL.md) skill. Its page-count invariant is the tripwire for the "partials are never routed as pages" rule above: if the build emits more pages than `(routable .mdx files + 1 legacy redirect)`, a `_shared/` partial is leaking into routing — check the underscore-directory exclude in `src/content.config.ts`.

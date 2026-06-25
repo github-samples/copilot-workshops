@@ -44,11 +44,11 @@ Always import a partial under a binding that begins with the PascalCase form of 
 ```mdx
 import SectionInstructionsOverview from '@shared/section-instructions-overview.mdx';
 import ExerciseExploreInstructionsFiles from '@shared/exercise-explore-instructions-files.mdx';
-import CalloutStartCopilotCli from '@shared/callout-start-copilot-cli.mdx';
+import CalloutStartCopilotCliAllowAll from '@shared/callout-start-copilot-cli-allow-all.mdx';
 
 <SectionInstructionsOverview />
 <ExerciseExploreInstructionsFiles />
-<CalloutStartCopilotCli />
+<CalloutStartCopilotCliAllowAll />
 ```
 
 `scripts/lint_partials.py` rejects imports of `@shared/<prefix>-foo.mdx` whose binding doesn't start with `Section`, `Exercise`, or `Callout` to match.
@@ -72,7 +72,7 @@ Rules:
 - The block is the **first non-blank line** of the file, before any `import`.
 - `@summary` is a single sentence, max ~200 characters. It populates the JSDoc tooltip on every `<Component />` use site.
 - `@sections` lists every `###` and deeper heading the partial introduces into the host page, in document order. Each entry is `- H<level> <heading text>` (e.g., `- H3 Custom instructions`). It may be empty if the partial has no headings (callouts and short single-purpose exercises typically do). **Partials must not contain H2** — see "Heading levels" above.
-- Update this block whenever you meaningfully change the partial's content or headings. `scripts/lint_partials.py` rejects PRs where `@sections` doesn't match the actual headings, and `scripts/sync_partial_metadata.py --check` rejects PRs where the generated `.mdx.d.ts` files are stale.
+- Update this block whenever you meaningfully change the partial's content or headings. `scripts/lint_partials.py` fails when `@sections` doesn't match the actual headings, and `scripts/sync_partial_metadata.py --check` fails when the generated `.mdx.d.ts` files are stale — run both locally before committing.
 - Starlight strips MDX `{/* */}` comments from rendered output, so the block is invisible to readers.
 
 ## Editor tooltips (`docs/src/types/_shared/<name>.mdx.d.ts`)
@@ -90,7 +90,7 @@ Always import partials via the `@shared/` path alias, not a relative path:
 import InstructionsOverview from '@shared/section-instructions-overview.mdx';
 ```
 
-The alias is configured in `docs/tsconfig.json`. TypeScript resolves it against `docs/src/types/_shared/` first (so it sees the JSDoc-bearing `.mdx.d.ts`), then falls through to `docs/src/content/docs/_shared/` for the real `.mdx` (which is what Vite/Astro inlines at build time). `scripts/lint_partials.py` rejects PRs that still use `'../_shared/...'`; `scripts/sync_partial_metadata.py` will migrate them automatically.
+The alias is configured in `docs/tsconfig.json`. TypeScript resolves it against `docs/src/types/_shared/` first (so it sees the JSDoc-bearing `.mdx.d.ts`), then falls through to `docs/src/content/docs/_shared/` for the real `.mdx` (which is what Vite/Astro inlines at build time). `scripts/lint_partials.py` flags any remaining `'../_shared/...'` import; `scripts/sync_partial_metadata.py` will migrate them automatically.
 
 ## Naming prefix
 
