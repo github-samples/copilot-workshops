@@ -9,7 +9,7 @@ As you might expect, the core tasks you'll perform with GitHub Copilot CLI is to
 
 ## Scenario
 
-The time has come to finally implement filtering in the project. You've already got the issue in GitHub. Let's have Copilot retrieve the details from the issue and put together a plan to implement it. Then we'll get Copilot on the job to create the code and run the tests.
+The time has come to complete filtering in the project. You already have the issue in GitHub and a foundation endpoint from the previous exercise. Let's have Copilot retrieve the issue details, account for existing work, and build the remaining functionality.
 
 In this exercise, you will:
 
@@ -24,20 +24,16 @@ One of the best uses of AI is planning. Oftentimes you'll have a good concept of
 
 You'll start the process of creating the new functionality by utilizing plan mode in Copilot CLI.
 
-<Aside type="caution">
-  `--allow-all-tools` (along with the broader `--allow-all` and `--yolo` options) gives Copilot CLI full, automatic permission to run shell commands, modify files, and reach external URLs without asking. GitHub strongly recommends only using it in an **isolated environment** like a codespace, sandbox VM, or other disposable workspace — and never aliasing it on by default. For day-to-day use, prefer fine-grained `--allow-tool` rules. See [Allowing and denying tool use][allowing-tools] for the full picture.
-</Aside>
-
 <CalloutStartCopilotCliAllowAll />
 
-1. Enter the following prompt into Copilot CLI to create a plan based on the issue you created earlier for adding filtering capabilities to the app:
+1. Enter the following prompt into Copilot CLI to create a plan based on the filtering issue:
 
     ```
-    /plan Retrieve the issue on the repository related to adding filtering. Help me build a good plan to implement this functionality.
+    /plan Retrieve the issue on the repository related to adding filtering. We already added a publishers endpoint in server/routes/publishers.py, so treat that as existing work and plan the remaining updates (games filtering logic, UI, and tests).
     ```
 
 2. Copilot may ask follow-up questions as it builds out its plan. As those arise, answer them based on how you'd build out the functionality.
-3. Once the plan is generated, review the blueprint. You should notice it recommends changes to the backend and frontend, as well as generating tests.
+3. Once the plan is generated, review the blueprint. You should notice it recommends remaining changes to the backend and frontend, as well as generating tests.
 4. Copilot CLI will offer you the ability to provide additional feedback to the plan. You can cursor down to the indicated section, then type your suggestions. Copilot will incorporate your suggestions into a new version of the plan.
 5. Once you're satisfied, select the option provided by Copilot to begin work building the new feature!
 
@@ -65,7 +61,7 @@ All AI code needs to be reviewed before being merged into production. Let's take
     /diff
     ```
 
-2. Note the files changed. Use your arrow keys to switch left and right to view the different files. You should see updates to files such as `games.py`, the Games API, and `test_games.py`, the tests for that API. You should also see new files created, such as Svelte components for the new filter functionality, and Playwright tests to validate the frontend.
+2. Note the files changed. Use your arrow keys to switch left and right to view the different files. You should see updates to files such as `games.py`, the Games API, and `test_games.py`, the tests for that API. You may also see updates to `publishers.py` if Copilot refines your existing endpoint to align with the full implementation.
 
 ## Summary and next steps
 
@@ -82,9 +78,8 @@ Of course, the next step from here is to [create the PR][next-lesson], which we'
 - [About Copilot CLI][about-copilot-cli]
 - [Context management in Copilot CLI][context-management]
 
-[previous-lesson]: ../3-mcp/
+[previous-lesson]: ../3-custom-instructions/
 [next-lesson]: ../5-agent-skills/
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [context-management]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#context-management
-[allowing-tools]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools

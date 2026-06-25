@@ -75,8 +75,9 @@ python scripts/sync_partial_metadata.py
 To change a tooltip, edit the `{/* @summary ... */}` block at the top of
 the partial itself, then run the sync script.
 
-CI runs `scripts/sync_partial_metadata.py --check` and rejects PRs where
-any declaration is stale.
+Run `python scripts/sync_partial_metadata.py --check` locally before committing
+to confirm no declaration is stale. This is a local guardrail — CI does not run
+it (see `.github/workflows/pages.yml`).
 """
 
 

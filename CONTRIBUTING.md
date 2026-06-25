@@ -22,11 +22,17 @@ If you want to **author or edit content**, start with [`AUTHORING.md`](./AUTHORI
 
 ## Before merge
 
-All CI checks must be green:
+CI (`pages.yml`) must be green on your PR. It runs:
 
-- **`pages.yml`** — builds the Astro site.
-- **Lychee** — offline link checks the built `docs/dist/`.
-- **Partial lint + sync check** — `lint_partials.py` and `sync_partial_metadata.py --check` enforce the `_shared/` partial conventions.
+- **`pages.yml` build** — `npm run build` (Astro site build).
+- **Lychee** — offline link check of the built `docs/dist/`.
+
+CI does **not** run the partial guardrails. Run these locally before you push — they keep the `_shared/` partial metadata, the `@shared/` alias, and the generated `.mdx.d.ts` tooltips in sync:
+
+- `python scripts/lint_partials.py`
+- `python scripts/sync_partial_metadata.py --check`
+
+See [AUTHORING.md → Building and verifying](./AUTHORING.md#building-and-verifying) for the full sequence.
 
 ## Commit messages
 

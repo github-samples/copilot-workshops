@@ -46,8 +46,8 @@ export default defineConfig({
           items: [
             { label: 'Overview', link: '/cli/' },
             { label: '1. Install Copilot CLI', link: '/cli/1-install-copilot-cli/' },
-            { label: '2. Custom instructions', link: '/cli/2-custom-instructions/' },
-            { label: '3. MCP with CLI', link: '/cli/3-mcp/' },
+            { label: '2. MCP with CLI', link: '/cli/2-mcp/' },
+            { label: '3. Custom instructions', link: '/cli/3-custom-instructions/' },
             { label: '4. Generating code', link: '/cli/4-generating-code/' },
             { label: '5. Agent skills', link: '/cli/5-agent-skills/' },
             { label: '6. Custom agents', link: '/cli/6-custom-agents/' },

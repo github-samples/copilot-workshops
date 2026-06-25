@@ -12,7 +12,7 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
     - `prereqs.mdx` — Shared setup lesson (Exercise 0).
     - `cli/`, `vscode/`, `cloud/` — Per-path lessons (Copilot CLI / VS Code / Cloud agent).
     - `_shared/` — Reusable MDX fragments imported via the `@shared/*` alias (see partials conventions below). Underscore-prefixed dirs are excluded from routing.
-    - `images/` — Screenshots and diagrams.
+    - `_images/` — Screenshots and diagrams.
   - `astro.config.mjs` — Site config including the manually maintained sidebar and a redirect from the legacy `/shared/0-prereqs/` URL to `/prereqs/`.
 - `scripts/` — Author tooling for the partials system (`lint_partials.py`, `sync_partial_metadata.py`, `_partials_lib.py`).
 - `AUTHORING.md` — Author entry point (recipes for adding lessons, partials, images).
@@ -21,7 +21,7 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
   - `copilot-instructions.md` — This file.
   - `instructions/` — Scoped instruction files (`applyTo` frontmatter targets specific file globs).
   - `agents/` — Custom agents available to Copilot.
-  - `skills/` — Skills available to Copilot.
+  - `skills/` — Skills available to Copilot (see [`skills/README.md`](skills/README.md) for the index of what each one does).
   - `workflows/pages.yml` — Builds and deploys the site.
 
 ## Authoring conventions
@@ -60,41 +60,11 @@ When the same prose applies to multiple paths (CLI, VS Code, cloud), pull the bo
 
 When a partial drops into the middle of an ordered list, the list resumes numbering automatically as long as the partial's items use plain Markdown numerals starting at `1.`. See `exercise-instructions-add-docstring.mdx` for the working pattern.
 
-## Verification before commit
+## Building, previewing, and verifying
 
-Run all of these. Don't commit if any fails.
+The tooling for building, previewing, and verifying the site — dev server, clean build, the page-count invariant, the lychee link check, and the local partial guardrails — lives in the [`build-and-verify-docs`](skills/build-and-verify-docs/SKILL.md) skill. Run that verification sequence before every commit, and don't commit if any step fails.
 
-**Build:**
-
-```bash
-cd docs && rm -rf dist && npm run build
-```
-
-**Link check (offline; catches broken cross-page links):**
-
-```bash
-mkdir -p /tmp/lychee-root && ln -sfn $PWD/docs/dist /tmp/lychee-root/agents-in-sdlc \
-  && lychee --offline --no-progress --root-dir /tmp/lychee-root 'docs/dist/**/*.html'
-```
-
-**Partial lint + sync:**
-
-```bash
-python scripts/lint_partials.py
-python scripts/sync_partial_metadata.py --check
-```
-
-Lychee runs offline and won't catch broken external GitHub URLs. When changing absolute `https://github.com/...` links, click through manually.
-
-## Local development
-
-From repo root:
-
-```bash
-cd docs && npm install && npm run dev
-```
-
-That's it — content lives inside `docs/src/content/docs/` so packages resolve natively. No symlinks required.
+Before opening or updating a PR, also make the **PR-time consistency pass** documented in that skill — a structural-drift sweep (renamed paths, stale skill/instruction references, CI claims, repository-structure trees) that the build and link check can't catch.
 
 ## Commit hygiene
 

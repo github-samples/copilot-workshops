@@ -13,7 +13,7 @@ Custom agents are defined by markdown files in the `.github/agents` folder of yo
 
 There's some logical overlap between custom agents and [agent skills][agent-skills-concept]. Both are primarily defined with markdown files and tell an AI how to perform operations. The cleanest way to separate them: a **custom agent** is the worker, and **skills** are tools.
 
-Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills like the PR skill you saw earlier, or one that runs and manages tests.
+Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills such as a pull-request workflow skill or one that runs and manages tests.
 
 <Aside type="note">
   There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.

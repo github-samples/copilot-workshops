@@ -15,7 +15,7 @@ Trigger this skill automatically whenever **any** of the following happens:
 - A consumer `.mdx` page (anywhere under `docs/src/content/docs/`) adds, removes, or renames a `import … from '@shared/…'` line.
 - An author explicitly asks for the partial types / `.mdx.d.ts` files to be (re)generated, or asks to "sync partials".
 
-CI runs `scripts/sync_partial_metadata.py --check` and `scripts/lint_partials.py` on every PR; running this skill locally before pushing avoids CI failures.
+These scripts are **local-only** guardrails — CI (`pages.yml`) runs only the Astro build and the lychee link check, not the partial scripts, and `npm run build` does not chain them. Run this skill locally before committing so stale `.mdx.d.ts` tooltips or `@shared/` alias drift don't merge unnoticed. See the [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) skill for the full pre-commit verification sequence.
 
 ## Process
 

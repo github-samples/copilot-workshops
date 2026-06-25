@@ -3,6 +3,7 @@ title: "Exercise 4 - Custom agents"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import ExerciseReviewAccessibilityAgent from '@shared/exercise-review-accessibility-agent.mdx';
 import SectionAccessibilityScenario from '@shared/section-accessibility-scenario.mdx';
 import SectionCustomAgentsOverview from '@shared/section-custom-agents-overview.mdx';
 import CalloutStartCopilotChat from '@shared/callout-start-copilot-chat.mdx';
@@ -24,27 +25,15 @@ In this exercise, you will:
 
 A custom agent has already been created for you for accessibility. Let's review the contents to understand how it will guide Copilot.
 
-1. Return to your codespace.
-2. Open a terminal and switch to a fresh branch off `main` for the accessibility work (you'll keep the filtering PR from Exercise 3 separate):
+Return to your codespace, then open a terminal and switch to a fresh branch off `main` for the accessibility work (you'll keep the filtering PR from Exercise 3 separate):
 
-    ```bash
-    git checkout main
-    git pull
-    git checkout -b accessibility-vscode
-    ```
+```bash
+git checkout main
+git pull
+git checkout -b accessibility-vscode
+```
 
-3. Open `.github/agents/accessibility.md`.
-4. Note the YAML frontmatter with the name and description of the agent.
-
-<Aside type="caution">
-  The frontmatter with `name` and `description` is required for custom agents.
-</Aside>
-
-5. From there, scan and review the next sections which highlight:
-    - Core responsibilities when generating code for an accessible website.
-    - Best practices for accessibility.
-    - Code examples for HTML, CSS and JavaScript.
-    - A list of common pitfalls and mistakes.
+<ExerciseReviewAccessibilityAgent />
 
 ## Using the custom agent in Copilot Chat
 
@@ -54,7 +43,7 @@ VS Code surfaces every custom agent defined in `.github/agents` in the agents dr
 
 1. Select **Agent** from the agents dropdown in the Chat view if it isn't already selected.
 
-   ![Screenshot showing the agent picker in the Chat view.](../images/shared-chat-mode-selector.png)
+   ![Screenshot showing the agent picker in the Chat view.](../_images/shared-chat-mode-selector.png)
 
 2. Select the agents dropdown at the bottom of the chat view (it shows the active agent — by default, this is **default**).
 3. Select **Accessibility agent** from the list of available agents.
