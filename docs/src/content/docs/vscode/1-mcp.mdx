@@ -1,10 +1,8 @@
 ---
-title: "Exercise 2 - Setting up the backlog with Copilot agent mode and GitHub's MCP Server"
+title: "Exercise 1 - Setting up the backlog with Copilot agent mode and GitHub's MCP Server"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
-import CalloutStartCopilotChat from '@shared/callout-start-copilot-chat.mdx';
-import CalloutModelChoiceCaution from '@shared/callout-model-choice-caution.mdx';
 import SectionMcpOverview from '@shared/section-mcp-overview.mdx';
 
 There's more to writing code than just writing code. Issues need to be filed, external services need to be called, and information needs to be gathered. Typically this involves interacting with external tools, which can break a developer's flow. Through the power of Model Context Protocol (MCP), you can access all of this functionality right from Copilot!
@@ -25,7 +23,7 @@ By the end of this exercise, you will have created a backlog of GitHub issues fo
 
 Agent mode in GitHub Copilot Chat transforms Copilot into an AI agent that can perform actions on your behalf. This mode allows you to interact with Copilot in a more dynamic way, enabling it to use tools and execute tasks, like running tests or terminal commands, reading problems from the editor, and using those insights to update your code. This allows for a more interactive and collaborative workflow, enabling you to leverage the capabilities of AI in your development process.
 
-![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions](../images/ex1-mcp-diagram.png)
+![Diagram showing the inner works of agent mode and how it interacts with context, LLM and tools - including tools contributed by MCP servers and VS Code extensions](../_images/ex1-mcp-diagram.png)
 
 <SectionMcpOverview />
 
@@ -58,19 +56,19 @@ To utilize an MCP server it needs to be "started". This will allow GitHub Copilo
 1. Inside VS Code, open `.vscode/mcp.json`.
 2. To start the GitHub MCP server, select **Start** above the GitHub server.
 
-    ![The start button above the GitHub MCP server entry](../images/ex1-start-mcp-server.png)
+    ![The start button above the GitHub MCP server entry](../_images/ex1-start-mcp-server.png)
 
 3. You should see a popup asking you to authenticate to GitHub.
 
-    ![A popup showing that the GitHub MCP server wants to authenticate to GitHub](../images/ex1-mcp-auth-popup.png)
+    ![A popup showing that the GitHub MCP server wants to authenticate to GitHub](../_images/ex1-mcp-auth-popup.png)
 
 4. Select **Continue** on the user account that you're using for this lab.
 
-    ![A popup showing the user account selection for GitHub authentication](../images/ex1-mcp-select-account.png)
+    ![A popup showing the user account selection for GitHub authentication](../_images/ex1-mcp-select-account.png)
 
 5. If the page appears, select **Authorize visual-studio-code** to allow the GitHub MCP server to login as your selected user account. Once complete, the page should say "You can now close the window.".
 
-    ![A popup showing the authorization for visual-studio-code app](../images/ex1-mcp-authorize-vscode.png)
+    ![A popup showing the authorization for visual-studio-code app](../_images/ex1-mcp-authorize-vscode.png)
 
 6. After navigating back to the GitHub Codespace, you should see that the GitHub MCP server has started. You can check this in two places:
     - The line in `.vscode/mcp.json` which previously said start should now present several options, and show a number of tools available. 
@@ -85,7 +83,7 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 1. Return to the Copilot Chat pane and place the cursor inside the dialog.
 2. Press <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) to open the Copilot Chat view, then select **Agent** from the agents dropdown in the Chat view.
 
-   ![Screenshot showing the agent picker in the Chat view.](../images/shared-chat-mode-selector.png)
+   ![Screenshot showing the agent picker in the Chat view.](../_images/shared-chat-mode-selector.png)
 
 3. Type or paste the following prompt to create the issues you'll be working on in the lab:
 
@@ -98,14 +96,15 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
     From our recent planning meeting, the upcoming backlog includes the following tasks:
 
     1. Allow users to filter games by category and publisher
-    2. Update our repository coding standards (including rules about Python formatting and docstrings) in our instructions file
-    3. Stretch Goal: Implement pagination on the game list page
+    2. Add a custom instructions standard so generated Python code includes clear module and function docstrings
+    3. Improve accessibility by adding a high-contrast mode with a persistent user toggle
+    4. Stretch Goal: Implement pagination on the game list page
     ```
 
 4. Press <kbd>Enter</kbd> or select the **Send** button to send the prompt to Copilot.
 5. GitHub Copilot should process the request and respond with a dialog box asking you to confirm the creation of the issues.
 
-    ![Example of Copilot Chat dialog box asking for confirmation to run the create issue command](../images/ex1-create-issue-dialog.png)
+    ![Example of Copilot Chat dialog box asking for confirmation to run the create issue command](../_images/ex1-create-issue-dialog.png)
 
 <Aside type="caution">
   Remember, AI can make mistakes, so make sure to review the issues before confirming.
@@ -115,11 +114,11 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 7. Ensure the details in the **owner** and **repo**, **title** and **body** of the issue look correct. You can make any desired edits by double clicking the body and updating the content with the correct information.
 8. After reviewing the generated content, select **Continue** to create the issue.
 
-    ![Example of the expanded dialog box showing the GitHub Issue that will be created](../images/ex1-create-issue-review.png)
+    ![Example of the expanded dialog box showing the GitHub Issue that will be created](../_images/ex1-create-issue-review.png)
 
 9. Repeat steps 6-8 for the remainder of the issues. Alternatively, if you are comfortable with Copilot automatically creating the issues you can select the down-arrow next to **Continue** and select **Allow in this session** to allow Copilot to create the issues for this session (the current chat).
 
-    ![Example of allowing Copilot to automatically create issues](../images/ex1-create-issue-allow.png)
+    ![Example of allowing Copilot to automatically create issues](../_images/ex1-create-issue-allow.png)
 
 <Aside type="caution">
   Ensure you are comfortable with Copilot automatically performing tasks on your behalf before you selecting **Allow in this session** or a similar option.
@@ -130,7 +129,7 @@ Now that you have set up the GitHub MCP server, you can use Copilot Agent mode t
 
 You should notice that the issues are fairly detailed. This is where you benefit from the power of Large Language Models (LLMs) and Model Context Protocol (MCP), as it has been able to create a clear initial issue description.
 
-![Example of issues created in GitHub](../images/ex1-github-issues-created.png)
+![Example of issues created in GitHub](../_images/ex1-github-issues-created.png)
 
 ## Summary and next steps
 

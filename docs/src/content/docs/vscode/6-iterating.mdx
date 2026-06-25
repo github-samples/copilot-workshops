@@ -3,6 +3,7 @@ title: "Exercise 6 - Iterating on GitHub Copilot's work"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import CalloutApproveRunWorkflows from '@shared/callout-approve-run-workflows.mdx';
 import SectionIteratingRecap from '@shared/section-iterating-recap-vscode.mdx';
 
 | [← Previous lesson: Monitoring and managing agents][previous-lesson] |
@@ -30,11 +31,9 @@ The high-contrast and light-mode toggles you implemented with the accessibility 
    - The accessibility attributes (ARIA labels, keyboard navigation, etc.).
    - Any JavaScript/TypeScript code that manages the mode switching.
 
-9. Return to the **Conversation** tab. If workflows are waiting for approval, select **Approve and run workflows**.
-
-    ![Approve and run workflows](../images/shared-approve-workflows.png)
-
-10. Wait for the workflows to complete. All being well, you should see them pass for both the backend and frontend.
+9. Return to the **Conversation** tab.
+10. <CalloutApproveRunWorkflows />
+11. Wait for the workflows to complete. All being well, you should see them pass for both the backend and frontend.
 
 <Aside type="tip">
   Want a second opinion on your accessibility work? Tag `@copilot` in a PR comment with a request such as "review this PR for additional WCAG issues" or "suggest improvements to the keyboard navigation". Copilot will start a new session to address the comment.
@@ -55,7 +54,7 @@ Congratulations — you've completed the VS Code path! Through this lab you:
 
 - **Used MCP to plan a backlog from your IDE.** You set up the GitHub MCP server and let Copilot create issues for you without leaving VS Code.
 - **Drove agent mode through coordinated changes across the stack.** You added a filter feature that touched the client, the server, and the tests in a single session.
-- **Used a custom agent.** You invoked the accessibility-focused custom agent with `@accessibility` and watched it implement high-contrast mode against the repository.
+- **Used a custom agent.** You selected the accessibility-focused custom agent from the agent picker and watched it implement high-contrast mode against the repository.
 - **Managed and steered an agent session.** You reviewed proposed changes inline, accepted what you wanted, and extended the session with a light-mode follow-up.
 - **Closed the loop with a pull request.** You published your local work and reviewed it end-to-end the way your team would.
 
