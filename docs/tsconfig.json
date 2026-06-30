@@ -5,8 +5,7 @@
   "compilerOptions": {
     "allowArbitraryExtensions": true,
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@shared/*": ["./src/types/_shared/*", "./src/content/docs/_shared/*"]
+      "@components/*": ["./src/components/*"]
     },
     "plugins": [
       { "name": "@mdx-js/typescript-plugin" }
