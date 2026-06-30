@@ -30,9 +30,8 @@ A couple of popular existing MCP servers are:
 
 There are many other MCP servers available that provide access to different tools and resources. GitHub hosts an [MCP registry](https://github.com/mcp) to enhance discoverability and contributions to the ecosystem.
 
-:::caution
-With regard to security, treat MCP servers as you would any other dependency in your project. Before using an MCP server, carefully review its source code, verify the publisher, and consider the security implications. Only use MCP servers that you trust and be cautious about granting access to sensitive resources or operations.
-:::
+> [!CAUTION]
+> With regard to security, treat MCP servers as you would any other dependency in your project. Before using an MCP server, carefully review its source code, verify the publisher, and consider the security implications. Only use MCP servers that you trust and be cautious about granting access to sensitive resources or operations.
 ## Review the MCP configuration
 
 The `.vscode/mcp.json` file configures the MCP servers available in this VS Code workspace.
@@ -80,9 +79,8 @@ Now you'll add a second server. The [Playwright MCP server][playwright-mcp-serve
 
 Unlike the remote `github` server, `playwright` is a **local** server: VS Code starts it on your machine by running `npx @playwright/mcp@latest`. The `--headless` flag tells Playwright to run the browser without a visible window, which is required inside a codespace where there's no desktop to display it.
 
-:::note
-The Tailspin Toys project already uses Playwright for its end-to-end tests, so the browser Playwright needs is typically already installed. If Copilot later reports that a browser is missing, have it run `npx playwright install chromium` and try again.
-:::
+> [!NOTE]
+> The Tailspin Toys project already uses Playwright for its end-to-end tests, so the browser Playwright needs is typically already installed. If Copilot later reports that a browser is missing, have it run `npx playwright install chromium` and try again.
 
 ## Start and trust the server
 
@@ -114,9 +112,8 @@ Report what you observe at each step, and call out anything that does not behave
 
 Copilot will launch a browser through the Playwright MCP server, walk through each step, and report back what it found. Read its summary against the acceptance criteria in the issue — if something looks off, ask follow-up questions or send it back to fix the code before you open a pull request.
 
-:::note
-The app needs to be running at `http://localhost:4321` for this test. If you stopped the dev server, start it again before sending the prompt. The first time Copilot uses the Playwright MCP server it may need to download a browser — if it reports a missing browser, have it run `npx playwright install chromium` and try again.
-:::
+> [!NOTE]
+> The app needs to be running at `http://localhost:4321` for this test. If you stopped the dev server, start it again before sending the prompt. The first time Copilot uses the Playwright MCP server it may need to download a browser — if it reports a missing browser, have it run `npx playwright install chromium` and try again.
 
 [playwright-mcp-server]: https://github.com/microsoft/playwright-mcp
 ## Publish the branch and create a pull request

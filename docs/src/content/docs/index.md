@@ -4,11 +4,10 @@ title: "Agents in the software development lifecycle (SDLC)"
 
 The recent additions to the capabilities of GitHub Copilot provide powerful tools to the developer across the entire software development lifecycle (SDLC). This includes working with issues and pull requests on GitHub, interacting with external services, and of course code creation. This lab explores the functionality, providing real-world use cases and tips on how to get the most out of the tools.
 
-:::caution
-Because GitHub Copilot is probabilistic rather than deterministic, the exact code, files changed, etc., may vary. As a result, you may notice slight differences between screenshots and code snippets in the lab and your experience. This is to be expected, and is just the nature of working with this class of tools.
-
-If something appears broken or isn't running correctly, please ask a mentor!
-:::
+> [!CAUTION]
+> Because GitHub Copilot is probabilistic rather than deterministic, the exact code, files changed, etc., may vary. As a result, you may notice slight differences between screenshots and code snippets in the lab and your experience. This is to be expected, and is just the nature of working with this class of tools.
+>
+> If something appears broken or isn't running correctly, please ask a mentor!
 
 ## Choose your harness
 

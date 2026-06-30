@@ -14,9 +14,8 @@ In this exercise, you will:
 - re-run the same prompt and watch the generated code adopt the new standard,
 - commit the instructions update and filtering slice to `main` so Copilot can use the updated guidance in the next exercise.
 
-:::caution
-Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The point of this exercise is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
-:::
+> [!CAUTION]
+> Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The point of this exercise is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
 
 ## Instruction files
 
@@ -40,13 +39,12 @@ There are two types of instructions files:
 - `.github/copilot-instructions.md`, a single instruction file sent to Copilot for **every** request for the repository. This file should contain project-level information — context relevant for most chat or CLI requests sent to Copilot. This could include the tech stack being used, an overview of what's being built, best practices, and other global guidance.
 - `.github/instructions/*.instructions.md` files can be created for specific tasks or file types. You can use them to provide guidelines for particular languages (like TypeScript or Astro), or for tasks like creating a UI component or a new set of unit tests.
 
-:::note
-When working in your IDE, instructions files are only used for code generation in Copilot Chat — not for code completions or next-edit suggestions.
-
-Copilot Chat, Copilot CLI and Copilot cloud agent use both repository-level and `*.instructions.md` files (with `applyTo` front matter) when generating code.
-
-Finally, Copilot [supports instructions files using other standards][custom-instructions-support], including AGENTS.md and CLAUDE.md files.
-:::
+> [!NOTE]
+> When working in your IDE, instructions files are only used for code generation in Copilot Chat — not for code completions or next-edit suggestions.
+>
+> Copilot Chat, Copilot CLI and Copilot cloud agent use both repository-level and `*.instructions.md` files (with `applyTo` front matter) when generating code.
+>
+> Finally, Copilot [supports instructions files using other standards][custom-instructions-support], including AGENTS.md and CLAUDE.md files.
 
 ### Best practices for managing instructions files
 
@@ -58,13 +56,12 @@ A full conversation about creating instructions files is beyond the scope of the
 
 There isn't one specific way to create instructions files, just as there isn't one specific way to use AI. You will find through experimentation what works best for your project.
 
-:::tip
-Every project using GitHub Copilot should have a robust collection of instruction files. As you explore the ones in this project, you may notice there are files for numerous types of tasks, including [UI updates][ui-instructions] and [Astro][astro-instructions].
-
-Copilot can also help generate instruction files for you. Each surface exposes this differently (for example, **Configure Chat → Generate Agent Instructions** in VS Code, or `/init` in Copilot CLI) — the lesson for the surface you're on will call it out where it's relevant.
-
-Looking for templates or a starting point? Explore [awesome-copilot][awesome-copilot], a repository full of instruction files, custom agents, and other resources.
-:::
+> [!TIP]
+> Every project using GitHub Copilot should have a robust collection of instruction files. As you explore the ones in this project, you may notice there are files for numerous types of tasks, including [UI updates][ui-instructions] and [Astro][astro-instructions].
+>
+> Copilot can also help generate instruction files for you. Each surface exposes this differently (for example, **Configure Chat → Generate Agent Instructions** in VS Code, or `/init` in Copilot CLI) — the lesson for the surface you're on will call it out where it's relevant.
+>
+> Looking for templates or a starting point? Explore [awesome-copilot][awesome-copilot], a repository full of instruction files, custom agents, and other resources.
 
 [ui-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/ui.instructions.md
 [astro-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/astro.instructions.md
@@ -81,9 +78,8 @@ Take a moment to read the instruction files this repository ships with — there
 5. Note the instructions specific to creating unit tests for this project.
 6. Finally, open `.github/instructions/drizzle.instructions.md` and scroll to the bottom. Note the links to other instruction files (like `unit-tests.instructions.md`) and existing files in the project. This lets you break larger instruction sets into smaller, reusable files, and point Copilot at examples to follow when generating code. (Paths there are relative to the instruction file rather than the repo root.)
 
-:::note
-The **Code formatting requirements** section in `copilot-instructions.md` documents the project's coding standards, but it doesn't yet require in-code documentation. In the next steps, you'll add rules for TSDoc doc comments and file comment headers.
-:::
+> [!NOTE]
+> The **Code formatting requirements** section in `copilot-instructions.md` documents the project's coding standards, but it doesn't yet require in-code documentation. In the next steps, you'll add rules for TSDoc doc comments and file comment headers.
 ## Create a branch for our changes
 
 Let's follow some best practices here and create a branch for our changes.
@@ -98,9 +94,10 @@ Let's follow some best practices here and create a branch for our changes.
 
 ## Use Copilot Chat *before* updating the instructions
 
-:::tip[Open Copilot Chat]
-Before you start the exercises below, return to your codespace, open the Copilot Chat panel, and select **New Chat** to start a clean conversation. Mode and model selection vary per exercise — each step calls those out where it matters.
-:::
+> [!TIP]
+> **Open Copilot Chat**
+>
+> Before you start the exercises below, return to your codespace, open the Copilot Chat panel, and select **New Chat** to start a clean conversation. Mode and model selection vary per exercise — each step calls those out where it matters.
 To see the impact of custom instructions, start by sending a prompt with the current instruction file in place. Later, you'll update it and re-send the same prompt to see the difference.
 
 1. Close any open editor tabs from previous exercises so Copilot picks up only the context you want.
@@ -119,9 +116,8 @@ To see the impact of custom instructions, start by sending a prompt with the cur
 6. Notice the proposed helper is a typed function that takes a `db` client as its first argument and returns a typed array of publishers — that's coming from the data-layer conventions in `.github/instructions/drizzle.instructions.md` (which applies to `src/lib/*.ts`).
 7. Notice the proposed code **is missing** TSDoc doc comments and a file-level comment header.
 
-:::caution
-Because Copilot is probabilistic, there's a chance it'll add doc comments even without being told to. If that happens, that's fine — the *consistency* improvement after the instruction update is still the point.
-:::
+> [!CAUTION]
+> Because Copilot is probabilistic, there's a chance it'll add doc comments even without being told to. If that happens, that's fine — the *consistency* improvement after the instruction update is still the point.
 
 ## Add a new repository standard
 
@@ -138,9 +134,8 @@ As highlighted previously, `.github/copilot-instructions.md` is designed to prov
 
 4. Save `copilot-instructions.md`.
 
-:::tip
-As you saw in the previous lesson, instruction files can be created at the repository level (`.github/copilot-instructions.md`) for global guidance, or as `*.instructions.md` files for specific languages, file types, or tasks. The repository-level file is the right home for project-wide standards like the doc comment rule you just added.
-:::
+> [!TIP]
+> As you saw in the previous lesson, instruction files can be created at the repository level (`.github/copilot-instructions.md`) for global guidance, or as `*.instructions.md` files for specific languages, file types, or tasks. The repository-level file is the right home for project-wide standards like the doc comment rule you just added.
 ## Re-run the prompt and observe the change
 
 1. Return to Copilot Chat and select **New Chat** to clear the buffer.
@@ -202,9 +197,8 @@ Instructions files are just like any asset in the repository, meaning they're ma
 
 With our branch pushed, we should create a pull request and tie it to the documentation-standard issue in your backlog. We could manually do that, but Copilot can do it on our behalf using the GitHub tools that are already connected to your project. Let's prompt Copilot to find the issue, create the PR to close the issue, and then merge it.
 
-:::note
-This is the first exercise that has Copilot act on GitHub for you. The project template already wires GitHub's tools into your workspace, so there's nothing to set up — the first time Copilot uses one, VS Code may prompt you to sign in to GitHub. Follow the prompts to allow it. You'll learn how this connection works (Model Context Protocol) in a later exercise.
-:::
+> [!NOTE]
+> This is the first exercise that has Copilot act on GitHub for you. The project template already wires GitHub's tools into your workspace, so there's nothing to set up — the first time Copilot uses one, VS Code may prompt you to sign in to GitHub. Follow the prompts to allow it. You'll learn how this connection works (Model Context Protocol) in a later exercise.
 
 1. Open Copilot Chat inside of your codespace.
 2. Select <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) to open the Copilot Chat view, and ensure **Agent** is selected from the agent picker.

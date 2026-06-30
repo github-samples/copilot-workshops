@@ -36,9 +36,8 @@ The high-contrast and light-mode toggles you implemented with the accessibility 
     ![Approve and run workflows](../_images/shared-approve-workflows.png)
 11. Wait for the workflows to complete. All being well, you should see them pass.
 
-:::tip
-Want a second opinion on your accessibility work? Tag `@copilot` in a PR comment with a request such as "review this PR for additional WCAG issues" or "suggest improvements to the keyboard navigation". Copilot will start a new session to address the comment.
-:::
+> [!TIP]
+> Want a second opinion on your accessibility work? Tag `@copilot` in a PR comment with a request such as "review this PR for additional WCAG issues" or "suggest improvements to the keyboard navigation". Copilot will start a new session to address the comment.
 
 ## Optional exercise - keep exploring locally
 

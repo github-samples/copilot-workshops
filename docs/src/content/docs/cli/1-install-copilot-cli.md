@@ -48,9 +48,8 @@ You can install Copilot CLI through [npm][install-npm], [WinGet][install-winget]
 
    You should see the version number displayed (e.g., `v1.0.XX`).
 
-:::tip
-If you encounter permission errors, you may need to use `sudo npm install -g @github/copilot` on some systems. However, this shouldn't be necessary in GitHub Codespaces.
-:::
+> [!TIP]
+> If you encounter permission errors, you may need to use `sudo npm install -g @github/copilot` on some systems. However, this shouldn't be necessary in GitHub Codespaces.
 
 ## Authenticate with GitHub
 
@@ -69,9 +68,8 @@ On first launch, Copilot CLI will prompt you to authenticate with your GitHub ac
    - Authorize Copilot CLI to access your GitHub account
 4. Once authenticated, you'll see the Copilot CLI prompt, ready to accept your questions and commands.
 
-:::note
-In a codespace, you may already be authenticated through your GitHub session. If Copilot CLI starts without prompting for authentication, you're good to go!
-:::
+> [!NOTE]
+> In a codespace, you may already be authenticated through your GitHub session. If Copilot CLI starts without prompting for authentication, you're good to go!
 
 ## Trust the directory and verify everything is working
 

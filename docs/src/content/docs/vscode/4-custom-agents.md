@@ -14,9 +14,8 @@ There's some logical overlap between custom agents and [agent skills][agent-skil
 
 Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills such as a pull-request workflow skill or one that runs and manages tests.
 
-:::note
-There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
-:::
+> [!NOTE]
+> There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
 
 [custom-agents-concept]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [agent-skills-concept]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
@@ -46,9 +45,8 @@ git checkout -b accessibility-vscode
 1. Open `.github/agents/accessibility.md`.
 2. Note the YAML frontmatter with the `name` and `description` fields.
 
-:::caution
-The frontmatter with `name` and `description` is required for custom agents.
-:::
+> [!CAUTION]
+> The frontmatter with `name` and `description` is required for custom agents.
 
 3. From there, scan and review the next sections which highlight:
    - Core responsibilities when generating code for an accessible website.
@@ -59,9 +57,10 @@ The frontmatter with `name` and `description` is required for custom agents.
 
 VS Code surfaces every custom agent defined in `.github/agents` in the agents dropdown at the bottom of the Copilot Chat view. You can select a custom agent to scope a chat session to that agent's instructions and tooling.
 
-:::tip[Open Copilot Chat]
-Before you start the exercises below, return to your codespace, open the Copilot Chat panel, and select **New Chat** to start a clean conversation. Mode and model selection vary per exercise — each step calls those out where it matters.
-:::
+> [!TIP]
+> **Open Copilot Chat**
+>
+> Before you start the exercises below, return to your codespace, open the Copilot Chat panel, and select **New Chat** to start a clean conversation. Mode and model selection vary per exercise — each step calls those out where it matters.
 1. Select **Agent** from the agents dropdown in the Chat view if it isn't already selected.
 
    ![Screenshot showing the agent picker in the Chat view.](../_images/shared-chat-mode-selector.png)
@@ -77,9 +76,8 @@ Before you start the exercises below, return to your codespace, open the Copilot
 5. Copilot Chat will get to work — it'll explore the codebase, propose changes, and apply edits to your project files. Each edit will appear inline in the chat with the file path and a diff you can review.
 6. As edits land, the **Files changed** indicator updates so you can see the working set the agent has modified.
 
-:::note
-This process will likely take a few minutes. Copilot is making real changes to your repository — it'll edit existing files such as the Astro components, CSS, and any related tests as it works.
-:::
+> [!NOTE]
+> This process will likely take a few minutes. Copilot is making real changes to your repository — it'll edit existing files such as the Astro components, CSS, and any related tests as it works.
 
 You'll review and steer this in-flight work in the next exercise.
 

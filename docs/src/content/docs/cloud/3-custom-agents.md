@@ -14,9 +14,8 @@ There's some logical overlap between custom agents and [agent skills][agent-skil
 
 Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills such as a pull-request workflow skill or one that runs and manages tests.
 
-:::note
-There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
-:::
+> [!NOTE]
+> There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
 
 [custom-agents-concept]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [agent-skills-concept]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
@@ -40,9 +39,8 @@ Return to your codespace, then review the accessibility custom agent file:
 1. Open `.github/agents/accessibility.md`.
 2. Note the YAML frontmatter with the `name` and `description` fields.
 
-:::caution
-The frontmatter with `name` and `description` is required for custom agents.
-:::
+> [!CAUTION]
+> The frontmatter with `name` and `description` is required for custom agents.
 
 3. From there, scan and review the next sections which highlight:
    - Core responsibilities when generating code for an accessible website.

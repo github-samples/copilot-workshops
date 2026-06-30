@@ -117,9 +117,8 @@ While everyone understands the importance of documentation, most projects have e
 11. Open the newly generated pull request (PR), which will be titled something similar to `[WIP]: Code lacks documentation`. If a new PR doesn't appear on the list, wait for a moment or two and refresh the browser window.
 12. After a few minutes, you should see that Copilot has created a todo list.
 
-:::note
-It may take several minutes for the todo list from Copilot to appear in the PR. Copilot is creating its environment (running the workflow highlighted previously), analyzing the project, and determining the best approach to tackling the problem.
-:::
+> [!NOTE]
+> It may take several minutes for the todo list from Copilot to appear in the PR. Copilot is creating its environment (running the workflow highlighted previously), analyzing the project, and determining the best approach to tackling the problem.
 
 13. Review the list and the tasks it's going to complete.
 14. Scroll down the pull request timeline, and you should see an update that Copilot has started working on the issue.
@@ -127,9 +126,8 @@ It may take several minutes for the todo list from Copilot to appear in the PR. 
 
   ![Copilot session view](../_images/ex4-view-session.png)
 
-:::caution
-You may need to refresh the window to see the updated indicator.
-:::
+> [!CAUTION]
+> You may need to refresh the window to see the updated indicator.
 
 16. Notice that you can scroll through the live session, and how Copilot is solving the problem. That includes exploring the code and understanding the state, how Copilot pauses to think and decide on the appropriate plan and also creating code.
 

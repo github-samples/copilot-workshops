@@ -1,12 +1,31 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives';
+
+// Lesson callouts are authored in GitHub admonition syntax (`> [!NOTE]`). This
+// remark plugin rewrites them into Starlight aside directives before Starlight
+// renders them, so the same syntax used in the repo's READMEs and on github.com
+// also produces styled callouts on the published site. The mapping targets
+// Starlight's aside types (note / tip / caution / danger).
+const githubAdmonitionMapping = {
+  NOTE: 'note',
+  TIP: 'tip',
+  IMPORTANT: 'note',
+  WARNING: 'caution',
+  CAUTION: 'caution',
+};
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://github-samples.github.io',
   base: '/agents-in-sdlc',
   trailingSlash: 'always',
+  markdown: {
+    remarkPlugins: [
+      [remarkGithubAdmonitionsToDirectives, { mapping: githubAdmonitionMapping }],
+    ],
+  },
   integrations: [
     starlight({
       title: 'Agents in the SDLC Workshop',

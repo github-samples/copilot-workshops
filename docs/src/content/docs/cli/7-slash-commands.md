@@ -21,21 +21,21 @@ Using any tool, including an AI tool, is a skill. Working together as a team, sh
 
 Let's create a GitHub gist we could share with our team.
 
-::::tip[Start a Copilot CLI session]
-Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with `--yolo` and `--enable-all-github-mcp-tools`:
+> [!TIP]
+> **Start a Copilot CLI session**
+>
+> Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with `--yolo` and `--enable-all-github-mcp-tools`:
+>
+> ```bash
+> copilot --yolo --enable-all-github-mcp-tools
+> ```
+>
+> To pick up your most recent session for this project instead of starting fresh, run `copilot --yolo --enable-all-github-mcp-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
+>
+> `--enable-all-github-mcp-tools` enables the read/write GitHub MCP tools for the current session, so Copilot can read your backlog and open pull requests during the workshop flow.
 
-```bash
-copilot --yolo --enable-all-github-mcp-tools
-```
-
-To pick up your most recent session for this project instead of starting fresh, run `copilot --yolo --enable-all-github-mcp-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
-
-`--enable-all-github-mcp-tools` enables the read/write GitHub MCP tools for the current session, so Copilot can read your backlog and open pull requests during the workshop flow.
-
-:::caution
-`--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
-:::
-::::
+> [!CAUTION]
+> `--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
 
 [allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
 1. In the prompt window for Copilot CLI, send the following command:
@@ -87,9 +87,8 @@ When working on larger or more complex tasks you may bump into the maximum conte
 
 6. Note the change in context. There might not be a drastic change as the context window is likely relatively small at the moment.
 
-:::note
-Copilot CLI will automatically compact when it becomes full. As it approaches 100% capacity it will display the percentage just above the prompt window. Normally it will compact asynchronously, allowing you to continue interacting with Copilot while it does its work. It may however block a running operation for several seconds while performing its work.
-:::
+> [!NOTE]
+> Copilot CLI will automatically compact when it becomes full. As it approaches 100% capacity it will display the percentage just above the prompt window. Normally it will compact asynchronously, allowing you to continue interacting with Copilot while it does its work. It may however block a running operation for several seconds while performing its work.
 
 ### Best practices with context
 
@@ -98,9 +97,8 @@ In most sessions with Copilot context will be managed efficiently by Copilot its
 - If you are changing to a different part of the application, or to an unrelated task, you can use `/clear` to start new to avoid confusing Copilot with older, unrelated context.
 - If you are approaching the maximum context window, you can manually `/compact` your context to control when it happens.
 
-:::caution
-Again, the majority of the time, Copilot will manage its context without direct interaction from you. If you notice Copilot is a bit confused by older information, or are about to switch to an unrelated task, then you might consider using the manual commands.
-:::
+> [!CAUTION]
+> Again, the majority of the time, Copilot will manage its context without direct interaction from you. If you notice Copilot is a bit confused by older information, or are about to switch to an unrelated task, then you might consider using the manual commands.
 
 ## Choosing your model
 
@@ -115,17 +113,15 @@ Different models have different strengths, and different developers have differe
 2. Note the list of models. Each model will have both its name and cost-per-request modifier listed next to it.
 3. If you wish, select a new model! Or select <kbd>Esc</kbd> to exit the model list.
 
-:::caution
-Model selection persists in Copilot CLI.
-:::
+> [!CAUTION]
+> Model selection persists in Copilot CLI.
 
 ## Delegating to cloud agent (optional)
 
 There are times when you want to keep working in your terminal but hand off a longer-running task to Copilot cloud agent. The `/delegate` command sends the current Copilot CLI session to GitHub.com, where cloud agent picks it up, works asynchronously, and opens a pull request when done.
 
-:::note
-`/delegate` requires cloud agent, available on Copilot Student, Pro, Pro+, Business, or Enterprise — every plan except Copilot Free. If you don't have access, read through this section and skip the hands-on steps.
-:::
+> [!NOTE]
+> `/delegate` requires cloud agent, available on Copilot Student, Pro, Pro+, Business, or Enterprise — every plan except Copilot Free. If you don't have access, read through this section and skip the hands-on steps.
 
 1. Clear the current session first so accumulated workshop context isn't delegated:
 

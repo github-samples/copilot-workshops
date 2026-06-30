@@ -30,9 +30,8 @@ Let's see the current status of all tasks assigned to Copilot cloud agent.
     - Setting up MCP servers.
     - Performing various steps to complete the assigned task.
 
-:::note
-The exact steps listed will vary depending on the state of Copilot's work and the approach it took.
-:::
+> [!NOTE]
+> The exact steps listed will vary depending on the state of Copilot's work and the approach it took.
 
 4. Also note the pull request (PR) pane which appears on the right side. This allows you to see the PR and files changed for additional monitoring.
 

@@ -25,9 +25,8 @@ The simplest option on every platform is the official installer:
 
 3. If you see `v22` or a higher number, you can skip to the next section!
 
-:::tip
-You only need to complete these steps if you don't have Node installed, or you need to update.
-:::
+> [!TIP]
+> You only need to complete these steps if you don't have Node installed, or you need to update.
 
 4. Open the [Node.js download page][node-download].
 5. Download the **LTS** build for your operating system.
@@ -41,9 +40,8 @@ You only need to complete these steps if you don't have Node installed, or you n
 
 9. You should see `v22.x.x` or higher.
 
-:::tip
-Prefer containers? If you have **[Docker][docker]**, you can use the repository's [dev container][dev-containers] instead of installing Node.js locally — it bundles Node for you. You don't need both.
-:::
+> [!TIP]
+> Prefer containers? If you have **[Docker][docker]**, you can use the repository's [dev container][dev-containers] instead of installing Node.js locally — it bundles Node for you. You don't need both.
 
 ## Set up the lab repository
 
@@ -60,9 +58,8 @@ You'll work against your own copy of the Tailspin Toys project. Create it now fr
 
 4. Make a note of the repository path you created (**organization-or-user-name/repository-name**), as you will be referring to this later in the lab.
 
-:::note
-When you create your repository from the template, a backlog of GitHub issues is created for you automatically. You'll work from these issues throughout the workshop — there's nothing to file yourself.
-:::
+> [!NOTE]
+> When you create your repository from the template, a backlog of GitHub issues is created for you automatically. You'll work from these issues throughout the workshop — there's nothing to file yourself.
 
 ## Summary and next steps
 

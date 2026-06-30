@@ -8,9 +8,8 @@ This is where Copilot Agent Mode comes into play.
 
 Copilot Agent Mode is built to act more autonomously in your IDE. It behaves in a similar fashion to a developer, starting by exploring the existing project structure, performing the necessary updates, running tasks like tests, and automatically fixing any discovered mistakes. Let's explore how you can use Agent Mode to introduce new functionality to your site.
 
-:::note
-While the names are similar, agent mode and cloud agent are built for two different types of experiences. Agent mode performs its tasks in your IDE, allowing for quick feedback cycles and interaction. Cloud agent is designed as a peer programmer, working asynchronously like a member of the team, interacting with you via issues and pull requests.
-:::
+> [!NOTE]
+> While the names are similar, agent mode and cloud agent are built for two different types of experiences. Agent mode performs its tasks in your IDE, allowing for quick feedback cycles and interaction. Cloud agent is designed as a peer programmer, working asynchronously like a member of the team, interacting with you via issues and pull requests.
 
 In this exercise, you will learn how:
 
@@ -56,15 +55,13 @@ To make running the website easier, an `npm run dev` task has been provided that
       Press Ctrl-C to stop.
    ```
 
-:::note
-If a dialog box opens prompting you to open a browser window for `http://localhost:4321` close it by selecting the **x**.
-:::
+> [!NOTE]
+> If a dialog box opens prompting you to open a browser window for `http://localhost:4321` close it by selecting the **x**.
 
 5. Open the website by holding <kbd>Command</kbd> (Mac) or <kbd>Ctrl</kbd> (Windows/Linux) and selecting the Astro server address `http://localhost:4321` in the terminal.
 
-:::note
-When using a codespace, selecting a link for the localhost URL from the Codespace terminal will automatically redirect you to `https://<your-codespace-name>-4321.app.github.dev/`. This is a private tunnel to your codespace, which is now hosting your web server!
-:::
+> [!NOTE]
+> When using a codespace, selecting a link for the localhost URL from the Codespace terminal will automatically redirect you to `https://<your-codespace-name>-4321.app.github.dev/`. This is a private tunnel to your codespace, which is now hosting your web server!
 
 ### Exploring the website
 
@@ -75,9 +72,10 @@ Once the website is running, you can explore its functionality. The main feature
 
 ## Explore the backlog with Copilot
 
-:::tip[Open Copilot Chat]
-Before you start the exercises below, return to your codespace, open the Copilot Chat panel, and select **New Chat** to start a clean conversation. Mode and model selection vary per exercise — each step calls those out where it matters.
-:::
+> [!TIP]
+> **Open Copilot Chat**
+>
+> Before you start the exercises below, return to your codespace, open the Copilot Chat panel, and select **New Chat** to start a clean conversation. Mode and model selection vary per exercise — each step calls those out where it matters.
 The initial implementation of the website is functional, but we want to enhance it by adding new capabilities. Let's start off by reviewing the backlog. When you set up your project from the template, a backlog of issues was created for you automatically — ask GitHub Copilot to show you those items.
 
 1. Select **Agent** from the agents dropdown in the Chat view. The **Agent** agent autonomously plans and implements changes across files, runs terminal commands, and invokes tools.
@@ -86,12 +84,11 @@ The initial implementation of the website is functional, but we want to enhance 
 
 2. Select **Claude Sonnet 4.5** from the list of available models.
 
-:::caution
-The authors of this workshop are not indicating a preference towards one model or another. When building this workshop, we used Claude Sonnet 4.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the workshop. This is perfectly normal and expected.
-:::
-:::note
-Because of the probabilistic nature of LLMs, Copilot may utilize a different MCP command, but should still be able to complete the task.
-:::
+> [!CAUTION]
+> The authors of this workshop are not indicating a preference towards one model or another. When building this workshop, we used Claude Sonnet 4.5, and as such are including that in the instructions. The hope is the code suggestions you receive will be relatively consistent to ensure a good experience. However, because LLMs are probabilistic, you may notice the suggestions received differ from what is indicated in the workshop. This is perfectly normal and expected.
+
+> [!NOTE]
+> Because of the probabilistic nature of LLMs, Copilot may utilize a different MCP command, but should still be able to complete the task.
 
 3. Ask Copilot about the backlog of issues by sending the following prompt to Copilot:
 
@@ -116,9 +113,8 @@ Before kicking off the agent to generate the code, it's a good time to review th
      - Tailwind CSS
      - Drizzle
 
-:::tip
-Instructions files allow you to reference both other instructions files and files in your project. The paths are relative to the location of the instructions file. This allows for reuse, breaking down complex instructions into smaller more manageable chunks, and providing examples and templates.
-:::
+> [!TIP]
+> Instructions files allow you to reference both other instructions files and files in your project. The paths are relative to the location of the instructions file. This allows for reuse, breaking down complex instructions into smaller more manageable chunks, and providing examples and templates.
 
 ## Implement the filtering functionality
 
@@ -150,9 +146,8 @@ In addition, the tests need to run (and pass) before you merge everything into y
 
    ![Screenshot showing Copilot exploring the project files](../_images/ex3-agent-mode-explores.png)
 
-:::note
-You will notice that Copilot will perform several tasks, like exploring the project, modifying files, and running tests. It may take a few minutes depending on the complexity of the task and the codebase. During that process, you may notice **Keep** and **Undo**  buttons appear in the code editor. When Copilot is finished, you will have a **Keep** or **Undo** for all of the changes, so you do not need to select them while work is in progress.
-:::
+> [!NOTE]
+> You will notice that Copilot will perform several tasks, like exploring the project, modifying files, and running tests. It may take a few minutes depending on the complexity of the task and the codebase. During that process, you may notice **Keep** and **Undo**  buttons appear in the code editor. When Copilot is finished, you will have a **Keep** or **Undo** for all of the changes, so you do not need to select them while work is in progress.
 
 7. As prompted by Copilot, select **Continue** to run the tests.
 
@@ -164,9 +159,8 @@ You will notice that Copilot will perform several tasks, like exploring the proj
 
 9. Explore the generated code for any potential issues.
 
-:::caution
-Remember, it's always important to review the code that Copilot or any AI tools  generate.
-:::
+> [!CAUTION]
+> Remember, it's always important to review the code that Copilot or any AI tools  generate.
 
 10. Return to the browser with the website running. Explore the new functionality!
 11. Once you've confirmed everything works and reviewed the code, select **Keep** in the Copilot Chat window.

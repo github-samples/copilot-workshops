@@ -16,9 +16,8 @@ In this lesson, you will:
 
 Your team is adopting AI agents to work through a growing backlog. The Copilot app gives you one place to direct that work — picking up issues, running agents, reviewing changes, and merging pull requests. This lesson gets you installed, connected, and comfortable starting a conversation about your project.
 
-:::note
-An eligible Copilot plan is required — Copilot Student or any paid plan (Pro, Pro+, Business, or Enterprise). If you are on Copilot Business or Copilot Enterprise, your administrator must enable the **Copilot CLI** policy before the app will work.
-:::
+> [!NOTE]
+> An eligible Copilot plan is required — Copilot Student or any paid plan (Pro, Pro+, Business, or Enterprise). If you are on Copilot Business or Copilot Enterprise, your administrator must enable the **Copilot CLI** policy before the app will work.
 
 ## Install and configure the GitHub Copilot app
 
@@ -32,9 +31,8 @@ To use the GitHub Copilot app the first step, as you might imagine, is to instal
 6. Select **Continue** to continue the onboarding.
 7. When prompted for a theme, select the one which brings you the most joy, then select **Finish**.
 
-:::note
-If your copy of Tailspin Toys didn't appear in the list automatically, you can add it after completing the onboarding process in the app. When completed, the Copilot app will bring you to the home screen. From there you can select **Choose from GitHub**, and search for your repo by name (\<YOUR_GITHUB_HANDLE\>/tailspin-toys), then select it. Your repo will now be added to the Copilot app!
-:::
+> [!NOTE]
+> If your copy of Tailspin Toys didn't appear in the list automatically, you can add it after completing the onboarding process in the app. When completed, the Copilot app will bring you to the home screen. From there you can select **Choose from GitHub**, and search for your repo by name (\<YOUR_GITHUB_HANDLE\>/tailspin-toys), then select it. Your repo will now be added to the Copilot app!
 
 ## Get oriented in the workspace
 
@@ -58,9 +56,8 @@ Because the app integrates with GitHub natively, the work waiting in your reposi
 
 3. Select an issue to read its details. Each issue is also a launch point for an agent session — you'll start work from these issues later in the harness.
 
-:::note
-The list of items in My work is automatically filtered to only display items from the repositories you've added to Copilot app. Want to see work items from other repos? Add them to the app!
-:::
+> [!NOTE]
+> The list of items in My work is automatically filtered to only display items from the repositories you've added to Copilot app. Want to see work items from other repos? Add them to the app!
 
 ## Try a quick chat
 

@@ -33,9 +33,8 @@ The app can run agents for you on a schedule or on demand through **automations*
 
 6. Run it on demand to see the result.
 
-:::tip
-Automations can run locally or in the cloud. Enable **Run in the cloud** and pick the **Tools** an automation may use when you want it to run unattended on a schedule. Keep scheduled automations scoped and non-destructive until you trust their output.
-:::
+> [!TIP]
+> Automations can run locally or in the cloud. Enable **Run in the cloud** and pick the **Tools** an automation may use when you want it to run unattended on a schedule. Keep scheduled automations scoped and non-destructive until you trust their output.
 
 ## Best practices
 

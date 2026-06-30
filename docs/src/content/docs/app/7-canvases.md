@@ -51,9 +51,8 @@ You've shipped a lot: the star rating, the documentation standard, and the filte
 
 Copilot will get to work on creating the canvas!
 
-:::note
-This will take a few minutes for it to do so. Because this is a complicated task, you might not be satisfied with the first version. You can continue to prompt to build the tool of your dreams!
-:::
+> [!NOTE]
+> This will take a few minutes for it to do so. Because this is a complicated task, you might not be satisfied with the first version. You can continue to prompt to build the tool of your dreams!
 
 ## Save the canvas and merge it to the repository
 

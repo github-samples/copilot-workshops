@@ -32,9 +32,8 @@ Copilot CLI has a series of slash commands available to interact with it, includ
 | `/skills`          | Manage skills for enhanced capabilities                       |
 | `/usage`           | Display session usage metrics and statistics                  |
 
-:::tip
-Use `/help` to see the full list of available commands and keyboard shortcuts.
-:::
+> [!TIP]
+> Use `/help` to see the full list of available commands and keyboard shortcuts.
 
 ## Best practices
 

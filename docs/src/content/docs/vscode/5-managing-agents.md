@@ -25,9 +25,8 @@ The Copilot Chat view shows each step the agent takes — files it explores, com
     - Select **Undo** to revert the change and let the agent take another pass.
 4. You can also open the **Files changed** indicator at the top of the chat to see the full working set the agent has modified during this session.
 
-:::note
-If a tool call asks for permission (for example, running a terminal command), the agent will pause and surface an **Allow** prompt. Approve only the commands you're comfortable with.
-:::
+> [!NOTE]
+> If a tool call asks for permission (for example, running a terminal command), the agent will pause and surface an **Allow** prompt. Approve only the commands you're comfortable with.
 
 5. Wait for the agent to finish implementing high-contrast mode. You should see a final message summarizing the changes it made.
 
@@ -45,9 +44,8 @@ Now that high-contrast mode is in place, you'll extend the same conversation to 
 3. Review each new edit as it lands, just like you did for high-contrast. Use **Keep** or **Undo** on each diff.
 4. If the agent goes in a direction you don't want — for example, it tries to refactor the toggle UI in a way you don't like — you can stop it with the **Stop** button next to the chat input, then send a clarifying follow-up message.
 
-:::tip
-Steering an in-flight session is faster than starting over. Use follow-up prompts to ask for adjustments ("simplify the CSS — use CSS variables instead of duplicating selectors"), to course-correct ("don't add a third toggle, integrate light mode into the existing settings panel"), or to extend scope ("also add keyboard shortcuts for both toggles").
-:::
+> [!TIP]
+> Steering an in-flight session is faster than starting over. Use follow-up prompts to ask for adjustments ("simplify the CSS — use CSS variables instead of duplicating selectors"), to course-correct ("don't add a third toggle, integrate light mode into the existing settings panel"), or to extend scope ("also add keyboard shortcuts for both toggles").
 
 ## Review the working set
 

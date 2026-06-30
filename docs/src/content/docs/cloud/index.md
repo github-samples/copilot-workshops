@@ -24,18 +24,16 @@ Before attending this workshop, please ensure you have:
 - [ ] A GitHub account with an active **Copilot Student, Pro, Pro+, Business, or Enterprise** plan
 - [ ] Copilot cloud agent enabled for your account or organization
 
-:::tip
-No paid plan? Verified students can get GitHub Copilot for free through [GitHub Education][callout-student-plan-education]. The **Copilot Student** plan includes the agent, MCP, code review, and Copilot CLI features this workshop uses — so you can complete every harness with it.
-:::
+> [!TIP]
+> No paid plan? Verified students can get GitHub Copilot for free through [GitHub Education][callout-student-plan-education]. The **Copilot Student** plan includes the agent, MCP, code review, and Copilot CLI features this workshop uses — so you can complete every harness with it.
 
 [callout-student-plan-education]: https://github.com/education/students
-:::note
-Cloud agent is available on **Copilot Student, Pro, Pro+, Business, and Enterprise** — every plan except Copilot Free. On Copilot Business or Enterprise, an administrator must enable it for your organization.
-:::
 
-:::note
-MCP isn't covered in this harness. To explore using MCP servers with Copilot, see the [CLI harness](../cli/) or the [VS Code harness](../vscode/).
-:::
+> [!NOTE]
+> Cloud agent is available on **Copilot Student, Pro, Pro+, Business, and Enterprise** — every plan except Copilot Free. On Copilot Business or Enterprise, an administrator must enable it for your organization.
+
+> [!NOTE]
+> MCP isn't covered in this harness. To explore using MCP servers with Copilot, see the [CLI harness](../cli/) or the [VS Code harness](../vscode/).
 
 ## Get Started
 

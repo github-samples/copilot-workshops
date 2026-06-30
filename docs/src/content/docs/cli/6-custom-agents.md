@@ -14,9 +14,8 @@ There's some logical overlap between custom agents and [agent skills][agent-skil
 
 Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills such as a pull-request workflow skill or one that runs and manages tests.
 
-:::note
-There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
-:::
+> [!NOTE]
+> There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
 
 [custom-agents-concept]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [agent-skills-concept]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
@@ -40,9 +39,8 @@ A custom agent has already been created for you for accessibility. Let's review 
 1. Open `.github/agents/accessibility.md`.
 2. Note the YAML frontmatter with the `name` and `description` fields.
 
-:::caution
-The frontmatter with `name` and `description` is required for custom agents.
-:::
+> [!CAUTION]
+> The frontmatter with `name` and `description` is required for custom agents.
 
 3. From there, scan and review the next sections which highlight:
    - Core responsibilities when generating code for an accessible website.
@@ -53,21 +51,21 @@ The frontmatter with `name` and `description` is required for custom agents.
 
 You can start a custom agent in Copilot CLI by using the `/agent` command. Let's perform an accessibility pass on our website.
 
-::::tip[Start a Copilot CLI session]
-Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with `--yolo` and `--enable-all-github-mcp-tools`:
+> [!TIP]
+> **Start a Copilot CLI session**
+>
+> Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with `--yolo` and `--enable-all-github-mcp-tools`:
+>
+> ```bash
+> copilot --yolo --enable-all-github-mcp-tools
+> ```
+>
+> To pick up your most recent session for this project instead of starting fresh, run `copilot --yolo --enable-all-github-mcp-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
+>
+> `--enable-all-github-mcp-tools` enables the read/write GitHub MCP tools for the current session, so Copilot can read your backlog and open pull requests during the workshop flow.
 
-```bash
-copilot --yolo --enable-all-github-mcp-tools
-```
-
-To pick up your most recent session for this project instead of starting fresh, run `copilot --yolo --enable-all-github-mcp-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
-
-`--enable-all-github-mcp-tools` enables the read/write GitHub MCP tools for the current session, so Copilot can read your backlog and open pull requests during the workshop flow.
-
-:::caution
-`--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
-:::
-::::
+> [!CAUTION]
+> `--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
 
 [allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
 1. Bring up the list of agents by typing `/agent` in the prompt window in Copilot CLI and selecting <kbd>Enter</kbd>.
@@ -80,9 +78,8 @@ To pick up your most recent session for this project instead of starting fresh, 
 
 4. Copilot gets to work on the task! It will start by retrieving the issue, then performing the review, generating updates, and finally creating the PR. You should also notice when it creates the PR it utilizes the skill focused on PRs for the project.
 
-:::note
-This process will likely take a few minutes. It's a good time to reflect on everything you've learned, enjoy a beverage, or sneak ahead to the next module which talks about some additional commands available to you in Copilot CLI.
-:::
+> [!NOTE]
+> This process will likely take a few minutes. It's a good time to reflect on everything you've learned, enjoy a beverage, or sneak ahead to the next module which talks about some additional commands available to you in Copilot CLI.
 
 ## Summary and next steps
 

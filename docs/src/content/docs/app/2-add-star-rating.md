@@ -39,9 +39,8 @@ Let's start a new session to begin exploring the project and implementing our fe
    On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
    ```
 
-:::note
-Notice how the prompt contained the name of the file for Copilot to update. While it's not required at all to specify which files Copilot should include in its work, pointing it in the right direction both helps Copilot quickly generate code and reduce token usage.
-:::
+> [!NOTE]
+> Notice how the prompt contained the name of the file for Copilot to update. While it's not required at all to specify which files Copilot should include in its work, pointing it in the right direction both helps Copilot quickly generate code and reduce token usage.
 
 5. Select <kbd>Enter</kbd> to send the prompt to Copilot.
 
@@ -69,9 +68,8 @@ All AI-generated changes deserve a review before they're merged, even small ones
    )}
    ```
 
-:::note
-Because Copilot, like all generative AI tools, is probabilistic rather than deterministic, the exact code may vary from the above. But it should be relatively similar.
-:::
+> [!NOTE]
+> Because Copilot, like all generative AI tools, is probabilistic rather than deterministic, the exact code may vary from the above. But it should be relatively similar.
 
 ## Check the changes
 
