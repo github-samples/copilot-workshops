@@ -1,13 +1,13 @@
 ---
-description: 'Markdown and MDX accessibility guidelines based on GitHub''s 5 best practices for inclusive documentation'
-applyTo: '**/*.{md,mdx}'
+description: 'Markdown accessibility guidelines based on GitHub''s 5 best practices for inclusive documentation'
+applyTo: '**/*.md'
 ---
 
 # Markdown Accessibility Review Guidelines
 
-This file is the single home for **accessibility** conventions in this repo. Mechanical Markdown/MDX formatting lives in [`markdown.instructions.md`](./markdown.instructions.md); the accessibility rationale for those conventions lives here.
+This file is the single home for **accessibility** conventions in this repo. Mechanical Markdown formatting lives in [`markdown.instructions.md`](./markdown.instructions.md); the accessibility rationale for those conventions lives here.
 
-When writing or reviewing Markdown and MDX files, check for the following accessibility issues based on GitHub's [5 tips for making your GitHub profile page accessible](https://github.blog/developer-skills/github/5-tips-for-making-your-github-profile-page-accessible/) and the Smashing Magazine article [Improving The Accessibility Of Your Markdown](https://www.smashingmagazine.com/2021/09/improving-accessibility-of-markdown/). Flag violations and suggest fixes with clear explanations of the accessibility impact.
+When writing or reviewing Markdown files, check for the following accessibility issues based on GitHub's [5 tips for making your GitHub profile page accessible](https://github.blog/developer-skills/github/5-tips-for-making-your-github-profile-page-accessible/) and the Smashing Magazine article [Improving The Accessibility Of Your Markdown](https://www.smashingmagazine.com/2021/09/improving-accessibility-of-markdown/). Flag violations and suggest fixes with clear explanations of the accessibility impact.
 
 ## 1. Descriptive Links
 
@@ -37,8 +37,8 @@ Good: `Read my blog post "[Crafting an accessible resume](https://example.com)"`
 
 This repo has two repo-specific rules that override the generic "one H1 per document" guidance:
 
-- **Lesson pages have no H1 in the body.** The title comes from MDX frontmatter and Starlight renders it as the H1. Body headings start at `##`.
-- **Partials start at `###`.** A partial under `_shared/` must not contain `##` — the host page owns every H2 (see [`partials.instructions.md`](./partials.instructions.md)). Within a partial, treat `###` as the top level and never skip down from there.
+- **Lesson pages have no H1 in the body.** The title comes from Markdown frontmatter and Starlight renders it as the H1. Body headings start at `##`.
+- **Repository docs carry their own H1.** README, contributing, instruction, and skill files start with a single `#` title.
 
 ## 4. Plain Language
 

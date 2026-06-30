@@ -1,19 +1,51 @@
 ---
-description: 'Markdown and MDX conventions for repository docs, READMEs, and workshop lessons'
-applyTo: '**/*.{md,mdx}'
+description: 'Markdown conventions for repository docs, READMEs, and workshop lessons'
+applyTo: '**/*.md'
 ---
 
-# Markdown and MDX conventions
+# Markdown conventions
 
-This file covers both plain Markdown (`.md`) and MDX (`.mdx`). The first sections apply to both formats; the [MDX-only conventions](#mdx-only-conventions) section at the end is specific to workshop lesson files under `docs/src/content/docs/`.
+This file covers Markdown authoring across the repo. Published lesson content under `docs/src/content/docs/**` is plain `.md`; repository docs and instruction files are also Markdown but are read primarily on github.com.
 
 ## No hard-wrapping
 
 Do not hard-wrap paragraphs. Keep each paragraph, list item, and blockquote on a single line and let editors soft-wrap. Line breaks are reserved for actual structural breaks (between paragraphs, list items, headings, code fences, table rows, etc.).
 
-## GitHub admonitions
+## Admonitions
 
-Preserve GitHub admonition syntax exactly:
+Use the admonition syntax for where the file is rendered.
+
+### Published lesson content
+
+Published lesson content under `docs/src/content/docs/**` is rendered by Starlight, so use Starlight Markdown aside directives:
+
+```markdown
+:::note
+Body text.
+:::
+
+:::tip
+Body text.
+:::
+
+:::caution
+Body text.
+:::
+
+:::danger
+Body text.
+:::
+
+:::tip[Custom title]
+Body text.
+:::
+```
+
+Starlight aside types are `note`, `tip`, `caution`, and `danger`. Do not use GitHub blockquote admonitions in published lesson content.
+
+### Repository Markdown
+
+Non-published repository Markdown — READMEs, `AUTHORING.md`, `CONTRIBUTING.md`, `.github/**`, instruction files, and skills — is viewed on github.com, so preserve GitHub admonition syntax exactly:
 
 ```markdown
 > [!NOTE]
@@ -32,14 +64,23 @@ Preserve GitHub admonition syntax exactly:
 > Body text.
 ```
 
-The `[!TYPE]` marker must be on its own `>`-prefixed line, with the body on subsequent `>`-prefixed lines.
-
-In MDX lesson content, prefer Starlight's `<Aside>` component over GitHub admonitions — see [MDX-only conventions](#mdx-only-conventions).
+The `[!TYPE]` marker must be on its own `>`-prefixed line, with the body on subsequent `>`-prefixed lines. Do not convert these repo docs to Starlight `:::` directives.
 
 ## Headings
 
-- Repository docs (README, CONTRIBUTING, etc.): start with `# Title` then `##` for sections.
-- Lesson MDX (`docs/src/content/docs/**/*.mdx`): no `# H1` in body — the title comes from frontmatter. Body headings start at `##`.
+- Repository docs (README, CONTRIBUTING, instruction files, skills, etc.): start with `# Title` then `##` for sections.
+- Lesson pages (`docs/src/content/docs/**/*.md`): no `# H1` in body — the title comes from frontmatter. Body headings start at `##`.
+
+## Frontmatter for lesson pages
+
+Every lesson page needs frontmatter:
+
+```yaml
+---
+title: "Exercise N - Lesson title"
+description: "One-sentence summary (optional, used for SEO/meta)."
+---
+```
 
 ## Code fences
 
@@ -86,77 +127,24 @@ Mac modifiers: spell out **Command**, **Option**, **Control** — don't use ⌘,
 
 ## Links
 
-- Use reference-style links. Define refs at the bottom of the file (or the bottom of the partial that owns them).
+- Use reference-style links when practical. Define refs at the bottom of the file that owns the link.
 - Strip locale codes (`/en/`, `/en-us/`, etc.) from URLs so readers land in their own locale.
 - For descriptive link text (no "click here"; no link-only sentences), see [`markdown-accessibility.instructions.md`](./markdown-accessibility.instructions.md).
 
-## MDX-only conventions
+## Images
 
-The rest of this file applies only to `.mdx` files (workshop lessons under `docs/src/content/docs/`).
+Use Markdown image syntax with paths relative to the Markdown file:
 
-### Frontmatter
-
-Every MDX page (not partial) needs frontmatter:
-
-```yaml
----
-title: "Exercise N - Lesson title"
-description: "One-sentence summary (optional, used for SEO/meta)."
----
-```
-
-### Starlight components
-
-Import from `@astrojs/starlight/components`. Prefer `<Aside>` over GitHub admonitions in lesson body content:
-
-```mdx
-import { Aside } from '@astrojs/starlight/components';
-
-<Aside type="note">A note.</Aside>
-<Aside type="tip">A helpful tip.</Aside>
-<Aside type="caution">Something to watch out for.</Aside>
-<Aside type="danger">Don't do this.</Aside>
-```
-
-When the same callout repeats across lessons, extract it to a `callout-*.mdx` partial instead of duplicating the `<Aside>`.
-
-### Importing partials
-
-Use the `@shared/` alias (not relative paths):
-
-```mdx
-import CalloutStartCopilotCliAllowAll from '@shared/callout-start-copilot-cli-allow-all.mdx';
-import ExerciseAddDocstring from '@shared/exercise-instructions-add-docstring.mdx';
-
-<CalloutStartCopilotCliAllowAll />
-
-<ExerciseAddDocstring />
-```
-
-Keep imports grouped at the top of the file under the frontmatter. Binding names follow PascalCase and start with the partial's category prefix (`Section…`, `Exercise…`, `Callout…`).
-
-See [`partials.instructions.md`](./partials.instructions.md) for the full partials authoring guide.
-
-### Numbered lists across partials
-
-When dropping an exercise partial into a numbered list, write the partial's items as plain Markdown numerals starting at `1.`. The host page's list resumes correctly. Don't try to manually continue numbering inside the partial.
-
-### Images
-
-Use Markdown image syntax with paths relative to the MDX file:
-
-```mdx
+```markdown
 ![Alt text describing the image](../_images/some-screenshot.png)
 ```
 
-For an image referenced from a `_shared/` partial, use the same `../_images/...` relative path — `_shared/` sits one level under `docs/src/content/docs/`, just like `cli/`, `vscode/`, `cloud/`, and `app/`, so the path resolves identically for the partial and its consumer pages.
+## Path conventions
 
-### Path conventions
+- Per-path lessons: `cli/`, `vscode/`, `cloud/`, `app/`. Files are numbered by lesson order: `1-installing.md`, `2-custom-instructions.md`, etc.
+- Support images live in `_images/` directories and are excluded from routing by `docs/src/content.config.ts`.
 
-- Per-path lessons: `cli/`, `vscode/`, `cloud/`, `app/`. Files numbered by lesson order: `1-installing.mdx`, `2-custom-instructions.mdx`, etc.
-- Shared content: reusable fragments live in `_shared/` (e.g. `section-mcp-overview.mdx`) and are imported into lesson pages via the `@shared/` alias. They are body-only partials inlined at build time, not standalone routed pages — see [`partials.instructions.md`](./partials.instructions.md).
-
-### Cross-repo links
+## Cross-repo links
 
 The learner's template repo is `github.com/github-samples/tailspin-toys`. Never link to files inside *this* repo as if they were the template — those paths don't exist here anymore.
 

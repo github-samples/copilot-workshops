@@ -32,14 +32,14 @@ Always remember, you are a guest in someone else's repository. Respect the proje
 
 The authoritative sources are [`AUTHORING.md`](../../../AUTHORING.md), [`CONTRIBUTING.md`](../../../CONTRIBUTING.md), and [`.github/copilot-instructions.md`](../../copilot-instructions.md). **Read them first** — if they ever diverge from this summary, the repo docs win. As of now:
 
-- **Content-only repo.** Workshop content (lesson MDX, `_shared/` partials, the Astro + Starlight site) only — never application code (that lives in `github-samples/tailspin-toys`).
+- **Content-only repo.** Workshop content (lesson Markdown, images, and the Astro + Starlight site) only — never application code (that lives in `github-samples/tailspin-toys`).
 - **Commit prefixes:** Conventional Commits — `docs:`, `chore:`, `fix:`, `ci:`, `feat:`.
 - **Commit trailer:** on AI-assisted commits, include:
   ```
   Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
   ```
 - **Commits:** small, logically grouped, with short messages.
-- **Verify before a PR** with the [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) skill (build, lychee link check, partial guardrails); CI runs only the build + link check. An optional deeper browser pass lives in [`validate-site-playwright`](../validate-site-playwright/SKILL.md).
+- **Verify before a PR** with the [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) skill (build, page-count check, lychee link check); CI runs the build + link check. An optional deeper browser pass lives in [`validate-site-playwright`](../validate-site-playwright/SKILL.md).
 
 ## Using existing guidelines
 

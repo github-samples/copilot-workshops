@@ -3,9 +3,5 @@
         "agentic",
         "winget"
     ],
-    "files.readonlyInclude": {
-        "docs/src/types/_shared/*.mdx.d.ts": true,
-        "docs/src/types/_shared/README.md": true
-    },
     "typescript.tsdk": "docs/node_modules/typescript/lib"
 }

@@ -12,7 +12,7 @@ applyTo: 'docs/**/*.{astro,mjs,ts,js}'
 - Base path: `/agents-in-sdlc` (the repo's GitHub Pages slug).
 - Site URL: `https://github-samples.github.io/agents-in-sdlc/`.
 - **Sidebar: manually maintained** in `astro.config.mjs`. The `sidebar` array drives both the order learners see and which pages appear in navigation. New lessons must be added explicitly.
-- **Content collection** lives at `src/content/docs/` (Starlight's default location). The custom `glob()` loader in `src/content.config.ts` excludes underscore-prefixed files and directories so partials (`_shared/**`) don't get routed as pages.
+- **Content collection** lives at `src/content/docs/` (Starlight's default location). The custom `glob()` loader in `src/content.config.ts` excludes underscore-prefixed files and directories so support assets such as `_images/` don't get routed as pages.
 
 ## Don't add app-style components
 
@@ -20,4 +20,4 @@ This is a docs wrapper. Don't add interactive framework islands (Svelte, React, 
 
 ## Building and verifying
 
-After changing `astro.config.mjs` or anything under `docs/src/`, build and verify the site with the [`build-and-verify-docs`](../skills/build-and-verify-docs/SKILL.md) skill. Its page-count invariant is the tripwire for the "partials are never routed as pages" rule above: if the build emits more pages than `(routable .mdx files + 1 legacy redirect)`, a `_shared/` partial is leaking into routing — check the underscore-directory exclude in `src/content.config.ts`.
+After changing `astro.config.mjs` or anything under `docs/src/`, build and verify the site with the [`build-and-verify-docs`](../skills/build-and-verify-docs/SKILL.md) skill. Its page-count invariant is the tripwire for unexpected routed pages: if the build emits more pages than `36 routable Markdown pages + 1 legacy redirect` without a matching content change, check the underscore-directory exclude in `src/content.config.ts`.

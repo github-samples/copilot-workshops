@@ -6,7 +6,7 @@
 
 <!-- Check all that apply. -->
 
-- [ ] Workshop content (lesson MDX, partials, images)
+- [ ] Workshop content (lesson Markdown, images)
 - [ ] Site shell (`docs/` Astro + Starlight wrapper)
 - [ ] Copilot configuration (`.github/copilot-instructions.md`, instructions, agents, skills)
 - [ ] Repo housekeeping (CI, dependabot, README, license)
@@ -16,7 +16,7 @@
 
 <!-- Confirm the build + link checks pass before requesting review. -->
 
-- [ ] `cd docs && rm -rf dist && npm run build` succeeds (target: 29 pages, or note any intentional change)
+- [ ] `cd docs && rm -rf dist && npm run build` succeeds (target: 36 routable pages + 1 redirect = 37 built pages excluding 404; build reports 38 HTML files including 404, or note any intentional change)
 - [ ] Lychee link check passes:
       `mkdir -p /tmp/lychee-root && ln -sfn $PWD/docs/dist /tmp/lychee-root/agents-in-sdlc && lychee --offline --no-progress --root-dir /tmp/lychee-root 'docs/dist/**/*.html'`
 - [ ] External GitHub URLs that I changed have been clicked manually (lychee runs offline)

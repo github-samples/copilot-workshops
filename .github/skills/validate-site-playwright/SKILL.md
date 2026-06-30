@@ -1,13 +1,13 @@
 ---
 name: validate-site-playwright
-description: Render-validate the built Agents in SDLC workshop site in a real browser using the Playwright MCP server. Use as an optional deeper QA pass — after the static checks in build-and-verify-docs — to confirm pages actually render: navigate the built routes, assert HTTP 200, catch console/hydration errors, find broken images, confirm Starlight components (Aside, partials) mounted, and optionally screenshot key pages. Trigger when asked to "validate the built site", "check the pages render", "do a browser/visual QA pass", or before opening a PR that changes rendered output.
+description: Render-validate the built Agents in SDLC workshop site in a real browser using the Playwright MCP server. Use as an optional deeper QA pass — after the static checks in build-and-verify-docs — to confirm pages actually render: navigate the built routes, assert HTTP 200, catch console/hydration errors, find broken images, confirm Starlight Markdown features rendered, and optionally screenshot key pages. Trigger when asked to "validate the built site", "check the pages render", "do a browser/visual QA pass", or before opening a PR that changes rendered output.
 ---
 
 # Validate the built site with Playwright
 
-`build-and-verify-docs` checks the site *statically* — it builds, confirms the page-count invariant, link-checks the HTML with lychee, and runs the partial guardrails. It never opens a page in a browser, so it cannot see runtime failures: console/hydration errors, images that 404 at load time, or Starlight components that fail to mount.
+`build-and-verify-docs` checks the site *statically* — it builds, confirms the page-count invariant, and link-checks the HTML with lychee. It never opens a page in a browser, so it cannot see runtime failures: console/hydration errors, images that 404 at load time, or rendered Markdown that looks wrong.
 
-This skill is the **optional, deeper, browser-based pass**. It drives the **Playwright MCP server** against a local preview of the built site. It is **interactive/local only** — CI (`pages.yml`) has no browser step, so this is never a merge gate. Run it before a PR that changes how pages render (new components, image-heavy lessons, partial/layout changes), or whenever you want to confirm the real rendered output.
+This skill is the **optional, deeper, browser-based pass**. It drives the **Playwright MCP server** against a local preview of the built site. It is **interactive/local only** — CI (`pages.yml`) has no browser step, so this is never a merge gate. Run it before a PR that changes how pages render (new site-shell components, image-heavy lessons, layout changes), or whenever you want to confirm the real rendered output.
 
 Run every command from the **repo root** unless a step says otherwise.
 
@@ -46,7 +46,7 @@ Validate a **representative sample** that covers every layout and harness: the l
 For each chosen route, use the Playwright MCP tools:
 
 1. **Navigate** — `browser_navigate` to `http://localhost:4321/agents-in-sdlc/<route>`.
-2. **Confirm it rendered** — `browser_snapshot` and check the page has its heading/title and real content (not an error page or raw, unrendered MDX).
+2. **Confirm it rendered** — `browser_snapshot` and check the page has its heading/title and real content (not an error page or raw, unrendered Markdown).
 3. **Check the console** — `browser_console_messages` with `level: "error"`. There should be **zero** errors. Hydration warnings and 404s for assets surface here.
 
    *Known benign exception:* the legacy redirect route `/agents-in-sdlc/shared/0-prereqs/` is a minimal full-HTML redirect page (it immediately forwards to the home page `/agents-in-sdlc/` via a meta refresh) and declares no favicon, so the browser auto-requests `/favicon.ico` and logs a single `404 (Not Found)`. That one favicon 404 **on the redirect page only** is expected. Validate that route by confirming it lands on the home page, not by console cleanliness. A favicon 404 on any *real* page is a genuine finding (real pages link `favicon.svg`).
@@ -68,8 +68,8 @@ For each chosen route, use the Playwright MCP tools:
    ```
 
    An empty array is a pass. Any entry is a genuinely broken/missing image — most often an `_images/` path that didn't survive a rename (cross-check with the [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) consistency pass). If you ever get a hit, confirm it with `curl -o /dev/null -w '%{http_code}'` against the asset URL before treating it as a real failure — a `200` means it was a lazy-load timing artifact, not a broken image.
-5. **Confirm Starlight components mounted** — partials and `<Aside>` blocks should render as styled callouts, not as literal text. In the snapshot, verify there is no raw `import ... from '@shared/...'`, unrendered `<Aside`, or visible MDX/JSX in the body.
-6. **Screenshot (optional)** — `browser_take_screenshot` for a visual record of key pages. Save screenshots to a temp directory (e.g. `/tmp/site-validation/`), **never** into the repo — they are throwaway artifacts, not content.
+5. **Confirm Markdown rendered cleanly** — Starlight aside directives should render as styled callouts, not literal text. In the snapshot, verify there is no visible `:::note`, `:::tip`, `:::caution`, `:::danger`, or raw frontmatter in the body.
+6. **Screenshot (optional)** — `browser_take_screenshot` for a visual record of key pages. Save screenshots outside the repo as throwaway artifacts, not content.
 
 ## 4. Tear down
 
@@ -80,7 +80,7 @@ Close the browser and stop the preview server when finished:
 
 ## What to report
 
-Summarize per route: rendered (yes/no), console errors (count), broken images (list), components mounted (yes/no). A clean pass is **every route rendered, zero console errors, zero broken images, all components mounted**. Flag anything else with the specific route and the failing URL/selector so it can be fixed before the PR.
+Summarize per route: rendered (yes/no), console errors (count), broken images (list), Markdown rendered cleanly (yes/no). A clean pass is **every route rendered, zero console errors, zero broken images, all Markdown rendered cleanly**. Flag anything else with the specific route and the failing URL/selector so it can be fixed before the PR.
 
 ## Scope notes
 

@@ -7,14 +7,13 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
 ## Repository structure
 
 - `docs/` — Astro + Starlight site that publishes the workshop to GitHub Pages.
-  - `src/content/docs/` — **Source MDX for all lessons. Edit here.**
-    - `index.mdx` — Workshop landing page.
-    - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each harness opens with its own `0-prerequisites.mdx` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
-    - `_shared/` — Reusable MDX fragments imported via the `@shared/*` alias (see partials conventions below). Underscore-prefixed dirs are excluded from routing.
+  - `src/content/docs/` — **Source Markdown for all lessons. Edit here.**
+    - `index.md` — Workshop landing page.
+    - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each harness opens with its own `0-prerequisites.md` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
     - `_images/` — Screenshots and diagrams.
   - `astro.config.mjs` — Site config including the manually maintained sidebar. The legacy `/shared/0-prereqs/` → home (`/`) redirect is a full-HTML redirect page at `src/pages/shared/0-prereqs.astro` (not an `astro.config.mjs` `redirects` entry, which would emit a stub with no `<html>` element that Pagefind can't index). Prerequisites are now per-harness (`/<harness>/0-prerequisites/`), so the old shared-prereqs URL forwards to the home page.
-- `scripts/` — Author tooling for the partials system (`lint_partials.py`, `sync_partial_metadata.py`, `_partials_lib.py`).
-- `AUTHORING.md` — Author entry point (recipes for adding lessons, partials, images).
+  - `src/content.config.ts` — Custom content loader that excludes underscore-prefixed support directories so `_images/` is not routed as content.
+- `AUTHORING.md` — Author entry point (recipes for adding lessons and images).
 - `CONTRIBUTING.md` — Short pointer to AUTHORING.md + PR/CI rules.
 - `.github/`
   - `copilot-instructions.md` — This file.
@@ -22,32 +21,20 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
   - `agents/` — Custom agents available to Copilot.
   - `skills/` — Skills available to Copilot (see [`skills/README.md`](skills/README.md) for the index of what each one does).
   - `workflows/pages.yml` — Builds and deploys the site.
+  - `workflows/content-alignment.md` — Agentic workflow that checks PRs for duplicated content needing aligned updates.
 
 ## Authoring conventions
 
-### Partials naming convention
+### Reusing prose across paths
 
-Every file in `docs/src/content/docs/_shared/` uses a category prefix:
+When the same prose applies to multiple harnesses (CLI, VS Code, cloud), copy it inline into each per-harness `.md` lesson. There is no import-based shared content system; the host page owns frontmatter, headings, navigation, and body prose.
 
-- `callout-*` — Short callouts (e.g., `<Aside>` blocks, warnings, tips).
-- `section-*` — Multi-paragraph reusable content sections (intros, recaps, overviews).
-- `exercise-*` — Self-contained hands-on steps that drop into a numbered list.
+Because inline copies can drift, run the `check-content-alignment` skill after editing duplicated sections. The `.github/workflows/content-alignment.md` agentic workflow performs the same analysis on PRs as a safety net, but do not rely on it as a substitute for updating all affected lessons.
 
-Import partials via the `@shared/*` alias and bind them to a name starting with the PascalCase form of the prefix (`Callout…`, `Section…`, `Exercise…`):
+### Admonitions
 
-```mdx
-import SectionMcpOverview from '@shared/section-mcp-overview.mdx';
-
-<SectionMcpOverview />
-```
-
-Partials must be **self-contained**: any link reference (`[label]`) used inside a partial must be defined inside that same partial. Don't rely on the importing page to provide ref definitions.
-
-Don't extract a partial unless it's used in 2+ places (or the same place across both the CLI and VS Code paths).
-
-### Reusing a lesson across paths
-
-When the same prose applies to multiple harnesses (CLI, VS Code, cloud), pull the body into a `section-…` partial under `_shared/` and `import` it from each per-harness lesson. The host page owns frontmatter, H2s, and prev/next nav; the partial owns the reusable prose.
+- **Published lesson content** under `docs/src/content/docs/**` uses Starlight Markdown aside directives: `:::note`, `:::tip`, `:::caution`, and `:::danger`. Custom titles use square brackets, for example `:::tip[Start a Copilot CLI session]`.
+- **Repository Markdown** outside the published lessons (`README.md`, `AUTHORING.md`, `.github/**`, instruction files, and skills) uses GitHub blockquote admonitions, with the `[!NOTE]` / `[!IMPORTANT]` / `[!TIP]` / `[!WARNING]` / `[!CAUTION]` marker on its own `>`-prefixed line and the body on subsequent `>`-prefixed lines.
 
 ### Linking
 
@@ -55,15 +42,11 @@ When the same prose applies to multiple harnesses (CLI, VS Code, cloud), pull th
 - **External docs:** Full URLs to `docs.github.com` and other authoritative sources.
 - **Cross-repo (template repo, sample code):** Full URLs to `github.com/github-samples/tailspin-toys/...`. Do **not** link to files inside *this* repo as if they were the template — `tailspin-toys` is the learner template.
 
-### Numbered lists across partials
-
-When a partial drops into the middle of an ordered list, the list resumes numbering automatically as long as the partial's items use plain Markdown numerals starting at `1.`. See `exercise-instructions-add-docstring.mdx` for the working pattern.
-
 ## Building, previewing, and verifying
 
-The tooling for building, previewing, and verifying the site — dev server, clean build, the page-count invariant, the lychee link check, and the local partial guardrails — lives in the [`build-and-verify-docs`](skills/build-and-verify-docs/SKILL.md) skill. Run that verification sequence before every commit, and don't commit if any step fails.
+The tooling for building, previewing, and verifying the site — dev server, clean build, the page-count invariant, and the lychee link check — lives in the [`build-and-verify-docs`](skills/build-and-verify-docs/SKILL.md) skill. Run that verification sequence before every commit, and don't commit if any step fails.
 
-Before opening or updating a PR, also make the **PR-time consistency pass** documented in that skill — a structural-drift sweep (renamed paths, stale skill/instruction references, CI claims, repository-structure trees) that the build and link check can't catch.
+Before opening or updating a PR, also make the **PR-time consistency pass** documented in that skill — a structural-drift sweep (renamed paths, stale skill/instruction references, CI claims, repository-structure trees, and copied prose alignment) that the build and link check can't catch.
 
 ## Commit hygiene
 

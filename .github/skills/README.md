@@ -10,9 +10,9 @@ These encode conventions unique to this Astro + Starlight workshop content repo.
 
 | Skill | What it does | Use it when |
 |---|---|---|
-| [`build-and-verify-docs`](./build-and-verify-docs/SKILL.md) | Canonical build/preview/verify process: dev server, clean build, page-count invariant, lychee link check, partial guardrails, and the **PR-time consistency pass** for structural drift. | Building, previewing, or verifying any change under `docs/`; before every commit/PR. |
+| [`build-and-verify-docs`](./build-and-verify-docs/SKILL.md) | Canonical build/preview/verify process: dev server, clean build, page-count invariant, lychee link check, and the **PR-time consistency pass** for structural drift. | Building, previewing, or verifying any change under `docs/`; before every commit/PR. |
+| [`check-content-alignment`](./check-content-alignment/SKILL.md) | Scans a diff (staged/unstaged or a branch range) for content changes, then finds other lessons that duplicate or parallel the changed prose — formerly-shared passages now copied across pages, and the same concept taught across the VS Code / CLI / App / Cloud harnesses — so duplicated copies don't drift out of sync. Reports candidate files and line ranges; does not edit content. | After editing lesson content under `docs/`, before committing/opening a PR, to find other pages that should change too. |
 | [`validate-site-playwright`](./validate-site-playwright/SKILL.md) | Optional deeper **browser** QA: drives the Playwright MCP server against a local preview to confirm pages render, catch console/hydration errors, find broken images, and confirm Starlight components mounted. | A deeper render/visual pass before a PR that changes how pages render. Complements (doesn't replace) `build-and-verify-docs`. |
-| [`sync-partial-metadata`](./sync-partial-metadata/SKILL.md) | Regenerates the `_shared/` partial metadata: lint output and the `docs/src/types/_shared/<name>.mdx.d.ts` declarations that power VS Code hover tooltips. | A partial is added, edited, renamed, or removed, or a page changes which partials it imports. |
 
 ## General-purpose skills
 
