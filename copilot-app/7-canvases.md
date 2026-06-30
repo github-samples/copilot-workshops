@@ -14,7 +14,7 @@ In this lesson, you will:
 
 ## Scenario
 
-Looking at a list of issues can be rather daunting, even in the best of times. Tailspin Toy's developers have been looking for a tool that would allow them to quickly triage issues, and begin work on them in Copilot app. 
+Looking at a list of issues can be rather daunting, even in the best of times. Tailspin Toys' developers have been looking for a tool that would allow them to quickly triage issues, and begin work on them in Copilot app. 
 
 ## What is a canvas?
 

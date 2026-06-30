@@ -89,7 +89,7 @@ Of course we shouldn't just read the code and assume it works. We should visuall
 4. Navigate to http://localhost:4321.
 5. You should now see star ratings on all the games on the landing page!
 6. Return to the terminal window.
-7. Select <kbd>Ctl</kbd>+<kbd>C</kbd> to stop the dev server.
+7. Select <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the dev server.
 
 ## Open and merge your first pull request
 
@@ -102,7 +102,7 @@ Your change looks good — now it's time to ship it! You'll ask the agent to ope
 Once the PR is created, Copilot will monitor any workflows on the repository that need to run. After a few moments, the button in the upper right will change to **Ready to merge**. This will be your indication your PR is ready to merge!
 
 4. Select **Ready to merge**.
-5. Select **Merge pull request** on the new dialog window the merge your pull request!
+5. Select **Merge pull request** on the new dialog window to merge your pull request!
 
 You've now pushed a new feature to the website!
 

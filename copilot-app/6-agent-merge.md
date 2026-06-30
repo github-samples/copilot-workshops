@@ -34,7 +34,7 @@ You've reviewed the code manually, ran tests, and even allowed Copilot to valida
 4. The button text now changes to **Agent merge**.
 5. Select the **Agent merge** button to start the agent merge process.
 
-Copilot app then begins the process of creating and managing the PR! It starts by exploring the project to determine how best to create a PR, following by creating the new PR.
+Copilot app then begins the process of creating and managing the PR! It starts by exploring the project to determine how best to create a PR, followed by creating the new PR.
 
 After a few moments, you'll notice Copilot starts work again, looking at the PR conditions - the CI process of running all the tests on your repository. It will report back status on any reviews left by other team members, any checks that need to run (the CI process), and if the PR is mergeable.
 

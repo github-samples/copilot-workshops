@@ -107,7 +107,7 @@ All AI-generated code needs review before it's merged. Let's both review the cod
 7. You should now see filters available on the landing page!
 8. If anything doesn't look right, you can ask Copilot to make the updates!
 9. Once satisfied, return to the terminal window.
-10. Select <kbd>Ctl</kbd>+<kbd>C</kbd> to stop the dev server.
+10. Select <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the dev server.
 
 ## Verify your work with the quality-checks skill
 
@@ -134,9 +134,9 @@ Skills can also include subfolders with scripts, assets, and reference material.
 Let's explore the skill to see what it does.
 
 1. Open your repository on GitHub.
-1. Follow the links in your repo to open `.github/skills/quality-checks/SKILL.md` in your project.
-2. Note the `name` and `description`. The description tells the agent *when* to use it — whenever code changes need to be tested, linted, or verified before a commit, push, or merge.
-3. Read through the skill. Notice it documents which script runs which suite (unit tests, Playwright end-to-end tests, ESLint), in what order, and how to debug common failures — so the agent runs the checks the team's way instead of guessing.
+2. Follow the links in your repo to open `.github/skills/quality-checks/SKILL.md` in your project.
+3. Note the `name` and `description`. The description tells the agent *when* to use it — whenever code changes need to be tested, linted, or verified before a commit, push, or merge.
+4. Read through the skill. Notice it documents which script runs which suite (unit tests, Playwright end-to-end tests, ESLint), in what order, and how to debug common failures — so the agent runs the checks the team's way instead of guessing.
 
 ## Run the checks
 

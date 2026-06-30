@@ -21,7 +21,7 @@ Your team is adopting AI agents to work through a growing backlog. The Copilot a
 
 ## Install and configure the GitHub Copilot app
 
-To use the GitHub Copilot app the first step, as you might imagine, is to install it. Versions are available for Windows, macOS and Linux. Let's install the app, authenticate, and select add our Tailspin Toys repo to the app.
+To use the GitHub Copilot app the first step, as you might imagine, is to install it. Versions are available for Windows, macOS and Linux. Let's install the app, authenticate, and add our Tailspin Toys repo to the app.
 
 1. In a browser, open the [landing page for the GitHub Copilot app][download-app].
 2. Download the app for your platform and install it following the instructions provided on the landing page.
