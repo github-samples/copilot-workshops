@@ -1,12 +1,15 @@
 ---
-title: "Cloud & Cloud Agent Learning Path"
+title: "Copilot cloud agent"
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import CalloutStudentPlan from '@shared/callout-student-plan.mdx';
 
-Welcome to the **Cloud & Cloud Agent** learning path! This path focuses on GitHub Copilot's cloud-based capabilities — specifically the **Copilot cloud agent**, which works asynchronously like a peer programmer on your GitHub issues, and the tools for managing and guiding agent sessions.
+**[GitHub Copilot cloud agent](https://docs.github.com/copilot/concepts/agents/cloud-agent/about-cloud-agent)** lets GitHub Copilot work asynchronously in the cloud. You assign work on GitHub, and the cloud agent picks it up in the background — exploring the repository, making changes, and opening a pull request — while you stay free to do other things.
 
-## Path Overview
+Across these exercises you'll add custom instructions the cloud agent will follow, then assign a GitHub issue and let it implement the work. You'll review and use custom agents to shape its approach, monitor and steer sessions from the agents dashboard, and finish by reviewing its pull requests and iterating on the results.
+
+## Exercises
 
 | Exercise | Topic | Description |
 |----------|-------|-------------|
@@ -21,22 +24,24 @@ Welcome to the **Cloud & Cloud Agent** learning path! This path focuses on GitHu
 
 Before attending this workshop, please ensure you have:
 
-- [ ] A GitHub account with an active **Copilot Pro+, Business, or Enterprise** subscription
+- [ ] A GitHub account with an active **Copilot Student, Pro, Pro+, Business, or Enterprise** plan
 - [ ] Copilot cloud agent enabled for your account or organization
 
+<CalloutStudentPlan />
+
 <Aside type="note">
-  Requires **Copilot Pro+, Business, or Enterprise** with cloud agent enabled.
+  Cloud agent is available on **Copilot Student, Pro, Pro+, Business, and Enterprise** — every plan except Copilot Free. On Copilot Business or Enterprise, an administrator must enable it for your organization.
 </Aside>
 
 <Aside type="note">
-  MCP isn't covered in this path. To explore using MCP servers with Copilot, see the [CLI path](../cli/) or the [VS Code path](../vscode/).
+  MCP isn't covered in this harness. To explore using MCP servers with Copilot, see the [CLI harness](../cli/) or the [VS Code harness](../vscode/).
 </Aside>
 
 ## Get Started
 
 **[Start with Exercise 0: Prerequisites →][ex0]**
 
-[ex0]: ../prereqs/
+[ex0]: 0-prerequisites/
 [ex1]: 1-custom-instructions/
 [ex2]: 2-cloud-agent/
 [ex3]: 3-custom-agents/

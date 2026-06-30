@@ -7,14 +7,11 @@ export default defineConfig({
   site: 'https://github-samples.github.io',
   base: '/agents-in-sdlc',
   trailingSlash: 'always',
-  redirects: {
-    '/shared/0-prereqs/': '/agents-in-sdlc/prereqs/',
-  },
   integrations: [
     starlight({
       title: 'Agents in the SDLC Workshop',
       description:
-        'A hands-on workshop exploring GitHub Copilot agents across VS Code, the Copilot CLI, and the Copilot cloud agent.',
+        'A hands-on workshop exploring GitHub Copilot agents across VS Code, the Copilot CLI, the GitHub Copilot app, and the Copilot cloud agent.',
       social: [
         {
           icon: 'github',
@@ -28,27 +25,28 @@ export default defineConfig({
       },
       sidebar: [
         { label: 'Home', link: '/' },
-        { label: 'Prerequisites', link: '/prereqs/' },
         {
-          label: 'VS Code path',
+          label: 'VS Code',
           items: [
             { label: 'Overview', link: '/vscode/' },
-            { label: '1. MCP with VS Code', link: '/vscode/1-mcp/' },
-            { label: '2. Custom instructions', link: '/vscode/2-custom-instructions/' },
-            { label: '3. Agent mode', link: '/vscode/3-agent-mode/' },
+            { label: '0. Prerequisites', link: '/vscode/0-prerequisites/' },
+            { label: '1. Custom instructions', link: '/vscode/1-custom-instructions/' },
+            { label: '2. Agent mode', link: '/vscode/2-agent-mode/' },
+            { label: '3. Testing with Playwright MCP', link: '/vscode/3-mcp/' },
             { label: '4. Custom agents', link: '/vscode/4-custom-agents/' },
             { label: '5. Managing agents', link: '/vscode/5-managing-agents/' },
             { label: '6. Iterating', link: '/vscode/6-iterating/' },
           ],
         },
         {
-          label: 'Copilot CLI path',
+          label: 'Copilot CLI',
           items: [
             { label: 'Overview', link: '/cli/' },
+            { label: '0. Prerequisites', link: '/cli/0-prerequisites/' },
             { label: '1. Install Copilot CLI', link: '/cli/1-install-copilot-cli/' },
-            { label: '2. MCP with CLI', link: '/cli/2-mcp/' },
-            { label: '3. Custom instructions', link: '/cli/3-custom-instructions/' },
-            { label: '4. Generating code', link: '/cli/4-generating-code/' },
+            { label: '2. Custom instructions', link: '/cli/2-custom-instructions/' },
+            { label: '3. Generating code', link: '/cli/3-generating-code/' },
+            { label: '4. Testing with Playwright MCP', link: '/cli/4-mcp/' },
             { label: '5. Agent skills', link: '/cli/5-agent-skills/' },
             { label: '6. Custom agents', link: '/cli/6-custom-agents/' },
             { label: '7. Slash commands', link: '/cli/7-slash-commands/' },
@@ -56,9 +54,25 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Cloud agent path',
+          label: 'Copilot App',
+          items: [
+            { label: 'Overview', link: '/app/' },
+            { label: '0. Prerequisites', link: '/app/0-prerequisites/' },
+            { label: '1. Install the Copilot app', link: '/app/1-install-copilot-app/' },
+            { label: '2. Running your first agent session', link: '/app/2-add-star-rating/' },
+            { label: '3. Guiding Copilot with custom instructions', link: '/app/3-custom-instructions/' },
+            { label: '4. Building a feature with Autopilot', link: '/app/4-build-filtering/' },
+            { label: '5. Testing with Playwright MCP', link: '/app/5-mcp-playwright/' },
+            { label: '6. Merging with Agent Merge', link: '/app/6-agent-merge/' },
+            { label: '7. Planning with canvases', link: '/app/7-canvases/' },
+            { label: '8. Review', link: '/app/8-review/' },
+          ],
+        },
+        {
+          label: 'Copilot Cloud Agent',
           items: [
             { label: 'Overview', link: '/cloud/' },
+            { label: '0. Prerequisites', link: '/cloud/0-prerequisites/' },
             { label: '1. Custom instructions', link: '/cloud/1-custom-instructions/' },
             { label: '2. Cloud agent', link: '/cloud/2-cloud-agent/' },
             { label: '3. Custom agents', link: '/cloud/3-custom-agents/' },

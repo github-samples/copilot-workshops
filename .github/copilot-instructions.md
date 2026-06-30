@@ -2,18 +2,17 @@
 
 This repo hosts the **workshop content** for *Agents in SDLC*, published as an Astro + Starlight site at <https://github-samples.github.io/agents-in-sdlc/>. The demo application learners build during the workshop lives in a separate repository: <https://github.com/github-samples/tailspin-toys>.
 
-**This is a content-only repo.** Do not add Python, Flask, Svelte, Tailwind, or other application code here. Application changes belong in `tailspin-toys`.
+**This is a content-only repo.** Do not add the demo app's application code (Astro SSR endpoints, the Drizzle data layer, UI components, Tailwind styles, or tests) here. Application changes belong in `tailspin-toys`.
 
 ## Repository structure
 
 - `docs/` — Astro + Starlight site that publishes the workshop to GitHub Pages.
   - `src/content/docs/` — **Source MDX for all lessons. Edit here.**
     - `index.mdx` — Workshop landing page.
-    - `prereqs.mdx` — Shared setup lesson (Exercise 0).
-    - `cli/`, `vscode/`, `cloud/` — Per-path lessons (Copilot CLI / VS Code / Cloud agent).
+    - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each harness opens with its own `0-prerequisites.mdx` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
     - `_shared/` — Reusable MDX fragments imported via the `@shared/*` alias (see partials conventions below). Underscore-prefixed dirs are excluded from routing.
     - `_images/` — Screenshots and diagrams.
-  - `astro.config.mjs` — Site config including the manually maintained sidebar and a redirect from the legacy `/shared/0-prereqs/` URL to `/prereqs/`.
+  - `astro.config.mjs` — Site config including the manually maintained sidebar. The legacy `/shared/0-prereqs/` → home (`/`) redirect is a full-HTML redirect page at `src/pages/shared/0-prereqs.astro` (not an `astro.config.mjs` `redirects` entry, which would emit a stub with no `<html>` element that Pagefind can't index). Prerequisites are now per-harness (`/<harness>/0-prerequisites/`), so the old shared-prereqs URL forwards to the home page.
 - `scripts/` — Author tooling for the partials system (`lint_partials.py`, `sync_partial_metadata.py`, `_partials_lib.py`).
 - `AUTHORING.md` — Author entry point (recipes for adding lessons, partials, images).
 - `CONTRIBUTING.md` — Short pointer to AUTHORING.md + PR/CI rules.
@@ -48,7 +47,7 @@ Don't extract a partial unless it's used in 2+ places (or the same place across 
 
 ### Reusing a lesson across paths
 
-When the same prose applies to multiple paths (CLI, VS Code, cloud), pull the body into a `section-…` partial under `_shared/` and `import` it from each per-path lesson. The host page owns frontmatter, H2s, and prev/next nav; the partial owns the reusable prose.
+When the same prose applies to multiple harnesses (CLI, VS Code, cloud), pull the body into a `section-…` partial under `_shared/` and `import` it from each per-harness lesson. The host page owns frontmatter, H2s, and prev/next nav; the partial owns the reusable prose.
 
 ### Linking
 
@@ -76,7 +75,7 @@ Before opening or updating a PR, also make the **PR-time consistency pass** docu
 
 ## Things NOT to do here
 
-- Don't add Python, Flask, SQLAlchemy, Svelte, Astro components, Tailwind classes, or any other application code. That belongs in `github-samples/tailspin-toys`.
-- Don't author against `client/` or `server/` paths — they were removed when the app was extracted.
+- Don't add the demo app's application code — Astro SSR endpoints, the Drizzle data layer, `.astro` UI components, Tailwind classes, or Vitest/Playwright tests. That belongs in `github-samples/tailspin-toys`.
+- Don't author against application source paths — the demo app is a single Astro project that lives in `tailspin-toys`, not here.
 - Don't generate summary markdown files at the end of a task.
 - Don't add `mkdocs.yml` or other parallel docs tooling — Astro + Starlight is the site.

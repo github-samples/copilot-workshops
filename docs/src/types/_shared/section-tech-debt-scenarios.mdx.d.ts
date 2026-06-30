@@ -1,7 +1,7 @@
 // GENERATED FILE — do not edit. Regenerate with:
 //   python scripts/sync_partial_metadata.py
 /**
- * Two scenarios — missing docstrings and a needed Games CRUD endpoint set
+ * Two scenarios — missing doc comments and a needed related-games feature
  * — that frame the cloud-agent task assignments later in the lab.
  */
 declare const Component: import('astro').MDXInstance<Record<string, never>>['default'];

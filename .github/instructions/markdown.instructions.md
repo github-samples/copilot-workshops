@@ -149,11 +149,11 @@ Use Markdown image syntax with paths relative to the MDX file:
 ![Alt text describing the image](../_images/some-screenshot.png)
 ```
 
-For an image referenced from a `_shared/` partial, use the same `../_images/...` relative path — `_shared/` sits one level under `docs/src/content/docs/`, just like `cli/`, `vscode/`, and `cloud/`, so the path resolves identically for the partial and its consumer pages.
+For an image referenced from a `_shared/` partial, use the same `../_images/...` relative path — `_shared/` sits one level under `docs/src/content/docs/`, just like `cli/`, `vscode/`, `cloud/`, and `app/`, so the path resolves identically for the partial and its consumer pages.
 
 ### Path conventions
 
-- Per-path lessons: `cli/`, `vscode/`, `cloud/`. Files numbered by lesson order: `1-installing.mdx`, `2-custom-instructions.mdx`, etc.
+- Per-path lessons: `cli/`, `vscode/`, `cloud/`, `app/`. Files numbered by lesson order: `1-installing.mdx`, `2-custom-instructions.mdx`, etc.
 - Shared content: reusable fragments live in `_shared/` (e.g. `section-mcp-overview.mdx`) and are imported into lesson pages via the `@shared/` alias. They are body-only partials inlined at build time, not standalone routed pages — see [`partials.instructions.md`](./partials.instructions.md).
 
 ### Cross-repo links

@@ -5,7 +5,7 @@ Workshop content for **Agents in SDLC**, a guided exploration of GitHub Copilot'
 The published site lives at **<https://github-samples.github.io/agents-in-sdlc/>**.
 
 > [!NOTE]
-> The demo application learners build through during the workshop — Tailspin Toys, a Flask + Astro/Svelte crowdfunding site — lives in a separate repository: **<https://github.com/github-samples/tailspin-toys>**. This repo holds only the *content*: lesson MDX, partials, images, and the Astro + Starlight site that publishes them.
+> The demo application learners build through during the workshop — Tailspin Toys, a pure-Astro crowdfunding site (SSR, API endpoints, and a Drizzle data layer) — lives in a separate repository: **<https://github.com/github-samples/tailspin-toys>**. This repo holds only the *content*: lesson MDX, partials, images, and the Astro + Starlight site that publishes them.
 
 ## Start the workshop
 
@@ -22,10 +22,10 @@ For PR/CI rules, see **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
 - **`docs/`** — Astro + Starlight site that publishes the workshop to GitHub Pages.
   - `src/content/docs/` — **Lesson source (MDX). Edit here.**
     - `index.mdx` — Workshop landing page.
-    - `prereqs.mdx` — Shared setup lesson (Exercise 0).
-    - `cli/`, `vscode/`, `cloud/` — Per-path lessons (Copilot CLI / VS Code / cloud agent).
+    - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / cloud agent / GitHub Copilot app). Each codespace-based harness opens with its own `0-prerequisites.mdx` setup lesson.
     - `_shared/` — Reusable MDX fragments (`callout-*`, `section-*`, `exercise-*` prefixes), imported via the `@shared/*` alias.
     - `_images/` — Screenshots and diagrams.
+  - `src/pages/shared/0-prereqs.astro` — Full-HTML redirect forwarding the legacy `/shared/0-prereqs/` URL to the home page.
 - **`AUTHORING.md`** — Author entry point (recipes for adding/editing content).
 - **`CONTRIBUTING.md`** — PR flow + CI requirements.
 - **`.github/`**

@@ -13,10 +13,10 @@ agents-in-sdlc/
 ├── docs/
 │   └── src/content/docs/         ← MDX source. EDIT HERE.
 │       ├── index.mdx             ← Workshop landing page
-│       ├── prereqs.mdx           ← Shared setup (Exercise 0)
-│       ├── cli/                  ← Copilot CLI lessons
-│       ├── vscode/               ← VS Code lessons
-│       ├── cloud/                ← Cloud agent lessons
+│       ├── cli/                  ← Copilot CLI lessons (0-prerequisites.mdx + numbered exercises)
+│       ├── vscode/               ← VS Code lessons (0-prerequisites.mdx + numbered exercises)
+│       ├── cloud/                ← Cloud agent lessons (0-prerequisites.mdx + numbered exercises)
+│       ├── app/                  ← GitHub Copilot app lessons (setup folded into Exercise 1)
 │       ├── _shared/              ← Reusable MDX fragments (callout-/section-/exercise-)
 │       └── _images/              ← Screenshots and diagrams
 └── .github/
@@ -29,7 +29,7 @@ agents-in-sdlc/
 
 ### Add a new lesson
 
-1. **Pick a path and number.** Lessons live under `docs/src/content/docs/{cli,vscode,cloud}/N-name.mdx`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/4-generating-code/`).
+1. **Pick a path and number.** Lessons live under `docs/src/content/docs/{cli,vscode,app,cloud}/N-name.mdx`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`).
 2. **Create the file** with frontmatter:
    ```mdx
    ---
@@ -44,8 +44,8 @@ agents-in-sdlc/
 3. **Write the body.** Use Markdown plus optional MDX `<Aside>` admonitions. See **Style essentials** below.
 4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
    ```markdown
-   [previous-lesson]: ../3-custom-instructions/
-   [next-lesson]: ../5-agent-skills/
+   [previous-lesson]: ../2-custom-instructions/
+   [next-lesson]: ../4-mcp/
    ```
    Then surface them in the body using **the same style as the other lessons in your path** — don't mix styles within a path:
    - **Woven into prose** (common in the CLI path): end the lesson with a sentence like ``the next step is to [create the PR][next-lesson]``.
@@ -108,7 +108,7 @@ See [`.github/instructions/partials.instructions.md`](./.github/instructions/par
 
 ### Add an image
 
-1. **Drop the file** in `docs/src/content/docs/_images/` (or a path-scoped `cli/_images/` etc. when the image is path-specific). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple paths.
+1. **Drop the file** in `docs/src/content/docs/_images/` (or a path-scoped `cli/_images/` etc. when the image is path-specific). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple harnesses.
 2. **Reference it** with a relative path from the consuming MDX page:
    ```mdx
    ![Description of the screenshot](../_images/my-screenshot.png)
@@ -118,14 +118,14 @@ See [`.github/instructions/partials.instructions.md`](./.github/instructions/par
 
 ### Edit an existing lesson
 
-1. **Find the file** under `docs/src/content/docs/` (use the published URL as a hint — `/cli/4-generating-code/` lives at `cli/4-generating-code.mdx`).
+1. **Find the file** under `docs/src/content/docs/` (use the published URL as a hint — `/cli/3-generating-code/` lives at `cli/3-generating-code.mdx`).
 2. **Edit the MDX.** Same conventions apply — see **Style essentials** below.
 3. **Preview** with `npm run dev` in `docs/`.
 4. **Commit, PR, merge.**
 
 ### Reuse a lesson across paths
 
-When the same lesson applies to multiple paths (CLI, VS Code, Cloud), pull the body into a `section-…` partial under `_shared/` and `import` it from each per-path lesson page. The host page owns the frontmatter, the H2s, and the prev/next nav; the partial owns the reusable prose.
+When the same lesson applies to multiple harnesses (CLI, VS Code, Cloud), pull the body into a `section-…` partial under `_shared/` and `import` it from each per-harness lesson page. The host page owns the frontmatter, the H2s, and the prev/next nav; the partial owns the reusable prose.
 
 ## Building and verifying
 

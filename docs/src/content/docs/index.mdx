@@ -7,91 +7,35 @@ import { Aside } from '@astrojs/starlight/components';
 The recent additions to the capabilities of GitHub Copilot provide powerful tools to the developer across the entire software development lifecycle (SDLC). This includes working with issues and pull requests on GitHub, interacting with external services, and of course code creation. This lab explores the functionality, providing real-world use cases and tips on how to get the most out of the tools.
 
 <Aside type="caution">
-  Because GitHub Copilot, and generative AI at large, is probabilistic rather than deterministic, the exact code, files changed, etc., may vary. As a result, you may notice slight differences between screenshots and code snippets in the lab and your experience. This is to be expected, and is just the nature of working with this class of tools.
+  Because GitHub Copilot is probabilistic rather than deterministic, the exact code, files changed, etc., may vary. As a result, you may notice slight differences between screenshots and code snippets in the lab and your experience. This is to be expected, and is just the nature of working with this class of tools.
 
   If something appears broken or isn't running correctly, please ask a mentor!
 </Aside>
 
-## Choose your learning path
+## Choose your harness
 
-This workshop offers multiple paths depending on how you want to interact with GitHub Copilot. All paths begin with the same shared prerequisites, then move into path-specific exercises that build on a shared Tailspin Toys backlog.
+GitHub Copilot meets you wherever you work. Pick the harness that matches how you want to build, and work through its exercises against a shared Tailspin Toys backlog. Each harness starts with its own setup, so you can dive straight into the one you choose.
 
-### 🖥️ [VS Code Path](vscode/)
+### 🖥️ [VS Code](vscode/)
 
-Focused on GitHub Copilot features within **Visual Studio Code** and GitHub Codespaces. Covers Copilot Chat agent mode, MCP integration, and custom agents — all from your IDE.
+GitHub Copilot inside **Visual Studio Code** and GitHub Codespaces. Work with Copilot Chat agent mode, MCP servers, and custom agents without leaving the editor you already use — ideal when you want AI assistance woven directly into your IDE.
 
-**Best for**: Developers who prefer IDE-based workflows.
+### 💻 [Copilot CLI](cli/)
 
-| # | Exercise |
-|---|---------|
-| 0 | [Prerequisites](prereqs/) |
-| 1 | [MCP with VS Code](vscode/1-mcp/) |
-| 2 | [Custom instructions](vscode/2-custom-instructions/) |
-| 3 | [Agent mode](vscode/3-agent-mode/) |
-| 4 | [Custom agents](vscode/4-custom-agents/) |
-| 5 | [Managing agents](vscode/5-managing-agents/) |
-| 6 | [Iterating on Copilot's work](vscode/6-iterating/) |
+**GitHub Copilot CLI** — an agentic assistant that runs in your terminal. Install it, connect MCP servers, generate code with plan mode, and build your own skills, custom agents, and slash commands, all from the command line.
 
----
+### 🤖 [Copilot App](app/)
 
-### 💻 [CLI Path](cli/)
+The **GitHub Copilot app** — a desktop application built on Copilot CLI. Run parallel agent sessions, switch session modes, collaborate on canvases, and manage GitHub issues and pull requests natively — including **Agent Merge**, which shepherds a pull request through rebases, review feedback, CI fixes, and merge.
 
-Focused on **GitHub Copilot CLI** — a powerful agentic assistant that runs in your terminal. Covers installation, MCP, code generation with plan mode, agent skills, custom agents, and slash commands.
+### ☁️ [Copilot Cloud Agent](cloud/)
 
-**Best for**: Developers who live in the terminal and want AI assistance without leaving the command line.
-
-| # | Exercise |
-|---|---------|
-| 0 | [Prerequisites](prereqs/) |
-| 1 | [Install Copilot CLI](cli/1-install-copilot-cli/) |
-| 2 | [MCP with CLI](cli/2-mcp/) |
-| 3 | [Custom instructions](cli/3-custom-instructions/) |
-| 4 | [Generating code](cli/4-generating-code/) |
-| 5 | [Agent skills](cli/5-agent-skills/) |
-| 6 | [Custom agents](cli/6-custom-agents/) |
-| 7 | [Slash commands](cli/7-slash-commands/) |
-| 8 | [Review](cli/8-review/) |
-
----
-
-### ☁️ [Cloud / Cloud Agent Path](cloud/)
-
-Focused on **Copilot cloud agent** — the asynchronous peer programmer that works on GitHub issues in the background. Covers assigning issues, custom agents, monitoring with the agents dashboard, and reviewing generated work.
-
-**Best for**: Developers who want to offload tasks and let Copilot work asynchronously.
-
-<Aside type="note">
-  Requires **Copilot Pro+, Business, or Enterprise** with cloud agent enabled.
-</Aside>
-
-| # | Exercise |
-|---|---------|
-| 0 | [Prerequisites](prereqs/) |
-| 1 | [Custom instructions](cloud/1-custom-instructions/) |
-| 2 | [Copilot cloud agent](cloud/2-cloud-agent/) |
-| 3 | [Custom agents](cloud/3-custom-agents/) |
-| 4 | [Managing agents](cloud/4-managing-agents/) |
-| 5 | [Iterating on Copilot's work](cloud/5-iterating/) |
-
----
-
-### 🗺️ Complete Path
-
-Want to explore everything? Work through all three paths to experience the full breadth of GitHub Copilot's agent capabilities.
-
-**Recommended order:**
-
-1. **Shared setup**: [Prerequisites](prereqs/)
-2. **VS Code**: [MCP](vscode/1-mcp/) → [Custom instructions](vscode/2-custom-instructions/) → [Agent mode](vscode/3-agent-mode/)
-3. **CLI**: [Install CLI](cli/1-install-copilot-cli/) → [MCP](cli/2-mcp/) → [Custom instructions](cli/3-custom-instructions/) → [Generating code](cli/4-generating-code/) → [Agent skills](cli/5-agent-skills/) → [Custom agents](cli/6-custom-agents/) → [Slash commands](cli/7-slash-commands/) → [Review](cli/8-review/)
-4. **Cloud**: [Custom instructions](cloud/1-custom-instructions/) → [Cloud agent](cloud/2-cloud-agent/) → [Custom agents](cloud/3-custom-agents/) → [Managing agents](cloud/4-managing-agents/) → [Iterating](cloud/5-iterating/)
-
----
+**Copilot cloud agent** — an asynchronous peer programmer that works on GitHub issues in the background. Assign work, guide it with custom agents, monitor progress from the agents dashboard, and review the pull requests it opens.
 
 ## Scenario
 
-You are a new developer for Tailspin Toys, a fictional company who provides crowdfunding for board games with a developer theme - a huge market! You are tasked with creating issues to document desired updates, then working through a backlog that includes feature work (like filtering and pagination) and quality improvements (like accessibility and coding standards). You'll work iteratively, exploring both the site and Copilot's capabilities, to complete the tasks.
+You are a new developer for Tailspin Toys, a fictional company who provides crowdfunding for board games with a developer theme - a huge market! Your team's backlog is already filed as GitHub issues, ready for you to pick up — feature work (like filtering and pagination) alongside quality improvements (like accessibility and coding standards). You'll work iteratively, exploring both the site and Copilot's capabilities, to complete the tasks.
 
 ## Get started
 
-Choose your path above and start with [Exercise 0: Prerequisites](prereqs/)!
+Choose your harness above to begin — each one opens with the setup it needs to get you building.

@@ -4,15 +4,15 @@
 */}
 import { Aside } from '@astrojs/starlight/components';
 
-Take a moment to read the instruction files this repository ships with — there's one core `copilot-instructions.md` and a collection of `*.instructions.md` files for various tasks. Open these in your codespace or the GitHub web UI.
+Take a moment to read the instruction files this repository ships with — there's one core `copilot-instructions.md` and a collection of `*.instructions.md` files for various tasks. Open these in your editor or the GitHub web UI.
 
 1. Open `.github/copilot-instructions.md`.
 2. Explore the file, noting the brief description of the project plus sections such as **Agent notes**, **Code standards**, **Scripts**, and **Repository Structure**. Under **Code standards**, note the nested **GitHub Actions Workflows** guidance. These are applicable to any interactions you'd have with Copilot.
-3. Open the `.github/instructions` folder and look around. Note there are instructions for Astro files, Svelte files, tests, and more.
-4. Open `.github/instructions/python-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob (relative to the repo root) that determines which files the instructions apply to. Here, any Python file in `server/tests` whose name starts with `test_` will match.
-5. Note the instructions specific to creating Python tests for this project.
-6. Finally, open `.github/instructions/flask-endpoint.instructions.md` and scroll to the bottom. Note the links to other instruction files and existing files in the project. This lets you break larger instruction sets into smaller, reusable files, and point Copilot at examples to follow when generating code. (Paths there are relative to the instruction file rather than the repo root.)
+3. Open the `.github/instructions` folder and look around. Note there are instructions for Astro files, the Drizzle data layer, tests, and more.
+4. Open `.github/instructions/unit-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob (relative to the repo root) that determines which files the instructions apply to. Here, any TypeScript test file (for example, one matching `**/*.test.ts`) will match.
+5. Note the instructions specific to creating unit tests for this project.
+6. Finally, open `.github/instructions/drizzle.instructions.md` and scroll to the bottom. Note the links to other instruction files (like `unit-tests.instructions.md`) and existing files in the project. This lets you break larger instruction sets into smaller, reusable files, and point Copilot at examples to follow when generating code. (Paths there are relative to the instruction file rather than the repo root.)
 
 <Aside type="note">
-  The **Code formatting requirements** section in `copilot-instructions.md` already includes the rule about Python type hints. In the next steps, you'll add additional rules about docstrings and comment headers.
+  The **Code formatting requirements** section in `copilot-instructions.md` documents the project's coding standards, but it doesn't yet require in-code documentation. In the next steps, you'll add rules for TSDoc doc comments and file comment headers.
 </Aside>

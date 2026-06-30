@@ -16,7 +16,7 @@ applyTo: 'docs/**/*.{astro,mjs,ts,js}'
 
 ## Don't add app-style components
 
-This is a docs wrapper. Don't add interactive Svelte islands, Tailwind utility-class styling layers, custom routing, or other application-style code. Anything beyond Starlight defaults should be justified.
+This is a docs wrapper. Don't add interactive framework islands (Svelte, React, etc.), Tailwind utility-class styling layers, custom routing, or other application-style code. Anything beyond Starlight defaults should be justified.
 
 ## Building and verifying
 

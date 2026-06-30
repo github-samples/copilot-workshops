@@ -16,7 +16,7 @@ In this exercise you will use:
 - `/share` to create a GitHub gist to share your session with the team.
 - `/context` to see the context Copilot CLI is currently using.
 - `/model` to explore the list of available models and select a new one if you so desire.
-- `/delegate` to optionally hand off a task to cloud agent. This requires Copilot Pro+, Business, or Enterprise with cloud agent enabled.
+- `/delegate` to optionally hand off a task to cloud agent. This requires cloud agent, available on Copilot Student, Pro, Pro+, Business, or Enterprise — every plan except Copilot Free.
 
 ## Sharing a session
 
@@ -112,7 +112,7 @@ Different models have different strengths, and different developers have differe
 There are times when you want to keep working in your terminal but hand off a longer-running task to Copilot cloud agent. The `/delegate` command sends the current Copilot CLI session to GitHub.com, where cloud agent picks it up, works asynchronously, and opens a pull request when done.
 
 <Aside type="note">
-  `/delegate` requires Copilot Pro+, Business, or Enterprise with cloud agent enabled. If you don't have access, read through this section and skip the hands-on steps.
+  `/delegate` requires cloud agent, available on Copilot Student, Pro, Pro+, Business, or Enterprise — every plan except Copilot Free. If you don't have access, read through this section and skip the hands-on steps.
 </Aside>
 
 1. Clear the current session first so accumulated workshop context isn't delegated:
@@ -121,10 +121,10 @@ There are times when you want to keep working in your terminal but hand off a lo
     /clear
     ```
 
-2. Send a small, well-scoped prompt. For example, you could delegate the stretch-goal pagination from the backlog you created in Exercise 2:
+2. Send a small, well-scoped prompt. For example, you could delegate the stretch-goal pagination from your backlog:
 
     ```
-    Implement pagination on the games list page. Add support for page and pageSize query parameters on the games API, update the frontend to render pagination controls, and add tests.
+    Implement pagination on the games list page so it shows a fixed number of games per page with Previous and Next controls, and add tests.
     ```
 
 3. Send the following slash command to hand the session to cloud agent, and confirm the prompt you want to delegate:
@@ -134,7 +134,7 @@ There are times when you want to keep working in your terminal but hand off a lo
     ```
 
 4. Open [Copilot agents](https://github.com/copilot/agents) in a browser to monitor progress.
-5. You don't need to wait for the pull request to complete in this path; you can return to it later. If you want to dig deeper into managing asynchronous agent work, continue with the [Cloud path](../../cloud/).
+5. You don't need to wait for the pull request to complete in this harness; you can return to it later. If you want to dig deeper into managing asynchronous agent work, continue with the [Cloud agent harness](../../cloud/).
 
 ## Summary and next steps
 

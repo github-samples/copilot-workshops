@@ -36,22 +36,25 @@ Earlier exercises introduced custom instructions and how they guide Copilot. If 
 
 Open the following files in the GitHub web UI for your repository, or in a codespace if you already have one running:
 
-- `.github/copilot-instructions.md` - Review the **Code standards** section, especially the requirement that Python code includes type hints.
-- `.github/instructions/python-tests.instructions.md` - Notice the `applyTo` frontmatter, which scopes these instructions to `server/tests/test_*.py` files.
+- `.github/copilot-instructions.md` - Review the **Code standards** section, especially the expectations for TypeScript conventions and TSDoc doc comments.
+- `.github/instructions/unit-tests.instructions.md` - Notice the `applyTo` frontmatter, which scopes these instructions to `**/*.test.ts` files.
 
-When you assign the `Code lacks documentation` issue to cloud agent in the next section, watch the resulting pull request for type hints, docstrings, and comment headers - these come from these instruction files. We'll call this out again when reviewing PRs in a later exercise.
+When you assign the `Code lacks documentation` issue to cloud agent in the next section, watch the resulting pull request for TSDoc doc comments, TypeScript conventions, and comment headers - these come from these instruction files. We'll call this out again when reviewing PRs in a later exercise.
 
 ## Setting up the dev environment for the Copilot cloud agent
 
 Creating code, regardless of who's involved, typically requires a specific environment and some setup scripts to be run to ensure everything is in a good state. This holds true when assigning tasks to Copilot, which is performing tasks in a similar fashion to a SWE.
 
-Cloud agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the `.github/workflows/copilot-setup-steps.yml` file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot had access to Python, Node.JS, and the required dependencies for the client and server:
+Cloud agent uses [GitHub Actions][github-actions] for its environment when doing its work. You can customize this environment by creating a [special setup workflow][setup-workflow], configured in the `.github/workflows/copilot-setup-steps.yml` file, to run before it gets to work. This enables it to have access to the required development tools and dependencies. This has been pre-configured ahead of the lab to help the lab flow and allow this learning opportunity. It makes sure that Copilot has access to Node.js, project dependencies, browser binaries for end-to-end tests, and the migrated and seeded SQLite database for the single Astro app:
 
 ```yaml
 name: "Copilot Setup Steps"
 
 # Allows you to test the setup steps from your repository's "Actions" tab
 on: workflow_dispatch
+
+env:
+  ASTRO_TELEMETRY_DISABLED: "1"
 
 jobs:
   copilot-setup-steps:
@@ -64,29 +67,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      # Backend setup - Python
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-          cache: "pip"
-
-      # Frontend setup - Node.js
+      # Frontend / app setup - Node.js (the whole app is now Astro + Drizzle/libSQL)
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "lts/*"
           cache: "npm"
-          cache-dependency-path: |
-            package-lock.json
-            client/package-lock.json
+          cache-dependency-path: "./package-lock.json"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install JavaScript dependencies
+        run: npm ci
 
-      - name: Install Playwright
-        working-directory: ./client
-        run: npx playwright install
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      # Migrate + seed the local SQLite database so builds and tests have data.
+      - name: Set up the database
+        run: npm run db:setup
 ```
 
 It looks like any other GitHub workflow file, but it has a few key points:
@@ -106,7 +103,7 @@ While everyone understands the importance of documentation, most projects have e
 6. Set the **Description** to:
 
     ```plaintext
-    Our organization has a requirement that all functions have docstrings or the language equivalent. Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure docstrings (or the equivalent) are included with every function or method.
+    Our organization has a requirement that functions and methods include TSDoc doc comments where helpful. Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure doc comments are included where they clarify behavior.
     ```
 
 7. Select **Create** to create the issue.
@@ -140,23 +137,24 @@ While everyone understands the importance of documentation, most projects have e
 
 This will likely take several minutes. One of the primary goals of Copilot cloud agent is to allow it to perform tasks asynchronously, freeing us to focus on other tasks. We're going to take advantage of that very feature by both assigning another task to Copilot cloud agent, then turning our attention to writing some code to add features to our application.
 
-## Create new endpoints to modify games
+## Add a related games section to the game details page
 
-As has been highlighted, one of the great advantages of GitHub Copilot cloud agent is the ability to divide work, where you can focus on one set of tasks while it focuses on another. While creating the endpoints for modifying games for the design team might not necessarily take a long time, it's still time which could be used for other tasks. Let's assign it to Copilot cloud agent!
+As has been highlighted, one of the great advantages of GitHub Copilot cloud agent is the ability to divide work, where you can focus on one set of tasks while it focuses on another. While adding a related games section for the design team might not necessarily take a long time, it's still time which could be used for other tasks. Let's assign it to Copilot cloud agent!
 
 1. Return to your repository on github.com.
 2. Select the **Issues** tab.
 3. Select **New issue** to open the new issue dialog.
 4. Select **Blank issue** to use the blank template.
-5. Set the **Title** to: `Add endpoints to create and edit games`
+5. Set the **Title** to: `Show related games on the game details page`
 6. Set the **Description** to:
 
     ```markdown
-    We're going to be creating functionality in the future to allow for the submission (and editing) of games. For now we just want the endpoints so we can explore how we want to create the UX and do some acceptance testing. Our requirements are:
+    We want to help people discover more games by showing related games on each game's details page. The design team wants to explore the UX and do some acceptance testing. Our requirements are:
 
-   - Add new endpoints to the Games API to support creating, updating and deleting games
-   - There should be appropriate error handling for all new endpoints
-   - There should be unit tests created for all new endpoints
+   - Add a data-access helper in `src/lib/` that returns other games in the same category as a given game, excluding that game
+   - Show a "Related games" section on the game details page that uses the helper
+   - Handle the case where a game has no related games
+   - There should be unit tests created for the new helper
    - Before creating the PR, ensure all tests pass
    ```
 

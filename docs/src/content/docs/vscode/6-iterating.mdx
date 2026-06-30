@@ -33,7 +33,7 @@ The high-contrast and light-mode toggles you implemented with the accessibility 
 
 9. Return to the **Conversation** tab.
 10. <CalloutApproveRunWorkflows />
-11. Wait for the workflows to complete. All being well, you should see them pass for both the backend and frontend.
+11. Wait for the workflows to complete. All being well, you should see them pass.
 
 <Aside type="tip">
   Want a second opinion on your accessibility work? Tag `@copilot` in a PR comment with a request such as "review this PR for additional WCAG issues" or "suggest improvements to the keyboard navigation". Copilot will start a new session to address the comment.
@@ -44,15 +44,15 @@ The high-contrast and light-mode toggles you implemented with the accessibility 
 Working iteratively with an agent in the IDE is a skill, and the only way to build it is repetition. Some ideas for follow-up sessions you can run from VS Code:
 
 - Add a backer interest form on the game details page.
-- Implement pagination on the game listing endpoint.
-- Add input validation and error handling to the Flask API.
+- Implement pagination on the games listing page.
+- Add input validation and error handling to the data-access helpers in `src/lib/`.
 - Extend the accessibility agent's scope — for example, audit keyboard focus order across the whole site.
 
 ## Summary
 
-Congratulations — you've completed the VS Code path! Through this lab you:
+Congratulations — you've completed the VS Code harness! Through this lab you:
 
-- **Used MCP to plan a backlog from your IDE.** You set up the GitHub MCP server and let Copilot create issues for you without leaving VS Code.
+- **Used Playwright MCP to manually test your feature.** You added the Playwright MCP server and let Copilot drive a browser to verify your filtering feature before opening a pull request.
 - **Drove agent mode through coordinated changes across the stack.** You added a filter feature that touched the client, the server, and the tests in a single session.
 - **Used a custom agent.** You selected the accessibility-focused custom agent from the agent picker and watched it implement high-contrast mode against the repository.
 - **Managed and steered an agent session.** You reviewed proposed changes inline, accepted what you wanted, and extended the session with a light-mode follow-up.
@@ -60,10 +60,10 @@ Congratulations — you've completed the VS Code path! Through this lab you:
 
 ## Review and next steps
 
-If you'd like to expand your perspective on Copilot's agent capabilities, the other paths cover related scenarios through different surfaces:
+If you'd like to expand your perspective on Copilot's agent capabilities, the other harnesses cover related scenarios through different surfaces:
 
-- 💻 **[CLI path](../../cli/)** — work similar flows from your terminal with Copilot CLI: plan mode, agent skills, custom agents, and slash commands like `/share`, `/context`, and `/delegate`.
-- ☁️ **[Cloud agent path](../../cloud/)** — focus on assigning issues to cloud agent, monitoring sessions through the agents page, and iterating asynchronously on pull requests.
+- 💻 **[CLI harness](../../cli/)** — work similar flows from your terminal with Copilot CLI: plan mode, agent skills, custom agents, and slash commands like `/share`, `/context`, and `/delegate`.
+- ☁️ **[Cloud agent harness](../../cloud/)** — focus on assigning issues to cloud agent, monitoring sessions through the agents page, and iterating asynchronously on pull requests.
 
 You can also keep building on what you started here. [awesome-copilot][awesome-copilot] is a great source for more instruction files, custom agents, and skills you can adapt to your own projects.
 

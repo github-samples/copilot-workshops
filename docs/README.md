@@ -20,6 +20,7 @@ npm run preview  # preview the production build
 - `astro.config.mjs` — Site URL, base path, sidebar (manually maintained).
 - `src/content.config.ts` — Content collection loader. Excludes `_shared/**` from routing so partials aren't published as pages.
 - `src/components/` — Site-shell components (`.astro`). Lesson content does **not** live here.
+- `src/pages/` — Standalone Astro routes outside the content collection. Currently just `shared/0-prereqs.astro`, the full-HTML redirect that forwards the legacy `/shared/0-prereqs/` URL to the home page (prerequisites are now per-harness at `/<harness>/0-prerequisites/`).
 
 ## Deployment
 

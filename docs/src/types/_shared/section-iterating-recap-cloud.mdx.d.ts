@@ -2,7 +2,8 @@
 //   python scripts/sync_partial_metadata.py
 /**
  * Recap of the cloud-agent lab so far, then a "review the work" scenario
- * framing for inspecting the documentation/endpoint/accessibility PRs.
+ * framing for inspecting the documentation/related-games/accessibility
+ * PRs.
  *
  * **Sections:**
  * - H3 Scenario

@@ -1,17 +1,21 @@
 ---
-title: "VS Code Learning Path"
+title: "VS Code"
 ---
 
-Welcome to the **VS Code** learning path! This path focuses on GitHub Copilot features available directly within Visual Studio Code (and GitHub Codespaces), including Copilot Chat agent mode, MCP integration, and custom agents.
+import CalloutStudentPlan from '@shared/callout-student-plan.mdx';
 
-## Path Overview
+**[GitHub Copilot Chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat)** in VS Code brings GitHub Copilot into the code editor you already use. Working in Visual Studio Code (and GitHub Codespaces), you'll drive Copilot Chat in agent mode, connect external tools through MCP, and rely on custom agents — all without leaving your IDE, where Copilot has full view of your files, terminal, and problems.
+
+You'll start by adding custom instructions and watching Copilot follow them, then use agent mode to build a filtering feature across the UI, data layer, and tests. Next you'll connect the Playwright MCP server and let Copilot drive a browser to test your feature before opening a pull request. Finally, you'll review and use a custom agent for accessibility work, then monitor, steer, and iterate on Copilot's changes — all without leaving the editor.
+
+## Exercises
 
 | Exercise | Topic | Description |
 |----------|-------|-------------|
 | [0. Prerequisites][ex0] | Setup | Create your repository and codespace |
-| [1. MCP with VS Code][ex1] | External Tools | Use MCP to interact with GitHub from your IDE |
-| [2. Custom instructions][ex2] | Context | Add and verify custom instructions in VS Code |
-| [3. Agent Mode][ex3] | Code Generation | Complete a site-wide update with agent mode |
+| [1. Custom instructions][ex1] | Context | Add and verify custom instructions in VS Code |
+| [2. Agent Mode][ex2] | Code Generation | Build a filtering feature with agent mode |
+| [3. MCP with Playwright][ex3] | External Tools | Test your feature in a browser with the Playwright MCP server |
 | [4. Custom Agents][ex4] | Specialized Agents | Review and use custom agents |
 | [5. Managing Agents][ex5] | Monitoring | Monitor and steer agent sessions |
 | [6. Iterating][ex6] | Review | Review Copilot's work locally and choose next steps |
@@ -20,17 +24,19 @@ Welcome to the **VS Code** learning path! This path focuses on GitHub Copilot fe
 
 Before attending this workshop, please ensure you have:
 
-- [ ] A GitHub account with an active **Copilot Pro, Pro+, Business, or Enterprise** subscription
+- [ ] A GitHub account with an active **Copilot Student, Pro, Pro+, Business, or Enterprise** plan
 - [ ] Access to GitHub Codespaces
+
+<CalloutStudentPlan />
 
 ## Get Started
 
 **[Start with Exercise 0: Prerequisites →][ex0]**
 
-[ex0]: ../prereqs/
-[ex1]: 1-mcp/
-[ex2]: 2-custom-instructions/
-[ex3]: 3-agent-mode/
+[ex0]: 0-prerequisites/
+[ex1]: 1-custom-instructions/
+[ex2]: 2-agent-mode/
+[ex3]: 3-mcp/
 [ex4]: 4-custom-agents/
 [ex5]: 5-managing-agents/
 [ex6]: 6-iterating/

@@ -45,7 +45,7 @@ cd docs && rm -rf dist && npm run build
 
 ### 2. Page-count invariant
 
-The built page count should equal the number of routable `.mdx` files — everything under `docs/src/content/docs/` **except** `_shared/` — plus the one legacy redirect (`/shared/0-prereqs/`). You never hard-code the number; you confirm the relationship:
+The built page count should equal the number of routable `.mdx` files — everything under `docs/src/content/docs/` **except** `_shared/` — plus the one legacy redirect (`/shared/0-prereqs/`, authored as a full-HTML redirect page at `docs/src/pages/shared/0-prereqs.astro`). You never hard-code the number; you confirm the relationship:
 
 ```bash
 # routable .mdx (expected pages, minus the redirect)

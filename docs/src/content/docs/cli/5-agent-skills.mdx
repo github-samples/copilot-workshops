@@ -38,7 +38,7 @@ Skills are loaded dynamically when the agent determines they're necessary. The d
 
 Because Tailspin Toys has a set of requirements for creating PRs, they created a skill to help AI tools be able to generate PRs which follow these guidelines. Let's explore the skill to understand what it'll do.
 
-1. Open `.github/skills/branches-commits-prs/SKILL.md`.
+1. Open `.github/skills/make-contribution/SKILL.md`.
 2. Note the name and description. Notice how the description highlights the scenario in which it should be used, which is whenever a request is made to create a pull request or committing code.
 3. Read through the skill. Notice the rules are defined about how branches should be created, commits generated, and the contents of the pull request.
 
@@ -54,7 +54,7 @@ As highlighted previously, skills are automatically invoked by Copilot CLI. As a
     Can you please create a pull request for me!
     ```
 
-2. Copilot will acknowledge the request. After a few moments, you'll notice Copilot will indicate it's utilizing the **branches-commits-prs** skill.
+2. Copilot will acknowledge the request. After a few moments, you'll notice Copilot will indicate it's utilizing the **make-contribution** skill.
 
     ![Screenshot of the agent skill being called by Copilot CLI](../_images/cli-5-agent-skill.png)
 
@@ -85,7 +85,7 @@ Skills are perfect for tasks, but for more robust operations we want to take adv
 - [Agent Skills Repository][agent-skills-repo]
 - [Agent Skills on awesome-copilot][awesome-copilot-skills]
 
-[previous-lesson]: ../4-generating-code/
+[previous-lesson]: ../4-mcp/
 [next-lesson]: ../6-custom-agents/
 [agent-skills-repo]: https://github.com/agentskills/agentskills
 [agent-skills-spec]: https://agentskills.io/specification
