@@ -61,11 +61,10 @@ Show the convention, not just describe it. Label the contrast.
 **Good** — names the syntax and shows the callout:
 
 ```markdown
-Use Starlight aside directives for callouts in published lesson content:
+Use GitHub admonition syntax for callouts in published lesson content:
 
-:::tip
-Run the dev server before editing.
-:::
+> [!TIP]
+> Run the dev server before editing.
 ```
 
 **Avoid** — abstract, unactionable:

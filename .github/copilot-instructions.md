@@ -33,8 +33,9 @@ Because inline copies can drift, run the `check-content-alignment` skill after e
 
 ### Admonitions
 
-- **Published lesson content** under `docs/src/content/docs/**` uses Starlight Markdown aside directives: `:::note`, `:::tip`, `:::caution`, and `:::danger`. Custom titles use square brackets, for example `:::tip[Start a Copilot CLI session]`.
-- **Repository Markdown** outside the published lessons (`README.md`, `AUTHORING.md`, `.github/**`, instruction files, and skills) uses GitHub blockquote admonitions, with the `[!NOTE]` / `[!IMPORTANT]` / `[!TIP]` / `[!WARNING]` / `[!CAUTION]` marker on its own `>`-prefixed line and the body on subsequent `>`-prefixed lines.
+- **Use GitHub admonition syntax everywhere** — published lessons *and* repository Markdown. Put the `[!NOTE]` / `[!TIP]` / `[!IMPORTANT]` / `[!WARNING]` / `[!CAUTION]` marker on its own `>`-prefixed line, with the body on subsequent `>`-prefixed lines.
+- In published lessons under `docs/src/content/docs/**`, the `remark-github-admonitions-to-directives` plugin (wired in `docs/astro.config.mjs`) converts these to Starlight asides at build time (NOTE/IMPORTANT to note, TIP to tip, WARNING/CAUTION to caution). Do **not** author Starlight `:::` directives.
+- GitHub syntax has no custom-title or nesting form: put a callout heading on a **bold lead-in line** (`> **Title**`, then a blank `>` line, then the body), and emit "nested" callouts as sibling blockquotes separated by a blank line. Full mapping and patterns live in [`.github/instructions/markdown.instructions.md`](instructions/markdown.instructions.md).
 
 ### Linking
 

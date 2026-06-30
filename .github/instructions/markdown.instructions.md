@@ -5,7 +5,7 @@ applyTo: '**/*.md'
 
 # Markdown conventions
 
-This file covers Markdown authoring across the repo. Published lesson content under `docs/src/content/docs/**` is plain `.md`; repository docs and instruction files are also Markdown but are read primarily on github.com.
+This file covers Markdown authoring across the repo. Published lesson content under `docs/src/content/docs/**` is plain `.md`; repository docs and instruction files are also Markdown but are read primarily on github.com. **Use GitHub admonition syntax (`> [!NOTE]`) everywhere** — see below.
 
 ## No hard-wrapping
 
@@ -13,39 +13,7 @@ Do not hard-wrap paragraphs. Keep each paragraph, list item, and blockquote on a
 
 ## Admonitions
 
-Use the admonition syntax for where the file is rendered.
-
-### Published lesson content
-
-Published lesson content under `docs/src/content/docs/**` is rendered by Starlight, so use Starlight Markdown aside directives:
-
-```markdown
-:::note
-Body text.
-:::
-
-:::tip
-Body text.
-:::
-
-:::caution
-Body text.
-:::
-
-:::danger
-Body text.
-:::
-
-:::tip[Custom title]
-Body text.
-:::
-```
-
-Starlight aside types are `note`, `tip`, `caution`, and `danger`. Do not use GitHub blockquote admonitions in published lesson content.
-
-### Repository Markdown
-
-Non-published repository Markdown — READMEs, `AUTHORING.md`, `CONTRIBUTING.md`, `.github/**`, instruction files, and skills — is viewed on github.com, so preserve GitHub admonition syntax exactly:
+Use **GitHub admonition syntax** for every callout in the repo — in published lesson content *and* in repository docs. The `[!TYPE]` marker goes on its own `>`-prefixed line, with the body on subsequent `>`-prefixed lines:
 
 ```markdown
 > [!NOTE]
@@ -64,7 +32,40 @@ Non-published repository Markdown — READMEs, `AUTHORING.md`, `CONTRIBUTING.md`
 > Body text.
 ```
 
-The `[!TYPE]` marker must be on its own `>`-prefixed line, with the body on subsequent `>`-prefixed lines. Do not convert these repo docs to Starlight `:::` directives.
+The five GitHub admonition types are `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, and `CAUTION`. On github.com they render natively. In published lesson content under `docs/src/content/docs/**`, a remark plugin (`remark-github-admonitions-to-directives`, wired in `docs/astro.config.mjs`) converts them to Starlight asides at build time using this mapping:
+
+| GitHub type | Starlight aside |
+| ----------- | --------------- |
+| `NOTE`      | note            |
+| `TIP`       | tip             |
+| `IMPORTANT` | note            |
+| `WARNING`   | caution         |
+| `CAUTION`   | caution         |
+
+Do **not** use Starlight `:::` aside directives anywhere — author only GitHub admonitions and let the plugin translate them.
+
+### Custom titles
+
+GitHub admonition syntax has no custom-title form. When a callout needs a heading, put it on a **bold lead-in line** as the first body line, then a blank quoted line, then the body:
+
+```markdown
+> [!TIP]
+> **Open Copilot Chat**
+>
+> Body text.
+```
+
+### No nesting; separate adjacent callouts with a blank line
+
+GitHub admonitions cannot nest. If you need a callout "inside" another, emit them as **sibling** blockquotes instead. Consecutive admonitions **must** be separated by a blank line — without it, Markdown merges them into one blockquote and the second `[!TYPE]` marker renders as literal text:
+
+```markdown
+> [!TIP]
+> First callout.
+
+> [!CAUTION]
+> Second callout — note the blank line above.
+```
 
 ## Headings
 

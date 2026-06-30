@@ -68,7 +68,7 @@ For each chosen route, use the Playwright MCP tools:
    ```
 
    An empty array is a pass. Any entry is a genuinely broken/missing image — most often an `_images/` path that didn't survive a rename (cross-check with the [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) consistency pass). If you ever get a hit, confirm it with `curl -o /dev/null -w '%{http_code}'` against the asset URL before treating it as a real failure — a `200` means it was a lazy-load timing artifact, not a broken image.
-5. **Confirm Markdown rendered cleanly** — Starlight aside directives should render as styled callouts, not literal text. In the snapshot, verify there is no visible `:::note`, `:::tip`, `:::caution`, `:::danger`, or raw frontmatter in the body.
+5. **Confirm Markdown rendered cleanly** — GitHub admonitions should render as styled Starlight callouts, not literal text. In the snapshot, verify there is no visible `[!NOTE]`, `[!TIP]`, `[!CAUTION]`, `[!WARNING]`, `[!IMPORTANT]`, leftover `:::` directive, or raw frontmatter in the body.
 6. **Screenshot (optional)** — `browser_take_screenshot` for a visual record of key pages. Save screenshots outside the repo as throwaway artifacts, not content.
 
 ## 4. Tear down

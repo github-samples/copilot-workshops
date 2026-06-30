@@ -38,7 +38,7 @@ agents-in-sdlc/
    Body starts here.
    ```
    Only `title` is required; it becomes the H1 and the page title. Don't add a body H1 — Starlight renders the title automatically.
-3. **Write the body.** Use Markdown and Starlight aside directives for admonitions. See **Style essentials** below.
+3. **Write the body.** Use Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
 4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
    ```markdown
    [previous-lesson]: ../2-custom-instructions/
@@ -117,17 +117,12 @@ A short cheat sheet. For deeper conventions, see [`.github/instructions/`](./.gi
   [exercise-1]: ../1-install-copilot-cli/
   [cli-docs]: https://docs.github.com/copilot/github-copilot-in-the-cli
   ```
-- **Published lesson admonitions** use Starlight Markdown aside directives:
+- **Admonitions everywhere use GitHub syntax** — published lessons *and* repo docs. The `[!TYPE]` marker goes on its own quoted line, body on following quoted lines:
   ```markdown
-  :::note
-  Use `note`, `tip`, `caution`, or `danger`.
-  :::
-
-  :::tip[Custom title]
-  Titles go in square brackets after the directive type.
-  :::
+  > [!NOTE]
+  > Use NOTE, TIP, IMPORTANT, WARNING, or CAUTION.
   ```
-- **Repo documentation admonitions** outside `docs/src/content/docs/` use GitHub blockquote admonitions (`> [!NOTE]` on its own quoted line, body on following quoted lines), because those files are viewed on github.com.
+  In published lessons under `docs/src/content/docs/`, a remark plugin (wired in `docs/astro.config.mjs`) converts these to Starlight asides at build time. GitHub syntax has no custom-title or nesting form, so put a heading on a **bold lead-in line** (`> **Title**`, then a blank `>` line, then the body), and emit "nested" callouts as sibling blockquotes separated by a blank line. See [`markdown.instructions.md`](.github/instructions/markdown.instructions.md) for the full mapping and patterns.
 - **No hard-wrapping** in repo-level Markdown files (READMEs, this file). Editors soft-wrap. Hard breaks are reserved for actual structural breaks.
 - **Cross-repo links** (the demo app): always use `https://github.com/github-samples/tailspin-toys/...`. Don't link to files in *this* repo as if they were the template.
 
