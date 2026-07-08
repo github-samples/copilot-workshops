@@ -92,9 +92,9 @@ All AI-generated code needs review before it's merged. Let's both review the cod
    ![The session panel tabs in the GitHub Copilot app with an arrow pointing to the Changes tab](images/app-select-changes.png)
 
 2. Review the changes. You should see new TypeScript and Astro files, and test files. Notice the new helper functions include TSDoc doc comments and a file header comment — the documentation standard you merged in Lesson 3, applied automatically without being asked.
-3. In the upper right hand corner of the Copilot app, select **Open** next to the terminal icon.
+3. In the review panel on the right side of Copilot app, select **Terminal**. If there is no **Terminal** button, select the **+** (labeled as **Open in panel**), then select **Terminal**.
 
-   ![The GitHub Copilot app top toolbar with an arrow pointing to the Open button next to the terminal icon](images/app-open-terminal.png)
+   ![The Terminal button in the review panel of the GitHub Copilot app](images/terminal-screenshot.png)
 
 4. Enter the following command in the terminal window to start the web app's dev server:
 
@@ -133,10 +133,16 @@ Skills can also include subfolders with scripts, assets, and reference material.
 
 Let's explore the skill to see what it does.
 
-1. Open your repository on GitHub.
-2. Follow the links in your repo to open `.github/skills/quality-checks/SKILL.md` in your project.
-3. Note the `name` and `description`. The description tells the agent *when* to use it — whenever code changes need to be tested, linted, or verified before a commit, push, or merge.
-4. Read through the skill. Notice it documents which script runs which suite (unit tests, Playwright end-to-end tests, ESLint), in what order, and how to debug common failures — so the agent runs the checks the team's way instead of guessing.
+1. If the review panel is not already visible, open it by selecting **Toggle review panel** in the upper right.
+
+   ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](images/app-2-review-panel.png)
+
+2. Select the **+** to add a new item to the review panel.
+3. Select **File**.
+4. Search for `SKILL.md`.
+5. Select `SKILL.md .github/skills/quality-checks` from the list of files to open it.
+6. Note the `name` and `description`. The description tells the agent *when* to use it — whenever code changes need to be tested, linted, or verified before a commit, push, or merge.
+7. Read through the skill. Notice it documents which script runs which suite (unit tests, Playwright end-to-end tests, ESLint), in what order, and how to debug common failures — so the agent runs the checks the team's way instead of guessing.
 
 ## Run the checks
 

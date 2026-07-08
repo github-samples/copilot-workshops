@@ -73,11 +73,11 @@ All AI-generated changes deserve a review before they're merged, even small ones
 
 ## Check the changes
 
-Of course we shouldn't just read the code and assume it works. We should visually test everything as well! To do so we'll need to start the app from the terminal, then confirm everything works. Fortunately there's a terminal button in the upper right that will allow us quick access to the worktree the Copilot app created!
+Of course we shouldn't just read the code and assume it works. We should visually test everything as well! To do so we'll need to start the app from the terminal, then confirm everything works. Fortunately there's a terminal built into Copilot app!
 
-1. In the upper right hand corner of the Copilot app, select **Open** next to the terminal icon.
+1. In the review panel on the right side of Copilot app, select **Terminal**. If there is no **Terminal** button, select the **+** (labeled as **Open in panel**), then select **Terminal**.
 
-   ![The GitHub Copilot app top toolbar with an arrow pointing to the Open button next to the terminal icon](images/app-open-terminal.png)
+   ![The Terminal button in the review panel of the GitHub Copilot app](images/terminal-screenshot.png)
 
 2. Enter the following command in the terminal window to start the web app's dev server:
 
@@ -101,8 +101,9 @@ Your change looks good — now it's time to ship it! You'll ask the agent to ope
 
 Once the PR is created, Copilot will monitor any workflows on the repository that need to run. After a few moments, the button in the upper right will change to **Ready to merge**. This will be your indication your PR is ready to merge!
 
-4. Select **Ready to merge**.
-5. Select **Merge pull request** on the new dialog window to merge your pull request!
+4. Select the **PR** bubble just above chat to open your PR in the review pane to see your pull request. You can review the PR as needed here.
+5. Once ready, select **Ready to merge**.
+6. Select **Merge pull request** on the new dialog window to merge your pull request!
 
 You've now pushed a new feature to the website!
 

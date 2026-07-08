@@ -31,11 +31,7 @@ There are two types of instructions files:
 - `.github/instructions/*.instructions.md` files can be created for specific tasks or file types. You can use them to provide guidelines for particular languages (like TypeScript or Astro), or for tasks like creating a UI component or a new set of unit tests.
 
 > [!NOTE]
-> When working in your IDE, instructions files are only used for code generation in Copilot Chat — not for code completions or next-edit suggestions.
->
-> Copilot Chat, Copilot CLI and Copilot cloud agent use both repository-level and `*.instructions.md` files (with `applyTo` front matter) when generating code.
->
-> Finally, Copilot [supports instructions files using other standards][custom-instructions-support], including AGENTS.md and CLAUDE.md files.
+> Copilot supports other standards to bring in instructions guidance through AGENTS.md, CLAUDE.md and GEMINI.md, allowing you to ensure Copilot always has the right context.
 
 ### Best practices for managing instructions files
 
@@ -56,13 +52,23 @@ There isn't one specific way to create instructions files, just as there isn't o
 
 Take a moment to read the instruction files this repository ships with — there's one core `copilot-instructions.md` and a collection of `*.instructions.md` files for various tasks. Open these in your editor or the GitHub web UI.
 
-1. Open your repository on GitHub.
-2. Navigate to  `.github/copilot-instructions.md`.
-3. Explore the file, noting the brief description of the project plus sections such as **Agent notes**, **Code standards**, **Scripts**, and **Repository Structure**. Under **Code standards**, note the nested **GitHub Actions Workflows** guidance. These are applicable to any interactions you'd have with Copilot.
-4. Navigate to the `.github/instructions` folder and look around. Note there are instructions for Astro files, the Drizzle data layer, tests, and more.
-5. Open `.github/instructions/unit-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob (relative to the repo root) that determines which files the instructions apply to. Here, any TypeScript test file (for example, one matching `**/*.test.ts`) will match.
-6. Note the instructions specific to creating unit tests for this project.
-7. Finally, open `.github/instructions/drizzle.instructions.md` and scroll to the bottom. Note the links to other instruction files (like `unit-tests.instructions.md`) and existing files in the project. This lets you break larger instruction sets into smaller, reusable files, and point Copilot at examples to follow when generating code. (Paths there are relative to the instruction file rather than the repo root.)
+1. If the review panel is not already visible, open it by selecting **Toggle review panel** in the upper right.
+
+   ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](images/app-2-review-panel.png)
+
+2. Select the **+** to add a new item to the review panel.
+3. Select **File**.
+4. Search for `copilot-instructions.md`.
+5. Select  `copilot-instructions.md` from the list of files to open it.
+6. Explore the file, noting the brief description of the project plus sections such as **Agent notes**, **Code standards**, **Scripts**, and **Repository Structure**. Under **Code standards**, note the nested **GitHub Actions Workflows** guidance. These are applicable to any interactions you'd have with Copilot.
+7. Select **Show folder view** to open the folder navigator.
+
+   ![The Show folder view button in the review panel with a file open in the GitHub Copilot app](images/show-folder-view.png)
+
+8. Navigate to the `.github/instructions` folder and explore the files. Note there are instructions for Astro files, the Drizzle data layer, tests, and more.
+9. Open `.github/instructions/unit-tests.instructions.md`. Note the `applyTo` field at the top — this sets a glob (relative to the repo root) that determines which files the instructions apply to. Here, any TypeScript test file (for example, one matching `**/*.test.ts`) will match.
+10. Note the instructions specific to creating unit tests for this project.
+11. Finally, open `.github/instructions/drizzle.instructions.md` and scroll to the bottom. Note the links to other instruction files (like `unit-tests.instructions.md`) and existing files in the project. This lets you break larger instruction sets into smaller, reusable files, and point Copilot at examples to follow when generating code. (Paths there are relative to the instruction file rather than the repo root.)
 
 > [!NOTE]
 > The **Code formatting requirements** section in `copilot-instructions.md` documents the project's coding standards, but it doesn't yet require in-code documentation. In the next steps, you'll add rules for TSDoc doc comments and file comment headers.
