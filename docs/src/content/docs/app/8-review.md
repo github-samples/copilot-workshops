@@ -52,7 +52,7 @@ You've covered the core workflow. A few more features worth a look:
 - **Rubber duck** to talk through a problem and get high-signal feedback before you build.
 - [**Custom agents**][custom-agents] to package a role, its tools, and its instructions for repeatable, specialized work.
 - [`/chronicle`][chronicle] to generate a narrative of what happened in a session.
-- [Bring your own key (BYOK)][byok] to use models from your own provider.
+- [Bring your own key (BYOK)][byok] to use models from your own provider, including local models via Ollama, Foundry Local, or LM Studio.
 - [Cloud sandboxes][sandboxes] to run sessions in a GitHub-hosted isolated environment.
 - [Deep links][deep-links] to open the app straight into a repository, session, or prompt.
 

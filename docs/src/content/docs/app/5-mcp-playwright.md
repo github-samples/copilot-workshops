@@ -35,7 +35,7 @@ There are many other MCP servers available that provide access to different tool
 
 You add and manage MCP servers from the app settings. The app includes a catalog of popular servers, so the [Playwright MCP server][playwright-mcp-server] is just a couple of clicks away.
 
-1. Select <kbd>Ctl</kbd>+<kbd>,</kbd> to open the Copilot app settings page.
+1. Select <kbd>Ctrl</kbd>+<kbd>,</kbd> to open the Copilot app settings page.
 2. Select **MCP servers**.
 3. In the search dialog, type `Playwright`.
 4. Select **Playwright** from the list of **Popular MCP servers**.
