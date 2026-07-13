@@ -158,7 +158,7 @@ In the same filtering session, ask the agent to verify the work. You won't name 
 You built a real feature end to end and verified it against the team's bar! Specifically, you:
 
 - started a fresh session from the filtering issue on an up-to-date project.
-- used Plan mode to plan the feature and Autopilot to build it, with static-Astro constraints.
+- used Plan mode to plan the feature and Autopilot to build it.
 - confirmed the generated helper followed the documentation standard you merged in Lesson 3.
 - verified your work with the `quality-checks` skill.
 
