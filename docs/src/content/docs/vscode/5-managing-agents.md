@@ -1,5 +1,8 @@
 ---
 title: "Exercise 5 - Monitoring and managing agents"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 When you put GitHub Copilot in agent mode, it works autonomously — exploring your codebase, proposing changes, editing files, and running commands. Because that work is happening on your machine in real time, Copilot Chat in VS Code gives you a running view of every tool call and every file edit as it happens. You can review each diff inline, accept or reject individual changes, and steer the conversation with follow-up prompts to refine or extend the work without leaving your editor.

@@ -1,5 +1,8 @@
 ---
 title: "Exercise 1 - Custom instructions (Cloud agent)"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 [← Previous lesson: Prerequisites][previous-lesson] · [Next lesson: Copilot cloud agent →][next-lesson]

@@ -1,6 +1,9 @@
 ---
 title: "Lesson 4 - Building a feature with Autopilot"
 description: "Use Plan and Autopilot modes in the GitHub Copilot app to build a static, client-side filtering feature, watch it inherit your documentation standard, and verify it with an agent skill."
+authors:
+  - geektrainer
+lastUpdated: 2026-07-13
 ---
 
 We've made a couple of small updates to our project thus far. But more robust changes require a more robust process. Fortunately, the GitHub Copilot app is built to work with our existing flow, ensuring we build the right things the right way. This is the first of three lessons where you will follow a typical development process, starting by using an issue to generate a new feature and an agent skill to run the validation tests and linters.

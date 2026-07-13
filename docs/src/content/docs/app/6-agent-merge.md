@@ -1,6 +1,9 @@
 ---
 title: "Lesson 6 - Merging with Agent Merge"
 description: "Open the filtering pull request, review it in My work, and let Agent Merge fix what's blocking it and merge it for you — the top rung of the merge-automation ladder."
+authors:
+  - geektrainer
+lastUpdated: 2026-07-09
 ---
 
 Your filtering feature is built, verified, and seen working in a browser. The last step is to merge it. You've merged twice already in this harness — both times you opened the pull request and merged it yourself on github.com. This time you'll let the app do the heavy lifting with **Agent Merge**, which shepherds a pull request through its whole lifecycle from inside the app.

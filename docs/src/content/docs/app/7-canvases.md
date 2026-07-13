@@ -1,6 +1,9 @@
 ---
 title: "Lesson 7 - Planning with canvases"
 description: "Create a shared, agent-driven canvas in the GitHub Copilot app to plan and track your work alongside the agent."
+authors:
+  - geektrainer
+lastUpdated: 2026-07-09
 ---
 
 So far you've directed agents through chat. But a lot of work doesn't live in a conversation — it lives on a board, in a document, or on a checklist. **Canvases** give you and the agent a shared surface for exactly that kind of work, right inside the app. In this lesson you'll create a simple canvas to plan and track the backlog you've been working through.

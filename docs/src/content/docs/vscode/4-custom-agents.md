@@ -1,5 +1,8 @@
 ---
 title: "Exercise 4 - Custom agents"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 ## What are custom agents?

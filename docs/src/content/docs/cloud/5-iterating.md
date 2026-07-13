@@ -1,5 +1,8 @@
 ---
 title: "Exercise 5: Iterating on GitHub Copilot's work"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 | [← Previous lesson: Managing agents][previous-lesson] |

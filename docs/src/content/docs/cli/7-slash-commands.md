@@ -1,5 +1,8 @@
 ---
 title: "Exercise 7 - Slash commands in GitHub Copilot CLI"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 Like any good CLI tool, GitHub Copilot CLI includes many slash commands to interact with it. These commands expose advanced functionality, "behind-the-scenes" information, or additional configuration options. You've already explored a couple with `/clear` to clear context and `/mcp` to inspect MCP servers. Let's explore a couple of other powerful ones, including `/context`, `/model`, `/share`, and `/delegate`.

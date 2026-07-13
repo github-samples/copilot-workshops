@@ -1,5 +1,8 @@
 ---
 title: "Exercise 2 - Adding new functionality with Copilot Agent Mode"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 Even the simplest of updates to an application typically require updates to multiple files and operations to be performed like running tests. As a developer your flow typically involves tracking down all the necessary files, making the changes, running the tests, debugging, figuring out which file was missed, making another update... The list goes on and on.

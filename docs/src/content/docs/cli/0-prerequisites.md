@@ -1,5 +1,8 @@
 ---
 title: "Exercise 0: Prerequisites"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 Before you start the Copilot CLI exercises, you need to get everything ready. You'll create your own copy of the Tailspin Toys repository and spin up a [codespace][codespaces], whose integrated terminal you'll use to install and run Copilot CLI in the next exercise.

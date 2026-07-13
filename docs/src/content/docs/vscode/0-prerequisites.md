@@ -1,5 +1,8 @@
 ---
 title: "Exercise 0: Prerequisites"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 Before you start the VS Code exercises, you need to get everything ready. You'll create your own copy of the Tailspin Toys repository, spin up a [codespace][codespaces] to work in, and confirm GitHub Copilot Chat is up and running in your editor.

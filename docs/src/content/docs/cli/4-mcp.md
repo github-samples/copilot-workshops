@@ -1,5 +1,8 @@
 ---
 title: "Exercise 4 - Testing your feature with the Playwright MCP server"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 You just generated the filtering feature with Copilot CLI. Before you open a pull request, you should confirm it works in the browser. Rather than click through the app yourself, you'll connect the **Playwright MCP server** and let Copilot drive a real browser to test the feature for you.

@@ -1,5 +1,8 @@
 ---
 title: "Exercise 2 - GitHub Copilot cloud agent"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 | [← Previous lesson: Custom instructions][previous-lesson] |

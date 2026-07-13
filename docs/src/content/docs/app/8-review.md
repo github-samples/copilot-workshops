@@ -1,6 +1,9 @@
 ---
 title: "Lesson 8 - Review and next steps"
 description: "Recap the GitHub Copilot app harness, automate recurring work, and explore where to go next."
+authors:
+  - geektrainer
+lastUpdated: 2026-07-09
 ---
 
 Over the last several lessons, you took a feature from idea to merge with the GitHub Copilot app, including:

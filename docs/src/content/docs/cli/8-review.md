@@ -1,5 +1,8 @@
 ---
 title: "Exercise 8 - Review and Next Steps"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 Over the last several exercises, you explored some of the most common uses cases for GitHub Copilot CLI, including:

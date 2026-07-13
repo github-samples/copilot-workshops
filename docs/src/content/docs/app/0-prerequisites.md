@@ -1,6 +1,9 @@
 ---
 title: "Lesson 0 - Prerequisites"
 description: "Set up for the GitHub Copilot app lessons: install Node.js for the Tailspin Toys project and create your own copy of the repository from the template."
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 The GitHub Copilot app is a desktop app, serving as your central hub for both Copilot and GitHub. It provides quick access to issues and pull requests, and of course allows you to build using GitHub Copilot. During this workshop you'll be working locally, using both the Tailspin Toys app, built on Astro, and of course the GitHub Copilot app. Before you get started, let's ensure Node.js is installed locally, then install the Copilot app.

@@ -1,5 +1,8 @@
 ---
 title: "Exercise 3 - Testing your feature with the Playwright MCP server"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 [← Previous lesson: Agent mode][previous-lesson] · [Next lesson: Custom agents →][next-lesson]

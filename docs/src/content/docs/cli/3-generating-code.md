@@ -1,5 +1,8 @@
 ---
 title: "Exercise 3 - Adding project features with GitHub Copilot CLI"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 As you might expect, the core tasks you'll perform with GitHub Copilot CLI is to add features, functionality, and code to a project. Let's take one of the issues from your backlog and ask Copilot to help us implement it.

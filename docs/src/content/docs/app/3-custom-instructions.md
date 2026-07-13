@@ -1,6 +1,9 @@
 ---
 title: "Lesson 3 - Guiding Copilot with custom instructions"
 description: "Use the GitHub Copilot app to add a custom instructions standard to your repository, starting from an issue in your backlog and merging the change as a pull request."
+authors:
+  - geektrainer
+lastUpdated: 2026-07-09
 ---
 
 Context is key when working with generative AI. If a task needs to be done a particular way — or there's background information Copilot should know — you want that context available. One of the most powerful tools for this is [instruction files][instruction-files], which describe not just *what* code you want but *how* it should be structured. In this lesson you'll add a documentation standard to your repository, and you'll do it the way you'll do most work from here on: starting from an issue in your backlog and letting the agent make the change.

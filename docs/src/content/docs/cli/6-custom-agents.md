@@ -1,5 +1,8 @@
 ---
 title: "Exercise 6 - Custom agents with GitHub Copilot CLI"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 ## What are custom agents?

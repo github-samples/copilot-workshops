@@ -1,5 +1,8 @@
 ---
 title: "Exercise 4 - Monitoring and managing agents"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 In the last couple of exercises you asked Copilot cloud agent to take on three separate tasks focused on improving the user experience and adding functionality. While cloud agent is built to operate asynchronously and autonomously, the ability to monitor these tasks is still important.

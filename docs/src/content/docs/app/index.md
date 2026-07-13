@@ -1,5 +1,8 @@
 ---
 title: "GitHub Copilot app"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 The **[GitHub Copilot app](https://docs.github.com/copilot/concepts/agents/github-copilot-app)** is a desktop application built on Copilot CLI that brings agent-driven development into a single, focused workspace. It adds parallel agent sessions, switchable session modes, shared canvases, and native GitHub issue and pull request management — including **Agent Merge**, which shepherds a pull request through rebases, review feedback, CI fixes, and merge.

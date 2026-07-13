@@ -1,5 +1,8 @@
 ---
 title: "GitHub Copilot CLI"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 **[GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)** puts GitHub Copilot in your terminal as an agentic coding assistant. It explores codebases, generates code, runs commands, and connects to external tools — all from the command line, so you can stay in the flow without switching to a graphical editor.

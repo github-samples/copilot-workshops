@@ -1,5 +1,8 @@
 ---
 title: "Exercise 5 - Using agent skills"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 Doing app development often involves repeatable tasks like generating builds, running tests, or creating pull requests. **Agent skills** let you give Copilot — and other AI agents — guidance on how to perform those tasks. A skill is a folder of instructions, scripts, and resources that the agent can load on demand. [Agent Skills is an open standard][agent-skills-repo] used by a range of agents, so the same skill can work across Copilot Chat in agent mode, Copilot cloud agent, Copilot CLI, and the GitHub Copilot app.

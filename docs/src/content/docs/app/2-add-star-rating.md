@@ -1,6 +1,9 @@
 ---
 title: "Lesson 2 - Running your first agent session"
 description: "Start your first agent session in the GitHub Copilot app, make a small change to the game cards, and merge it as your first pull request."
+authors:
+  - geektrainer
+lastUpdated: 2026-07-09
 ---
 
 In the previous lesson you toured the workspace and used a quick chat. Now it's time to start an **agent session** and make your first change to the project. You'll keep it small: the games already have a star rating in their data, but the game cards on the home page don't show it yet. You'll ask the agent to surface it, review the change, and merge it as your first pull request.

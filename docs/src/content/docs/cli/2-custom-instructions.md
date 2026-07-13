@@ -1,5 +1,8 @@
 ---
 title: "Exercise 2 - Custom instructions (Copilot CLI)"
+authors:
+  - geektrainer
+lastUpdated: 2026-06-30
 ---
 
 [← Previous lesson: Installing Copilot CLI][previous-lesson] · [Next lesson: Generating code with CLI →][next-lesson]
