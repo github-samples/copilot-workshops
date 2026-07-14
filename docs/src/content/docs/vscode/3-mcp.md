@@ -78,8 +78,6 @@ Now you'll add a second server. The [Playwright MCP server][playwright-mcp-serve
 
 2. Save the file.
 
-    ![The .vscode/mcp.json file with the Playwright MCP server added alongside the GitHub server](../_images/ex3-mcp-playwright-config.png)
-
 Unlike the remote `github` server, `playwright` is a **local** server: VS Code starts it on your machine by running `npx @playwright/mcp@latest`. The `--headless` flag tells Playwright to run the browser without a visible window, which is required inside a codespace where there's no desktop to display it.
 
 > [!NOTE]

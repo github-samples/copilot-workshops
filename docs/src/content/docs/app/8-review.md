@@ -31,9 +31,6 @@ The app can run agents for you on a schedule or on demand through **automations*
    ```
 
 5. Pick the project (your Tailspin Toys repository) and create the automation.
-
-   ![The New automation dialog showing the name, trigger options, the Run in the cloud toggle, the tools dropdown, and the prompt field](../_images/app-automation-dialog.png)
-
 6. Run it on demand to see the result.
 
 > [!TIP]

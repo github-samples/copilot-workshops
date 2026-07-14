@@ -68,8 +68,6 @@ The quickest way to add a server is the interactive `/mcp add` command. You'll r
 
 3. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save. The server is added and available immediately — no restart required.
 
-    ![The Copilot CLI /mcp add form filled in for the Playwright server](../_images/cli-4-mcp-add-playwright.png)
-
 The `--headless` flag tells Playwright to run the browser without a visible window, which is required inside a codespace where there's no desktop to display it. Behind the scenes, this writes the server to your `~/.copilot/mcp-config.json` file:
 
 ```json
