@@ -29,13 +29,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: website/package-lock.json
 
       - name: Install dependencies
         working-directory: website
         run: npm ci
+
+      - name: Type-check (astro check on TS 6 + tsgo on TS 7)
+        working-directory: website
+        run: npm run check:all
 
       - name: Build Astro site
         working-directory: website
