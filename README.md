@@ -2,14 +2,14 @@
 
 Workshop content for **Copilot Workshops**, a guided exploration of GitHub Copilot's agentic capabilities (Copilot CLI, VS Code agent mode, the Copilot app, and the Copilot cloud agent) across the software development lifecycle.
 
-The published site lives at **<https://github-samples.github.io/agents-in-sdlc/>**.
+The published site lives at **<https://github-samples.github.io/copilot-workshops/>**.
 
 > [!NOTE]
 > The demo application learners build through during the workshop — Tailspin Toys, a pure-Astro crowdfunding site (SSR, API endpoints, and a Drizzle data layer) — lives in a separate repository: **<https://github.com/github-samples/tailspin-toys>**. This repo holds only the *content*: lesson Markdown, images, and the Astro + Starlight site that publishes them.
 
 ## Start the workshop
 
-Visit the published site: <https://github-samples.github.io/agents-in-sdlc/>.
+Visit the published site: <https://github-samples.github.io/copilot-workshops/>.
 
 ## Authoring
 
@@ -45,7 +45,7 @@ npm install
 npm run dev
 ```
 
-The site runs at <http://localhost:4321/agents-in-sdlc/>.
+The site runs at <http://localhost:4321/copilot-workshops/>.
 
 ## Verification
 

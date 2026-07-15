@@ -1,6 +1,6 @@
 # Website (Astro + Starlight publisher)
 
-Optional publishing layer that renders the workshop content as a documentation site and deploys it to GitHub Pages at <https://github-samples.github.io/agents-in-sdlc/>.
+Optional publishing layer that renders the workshop content as a documentation site and deploys it to GitHub Pages at <https://github-samples.github.io/copilot-workshops/>.
 
 The lessons themselves are plain Markdown in the repo-root [`../docs/`](../docs/) directory — browsable directly on github.com with no build required. This `website/` project is only needed if you want to self-host or preview the rendered pages site. For author-focused guidance, see [`../AUTHORING.md`](../AUTHORING.md).
 
@@ -10,7 +10,7 @@ From this directory:
 
 ```sh
 npm install
-npm run dev      # http://localhost:4321/agents-in-sdlc/
+npm run dev      # http://localhost:4321/copilot-workshops/
 npm run build    # outputs to dist/
 npm run preview  # preview the production build
 ```

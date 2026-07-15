@@ -14,10 +14,10 @@ If you want to **author or edit content**, start with [`AUTHORING.md`](./AUTHORI
 
 ## Submitting a pull request
 
-1. [Fork](https://github.com/github-samples/agents-in-sdlc/fork) and clone the repository.
+1. [Fork](https://github.com/github-samples/copilot-workshops/fork) and clone the repository.
 2. Create a topic branch (`git checkout -b my-change`).
 3. Make your change. Keep PRs focused — one logical change per PR.
-4. Push to your fork and [open a pull request](https://github.com/github-samples/agents-in-sdlc/compare).
+4. Push to your fork and [open a pull request](https://github.com/github-samples/copilot-workshops/compare).
 5. Wait for CI and review.
 
 ## Before merge

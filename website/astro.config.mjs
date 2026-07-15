@@ -19,7 +19,7 @@ const githubAdmonitionMapping = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://github-samples.github.io',
-  base: '/agents-in-sdlc',
+  base: '/copilot-workshops',
   trailingSlash: 'always',
   markdown: {
     remarkPlugins: [
@@ -43,12 +43,12 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/github-samples/agents-in-sdlc',
+          href: 'https://github.com/github-samples/copilot-workshops',
         },
       ],
       editLink: {
         baseUrl:
-          'https://github.com/github-samples/agents-in-sdlc/edit/main/docs/',
+          'https://github.com/github-samples/copilot-workshops/edit/main/docs/',
       },
       sidebar: [
         { label: 'Home', link: '/' },

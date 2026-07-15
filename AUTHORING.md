@@ -1,6 +1,6 @@
 # Authoring Guide
 
-This is the entry point for **content authors and maintainers** of **Copilot Workshops**. If you arrived here looking to *take* the workshop, head to the published site at <https://github-samples.github.io/agents-in-sdlc/>.
+This is the entry point for **content authors and maintainers** of **Copilot Workshops**. If you arrived here looking to *take* the workshop, head to the published site at <https://github-samples.github.io/copilot-workshops/>.
 
 ## Project overview model
 
@@ -9,7 +9,7 @@ This is the entry point for **content authors and maintainers** of **Copilot Wor
 - **Reusable prose is copied inline.** There is no import-based shared content system; keep duplicated lesson sections aligned with the content-alignment safety nets described below.
 
 ```
-agents-in-sdlc/
+copilot-workshops/
 ├── docs/                        ← Markdown source. EDIT HERE. Browsable on github.com.
 │   ├── README.md                ← Workshop landing page (also site home via slug: index)
 │   ├── cli/                     ← Copilot CLI lessons (0-prerequisites.md + numbered exercises)
@@ -108,7 +108,7 @@ npm install
 npm run dev
 ```
 
-The site runs at <http://localhost:4321/agents-in-sdlc/>.
+The site runs at <http://localhost:4321/copilot-workshops/>.
 
 **Verify** before committing:
 
