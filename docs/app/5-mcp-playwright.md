@@ -16,7 +16,7 @@ In this lesson, you will:
 
 ## Scenario
 
-While unit and end to end tests are important, validating updates to the UI require actually interacting with the UI. You want to allow Copilot to use the website you're working on as a user would to further automate how changes are made, providing more confidence the updates perform as expected.
+While unit and end-to-end tests are important, validating updates to the UI requires actually interacting with the UI. You want to allow Copilot to use the website you're working on as a user would to further automate how changes are made, providing more confidence the updates perform as expected.
 
 ## What is Model Context Protocol (MCP)?
 

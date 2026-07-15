@@ -26,7 +26,7 @@ Up to this point you've been the one clicking **Merge pull request** on github.c
 
 ## Use Agent Merge to manage the PR
 
-You've reviewed the code manually, ran tests, and even allowed Copilot to validate the UI. Now it's time to merge the new code into the codebase! Let's allow agent merge to shepherd the PR through continuous integration (CI) and to merge.
+You've reviewed the code manually, run tests, and even allowed Copilot to validate the UI. Now it's time to merge the new code into the codebase! Let's allow agent merge to shepherd the PR through continuous integration (CI) and to merge.
 
 1. Return to the session you had open from the previous module where you were adding filtering functionality.
 2. In the upper right-hand corner, select the dropdown next to **Create PR**.

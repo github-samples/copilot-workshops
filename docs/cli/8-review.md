@@ -5,7 +5,7 @@ authors:
 lastUpdated: 2026-06-30
 ---
 
-Over the last several exercises, you explored some of the most common uses cases for GitHub Copilot CLI, including:
+Over the last several exercises, you explored some of the most common use cases for GitHub Copilot CLI, including:
 
 - interacting with GitHub and other MCP servers.
 - using instructions files to guide code generation.
