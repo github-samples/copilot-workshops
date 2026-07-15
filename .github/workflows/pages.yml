@@ -1,21 +1,13 @@
 name: Build and deploy workshop site
 
 # Builds the Astro + Starlight site under `website/` (sourcing lesson Markdown from
-# `docs/`) and deploys to GitHub Pages on pushes to main. Pull requests run a
-# build-only validation pass plus a link check.
+# `docs/`) and deploys to GitHub Pages on pushes to main. Every push and pull
+# request runs a build-only validation pass plus a link check, so the build can
+# serve as a required status check on any PR.
 
 on:
   push:
-    branches: [main]
-    paths:
-      - 'docs/**'
-      - 'website/**'
-      - '.github/workflows/pages.yml'
   pull_request:
-    paths:
-      - 'docs/**'
-      - 'website/**'
-      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 # Single in-flight deploy per branch; do not cancel an active deploy mid-flight.
