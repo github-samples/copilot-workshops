@@ -1,5 +1,5 @@
 ---
-title: "Agents in the software development lifecycle (SDLC)"
+title: "Copilot Workshops"
 slug: index
 authors:
   - geektrainer

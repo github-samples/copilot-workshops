@@ -1,6 +1,6 @@
 ---
 slug: ko-kr
-title: "소프트웨어 개발 수명 주기(SDLC)의 에이전트"
+title: "Copilot Workshops"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30

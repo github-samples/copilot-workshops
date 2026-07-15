@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in contributing to *Agents in SDLC*! This repository hosts the workshop content (Markdown source and the Astro + Starlight site that publishes it).
+Thanks for your interest in contributing to **Copilot Workshops**! This repository hosts the workshop content (Markdown source and the Astro + Starlight site that publishes it).
 
 ## Code of Conduct
 

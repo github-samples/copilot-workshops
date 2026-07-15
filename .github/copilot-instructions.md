@@ -1,6 +1,6 @@
-# Agents in SDLC — Workshop Authoring Guide
+# Copilot Workshops — Workshop Authoring Guide
 
-This repo hosts the **workshop content** for *Agents in SDLC*, published as an Astro + Starlight site at <https://github-samples.github.io/agents-in-sdlc/>. The demo application learners build during the workshop lives in a separate repository: <https://github.com/github-samples/tailspin-toys>.
+This repo hosts the **workshop content** for **Copilot Workshops**, published as an Astro + Starlight site at <https://github-samples.github.io/agents-in-sdlc/>. The demo application learners build during the workshop lives in a separate repository: <https://github.com/github-samples/tailspin-toys>.
 
 **This is a content-only repo.** Do not add the demo app's application code (Astro SSR endpoints, the Drizzle data layer, UI components, Tailwind styles, or tests) here. Application changes belong in `tailspin-toys`.
 

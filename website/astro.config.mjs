@@ -28,7 +28,7 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'Agents in the SDLC Workshop',
+      title: 'Copilot Workshops',
       description:
         'A hands-on workshop exploring GitHub Copilot agents across VS Code, the Copilot CLI, the GitHub Copilot app, and the Copilot cloud agent.',
       locales: {

@@ -1,6 +1,6 @@
 ---
 name: build-and-verify-docs
-description: Build, preview, and verify the Agents in SDLC Astro + Starlight workshop site before committing or opening a PR. Use whenever an author or agent is about to build the site, run a local preview/dev server, check links with lychee, confirm the page-count invariant, run the pre-commit verification sequence for any change under `docs/` (content) or `website/` (tooling), or make a PR-time consistency pass to catch structural drift (renamed paths, stale skill/instruction references, inaccurate CI claims, out-of-date structure trees).
+description: Build, preview, and verify the Copilot Workshops Astro + Starlight workshop site before committing or opening a PR. Use whenever an author or agent is about to build the site, run a local preview/dev server, check links with lychee, confirm the page-count invariant, run the pre-commit verification sequence for any change under `docs/` (content) or `website/` (tooling), or make a PR-time consistency pass to catch structural drift (renamed paths, stale skill/instruction references, inaccurate CI claims, out-of-date structure trees).
 ---
 
 # Build and verify the docs site

@@ -1,6 +1,6 @@
 ---
 slug: ja-jp
-title: "ソフトウェア開発ライフサイクル (SDLC) におけるエージェント"
+title: "Copilot Workshops"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30

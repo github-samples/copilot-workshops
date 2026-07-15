@@ -1,6 +1,6 @@
 ---
 name: validate-site-playwright
-description: Render-validate the built Agents in SDLC workshop site in a real browser using the Playwright MCP server. Use as an optional deeper QA pass — after the static checks in build-and-verify-docs — to confirm pages actually render: navigate the built routes, assert HTTP 200, catch console/hydration errors, find broken images, confirm Starlight Markdown features rendered, and optionally screenshot key pages. Trigger when asked to "validate the built site", "check the pages render", "do a browser/visual QA pass", or before opening a PR that changes rendered output.
+description: Render-validate the built Copilot Workshops site in a real browser using the Playwright MCP server. Use as an optional deeper QA pass — after the static checks in build-and-verify-docs — to confirm pages actually render: navigate the built routes, assert HTTP 200, catch console/hydration errors, find broken images, confirm Starlight Markdown features rendered, and optionally screenshot key pages. Trigger when asked to "validate the built site", "check the pages render", "do a browser/visual QA pass", or before opening a PR that changes rendered output.
 ---
 
 # Validate the built site with Playwright

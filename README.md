@@ -1,6 +1,6 @@
-# Agents in SDLC — Workshop Content
+# Copilot Workshops — Workshop Content
 
-Workshop content for **Agents in SDLC**, a guided exploration of GitHub Copilot's agentic capabilities (Copilot CLI, VS Code agent mode, and the Copilot cloud agent) across the software development lifecycle.
+Workshop content for **Copilot Workshops**, a guided exploration of GitHub Copilot's agentic capabilities (Copilot CLI, VS Code agent mode, the Copilot app, and the Copilot cloud agent) across the software development lifecycle.
 
 The published site lives at **<https://github-samples.github.io/agents-in-sdlc/>**.
 

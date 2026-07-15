@@ -1,6 +1,6 @@
 # Authoring Guide
 
-This is the entry point for **content authors and maintainers** of the *Agents in SDLC* workshop. If you arrived here looking to *take* the workshop, head to the published site at <https://github-samples.github.io/agents-in-sdlc/>.
+This is the entry point for **content authors and maintainers** of **Copilot Workshops**. If you arrived here looking to *take* the workshop, head to the published site at <https://github-samples.github.io/agents-in-sdlc/>.
 
 ## Project overview model
 

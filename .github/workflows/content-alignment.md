@@ -1,5 +1,5 @@
 ---
-# Content-alignment check for the Agents in SDLC workshop.
+# Content-alignment check for the Copilot Workshops content.
 #
 # The workshop content is pure Markdown with prose duplicated inline across lessons
 # (no partials / single-sourcing). When a PR edits one lesson, the other copies can
@@ -40,7 +40,7 @@ safe-outputs:
 
 # Content alignment check
 
-You are reviewing a pull request that changes lesson content in the **Agents in SDLC** workshop, an Astro + Starlight docs site. The lessons live under `docs/` and are **pure Markdown**. Conceptually shared prose is **duplicated inline** across lessons rather than single-sourced, so an edit to one lesson often needs to be mirrored in others. Your job is to find those other lessons and post one advisory comment. **Do not edit any files.**
+You are reviewing a pull request that changes lesson content in **Copilot Workshops**, an Astro + Starlight docs site. The lessons live under `docs/` and are **pure Markdown**. Conceptually shared prose is **duplicated inline** across lessons rather than single-sourced, so an edit to one lesson often needs to be mirrored in others. Your job is to find those other lessons and post one advisory comment. **Do not edit any files.**
 
 ## What changed
 

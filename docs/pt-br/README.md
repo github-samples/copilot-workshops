@@ -1,6 +1,6 @@
 ---
 slug: pt-br
-title: "Agentes no ciclo de vida de desenvolvimento de software (SDLC)"
+title: "Copilot Workshops"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30
