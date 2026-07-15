@@ -7,7 +7,7 @@
 <!-- Check all that apply. -->
 
 - [ ] Workshop content (lesson Markdown, images)
-- [ ] Site shell (`docs/` Astro + Starlight wrapper)
+- [ ] Site shell (`website/` Astro + Starlight wrapper)
 - [ ] Copilot configuration (`.github/copilot-instructions.md`, instructions, agents, skills)
 - [ ] Repo housekeeping (CI, dependabot, README, license)
 - [ ] Other:
