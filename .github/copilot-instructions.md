@@ -10,6 +10,7 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
   - `src/content/docs/` — **Source Markdown for all lessons. Edit here.**
     - `index.md` — Workshop landing page.
     - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each harness opens with its own `0-prerequisites.md` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
+    - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Localized content at the locale-root paths required by Starlight. Translated pages mirror the English path beneath each locale directory; untranslated pages use Starlight's English fallback.
     - `_images/` — Screenshots and diagrams.
   - `astro.config.mjs` — Site config including the manually maintained sidebar. The legacy `/shared/0-prereqs/` → home (`/`) redirect is a full-HTML redirect page at `src/pages/shared/0-prereqs.astro` (not an `astro.config.mjs` `redirects` entry, which would emit a stub with no `<html>` element that Pagefind can't index). Prerequisites are now per-harness (`/<harness>/0-prerequisites/`), so the old shared-prereqs URL forwards to the home page.
   - `src/content.config.ts` — Custom content loader that excludes underscore-prefixed support directories so `_images/` is not routed as content.

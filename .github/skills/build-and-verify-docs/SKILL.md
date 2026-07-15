@@ -43,16 +43,21 @@ cd docs && rm -rf dist && npm run build
 
 ### 2. Page-count invariant
 
-The built page count should equal the 36 routable `.md` files under `docs/src/content/docs/` plus the one legacy redirect (`/shared/0-prereqs/`, authored as a full-HTML redirect page at `docs/src/pages/shared/0-prereqs.astro`). The expected count is 37 `index.html` files when excluding the 404 page. Astro reports 38 HTML files because it includes the 404 page.
+The workshop has 36 distinct route slugs. Starlight emits each route for the English root locale and the five configured localized routes, using English fallback content when a translation is unavailable. The built site therefore contains $36 \times 6 = 216$ workshop routes plus the one legacy redirect (`/shared/0-prereqs/`, authored as a full-HTML redirect page at `docs/src/pages/shared/0-prereqs.astro`). The expected count is 217 `index.html` files when excluding the 404 page. Astro reports 218 HTML files because it includes the 404 page.
 
 ```bash
-# routable Markdown pages (expected pages, minus the redirect)
-find docs/src/content/docs -name '*.md' | wc -l
+# distinct route slugs in the English root locale
+find docs/src/content/docs -maxdepth 2 -name '*.md' \
+  ! -path 'docs/src/content/docs/es-es/*' \
+  ! -path 'docs/src/content/docs/ja-jp/*' \
+  ! -path 'docs/src/content/docs/ko-kr/*' \
+  ! -path 'docs/src/content/docs/pt-br/*' \
+  ! -path 'docs/src/content/docs/zh-cn/*' | wc -l
 # built pages (excludes the 404)
 find docs/dist -name index.html | grep -v 404 | wc -l
 ```
 
-`built pages` should equal `routable Markdown pages + 1`. If the build emits **more** pages than that without a matching `.md` change, check the underscore-directory exclude in `docs/src/content.config.ts`; it is still needed so support directories such as `_images/` are not routed as pages.
+`built pages` should equal `(distinct route slugs × configured locales) + 1`. If the build emits **more** pages than that without a matching route or locale change, confirm localized content is directly under `docs/src/content/docs/<locale>/` rather than an extra parent directory, then check the underscore-directory exclude in `docs/src/content.config.ts`; it is still needed so support directories such as `_images/` are not routed as pages.
 
 ### 3. Link check (lychee, offline)
 

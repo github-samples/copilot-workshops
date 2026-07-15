@@ -20,4 +20,4 @@ This is a docs wrapper. Don't add interactive framework islands (Svelte, React, 
 
 ## Building and verifying
 
-After changing `astro.config.mjs` or anything under `docs/src/`, build and verify the site with the [`build-and-verify-docs`](../skills/build-and-verify-docs/SKILL.md) skill. Its page-count invariant is the tripwire for unexpected routed pages: if the build emits more pages than `36 routable Markdown pages + 1 legacy redirect` without a matching content change, check the underscore-directory exclude in `src/content.config.ts`.
+After changing `astro.config.mjs` or anything under `docs/src/`, build and verify the site with the [`build-and-verify-docs`](../skills/build-and-verify-docs/SKILL.md) skill. Its page-count invariant is the tripwire for unexpected routed pages: Starlight emits each of the 36 workshop routes for the root language and five configured locales, then adds the legacy redirect, for 217 built `index.html` pages excluding the 404 page. If the count changes without a corresponding route or locale change, check the locale layout and the underscore-directory exclude in `src/content.config.ts`.
