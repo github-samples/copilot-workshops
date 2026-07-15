@@ -158,7 +158,7 @@ A continuación, crearás la funcionalidad de filtrado en una sesión nueva y co
 [instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository
-[awesome-copilot]: https://awesome-copilot.github.com/github
+[awesome-copilot]: https://awesome-copilot.github.com/
 [custom-instructions-support]: https://docs.github.com/copilot/reference/custom-instructions-support
 [ui-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/ui.instructions.md
 [astro-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/astro.instructions.md

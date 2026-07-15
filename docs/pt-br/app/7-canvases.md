@@ -123,5 +123,5 @@ Com o backlog acompanhado, é hora de revisar tudo o que você criou e decidir o
 
 [next-lesson]: ../8-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
-[awesome-copilot-canvases]: https://awesome-copilot.github.com/canvases
+[awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
