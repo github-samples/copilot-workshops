@@ -62,6 +62,17 @@ agents-in-sdlc/
 5. **Register in the sidebar.** Open `website/astro.config.mjs` and add an entry to the appropriate `items: []` block. The sidebar is *manually* maintained — order in the file is the order learners see.
 6. **Preview and verify, then open a PR.** Preview locally and run the verification sequence before committing — see [Building and verifying](#building-and-verifying) below. CI runs the Astro build and the lychee link check; both must pass.
 
+### Landing pages (folder `README.md`)
+
+Every folder's landing page is a `README.md` so it renders directly when someone browses that folder on github.com. Because Starlight normally derives a folder's index route from an `index.md`, each landing carries an explicit `slug:` in its frontmatter that reproduces the route:
+
+- `docs/README.md` → `slug: index` (site home `/`).
+- `docs/<harness>/README.md` → `slug: <harness>` (e.g. `slug: app` → `/app/`).
+- `docs/<locale>/README.md` → `slug: <locale>` (e.g. `slug: es-es` → `/es-es/`).
+- `docs/<locale>/<harness>/README.md` → `slug: <locale>/<harness>` (e.g. `slug: es-es/app` → `/es-es/app/`).
+
+When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
+
 ### Add an image
 
 1. **Drop the file** in `docs/_images/` (or a path-scoped `cli/_images/` etc. when the image is path-specific). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple harnesses.

@@ -1,4 +1,5 @@
 ---
+slug: ko-kr
 title: "소프트웨어 개발 수명 주기(SDLC)의 에이전트"
 authors:
   - geektrainer

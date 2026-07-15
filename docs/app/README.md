@@ -1,4 +1,5 @@
 ---
+slug: app
 title: "GitHub Copilot app"
 authors:
   - geektrainer

@@ -1,4 +1,5 @@
 ---
+slug: cli
 title: "GitHub Copilot CLI"
 authors:
   - geektrainer

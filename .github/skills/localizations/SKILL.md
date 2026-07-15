@@ -18,11 +18,13 @@ The skill takes input content and a list of target locales. It then translates t
 └── docs/                         ← workshop content (source + locale outputs)
     ├── README.md                 ← landing page (source; slug: index)
     ├── <harness>/                ← English lessons (source)
+    │   ├── README.md             ← harness landing (source; slug: <harness>)
     │   └── *.md
     ├── _images/                  ← shared assets (not localized)
     └── <locale>/                 ← localized output, direct child of docs/
-        ├── index.md
-        └── <any/path>/
+        ├── README.md             ← locale landing (slug: <locale>)
+        └── <harness>/
+            ├── README.md         ← localized harness landing (slug: <locale>/<harness>)
             └── *.md
 ```
 
@@ -64,7 +66,7 @@ The process runs in two passes. First, the content is analyzed to identify key p
 
 Regardless of locale, the following must be preserved exactly and **not** translated:
 
-- YAML frontmatter **keys** (translate values only where appropriate, e.g. a `title`).
+- YAML frontmatter **keys** (translate values only where appropriate, e.g. a `title`). **Exception — the `slug` key on landing pages (`README.md`):** the site routes each folder landing via its `slug`, so a localized landing must carry a **locale-prefixed** slug rather than the English one. Rewrite it: a locale root (`docs/<locale>/README.md`) uses `slug: <locale>`, and a localized harness landing (`docs/<locale>/<harness>/README.md`) uses `slug: <locale>/<harness>`. Never copy the English `slug: index` / `slug: <harness>` verbatim into a localized file — that would collide with the English route.
 - Fenced and inline code, including variable, function, and command names.
 - URLs and external link targets.
 - HTML tags, Markdown structure, tables, and admonition markers.

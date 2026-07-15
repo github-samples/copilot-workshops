@@ -1,4 +1,5 @@
 ---
+slug: ja-jp/app
 title: "GitHub Copilot app"
 authors:
   - geektrainer

@@ -1,4 +1,5 @@
 ---
+slug: pt-br/app
 title: "Aplicativo GitHub Copilot"
 authors:
   - geektrainer

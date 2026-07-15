@@ -8,7 +8,7 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
 
 - `docs/` — **Source Markdown for all lessons. Edit here.** Browsable directly on github.com; no build required.
   - `README.md` — Workshop landing page (also the site home via `slug: index` frontmatter).
-  - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each harness opens with its own `0-prerequisites.md` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
+  - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each folder's landing page is a `README.md` (routed via a `slug:` matching the folder path). Each harness opens with its own `0-prerequisites.md` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
   - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Localized content at the locale-root paths required by Starlight. Translated pages mirror the English path beneath each locale directory; untranslated pages use Starlight's English fallback.
   - `_images/` — Screenshots and diagrams (shared across all locales).
 - `website/` — Optional Astro + Starlight site that publishes `docs/` to GitHub Pages (loader `base: '../docs'`). Only needed to self-host or preview the rendered site.

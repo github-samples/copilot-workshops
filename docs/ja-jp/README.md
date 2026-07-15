@@ -1,4 +1,5 @@
 ---
+slug: ja-jp
 title: "ソフトウェア開発ライフサイクル (SDLC) におけるエージェント"
 authors:
   - geektrainer

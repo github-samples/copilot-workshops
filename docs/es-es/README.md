@@ -1,4 +1,5 @@
 ---
+slug: es-es
 title: "Agentes en el ciclo de vida del desarrollo de software (SDLC)"
 authors:
   - geektrainer

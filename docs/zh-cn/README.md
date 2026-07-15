@@ -1,4 +1,5 @@
 ---
+slug: zh-cn
 title: "软件开发生命周期 (SDLC) 中的智能体"
 authors:
   - geektrainer

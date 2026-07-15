@@ -1,4 +1,5 @@
 ---
+slug: vscode
 title: "VS Code"
 authors:
   - geektrainer

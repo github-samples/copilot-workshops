@@ -1,4 +1,5 @@
 ---
+slug: cloud
 title: "Copilot cloud agent"
 authors:
   - geektrainer

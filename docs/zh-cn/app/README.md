@@ -1,4 +1,5 @@
 ---
+slug: zh-cn/app
 title: "GitHub Copilot app"
 authors:
   - geektrainer

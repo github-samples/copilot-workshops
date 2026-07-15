@@ -1,4 +1,5 @@
 ---
+slug: ko-kr/app
 title: "GitHub Copilot app"
 authors:
   - geektrainer
