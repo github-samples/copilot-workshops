@@ -15,29 +15,26 @@ The skill takes input content and a list of target locales. It then translates t
 
 ```text
 .
-├── README.md
-├── docs/
-│   ├── *.md
-│   └── <any/path>/
-│       └── *.md
-└── docs/
-    └── src/content/docs/
-        └── <locale>/
-            ├── index.md
-            └── <any/path>/
-                └── *.md
+└── docs/                         ← workshop content (source + locale outputs)
+    ├── README.md                 ← landing page (source; slug: index)
+    ├── <harness>/                ← English lessons (source)
+    │   └── *.md
+    ├── _images/                  ← shared assets (not localized)
+    └── <locale>/                 ← localized output, direct child of docs/
+        ├── index.md
+        └── <any/path>/
+            └── *.md
 ```
 
 ### Input contents
 
-Here are the list of contents for localization:
+Here are the contents in scope for localization:
 
-- `README.md`: The main documentation file for the project.
-- All markdown files in the `docs` directory **and its subdirectories** (`docs/**/*.md`): The main content files for the project documentation.
+- All English Markdown files under `docs/` **and its subdirectories** — the workshop landing (`docs/README.md`) and the per-harness lessons (`docs/<harness>/**/*.md`).
 
-Both `README.md` and the `docs` tree are in scope. The **`docs`** directory is the default location for content files, but `README.md` at the project root is always included as well.
+Do **not** treat `_images/` (shared assets) or any configured locale-root directory as source input.
 
-Files already under `docs/src/content/docs/<locale>/` are **outputs**, not inputs—never treat configured locale-root directories as source content to be localized again.
+Files already under `docs/<locale>/` are **outputs**, not inputs—never treat configured locale-root directories as source content to be localized again.
 
 ### Target locales
 
@@ -47,16 +44,16 @@ Locale identifiers use lowercase with a hyphen (for example, `ko-kr`). This is t
 
 ### Output contents
 
-All localized workshop content is stored directly under the Starlight content root, with each locale having its own subdirectory. For example, Korean content is stored in `docs/src/content/docs/ko-kr/`.
+All localized workshop content is stored directly under the repo-root `docs/` content directory, with each locale having its own subdirectory. For example, Korean content is stored in `docs/ko-kr/`.
 
-Locale directories must be direct children of `docs/src/content/docs/` so Starlight recognizes them and renders its language selector. Do not add an intermediate `localizations/` directory.
+Locale directories must be direct children of `docs/` so Starlight (configured in `website/astro.config.mjs`) recognizes them and renders its language selector. Do not add an intermediate `localizations/` directory.
 
 ## Localization process
 
-There are three cases for localization. To detect which case applies, compare the **source tree** against the existing `docs/src/content/docs/<locale>/` tree, and use the **git history of the source files** to detect changes:
+There are three cases for localization. To detect which case applies, compare the **source tree** against the existing `docs/<locale>/` tree, and use the **git history of the source files** to detect changes:
 
 - **Original exists, no localized version for the locale:** Create a new localized document.
-- **Both original and localized versions exist:** Compare the source tree against `docs/src/content/docs/<locale>/`, then run `git diff` (or `git log`) on the **source** file to find what changed since the localized version was last produced. Update only the affected sections of the localized document; do not re-translate unchanged sections unnecessarily.
+- **Both original and localized versions exist:** Compare the source tree against `docs/<locale>/`, then run `git diff` (or `git log`) on the **source** file to find what changed since the localized version was last produced. Update only the affected sections of the localized document; do not re-translate unchanged sections unnecessarily.
 - **Localized version exists, but the original has been deleted:** Delete the orphaned localized document (and prune now-empty locale subdirectories).
 
 The process runs in two passes. First, the content is analyzed to identify key phrases and context. Then the `translator` agent performs the initial localization, followed by a review-and-refinement pass by the `evaluator` agent to ensure quality and consistency.
@@ -76,7 +73,7 @@ Translate human-language prose, including comments inside code blocks where they
 
 **Heading anchors follow the localized text.** When a heading is translated, its auto-generated anchor/slug changes with it—this is expected. The requirement is that **same-document anchor links keep resolving**: whenever you translate a heading, update every in-page link that targets it (`](#...)`) to the localized heading's new slug. Do not leave a link pointing at the original English slug once the heading is translated, and do not preserve an English anchor that no longer matches its heading. Anchors that point into **non-localized** files (or external URLs) keep their original target.
 
-**Image and asset paths point to the original assets unless a localized asset exists.** Because localized files live under `docs/src/content/docs/<locale>/`, rewrite source-relative paths as needed so they still resolve to the shared asset (for example, an app lesson uses `../../_images/x.png`). Only point at a localized asset when a corresponding translated image actually exists under the locale tree. Either way, the link must resolve to a real file.
+**Image and asset paths point to the original assets unless a localized asset exists.** Because localized files live under `docs/<locale>/`, rewrite source-relative paths as needed so they still resolve to the shared asset (for example, an app lesson at `docs/<locale>/app/2-foo.md` uses `../../_images/x.png` to reach `docs/_images/`). Only point at a localized asset when a corresponding translated image actually exists under the locale tree. Either way, the link must resolve to a real file.
 
 ### Translator agent
 
@@ -93,8 +90,8 @@ The evaluator scores the localized document against the locale's **Evaluator Sco
 - **Do** perform localization only for the target locales defined in the `rules` directory (one `<locale>.md` per supported locale). Do not localize into unsupported locales.
 - **Do** preserve Markdown structure, code, external link/URL targets, and frontmatter keys exactly (see *Markdown and formatting preservation*).
 - **Do** let heading anchors follow the localized heading text, and update same-document anchor links to match the new slugs so they keep resolving (see *Markdown and formatting preservation*).
-- **Do** point image and asset paths at the original assets (rewriting the relative path as needed so it resolves from `docs/src/content/docs/<locale>/`), unless a corresponding localized asset exists (see *Markdown and formatting preservation*).
-- **Do** mirror the source directory layout under `docs/src/content/docs/<locale>/`.
+- **Do** point image and asset paths at the original assets (rewriting the relative path as needed so it resolves from `docs/<locale>/`), unless a corresponding localized asset exists (see *Markdown and formatting preservation*).
+- **Do** mirror the source directory layout under `docs/<locale>/`.
 - **Don't** treat configured locale-root directories as source input.
 - **Don't** reorder or restructure content; keep headings and their order stable.
 - **Don't** translate code, commands, or identifiers; translate explanatory prose and code comments only.

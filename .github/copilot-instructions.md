@@ -6,14 +6,14 @@ This repo hosts the **workshop content** for *Agents in SDLC*, published as an A
 
 ## Repository structure
 
-- `docs/` — Astro + Starlight site that publishes the workshop to GitHub Pages.
-  - `src/content/docs/` — **Source Markdown for all lessons. Edit here.**
-    - `index.md` — Workshop landing page.
-    - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each harness opens with its own `0-prerequisites.md` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
-    - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Localized content at the locale-root paths required by Starlight. Translated pages mirror the English path beneath each locale directory; untranslated pages use Starlight's English fallback.
-    - `_images/` — Screenshots and diagrams.
-  - `astro.config.mjs` — Site config including the manually maintained sidebar. The legacy `/shared/0-prereqs/` → home (`/`) redirect is a full-HTML redirect page at `src/pages/shared/0-prereqs.astro` (not an `astro.config.mjs` `redirects` entry, which would emit a stub with no `<html>` element that Pagefind can't index). Prerequisites are now per-harness (`/<harness>/0-prerequisites/`), so the old shared-prereqs URL forwards to the home page.
-  - `src/content.config.ts` — Custom content loader that excludes underscore-prefixed support directories so `_images/` is not routed as content.
+- `docs/` — **Source Markdown for all lessons. Edit here.** Browsable directly on github.com; no build required.
+  - `README.md` — Workshop landing page (also the site home via `slug: index` frontmatter).
+  - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each harness opens with its own `0-prerequisites.md` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
+  - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Localized content at the locale-root paths required by Starlight. Translated pages mirror the English path beneath each locale directory; untranslated pages use Starlight's English fallback.
+  - `_images/` — Screenshots and diagrams (shared across all locales).
+- `website/` — Optional Astro + Starlight site that publishes `docs/` to GitHub Pages (loader `base: '../docs'`). Only needed to self-host or preview the rendered site.
+  - `astro.config.mjs` — Site config including the manually maintained sidebar and the `locales` block. The legacy `/shared/0-prereqs/` → home (`/`) redirect is a full-HTML redirect page at `src/pages/shared/0-prereqs.astro` (not an `astro.config.mjs` `redirects` entry, which would emit a stub with no `<html>` element that Pagefind can't index). Prerequisites are now per-harness (`/<harness>/0-prerequisites/`), so the old shared-prereqs URL forwards to the home page.
+  - `src/content.config.ts` — Custom content loader (`base: '../docs'`) that excludes underscore-prefixed support directories so `_images/` is not routed as content.
 - `AUTHORING.md` — Author entry point (recipes for adding lessons and images).
 - `CONTRIBUTING.md` — Short pointer to AUTHORING.md + PR/CI rules.
 - `.github/`
@@ -35,7 +35,7 @@ Because inline copies can drift, run the `check-content-alignment` skill after e
 ### Admonitions
 
 - **Use GitHub admonition syntax everywhere** — published lessons *and* repository Markdown. Put the `[!NOTE]` / `[!TIP]` / `[!IMPORTANT]` / `[!WARNING]` / `[!CAUTION]` marker on its own `>`-prefixed line, with the body on subsequent `>`-prefixed lines.
-- In published lessons under `docs/src/content/docs/**`, the `remark-github-admonitions-to-directives` plugin (wired in `docs/astro.config.mjs`) converts these to Starlight asides at build time (NOTE/IMPORTANT to note, TIP to tip, WARNING/CAUTION to caution). Do **not** author Starlight `:::` directives.
+- In published lessons under `docs/**`, the `remark-github-admonitions-to-directives` plugin (wired in `website/astro.config.mjs`) converts these to Starlight asides at build time (NOTE/IMPORTANT to note, TIP to tip, WARNING/CAUTION to caution). Do **not** author Starlight `:::` directives.
 - GitHub syntax has no custom-title or nesting form: put a callout heading on a **bold lead-in line** (`> **Title**`, then a blank `>` line, then the body), and emit "nested" callouts as sibling blockquotes separated by a blank line. Full mapping and patterns live in [`.github/instructions/markdown.instructions.md`](instructions/markdown.instructions.md).
 
 ### Linking

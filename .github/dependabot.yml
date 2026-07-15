@@ -1,10 +1,10 @@
-# Dependabot configuration for the workshop site (Astro + Starlight under docs/).
+# Dependabot configuration for the workshop site (Astro + Starlight under website/).
 # The application learners build now lives at github.com/github-samples/tailspin-toys.
 # Learn more: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: /docs
+    directory: /website
     schedule:
       interval: weekly
     groups:

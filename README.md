@@ -19,11 +19,14 @@ For PR/CI rules, see **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
 
 ## Repository structure
 
-- **`docs/`** — Astro + Starlight site that publishes the workshop to GitHub Pages.
-  - `src/content/docs/` — **Lesson source (Markdown). Edit here.**
-    - `index.md` — Workshop landing page.
-    - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / cloud agent / GitHub Copilot app). Each codespace-based harness opens with its own `0-prerequisites.md` setup lesson.
-    - `_images/` — Screenshots and diagrams.
+- **`docs/`** — **Lesson source (plain Markdown). Edit here.** Browsable directly on github.com, no build required.
+  - `README.md` — Workshop landing page (also the published site's home via `slug: index`).
+  - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / cloud agent / GitHub Copilot app). Each codespace-based harness opens with its own `0-prerequisites.md` setup lesson.
+  - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Translated locale trees (currently the app harness).
+  - `_images/` — Screenshots and diagrams (shared across all locales).
+- **`website/`** — Optional Astro + Starlight site that publishes `docs/` to GitHub Pages. Only needed to self-host or preview the rendered site.
+  - `astro.config.mjs` — Site URL, base path, `locales` block, sidebar.
+  - `src/content.config.ts` — Content loader (`base: '../docs'`).
   - `src/pages/shared/0-prereqs.astro` — Full-HTML redirect forwarding the legacy `/shared/0-prereqs/` URL to the home page.
 - **`AUTHORING.md`** — Author entry point (recipes for adding/editing content).
 - **`CONTRIBUTING.md`** — PR flow + CI requirements.
@@ -37,7 +40,7 @@ For PR/CI rules, see **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
 From the repo root:
 
 ```bash
-cd docs
+cd website
 npm install
 npm run dev
 ```

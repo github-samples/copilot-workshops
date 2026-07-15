@@ -17,15 +17,15 @@ Run every command from the **repo root** unless a step says otherwise.
 - A clean build must exist. If you haven't just built, run the build from [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) first:
 
   ```bash
-  cd docs && rm -rf dist && npm run build && cd ..
+  cd website && rm -rf dist && npm run build && cd ..
   ```
 
 ## 1. Serve the built site
 
-Serve the production build (not the dev server) so you validate exactly what ships. `npm run preview` serves `docs/dist/` at the real base path:
+Serve the production build (not the dev server) so you validate exactly what ships. `npm run preview` serves `website/dist/` at the real base path:
 
 ```bash
-cd docs && npm run preview
+cd website && npm run preview
 ```
 
 The site is served at <http://localhost:4321/agents-in-sdlc/>. Start it as a **detached background process** so it survives while you navigate, and capture its PID for teardown. Wait until the server logs that it's listening before navigating.
@@ -36,7 +36,7 @@ Don't hard-code URLs. The built `dist/` is the source of truth for what routes e
 
 ```bash
 # every built route, as site-absolute paths under the base
-find docs/dist -name index.html | grep -v 404 | sed 's#docs/dist#/agents-in-sdlc#; s#/index.html#/#'
+find website/dist -name index.html | grep -v 404 | sed 's#website/dist#/agents-in-sdlc#; s#/index.html#/#'
 ```
 
 Validate a **representative sample** that covers every layout and harness: the landing page (`/agents-in-sdlc/`), a per-harness prerequisites page (e.g. `cli/0-prerequisites/`), and at least one lesson from each of `cli/`, `vscode/`, `cloud/`, and `app/`. For a release pass or a change that touches shared layout/components, validate **all** routes.

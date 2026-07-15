@@ -3,5 +3,5 @@
         "agentic",
         "winget"
     ],
-    "typescript.tsdk": "docs/node_modules/typescript/lib"
+    "typescript.tsdk": "website/node_modules/typescript/lib"
 }

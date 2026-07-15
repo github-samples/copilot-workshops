@@ -1,6 +1,6 @@
 ---
 name: check-content-alignment
-description: Find workshop lessons that should change alongside an edit. Scans a diff (staged, unstaged, or a branch range) of the Agents in SDLC docs, extracts what changed, then searches the rest of docs/src/content/docs/** for duplicated or parallel passages that now risk drifting out of sync — prose that used to be a shared partial and is now copied across pages, the same concept taught across the VS Code / CLI / App / Cloud harnesses, and cross-references to the changed page. Use after editing lesson content under docs/, before committing or opening a PR, or whenever asked to "check content alignment", "find related content to update", "what else should change", or "check for drift". Reports candidate files with line ranges and rationale; it does NOT edit content.
+description: Find workshop lessons that should change alongside an edit. Scans a diff (staged, unstaged, or a branch range) of the Agents in SDLC docs, extracts what changed, then searches the rest of docs/** for duplicated or parallel passages that now risk drifting out of sync — prose that used to be a shared partial and is now copied across pages, the same concept taught across the VS Code / CLI / App / Cloud harnesses, and cross-references to the changed page. Use after editing lesson content under docs/, before committing or opening a PR, or whenever asked to "check content alignment", "find related content to update", "what else should change", or "check for drift". Reports candidate files with line ranges and rationale; it does NOT edit content.
 ---
 
 # Check content alignment
@@ -13,7 +13,7 @@ Run every command from the **repo root** unless a step says otherwise.
 
 ## When to use
 
-- After editing one or more lessons under `docs/src/content/docs/**`, before committing or opening a PR.
+- After editing one or more lessons under `docs/**`, before committing or opening a PR.
 - When asked to "check content alignment", "find related content to update", "what else should I change", or "check for drift".
 - As the local counterpart to the **content-alignment agentic workflow** (`.github/workflows/content-alignment.md`), which runs this same analysis automatically on pull requests and comments its findings. Run the skill locally to catch drift *before* you push.
 
@@ -36,15 +36,15 @@ Pick the comparison that matches what you're reviewing:
 
 ```bash
 # Unstaged + staged working-tree changes (default: reviewing your own in-progress edits)
-git diff -- docs/src/content/docs
-git diff --staged -- docs/src/content/docs
+git diff -- docs
+git diff --staged -- docs
 
 # A whole branch vs. the base it will merge into (reviewing a PR-sized change)
 git fetch origin
-git diff origin/main...HEAD -- docs/src/content/docs
+git diff origin/main...HEAD -- docs
 ```
 
-Limit to `docs/src/content/docs` — content drift is the only thing this skill reasons about.
+Limit to `docs` — content drift is the only thing this skill reasons about.
 
 ### 2. Extract the semantic changes
 
@@ -63,13 +63,13 @@ For each semantic change, search the rest of the content for passages that shoul
 
 ```bash
 # Find other pages that carry the same callout/step/sentence (quote a distinctive phrase)
-grep -rn "Approve and run workflows" docs/src/content/docs --include='*.md'
+grep -rn "Approve and run workflows" docs --include='*.md'
 
 # Find the parallel lesson in the other harnesses (same concept, different harness)
-grep -rln "custom instruction" docs/src/content/docs/cli docs/src/content/docs/vscode docs/src/content/docs/app docs/src/content/docs/cloud --include='*.md'
+grep -rln "custom instruction" docs/cli docs/vscode docs/app docs/cloud --include='*.md'
 
 # Find cross-references to a page you renamed/retitled
-grep -rn "2-custom-instructions" docs/src/content/docs --include='*.md'
+grep -rn "2-custom-instructions" docs --include='*.md'
 ```
 
 Exclude the file(s) you already changed from the candidate list.
@@ -91,5 +91,5 @@ This skill stops at recommendations. If the user wants the aligned edits made, t
 ## Boundaries
 
 - **Read-only.** Never edit lesson content as part of this skill.
-- **docs content only.** Don't flag instruction files, skills, or other repo docs — only `docs/src/content/docs/**`.
+- **docs content only.** Don't flag instruction files, skills, or other repo docs — only `docs/**`.
 - **Advisory, not a gate.** False positives are expected; the human decides. Prefer surfacing a borderline candidate (clearly marked low-confidence) over missing a real drift.

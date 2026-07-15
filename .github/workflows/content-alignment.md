@@ -12,7 +12,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - "docs/src/content/docs/**"
+      - "docs/**"
 
 # Engine - GitHub Copilot (the default agentic engine).
 engine: copilot
@@ -40,15 +40,15 @@ safe-outputs:
 
 # Content alignment check
 
-You are reviewing a pull request that changes lesson content in the **Agents in SDLC** workshop, an Astro + Starlight docs site. The lessons live under `docs/src/content/docs/` and are **pure Markdown**. Conceptually shared prose is **duplicated inline** across lessons rather than single-sourced, so an edit to one lesson often needs to be mirrored in others. Your job is to find those other lessons and post one advisory comment. **Do not edit any files.**
+You are reviewing a pull request that changes lesson content in the **Agents in SDLC** workshop, an Astro + Starlight docs site. The lessons live under `docs/` and are **pure Markdown**. Conceptually shared prose is **duplicated inline** across lessons rather than single-sourced, so an edit to one lesson often needs to be mirrored in others. Your job is to find those other lessons and post one advisory comment. **Do not edit any files.**
 
 ## What changed
 
-Inspect the pull request diff, restricted to `docs/src/content/docs/**`. For each changed lesson, identify what changed *in meaning* (not just formatting): corrected facts (versions, library names, counts, behavior, UI labels, the Tailspin Toys demo-app description), edited callouts or steps, renamed/retitled/added/removed lessons or headings, and changed links, lesson numbers, URLs, or image references. Ignore pure whitespace/wrapping changes.
+Inspect the pull request diff, restricted to `docs/**`. For each changed lesson, identify what changed *in meaning* (not just formatting): corrected facts (versions, library names, counts, behavior, UI labels, the Tailspin Toys demo-app description), edited callouts or steps, renamed/retitled/added/removed lessons or headings, and changed links, lesson numbers, URLs, or image references. Ignore pure whitespace/wrapping changes.
 
 ## Where it might need mirroring
 
-Search the rest of `docs/src/content/docs/**` for passages that should stay in sync with each change. Focus on three drift categories:
+Search the rest of `docs/**` for passages that should stay in sync with each change. Focus on three drift categories:
 
 1. **Formerly-shared copies.** Short callouts and steps that used to be shared partials are now copied verbatim into multiple lessons (for example, the Copilot CLI "Allow all" approval callout, and the "Approve and run workflows" step in `cloud/5-iterating.md` and `vscode/6-iterating.md`). Quote a distinctive phrase from the change and grep for it across all lessons.
 2. **Parallel concepts across harnesses.** The same idea is taught once per harness in `cli/`, `vscode/`, `app/`, and `cloud/`. A conceptual change usually needs the same correction in the sibling lessons of the other harnesses.
@@ -70,5 +70,5 @@ If you find no likely drift, post a brief comment saying the change looks self-c
 
 - This check is **advisory only**. Never fail the workflow and never block the PR.
 - **Read-only.** Do not modify any files; your only output is the single advisory comment.
-- Only reason about content under `docs/src/content/docs/**`. Do not flag instruction files, skills, or other repo docs.
+- Only reason about content under `docs/**`. Do not flag instruction files, skills, or other repo docs.
 - False positives are acceptable; clearly mark anything low-confidence so a human can decide.

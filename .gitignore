@@ -2,9 +2,9 @@
 .DS_Store
 
 # Astro / Node
-docs/dist/
-docs/.astro/
-docs/node_modules/
+website/dist/
+website/.astro/
+website/node_modules/
 node_modules/
 npm-debug.log*
 yarn-debug.log*

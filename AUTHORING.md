@@ -4,20 +4,23 @@ This is the entry point for **content authors and maintainers** of the *Agents i
 
 ## Project overview model
 
-- **All lesson content is plain Markdown** under `docs/src/content/docs/`. That's the source of truth.
-- **One consumer.** The Astro + Starlight site in `docs/` builds the published GitHub Pages site from those Markdown files.
+- **All lesson content is plain Markdown** under the repo-root `docs/` directory. That's the source of truth, and it's browsable directly on github.com with no build required.
+- **Optional publisher.** The Astro + Starlight site in `website/` builds the published GitHub Pages site from those Markdown files (loader `base: '../docs'`). You only need it to self-host or preview the rendered pages.
 - **Reusable prose is copied inline.** There is no import-based shared content system; keep duplicated lesson sections aligned with the content-alignment safety nets described below.
 
 ```
 agents-in-sdlc/
-├── docs/
-│   └── src/content/docs/         ← Markdown source. EDIT HERE.
-│       ├── index.md              ← Workshop landing page
-│       ├── cli/                  ← Copilot CLI lessons (0-prerequisites.md + numbered exercises)
-│       ├── vscode/               ← VS Code lessons (0-prerequisites.md + numbered exercises)
-│       ├── cloud/                ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
-│       ├── app/                  ← GitHub Copilot app lessons (setup folded into Exercise 1)
-│       └── _images/              ← Screenshots and diagrams
+├── docs/                        ← Markdown source. EDIT HERE. Browsable on github.com.
+│   ├── README.md                ← Workshop landing page (also site home via slug: index)
+│   ├── cli/                     ← Copilot CLI lessons (0-prerequisites.md + numbered exercises)
+│   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
+│   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
+│   ├── app/                     ← GitHub Copilot app lessons (setup folded into Exercise 1)
+│   ├── es-es/ ja-jp/ ...        ← Translated locale trees (currently the app harness)
+│   └── _images/                 ← Screenshots and diagrams (shared across locales)
+├── website/                     ← Optional Astro + Starlight publisher
+│   ├── astro.config.mjs         ← Site URL, base path, locales, sidebar
+│   └── src/content.config.ts    ← Content loader (base: '../docs')
 └── .github/
     ├── copilot-instructions.md   ← AI authoring guide (humans can read it too)
     ├── instructions/             ← Per-file-type conventions (auto-applied to Copilot)
@@ -28,7 +31,7 @@ agents-in-sdlc/
 
 ### Add a new lesson
 
-1. **Pick a path and number.** Lessons live under `docs/src/content/docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`).
+1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`).
 2. **Create the file** with frontmatter:
    ```markdown
    ---
@@ -56,12 +59,12 @@ agents-in-sdlc/
      |--:|
      ```
    The first lesson in a path omits `[previous-lesson]`; the last omits `[next-lesson]`.
-5. **Register in the sidebar.** Open `docs/astro.config.mjs` and add an entry to the appropriate `items: []` block. The sidebar is *manually* maintained — order in the file is the order learners see.
+5. **Register in the sidebar.** Open `website/astro.config.mjs` and add an entry to the appropriate `items: []` block. The sidebar is *manually* maintained — order in the file is the order learners see.
 6. **Preview and verify, then open a PR.** Preview locally and run the verification sequence before committing — see [Building and verifying](#building-and-verifying) below. CI runs the Astro build and the lychee link check; both must pass.
 
 ### Add an image
 
-1. **Drop the file** in `docs/src/content/docs/_images/` (or a path-scoped `cli/_images/` etc. when the image is path-specific). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple harnesses.
+1. **Drop the file** in `docs/_images/` (or a path-scoped `cli/_images/` etc. when the image is path-specific). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple harnesses.
 2. **Reference it** with a relative path from the consuming Markdown page:
    ```markdown
    ![Description of the screenshot](../_images/my-screenshot.png)
@@ -71,9 +74,9 @@ agents-in-sdlc/
 
 ### Edit an existing lesson
 
-1. **Find the file** under `docs/src/content/docs/` (use the published URL as a hint — `/cli/3-generating-code/` lives at `cli/3-generating-code.md`).
+1. **Find the file** under `docs/` (use the published URL as a hint — `/cli/3-generating-code/` lives at `docs/cli/3-generating-code.md`).
 2. **Edit the Markdown.** Same conventions apply — see **Style essentials** below.
-3. **Preview** with `npm run dev` in `docs/`.
+3. **Preview** with `npm run dev` in `website/`.
 4. **Commit, PR, merge.**
 
 ### Reuse prose across paths
@@ -89,7 +92,7 @@ Before opening a PR, preview the site and run the full verification sequence. Th
 **Preview** with the Astro dev server (hot reload):
 
 ```bash
-cd docs
+cd website
 npm install
 npm run dev
 ```
@@ -98,9 +101,9 @@ The site runs at <http://localhost:4321/agents-in-sdlc/>.
 
 **Verify** before committing:
 
-1. **Build** — `cd docs && rm -rf dist && npm run build`. Must succeed.
+1. **Build** — `cd website && rm -rf dist && npm run build`. Must succeed.
 2. **Page-count invariant** — Starlight emits 36 workshop routes for English and each of the five configured locales, then adds the legacy redirect. This equals 217 built `index.html` pages when excluding the 404 page; the build reports 218 HTML files including the 404 page.
-3. **Link check** — lychee (offline) against the built `docs/dist/`. Catches broken internal links/images.
+3. **Link check** — lychee (offline) against the built `website/dist/`. Catches broken internal links/images.
 
 **What CI enforces vs. what you run locally:** CI (`pages.yml`) runs the **build** and the **lychee** link check on every PR. It does not run browser validation or the content-alignment agentic workflow as part of the Pages build job. After merge to `main`, `pages.yml` deploys the site to GitHub Pages.
 
@@ -122,15 +125,15 @@ A short cheat sheet. For deeper conventions, see [`.github/instructions/`](./.gi
   > [!NOTE]
   > Use NOTE, TIP, IMPORTANT, WARNING, or CAUTION.
   ```
-  In published lessons under `docs/src/content/docs/`, a remark plugin (wired in `docs/astro.config.mjs`) converts these to Starlight asides at build time. GitHub syntax has no custom-title or nesting form, so put a heading on a **bold lead-in line** (`> **Title**`, then a blank `>` line, then the body), and emit "nested" callouts as sibling blockquotes separated by a blank line. See [`markdown.instructions.md`](.github/instructions/markdown.instructions.md) for the full mapping and patterns.
+  In published lessons under `docs/`, a remark plugin (wired in `website/astro.config.mjs`) converts these to Starlight asides at build time. GitHub syntax has no custom-title or nesting form, so put a heading on a **bold lead-in line** (`> **Title**`, then a blank `>` line, then the body), and emit "nested" callouts as sibling blockquotes separated by a blank line. See [`markdown.instructions.md`](.github/instructions/markdown.instructions.md) for the full mapping and patterns.
 - **No hard-wrapping** in repo-level Markdown files (READMEs, this file). Editors soft-wrap. Hard breaks are reserved for actual structural breaks.
 - **Cross-repo links** (the demo app): always use `https://github.com/github-samples/tailspin-toys/...`. Don't link to files in *this* repo as if they were the template.
 
 ## Troubleshooting
 
-- **"Module not found: `@astrojs/starlight/components`"** — run `npm install` inside `docs/` if the site shell imports a Starlight component.
-- **Sidebar entry doesn't appear** — confirm you added it to `docs/astro.config.mjs` (it's manually maintained).
-- **A new page appears in build output unexpectedly** — confirm the file belongs in the content collection and that underscore-prefixed support directories such as `_images/` are still excluded by `docs/src/content.config.ts`.
+- **"Module not found: `@astrojs/starlight/components`"** — run `npm install` inside `website/` if the site shell imports a Starlight component.
+- **Sidebar entry doesn't appear** — confirm you added it to `website/astro.config.mjs` (it's manually maintained).
+- **A new page appears in build output unexpectedly** — confirm the file belongs in the content collection and that underscore-prefixed support directories such as `_images/` are still excluded by `website/src/content.config.ts`.
 - **Lychee reports a broken link** — most often a renamed lesson breaking a `[ref]: ../old-name/` definition. Update both the link target and any cross-page refs.
 
 ## Deeper conventions
@@ -139,7 +142,7 @@ The `.github/instructions/*.md` files have `applyTo` frontmatter that targets sp
 
 - [`markdown.instructions.md`](./.github/instructions/markdown.instructions.md) — Markdown conventions: no hard-wrap, admonitions, headings, filenames/UI formatting, and link style.
 - [`markdown-accessibility.instructions.md`](./.github/instructions/markdown-accessibility.instructions.md) — accessibility conventions: descriptive links, alt text, heading hierarchy, plain language, input-agnostic action verbs (**select** not "click").
-- [`astro.instructions.md`](./.github/instructions/astro.instructions.md) — `docs/` site wrapper.
+- [`astro.instructions.md`](./.github/instructions/astro.instructions.md) — `website/` site wrapper.
 - [`instructions.instructions.md`](./.github/instructions/instructions.instructions.md) — how to write and maintain the instruction files themselves.
 
 Reusable task playbooks (build/verify, browser validation, contribution flow, content alignment) live as **skills** under `.github/skills/` — see the [skills index](./.github/skills/README.md) for what each one does and when to use it.

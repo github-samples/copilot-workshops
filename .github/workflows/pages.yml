@@ -1,17 +1,20 @@
 name: Build and deploy workshop site
 
-# Builds the Astro + Starlight site under `docs/` and deploys to GitHub Pages on
-# pushes to main. Pull requests run a build-only validation pass plus a link check.
+# Builds the Astro + Starlight site under `website/` (sourcing lesson Markdown from
+# `docs/`) and deploys to GitHub Pages on pushes to main. Pull requests run a
+# build-only validation pass plus a link check.
 
 on:
   push:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'website/**'
       - '.github/workflows/pages.yml'
   pull_request:
     paths:
       - 'docs/**'
+      - 'website/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -36,14 +39,14 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: docs/package-lock.json
+          cache-dependency-path: website/package-lock.json
 
       - name: Install dependencies
-        working-directory: docs
+        working-directory: website
         run: npm ci
 
       - name: Build Astro site
-        working-directory: docs
+        working-directory: website
         run: npm run build
 
       - name: Check links with lychee
@@ -51,10 +54,10 @@ jobs:
         # external HTTP checks to keep CI deterministic and fast.
         # The site is built with base=/agents-in-sdlc/, so HTML hrefs are absolute
         # like /agents-in-sdlc/foo/. We construct a temp root where that prefix
-        # resolves to docs/dist via a symlink so lychee can follow internal links.
+        # resolves to website/dist via a symlink so lychee can follow internal links.
         run: |
           mkdir -p /tmp/lychee-root
-          ln -sfn "$GITHUB_WORKSPACE/docs/dist" /tmp/lychee-root/agents-in-sdlc
+          ln -sfn "$GITHUB_WORKSPACE/website/dist" /tmp/lychee-root/agents-in-sdlc
         shell: bash
 
       - name: Run lychee
@@ -64,14 +67,14 @@ jobs:
             --offline
             --no-progress
             --root-dir /tmp/lychee-root
-            'docs/dist/**/*.html'
+            'website/dist/**/*.html'
           fail: true
 
       - name: Upload Pages artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/dist
+          path: website/dist
 
   deploy:
     name: Deploy to GitHub Pages

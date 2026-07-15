@@ -17,7 +17,7 @@ import { z } from 'astro:schema';
 export const collections = {
   docs: defineCollection({
     loader: glob({
-      base: 'src/content/docs',
+      base: '../docs',
       pattern: ['**/*.{md,mdx}', '!**/_*/**', '!**/_*'],
     }),
     schema: docsSchema({

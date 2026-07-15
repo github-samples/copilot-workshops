@@ -25,7 +25,7 @@ If you want to **author or edit content**, start with [`AUTHORING.md`](./AUTHORI
 CI (`pages.yml`) must be green on your PR. It runs:
 
 - **`pages.yml` build** — `npm run build` (Astro site build).
-- **Lychee** — offline link check of the built `docs/dist/`.
+- **Lychee** — offline link check of the built `website/dist/`.
 
 Before you push, run the full local verification sequence described in [AUTHORING.md → Building and verifying](./AUTHORING.md#building-and-verifying): clean build, page-count check, and lychee link check.
 

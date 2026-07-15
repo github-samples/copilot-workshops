@@ -5,7 +5,7 @@ applyTo: '**/*.md'
 
 # Markdown conventions
 
-This file covers Markdown authoring across the repo. Published lesson content under `docs/src/content/docs/**` is plain `.md`; repository docs and instruction files are also Markdown but are read primarily on github.com. **Use GitHub admonition syntax (`> [!NOTE]`) everywhere** — see below.
+This file covers Markdown authoring across the repo. Published lesson content under `docs/**` is plain `.md`; repository docs and instruction files are also Markdown but are read primarily on github.com. **Use GitHub admonition syntax (`> [!NOTE]`) everywhere** — see below.
 
 ## No hard-wrapping
 
@@ -32,7 +32,7 @@ Use **GitHub admonition syntax** for every callout in the repo — in published 
 > Body text.
 ```
 
-The five GitHub admonition types are `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, and `CAUTION`. On github.com they render natively. In published lesson content under `docs/src/content/docs/**`, a remark plugin (`remark-github-admonitions-to-directives`, wired in `docs/astro.config.mjs`) converts them to Starlight asides at build time using this mapping:
+The five GitHub admonition types are `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, and `CAUTION`. On github.com they render natively. In published lesson content under `docs/**`, a remark plugin (`remark-github-admonitions-to-directives`, wired in `website/astro.config.mjs`) converts them to Starlight asides at build time using this mapping:
 
 | GitHub type | Starlight aside |
 | ----------- | --------------- |
@@ -70,7 +70,7 @@ GitHub admonitions cannot nest. If you need a callout "inside" another, emit the
 ## Headings
 
 - Repository docs (README, CONTRIBUTING, instruction files, skills, etc.): start with `# Title` then `##` for sections.
-- Lesson pages (`docs/src/content/docs/**/*.md`): no `# H1` in body — the title comes from frontmatter. Body headings start at `##`.
+- Lesson pages (`docs/**/*.md`): no `# H1` in body — the title comes from frontmatter. Body headings start at `##`.
 
 ## Frontmatter for lesson pages
 
@@ -143,7 +143,7 @@ Use Markdown image syntax with paths relative to the Markdown file:
 ## Path conventions
 
 - Per-path lessons: `cli/`, `vscode/`, `cloud/`, `app/`. Files are numbered by lesson order: `1-installing.md`, `2-custom-instructions.md`, etc.
-- Support images live in `_images/` directories and are excluded from routing by `docs/src/content.config.ts`.
+- Support images live in `_images/` directories and are excluded from routing by `website/src/content.config.ts`.
 
 ## Cross-repo links
 

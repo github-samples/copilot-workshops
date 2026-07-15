@@ -28,7 +28,7 @@ name: "Content alignment check"
 "on":
   pull_request:
     paths:
-    - docs/src/content/docs/**
+    - docs/**
     types:
     - opened
     - synchronize

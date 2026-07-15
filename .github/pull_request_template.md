@@ -16,9 +16,9 @@
 
 <!-- Confirm the build + link checks pass before requesting review. -->
 
-- [ ] `cd docs && rm -rf dist && npm run build` succeeds (target: 36 routes × 6 locales + 1 redirect = 217 built pages excluding 404; build reports 218 HTML files including 404, or note any intentional change)
+- [ ] `cd website && rm -rf dist && npm run build` succeeds (target: 36 routes × 6 locales + 1 redirect = 217 built pages excluding 404; build reports 218 HTML files including 404, or note any intentional change)
 - [ ] Lychee link check passes:
-      `mkdir -p /tmp/lychee-root && ln -sfn $PWD/docs/dist /tmp/lychee-root/agents-in-sdlc && lychee --offline --no-progress --root-dir /tmp/lychee-root 'docs/dist/**/*.html'`
+      `mkdir -p /tmp/lychee-root && ln -sfn $PWD/website/dist /tmp/lychee-root/agents-in-sdlc && lychee --offline --no-progress --root-dir /tmp/lychee-root 'website/dist/**/*.html'`
 - [ ] External GitHub URLs that I changed have been clicked manually (lychee runs offline)
 
 ## Screenshots
