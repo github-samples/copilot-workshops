@@ -28,7 +28,7 @@ Serve the production build (not the dev server) so you validate exactly what shi
 cd website && npm run preview
 ```
 
-The site is served at <http://localhost:4321/agents-in-sdlc/>. Start it as a **detached background process** so it survives while you navigate, and capture its PID for teardown. Wait until the server logs that it's listening before navigating.
+The site is served at <http://localhost:4321/copilot-workshops/>. Start it as a **detached background process** so it survives while you navigate, and capture its PID for teardown. Wait until the server logs that it's listening before navigating.
 
 ## 2. Derive the routes to check
 
@@ -36,20 +36,20 @@ Don't hard-code URLs. The built `dist/` is the source of truth for what routes e
 
 ```bash
 # every built route, as site-absolute paths under the base
-find website/dist -name index.html | grep -v 404 | sed 's#website/dist#/agents-in-sdlc#; s#/index.html#/#'
+find website/dist -name index.html | grep -v 404 | sed 's#website/dist#/copilot-workshops#; s#/index.html#/#'
 ```
 
-Validate a **representative sample** that covers every layout and harness: the landing page (`/agents-in-sdlc/`), a per-harness prerequisites page (e.g. `cli/0-prerequisites/`), and at least one lesson from each of `cli/`, `vscode/`, `cloud/`, and `app/`. For a release pass or a change that touches shared layout/components, validate **all** routes.
+Validate a **representative sample** that covers every layout and harness: the landing page (`/copilot-workshops/`), a per-harness prerequisites page (e.g. `cli/0-prerequisites/`), and at least one lesson from each of `cli/`, `vscode/`, `cloud/`, and `app/`. For a release pass or a change that touches shared layout/components, validate **all** routes.
 
 ## 3. Validate each route
 
 For each chosen route, use the Playwright MCP tools:
 
-1. **Navigate** — `browser_navigate` to `http://localhost:4321/agents-in-sdlc/<route>`.
+1. **Navigate** — `browser_navigate` to `http://localhost:4321/copilot-workshops/<route>`.
 2. **Confirm it rendered** — `browser_snapshot` and check the page has its heading/title and real content (not an error page or raw, unrendered Markdown).
 3. **Check the console** — `browser_console_messages` with `level: "error"`. There should be **zero** errors. Hydration warnings and 404s for assets surface here.
 
-   *Known benign exception:* the legacy redirect route `/agents-in-sdlc/shared/0-prereqs/` is a minimal full-HTML redirect page (it immediately forwards to the home page `/agents-in-sdlc/` via a meta refresh) and declares no favicon, so the browser auto-requests `/favicon.ico` and logs a single `404 (Not Found)`. That one favicon 404 **on the redirect page only** is expected. Validate that route by confirming it lands on the home page, not by console cleanliness. A favicon 404 on any *real* page is a genuine finding (real pages link `favicon.svg`).
+   *Known benign exception:* the legacy redirect route `/copilot-workshops/shared/0-prereqs/` is a minimal full-HTML redirect page (it immediately forwards to the home page `/copilot-workshops/` via a meta refresh) and declares no favicon, so the browser auto-requests `/favicon.ico` and logs a single `404 (Not Found)`. That one favicon 404 **on the redirect page only** is expected. Validate that route by confirming it lands on the home page, not by console cleanliness. A favicon 404 on any *real* page is a genuine finding (real pages link `favicon.svg`).
 4. **Find broken images** — `browser_evaluate` with an async function that **force-loads lazy images first**, then flags only the ones that truly fail. Starlight/Astro mark below-the-fold images `loading="lazy"`, so a naive `naturalWidth === 0` check reports false positives for images that simply haven't scrolled into view yet:
 
    ```js
