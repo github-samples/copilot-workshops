@@ -9,16 +9,19 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check",
+    "check:tsgo": "tsgo --noEmit -p tsconfig.tsgo.json",
+    "check:all": "npm run check && npm run check:tsgo"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/starlight": "^0.37.7",
-    "astro": "^5.16.0",
-    "sharp": "^0.34.0",
-    "typescript": "^5.7.0"
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/starlight": "^0.41.3",
+    "astro": "^7.0.9",
+    "sharp": "^0.35.3",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
+    "@typescript/native-preview": "^7.0.0-dev.20260707.2",
     "remark-github-admonitions-to-directives": "^2.1.0"
   }
 }
