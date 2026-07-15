@@ -1,6 +1,6 @@
 ---
 slug: ko-kr
-title: "Copilot Workshops"
+title: "GitHub Copilot 에이전트 실습"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30

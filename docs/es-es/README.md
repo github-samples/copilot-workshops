@@ -1,6 +1,6 @@
 ---
 slug: es-es
-title: "Copilot Workshops"
+title: "Manos a la obra con los agentes de GitHub Copilot"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30

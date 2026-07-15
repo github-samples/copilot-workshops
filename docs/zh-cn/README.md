@@ -1,6 +1,6 @@
 ---
 slug: zh-cn
-title: "Copilot Workshops"
+title: "动手实践 GitHub Copilot 智能体"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30

@@ -1,5 +1,5 @@
 ---
-title: "Copilot Workshops"
+title: "Hands-on with GitHub Copilot's agents"
 slug: index
 authors:
   - geektrainer

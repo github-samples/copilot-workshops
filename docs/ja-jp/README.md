@@ -1,6 +1,6 @@
 ---
 slug: ja-jp
-title: "Copilot Workshops"
+title: "GitHub Copilot のエージェントを実践で学ぶ"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30
