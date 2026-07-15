@@ -1,125 +1,23 @@
 ---
-description: 'Astro component patterns for pages, layouts, and routing'
-applyTo: '**/*.astro'
+description: 'Astro + Starlight site wrapper conventions'
+applyTo: 'website/**/*.{astro,mjs,ts,js}'
 ---
 
-# Astro Component Instructions
+# Astro + Starlight Wrapper
 
-## Astro Component Patterns
+`website/` is the Astro + Starlight project that publishes the workshop to GitHub Pages. It is **not** an application; it is a thin site shell. Lesson content lives in the repo-root `docs/` directory (sourced via the loader's `base: '../docs'`) — author there, not in the project files under `website/`.
 
-Astro is used for page routing, layouts, and static content. Svelte components handle interactivity.
+## Site config
 
-### Component Structure
+- Base path: `/agents-in-sdlc` (the repo's GitHub Pages slug).
+- Site URL: `https://github-samples.github.io/agents-in-sdlc/`.
+- **Sidebar: manually maintained** in `astro.config.mjs`. The `sidebar` array drives both the order learners see and which pages appear in navigation. New lessons must be added explicitly.
+- **Content collection** is sourced from the repo-root `docs/` directory via the custom `glob()` loader in `src/content.config.ts` (`base: '../docs'`). That loader excludes underscore-prefixed files and directories so support assets such as `_images/` don't get routed as pages. Folder landing pages are `README.md` files (so they render on github.com) rather than Starlight's default `index.md`; each carries a `slug:` in its frontmatter to reproduce the route it would otherwise get from an index file — `docs/README.md` → `slug: index` (site home `/`), `docs/<harness>/README.md` → `slug: <harness>`, and localized landings use the locale-prefixed slug (`docs/<locale>/README.md` → `slug: <locale>`, `docs/<locale>/<harness>/README.md` → `slug: <locale>/<harness>`).
 
-```astro
----
-// Frontmatter: Server-side code (runs at build time)
-import Layout from '../layouts/Layout.astro';
-import Component from '../components/Component.svelte';
+## Don't add app-style components
 
-interface Props {
-  title: string;
-  description?: string;
-}
+This is a docs wrapper. Don't add interactive framework islands (Svelte, React, etc.), Tailwind utility-class styling layers, custom routing, or other application-style code. Anything beyond Starlight defaults should be justified.
 
-const { title, description } = Astro.props;
----
+## Building and verifying
 
-<Layout title={title}>
-  <!-- HTML content -->
-  <Component client:only="svelte" />
-</Layout>
-```
-
-## Layouts
-
-- Create reusable layout components in `src/layouts/`
-- Use `<slot />` for content injection
-- Include common elements: `<head>`, navigation, footer
-- Import global styles in layouts
-
-### Layout Example
-
-```astro
----
-interface Props {
-  title: string;
-}
-const { title } = Astro.props;
----
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
-```
-
-## Pages
-
-- Create pages in `src/pages/`
-- File-based routing: `src/pages/about.astro` → `/about`
-- Dynamic routes: `src/pages/game/[id].astro`
-
-### Dynamic Routes
-
-For dynamic routes, export `getStaticPaths()`:
-
-```astro
----
-export async function getStaticPaths() {
-  const games = await fetchGames();
-  
-  return games.map(game => ({
-    params: { id: game.id },
-    props: { game }
-  }));
-}
-
-const { game } = Astro.props;
----
-
-<Layout title={game.title}>
-  <!-- Game details -->
-</Layout>
-```
-
-## Svelte Integration
-
-Use client directives to control hydration:
-
-- `client:only="svelte"` - Only runs on client (use for most interactive components)
-- `client:load` - Hydrates immediately on page load
-- `client:visible` - Hydrates when component becomes visible
-- `client:idle` - Hydrates when browser is idle
-
-### Example
-
-```astro
----
-import GameList from '../components/GameList.svelte';
----
-
-<Layout>
-  <GameList client:only="svelte" />
-</Layout>
-```
-
-## TypeScript
-
-- Use TypeScript for type-safe props
-- Define `Props` interface in frontmatter
-- Type component imports
-
-## Best Practices
-
-- Keep Astro components for static content and routing
-- Use Svelte for interactivity and client-side state
-- Minimize client-side JavaScript by using Astro's static rendering where possible
-- Import and use global CSS styles from layouts
+After changing `astro.config.mjs` or anything under `website/src/`, build and verify the site with the [`build-and-verify-docs`](../skills/build-and-verify-docs/SKILL.md) skill. Its page-count invariant is the tripwire for unexpected routed pages: Starlight emits each of the 36 workshop routes for the root language and five configured locales, then adds the legacy redirect, for 217 built `index.html` pages excluding the 404 page. If the count changes without a corresponding route or locale change, check the locale layout under `docs/` and the underscore-directory exclude in `src/content.config.ts`.

@@ -1,0 +1,24 @@
+{
+  "name": "agents-in-sdlc-docs",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/starlight": "^0.37.7",
+    "astro": "^5.16.0",
+    "sharp": "^0.34.0",
+    "typescript": "^5.7.0"
+  },
+  "devDependencies": {
+    "remark-github-admonitions-to-directives": "^2.1.0"
+  }
+}

@@ -1,0 +1,86 @@
+name: Build and deploy workshop site
+
+# Builds the Astro + Starlight site under `website/` (sourcing lesson Markdown from
+# `docs/`) and deploys to GitHub Pages on pushes to main. Every push and pull
+# request runs a build-only validation pass plus a link check, so the build can
+# serve as a required status check on any PR.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+# Single in-flight deploy per branch; do not cancel an active deploy mid-flight.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build site (astro build)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: website/package-lock.json
+
+      - name: Install dependencies
+        working-directory: website
+        run: npm ci
+
+      - name: Build Astro site
+        working-directory: website
+        run: npm run build
+
+      - name: Check links with lychee
+        # Validates internal links/images in the produced HTML. Offline mode skips
+        # external HTTP checks to keep CI deterministic and fast.
+        # The site is built with base=/agents-in-sdlc/, so HTML hrefs are absolute
+        # like /agents-in-sdlc/foo/. We construct a temp root where that prefix
+        # resolves to website/dist via a symlink so lychee can follow internal links.
+        run: |
+          mkdir -p /tmp/lychee-root
+          ln -sfn "$GITHUB_WORKSPACE/website/dist" /tmp/lychee-root/agents-in-sdlc
+        shell: bash
+
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.6.1
+        with:
+          args: >-
+            --offline
+            --no-progress
+            --root-dir /tmp/lychee-root
+            'website/dist/**/*.html'
+          fail: true
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

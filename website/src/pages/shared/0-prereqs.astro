@@ -1,0 +1,30 @@
+---
+// Legacy redirect: the workshop used to have a single shared prerequisites
+// lesson at `/shared/0-prereqs/` (and later `/prereqs/`). Prerequisites are now
+// per-harness, so this page forwards old bookmarks to the home page, where the
+// learner chooses a harness and starts with its own setup.
+//
+// It is authored as a full HTML document (rather than via Astro's `redirects`
+// config) so the page has an outer `<html>` element. Pagefind skips pages
+// without one, and the bare stub the config produces triggers a build-time
+// warning. `data-pagefind-ignore` keeps this redirect out of the search index.
+const target = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const canonical = new URL(target, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en" data-pagefind-ignore>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <title>Redirecting to the workshop home page</title>
+  </head>
+  <body>
+    <a href={target}>This page has moved. Continue to the workshop home page to choose a harness.</a>
+  </body>
+</html>
+
