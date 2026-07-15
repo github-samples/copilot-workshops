@@ -17,3 +17,12 @@ updates:
         dependency-type: production
         update-types:
           - patch
+    ignore:
+      # `typescript` is pinned to the 6.x line because our only type-checker,
+      # @astrojs/check, peers on `typescript@^5 || ^6` and does not yet support
+      # TypeScript 7. The TS 7 toolchain is tracked separately via the
+      # `@typescript/native-preview` (tsgo) dev dependency and the `check:tsgo`
+      # script. Drop this ignore once @astrojs/check supports TypeScript 7.
+      - dependency-name: typescript
+        update-types:
+          - version-update:semver-major
