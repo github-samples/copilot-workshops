@@ -9,8 +9,8 @@ applyTo: 'website/**/*.{astro,mjs,ts,js}'
 
 ## Site config
 
-- Base path: `/agents-in-sdlc` (the repo's GitHub Pages slug).
-- Site URL: `https://github-samples.github.io/agents-in-sdlc/`.
+- Base path: `/copilot-workshops` (the repo's GitHub Pages slug).
+- Site URL: `https://github-samples.github.io/copilot-workshops/`.
 - **Sidebar: manually maintained** in `astro.config.mjs`. The `sidebar` array drives both the order learners see and which pages appear in navigation. New lessons must be added explicitly.
 - **Content collection** is sourced from the repo-root `docs/` directory via the custom `glob()` loader in `src/content.config.ts` (`base: '../docs'`). That loader excludes underscore-prefixed files and directories so support assets such as `_images/` don't get routed as pages. Folder landing pages are `README.md` files (so they render on github.com) rather than Starlight's default `index.md`; each carries a `slug:` in its frontmatter to reproduce the route it would otherwise get from an index file — `docs/README.md` → `slug: index` (site home `/`), `docs/<harness>/README.md` → `slug: <harness>`, and localized landings use the locale-prefixed slug (`docs/<locale>/README.md` → `slug: <locale>`, `docs/<locale>/<harness>/README.md` → `slug: <locale>/<harness>`).
 

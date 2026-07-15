@@ -29,7 +29,7 @@ The Astro dev server is the primary preview surface (hot reload):
 cd website && npm install && npm run dev
 ```
 
-Open <http://localhost:4321/agents-in-sdlc/>. Lesson content lives in the repo-root `docs/` directory; the loader sources it via `base: '../docs'`, so no symlinks are required for preview.
+Open <http://localhost:4321/copilot-workshops/>. Lesson content lives in the repo-root `docs/` directory; the loader sources it via `base: '../docs'`, so no symlinks are required for preview.
 
 ## Verification sequence (run before every commit)
 
@@ -72,10 +72,10 @@ The Spanish title should read `Lección 2 - Ejecutar tu primera sesión de agent
 
 ### 3. Link check (lychee, offline)
 
-The site builds with `base=/agents-in-sdlc/`, so internal hrefs are absolute (`/agents-in-sdlc/foo/`). Symlink that prefix to `website/dist` so lychee can follow internal links:
+The site builds with `base=/copilot-workshops/`, so internal hrefs are absolute (`/copilot-workshops/foo/`). Symlink that prefix to `website/dist` so lychee can follow internal links:
 
 ```bash
-mkdir -p /tmp/lychee-root && ln -sfn "$PWD/website/dist" /tmp/lychee-root/agents-in-sdlc \
+mkdir -p /tmp/lychee-root && ln -sfn "$PWD/website/dist" /tmp/lychee-root/copilot-workshops \
   && lychee --offline --no-progress --root-dir /tmp/lychee-root 'website/dist/**/*.html'
 ```
 
@@ -110,6 +110,6 @@ When in doubt, `grep -rn "<old-name>" --include='*.md' .` (excluding `node_modul
 ```bash
 # from repo root
 cd website && rm -rf dist && npm run build && cd ..
-mkdir -p /tmp/lychee-root && ln -sfn "$PWD/website/dist" /tmp/lychee-root/agents-in-sdlc \
+mkdir -p /tmp/lychee-root && ln -sfn "$PWD/website/dist" /tmp/lychee-root/copilot-workshops \
   && lychee --offline --no-progress --root-dir /tmp/lychee-root 'website/dist/**/*.html'
 ```
