@@ -6,9 +6,6 @@
     "allowArbitraryExtensions": true,
     "paths": {
       "@components/*": ["./src/components/*"]
-    },
-    "plugins": [
-      { "name": "@mdx-js/typescript-plugin" }
-    ]
+    }
   }
 }
