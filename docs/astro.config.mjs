@@ -31,6 +31,14 @@ export default defineConfig({
       title: 'Agents in the SDLC Workshop',
       description:
         'A hands-on workshop exploring GitHub Copilot agents across VS Code, the Copilot CLI, the GitHub Copilot app, and the Copilot cloud agent.',
+      locales: {
+        root: { label: 'English', lang: 'en' },
+        'es-es': { label: 'Español', lang: 'es-ES' },
+        'ja-jp': { label: '日本語', lang: 'ja-JP' },
+        'ko-kr': { label: '한국어', lang: 'ko-KR' },
+        'pt-br': { label: 'Português (Brasil)', lang: 'pt-BR' },
+        'zh-cn': { label: '简体中文', lang: 'zh-CN' },
+      },
       social: [
         {
           icon: 'github',
