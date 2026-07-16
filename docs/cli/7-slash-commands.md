@@ -135,7 +135,7 @@ There are times when you want to keep working in your terminal but hand off a lo
 2. Send a small, well-scoped prompt. For example, you could delegate the stretch-goal pagination from your backlog:
 
     ```
-    Implement pagination on the games list page so it shows a fixed number of games per page with Previous and Next controls, and add tests.
+    Implement pagination on the game list page so it shows a fixed number of games per page with Previous and Next controls, and add tests.
     ```
 
 3. Send the following slash command to hand the session to cloud agent, and confirm the prompt you want to delegate:

@@ -51,11 +51,11 @@ With your project connected, take a moment to learn your way around. The app org
 Because the app integrates with GitHub natively, the work waiting in your repository shows up right inside the app. When you created your repository from the template, a backlog of issues was filed for you — let's confirm it's there.
 
 1. Select **My work** in the sidebar.
-2. Confirm you see the three issues the template seeded for your backlog:
+2. The template seeded eight issues in your backlog. This harness focuses on the following three — confirm you can see them:
 
    - Allow users to filter games by category and publisher
-   - Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments
-   - Stretch Goal: Implement pagination on the game list page
+   - Update our repository coding standards
+   - Implement pagination on the game list page
 
 3. Select an issue to read its details. Each issue is also a launch point for an agent session — you'll start work from these issues later in the harness.
 

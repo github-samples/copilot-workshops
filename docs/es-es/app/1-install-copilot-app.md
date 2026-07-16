@@ -51,11 +51,11 @@ Con el proyecto conectado, dedica un momento a conocer el espacio de trabajo. La
 Como la aplicación se integra de forma nativa con GitHub, el trabajo pendiente del repositorio aparece directamente en ella. Cuando creaste el repositorio a partir de la plantilla, se generó una lista de incidencias. Vamos a comprobar que esté disponible.
 
 1. Selecciona **My work** en la barra lateral.
-2. Confirma que aparecen las tres incidencias que la plantilla ha creado en la lista de trabajo pendiente:
+2. La plantilla ha creado ocho incidencias en tu lista de trabajo pendiente. Este módulo se centra en las tres siguientes; confirma que puedes verlas:
 
    - Allow users to filter games by category and publisher
-   - Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments
-   - Stretch Goal: Implement pagination on the game list page
+   - Update our repository coding standards
+   - Implement pagination on the game list page
 
 3. Selecciona una incidencia para leer sus detalles. Cada incidencia también sirve como punto de partida para una sesión de agente. Más adelante iniciarás el trabajo desde estas incidencias.
 

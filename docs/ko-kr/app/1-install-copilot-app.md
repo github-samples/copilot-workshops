@@ -51,11 +51,11 @@ GitHub Copilot app을 사용하려면 먼저 앱을 설치해야 합니다. Wind
 앱은 GitHub와 기본적으로 통합되므로 리포지토리에서 대기 중인 작업을 앱 안에서 바로 볼 수 있습니다. 템플릿에서 리포지토리를 만들 때 이슈 백로그가 생성되었습니다. 백로그가 있는지 확인합니다.
 
 1. 사이드바에서 **My work**를 선택합니다.
-2. 템플릿에서 백로그에 미리 생성한 다음 세 이슈가 표시되는지 확인합니다.
+2. 템플릿은 백로그에 여덟 개의 이슈를 생성했습니다. 이 하네스에서는 다음 세 이슈에 집중합니다. 표시되는지 확인합니다.
 
    - Allow users to filter games by category and publisher
-   - Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments
-   - Stretch Goal: Implement pagination on the game list page
+   - Update our repository coding standards
+   - Implement pagination on the game list page
 
 3. 이슈를 선택하여 세부 정보를 읽습니다. 각 이슈는 에이전트 세션을 시작하는 지점이기도 합니다. 이 실습 과정의 뒷부분에서 이 이슈를 바탕으로 작업을 시작합니다.
 

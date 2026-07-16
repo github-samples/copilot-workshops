@@ -84,7 +84,7 @@ AI를 사용하는 방식이 하나로 정해져 있지 않듯 지침 파일을 
 > 지침 파일은 Copilot이 생성하는 코드에 큰 영향을 주므로 Copilot을 명확하게 안내하는지 주의 깊게 확인해야 합니다. 이 레슨처럼 Copilot으로 초안을 만든 다음 요구 사항을 충족하는지 직접 검토하는 방법이 좋습니다.
 
 1. 사이드바에서 **My work**를 선택합니다.
-2. **Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments** 이슈를 선택하여 엽니다.
+2. **Update our repository coding standards** 이슈를 선택하여 엽니다.
 3. 오른쪽 위의 **New session**을 선택하여 이슈를 바탕으로 새 세션을 시작합니다.
 
    ![오른쪽 위의 New session 버튼을 화살표로 가리키는 GitHub Copilot app 이슈 보기](../../_images/app-new-session-from-issue.png)

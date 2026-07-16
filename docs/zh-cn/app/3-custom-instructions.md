@@ -84,7 +84,7 @@ lastUpdated: 2026-07-09
 > 指令文件对 Copilot 生成的代码影响很大，因此应确保它们能清晰地引导 Copilot。让 Copilot 创建第一版（正如本课将要做的），再由你审查更新是否满足要求，是一种有效方法。
 
 1. 在侧边栏中选择 **My work**。
-2. 选择标题为 **Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments** 的议题，将其打开。
+2. 选择标题为 **Update our repository coding standards** 的议题，将其打开。
 3. 选择右上角的 **New session**，根据该议题启动新会话。
 
    ![GitHub Copilot app 的议题视图，箭头指向右上角的 New session 按钮](../../_images/app-new-session-from-issue.png)
