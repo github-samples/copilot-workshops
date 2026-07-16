@@ -84,7 +84,7 @@ En la lección anterior iniciaste una sesión con una indicación directa. Sin e
 > Como los archivos de instrucciones influyen mucho en el código que genera Copilot, debes asegurarte de que lo orienten con claridad. Pedir a Copilot que cree una primera versión, como harás en esta lección, es un buen enfoque, siempre que después la revises para confirmar que las actualizaciones cumplen tus requisitos.
 
 1. Selecciona **My work** en la barra lateral.
-2. Selecciona la incidencia titulada **Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments** para abrirla.
+2. Selecciona la incidencia titulada **Update our repository coding standards** para abrirla.
 3. Selecciona **New session** en la esquina superior derecha para iniciar una sesión basada en la incidencia.
 
    ![Vista de una incidencia en la aplicación GitHub Copilot con una flecha que señala el botón New session de la esquina superior derecha](../../_images/app-new-session-from-issue.png)

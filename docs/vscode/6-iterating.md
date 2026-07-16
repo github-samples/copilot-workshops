@@ -47,7 +47,7 @@ The high-contrast and light-mode toggles you implemented with the accessibility 
 Working iteratively with an agent in the IDE is a skill, and the only way to build it is repetition. Some ideas for follow-up sessions you can run from VS Code:
 
 - Add a backer interest form on the game details page.
-- Implement pagination on the games listing page.
+- Implement pagination on the game list page.
 - Add input validation and error handling to the data-access helpers in `src/lib/`.
 - Extend the accessibility agent's scope — for example, audit keyboard focus order across the whole site.
 

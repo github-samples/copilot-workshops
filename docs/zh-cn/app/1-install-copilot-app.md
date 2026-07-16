@@ -51,11 +51,11 @@ lastUpdated: 2026-07-09
 由于应用与 GitHub 原生集成，存储库中待处理的工作会直接显示在应用内。通过模板创建存储库时，系统已生成一组议题。现在确认它们是否存在。
 
 1. 在侧边栏中选择 **My work**。
-2. 确认模板创建的以下三个待办议题可见：
+2. 模板在待办列表中创建了八个议题。本课程聚焦以下三个，确认它们可见：
 
    - Allow users to filter games by category and publisher
-   - Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments
-   - Stretch Goal: Implement pagination on the game list page
+   - Update our repository coding standards
+   - Implement pagination on the game list page
 
 3. 选择一个议题以阅读详细信息。每个议题也可以作为智能体会话的启动点，后续课程会从这些议题开始工作。
 

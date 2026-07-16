@@ -84,7 +84,7 @@ Na lição anterior, você iniciou uma sessão com um prompt direto. No entanto,
 > Como os arquivos de instruções têm grande impacto no código gerado pelo Copilot, é preciso garantir que eles orientem o Copilot com clareza. Permitir que o Copilot crie uma primeira versão, como você fará nesta lição, é uma ótima abordagem. Depois, revise o resultado para confirmar que as atualizações atendem aos requisitos.
 
 1. Selecione **My work** na barra lateral.
-2. Selecione a issue intitulada **Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments** para abri-la.
+2. Selecione a issue intitulada **Update our repository coding standards** para abri-la.
 3. Selecione **New session** no canto superior direito para iniciar uma nova sessão com base na issue.
 
    ![Visualização da issue no aplicativo GitHub Copilot com uma seta apontando para o botão New session no canto superior direito](../../_images/app-new-session-from-issue.png)

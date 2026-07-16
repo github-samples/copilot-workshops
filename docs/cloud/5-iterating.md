@@ -137,7 +137,7 @@ Notice how the custom accessibility agent helped guide Copilot to implement thes
 Cloud agent works best when you can hand it real backlog items and turn your attention elsewhere. To build the habit, file a few more issues against your repository and assign them to Copilot. Some ideas:
 
 - Create a backer interest form on the game details page.
-- Implement pagination on the games listing page.
+- Implement pagination on the game list page.
 - Add input validation and error handling to the data-access helpers.
 
 ## Summary

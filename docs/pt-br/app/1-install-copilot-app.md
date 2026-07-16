@@ -51,11 +51,11 @@ Com o projeto conectado, reserve um momento para conhecer o espaço de trabalho.
 Como o aplicativo tem integração nativa com o GitHub, o trabalho pendente no repositório aparece dentro dele. Quando você criou o repositório a partir do modelo, um backlog de issues foi criado. Vamos confirmar que ele está disponível.
 
 1. Selecione **My work** na barra lateral.
-2. Confirme que você vê as três issues criadas pelo modelo para o backlog:
+2. O modelo criou oito issues no seu backlog. Este módulo foca nas três a seguir — confirme que você consegue vê-las:
 
    - Allow users to filter games by category and publisher
-   - Add a custom instructions standard so generated TypeScript code includes clear TSDoc doc comments
-   - Stretch Goal: Implement pagination on the game list page
+   - Update our repository coding standards
+   - Implement pagination on the game list page
 
 3. Selecione uma issue para ler os detalhes. Cada issue também serve como ponto de partida para uma sessão de agente. Você começará a trabalhar com elas mais adiante neste percurso.
 
