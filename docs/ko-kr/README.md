@@ -21,7 +21,7 @@ GitHub Copilot은 어떤 작업 환경에서든 함께할 수 있습니다. 원�
 
 **Visual Studio Code**와 GitHub Codespaces에서 GitHub Copilot을 사용합니다. 익숙한 편집기를 벗어나지 않고 Copilot Chat 에이전트 모드, MCP 서버, 사용자 지정 에이전트를 활용합니다. AI 지원을 IDE에 직접 통합하고 싶을 때 적합합니다.
 
-### 💻 [Copilot CLI](../cli/)
+### 💻 [Copilot CLI](cli/)
 
 **GitHub Copilot CLI**는 터미널에서 실행되는 에이전트형 도우미입니다. 이를 설치하고, MCP 서버를 연결하고, 계획 모드로 코드를 생성하고, 명령줄에서 직접 스킬, 사용자 지정 에이전트, 슬래시 명령을 만듭니다.
 
