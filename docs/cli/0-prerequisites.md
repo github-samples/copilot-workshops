@@ -49,8 +49,6 @@ The creation of the codespace will take several minutes, although it's still far
 > [!NOTE]
 > This workshop is built to run inside a codespace or local [dev container][dev-containers]. Both ensure the environment has all the necessary prerequisites installed for a smooth experience. If you'd prefer to run it locally, open the cloned repository in VS Code and select **Reopen in Container** when prompted — VS Code will build the same dev container the codespace uses.
 
-[codespaces]: https://github.com/features/codespaces
-[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
 ## Summary
 
 Congratulations, you have created a copy of the lab repository! You also began the creation process of your codespace, which you'll use when you begin working with Copilot CLI.
@@ -68,3 +66,5 @@ Let's install Copilot CLI and authenticate it with your GitHub account. Continue
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [codespaces-quickstart]: https://docs.github.com/codespaces/getting-started/quickstart
 [next-lesson]: ../1-install-copilot-cli/
+[codespaces]: https://github.com/features/codespaces
+[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers

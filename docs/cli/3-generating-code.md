@@ -24,33 +24,18 @@ One of the best uses of AI is planning. Oftentimes you'll have a good concept of
 
 You'll start the process of creating the new functionality by utilizing plan mode in Copilot CLI.
 
-> [!TIP]
-> **Start a Copilot CLI session**
->
-> Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with `--yolo` and `--enable-all-github-mcp-tools`:
->
-> ```bash
-> copilot --yolo --enable-all-github-mcp-tools
-> ```
->
-> To pick up your most recent session for this project instead of starting fresh, run `copilot --yolo --enable-all-github-mcp-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
->
-> `--enable-all-github-mcp-tools` enables the read/write GitHub MCP tools for the current session, so Copilot can read your backlog and open pull requests during the workshop flow.
-
-> [!CAUTION]
-> `--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
-
-[allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
-1. Enter the following prompt into Copilot CLI to create a plan based on the filtering issue:
+1. Return to your codespace. If you closed it, navigate to your repository on GitHub.com, select **Code** > **Codespaces**, then reopen your existing codespace.
+2. Return to your open Copilot CLI session. If the terminal is closed or you exited Copilot CLI, open a terminal by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>, then start it from the repository root by running `copilot --yolo --enable-all-github-mcp-tools`. Trust the project folder if prompted, then run `/models` and select **Auto**.
+3. Enter the following prompt into Copilot CLI to create a plan based on the filtering issue:
 
     ```
     /plan Retrieve the issue on the repository related to adding filtering. We already added a publishers helper in src/lib/publishers.ts, so treat that as existing work and plan the remaining updates (games filtering logic, UI, and tests).
     ```
 
-2. Copilot may ask follow-up questions as it builds out its plan. As those arise, answer them based on how you'd build out the functionality.
-3. Once the plan is generated, review the blueprint. You should notice it recommends remaining changes across the data layer and UI, as well as generating tests.
-4. Copilot CLI will offer you the ability to provide additional feedback to the plan. You can cursor down to the indicated section, then type your suggestions. Copilot will incorporate your suggestions into a new version of the plan.
-5. Once you're satisfied, select the option provided by Copilot to begin work building the new feature!
+4. Copilot may ask follow-up questions as it builds out its plan. As those arise, answer them based on how you'd build out the functionality.
+5. Once the plan is generated, review the blueprint. You should notice it recommends remaining changes across the data layer and UI, as well as generating tests.
+6. Copilot CLI will offer you the ability to provide additional feedback to the plan. You can cursor down to the indicated section, then type your suggestions. Copilot will incorporate your suggestions into a new version of the plan.
+7. Once you're satisfied, select the option provided by Copilot to begin work building the new feature!
 
 > [!NOTE]
 > Because Copilot is probabilistic, the exact text and options provided will vary. But you will notice an option to begin building that will read something similar to:
@@ -59,7 +44,7 @@ You'll start the process of creating the new functionality by utilizing plan mod
 >
 > Copilot may offer you the option to enable [autopilot mode](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot), as shown in the example above. Autopilot mode allows Copilot CLI to work through a task without waiting for your input after each step. Once you give the initial instruction, Copilot CLI works through each step autonomously until it determines the task is complete. As we are running in a contained environment, we're OK running autopilot and allowing all tools.
 
-6. Copilot will get to work generating the files!
+8. Copilot will get to work generating the files!
 
 > [!NOTE]
 > This operation will likely take several minutes. You will see Copilot edit and create files, update and generate tests, and run all of the tests to ensure everything succeeds. Now's a good time to reflect on what you've explored thus far, or to enjoy a beverage.

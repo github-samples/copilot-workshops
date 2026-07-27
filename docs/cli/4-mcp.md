@@ -36,37 +36,22 @@ There are many other MCP servers available that provide access to different tool
 
 The quickest way to add a server is the interactive `/mcp add` command. You'll register the [Playwright MCP server][playwright-mcp-server], which gives Copilot a browser it can control.
 
-> [!TIP]
-> **Start a Copilot CLI session**
->
-> Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with `--yolo` and `--enable-all-github-mcp-tools`:
->
-> ```bash
-> copilot --yolo --enable-all-github-mcp-tools
-> ```
->
-> To pick up your most recent session for this project instead of starting fresh, run `copilot --yolo --enable-all-github-mcp-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
->
-> `--enable-all-github-mcp-tools` enables the read/write GitHub MCP tools for the current session, so Copilot can read your backlog and open pull requests during the workshop flow.
-
-> [!CAUTION]
-> `--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
-
-[allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
-1. In your Copilot CLI session, enter:
+1. Return to your codespace. If you closed it, navigate to your repository on GitHub.com, select **Code** > **Codespaces**, then reopen your existing codespace.
+2. Return to your open Copilot CLI session. If the terminal is closed or you exited Copilot CLI, open a terminal by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>, then start it from the repository root by running `copilot --yolo --enable-all-github-mcp-tools`. Trust the project folder if prompted, then run `/models` and select **Auto**.
+3. In your Copilot CLI session, enter:
 
     ```text
     /mcp add
     ```
 
-2. A configuration form appears. Use <kbd>Tab</kbd> to move between fields and fill it in as follows:
+4. A configuration form appears. Use <kbd>Tab</kbd> to move between fields and fill it in as follows:
 
     - **Server Name**: `playwright`
     - **Server Type**: select **Local** (also labelled **STDIO**)
     - **Command**: `npx @playwright/mcp@latest --headless`
     - **Tools**: leave as `*` to allow all of the server's tools
 
-3. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save. The server is added and available immediately — no restart required.
+5. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save. The server is added and available immediately — no restart required.
 
 The `--headless` flag tells Playwright to run the browser without a visible window, which is required inside a codespace where there's no desktop to display it. Behind the scenes, this writes the server to your `~/.copilot/mcp-config.json` file:
 
@@ -83,13 +68,13 @@ The `--headless` flag tells Playwright to run the browser without a visible wind
 }
 ```
 
-4. Confirm the server is registered and active by listing your MCP servers:
+6. Confirm the server is registered and active by listing your MCP servers:
 
     ```text
     /mcp show
     ```
 
-5. You should see `playwright` listed alongside the built-in `github` server.
+7. You should see `playwright` listed alongside the built-in `github` server.
 
 > [!NOTE]
 > The Tailspin Toys project already uses Playwright for its end-to-end tests, so the browser Playwright needs is typically already installed. If Copilot later reports that a browser is missing, have it run `npx playwright install chromium` and try again.
@@ -133,7 +118,6 @@ Copilot will launch a browser through the Playwright MCP server, walk through ea
 > [!NOTE]
 > The app needs to be running at `http://localhost:4321` for this test. If you stopped the dev server, start it again before sending the prompt. The first time Copilot uses the Playwright MCP server it may need to download a browser — if it reports a missing browser, have it run `npx playwright install chromium` and try again.
 
-[playwright-mcp-server]: https://github.com/microsoft/playwright-mcp
 ## Summary and next steps
 
 Congratulations, you used the Playwright MCP server to manually test your feature with Copilot CLI! To recap, you:
@@ -156,3 +140,4 @@ Now that you've confirmed the feature works, you can continue to the next exerci
 [mcp-blog-post]: https://github.blog/ai-and-ml/llms/what-the-heck-is-mcp-and-why-is-everyone-talking-about-it/
 [github-mcp-server]: https://github.com/github/github-mcp-server
 [cli-add-mcp]: https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers
+[playwright-mcp-server]: https://github.com/microsoft/playwright-mcp
