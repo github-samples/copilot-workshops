@@ -81,6 +81,21 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Copilot CLI (Caldova · AI Tour)',
+          items: [
+            { label: 'Overview', link: '/cli-caldova/' },
+            { label: '0. Prerequisites', link: '/cli-caldova/0-prerequisites/' },
+            { label: '1. Install Copilot CLI', link: '/cli-caldova/1-install-copilot-cli/' },
+            { label: '2. Custom instructions', link: '/cli-caldova/2-custom-instructions/' },
+            { label: '3. Generating code', link: '/cli-caldova/3-generating-code/' },
+            { label: '4. Testing with Playwright MCP', link: '/cli-caldova/4-mcp/' },
+            { label: '5. Agent skills', link: '/cli-caldova/5-agent-skills/' },
+            { label: '6. Custom agents', link: '/cli-caldova/6-custom-agents/' },
+            { label: '7. Slash commands', link: '/cli-caldova/7-slash-commands/' },
+            { label: '8. Review', link: '/cli-caldova/8-review/' },
+          ],
+        },
+        {
           label: 'Copilot App',
           items: [
             { label: 'Overview', link: '/app/' },

@@ -1,6 +1,10 @@
 {
     "cSpell.words": [
         "agentic",
+        "Caldova",
+        "frontmatter",
+        "geektrainer",
+        "subfolders",
         "winget"
     ],
     "typescript.tsdk": "website/node_modules/typescript/lib"
