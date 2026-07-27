@@ -60,7 +60,7 @@ lastUpdated: 2026-07-09
 
 熟练使用任何工具的最佳方式都是持续使用。可将它用于生产代码、业余项目，或那个构思多年却始终没有动手构建的小应用。与团队分享经验，也向团队学习。并且一如既往地探索文档。
 
-要探索 GitHub Copilot 生态系统的更多内容，请查看 [VS Code 学习路径](../../vscode/)、[Copilot CLI 学习路径](../cli/)或 [Cloud agent 学习路径](../../cloud/)。
+要探索 GitHub Copilot 生态系统的更多内容，请查看 [VS Code 学习路径](../../vscode/)、[Copilot CLI 学习路径](../../cli/)或 [Cloud agent 学习路径](../../cloud/)。
 
 ## 资源
 

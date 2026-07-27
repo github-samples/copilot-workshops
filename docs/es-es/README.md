@@ -21,7 +21,7 @@ GitHub Copilot te acompaña allí donde trabajes. Elige el entorno que se ajuste
 
 GitHub Copilot dentro de **Visual Studio Code** y GitHub Codespaces. Trabaja con el modo agente de Copilot Chat, servidores MCP y agentes personalizados sin salir del editor que ya utilizas. Es ideal si quieres integrar la asistencia de IA directamente en el IDE.
 
-### 💻 [Copilot CLI](cli/)
+### 💻 [Copilot CLI](../cli/)
 
 **GitHub Copilot CLI** es un asistente basado en agentes que se ejecuta en el terminal. Instálalo, conecta servidores MCP, genera código con el modo de planificación y crea tus propias skills, agentes personalizados y comandos con barra diagonal, todo desde la línea de comandos.
 
