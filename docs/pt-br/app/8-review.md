@@ -60,7 +60,7 @@ Você percorreu o fluxo de trabalho principal. Veja outros recursos que valem a 
 
 A melhor maneira de melhorar com qualquer ferramenta é continuar usando-a. Use-a em código de produção, em projetos pessoais ou naquele pequeno aplicativo que você planeja criar há anos. Compartilhe o que aprendeu com sua equipe e aprenda com as experiências dela. E, como sempre, explore a documentação.
 
-Para conhecer melhor o ecossistema do GitHub Copilot, confira o [percurso do VS Code](../../vscode/), o [percurso do Copilot CLI](../cli/) ou o [percurso do agente de nuvem](../../cloud/).
+Para conhecer melhor o ecossistema do GitHub Copilot, confira o [percurso do VS Code](../../vscode/), o [percurso do Copilot CLI](../../cli/) ou o [percurso do agente de nuvem](../../cloud/).
 
 ## Recursos
 

@@ -60,7 +60,7 @@ Ya conoces el flujo de trabajo principal. Estas son algunas funcionalidades adic
 
 La mejor forma de mejorar con cualquier herramienta es seguir utilizándola. Úsala para código de producción, proyectos personales o esa pequeña aplicación que llevas años pensando en crear. Comparte lo que aprendas con el equipo y aprende de sus experiencias. Y, como siempre, consulta la documentación.
 
-Para explorar más elementos del ecosistema de GitHub Copilot, consulta el [recorrido de VS Code](../../vscode/), el [recorrido de Copilot CLI](../cli/) o el [recorrido del agente en la nube](../../cloud/).
+Para explorar más elementos del ecosistema de GitHub Copilot, consulta el [recorrido de VS Code](../../vscode/), el [recorrido de Copilot CLI](../../cli/) o el [recorrido del agente en la nube](../../cloud/).
 
 ## Recursos
 
