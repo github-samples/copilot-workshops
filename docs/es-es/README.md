@@ -35,7 +35,7 @@ El **agente de Copilot en la nube** es un compañero de programación asíncrono
 
 ## Escenario
 
-Acabas de incorporarte como desarrollador a Tailspin Toys, una empresa ficticia que ofrece financiación colectiva para juegos de mesa de temática tecnológica: ¡un mercado enorme! El trabajo pendiente del equipo ya está registrado como incidencias de GitHub para que puedas comenzar. Incluye tanto funcionalidades, como el filtrado y la paginación, como mejoras de calidad, como la accesibilidad y los estándares de programación. Trabajarás de forma iterativa para completar las tareas mientras exploras el sitio y las capacidades de Copilot.
+Acabas de incorporarte como desarrollador a Tailspin Toys, una empresa ficticia que ofrece financiación colectiva para juegos de mesa de temática tecnológica: ¡un mercado enorme! El trabajo pendiente del equipo ya está registrado como incidencias de GitHub para que puedas comenzar. Incluye tanto funcionalidades, como el filtrado y la paginación, como mejoras de calidad, como la accesibilidad y los estándares de desarrollo. Trabajarás de forma iterativa para completar las tareas mientras exploras el sitio y las capacidades de Copilot.
 
 ## Primeros pasos
 

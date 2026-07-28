@@ -74,7 +74,7 @@ Dedica un momento a leer los archivos de instrucciones incluidos en este reposit
 11. Por último, abre `.github/instructions/drizzle.instructions.md` y desplázate hasta el final. Observa los vínculos a otros archivos de instrucciones, como `unit-tests.instructions.md`, y a archivos existentes del proyecto. De este modo puedes dividir conjuntos de instrucciones grandes en archivos más pequeños y reutilizables, y señalar a Copilot ejemplos que debe seguir al generar código. Las rutas son relativas al archivo de instrucciones, no a la raíz del repositorio.
 
 > [!NOTE]
-> La sección **Code formatting requirements** de `copilot-instructions.md` documenta los estándares de programación del proyecto, pero todavía no exige documentación dentro del código. En los pasos siguientes añadirás reglas para comentarios de documentación TSDoc y comentarios de cabecera de archivo.
+> La sección **Code formatting requirements** de `copilot-instructions.md` documenta los estándares de desarrollo del proyecto, pero todavía no exige documentación dentro del código. En los pasos siguientes añadirás reglas para comentarios de documentación TSDoc y comentarios de cabecera de archivo.
 
 ## Empezar desde la incidencia sobre instrucciones
 
