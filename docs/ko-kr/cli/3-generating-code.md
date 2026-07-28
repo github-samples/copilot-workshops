@@ -13,12 +13,12 @@ lastUpdated: 2026-06-30
 
 이 연습에서는 다음을 수행합니다.
 
-- plan mode를 사용해 필터링 기능 구현 계획을 생성합니다.
+- Plan mode를 사용해 필터링 기능 구현 계획을 생성합니다.
 - Copilot으로 웹 사이트에 필터링을 추가하는 데 필요한 코드를 생성합니다.
 
 이 연습이 끝나면 프로젝트에 새로운 기능이 추가됩니다.
 
-## plan mode 활용하기
+## Plan mode 활용하기
 
 AI의 가장 뛰어난 활용 방식 중 하나는 계획 수립입니다. 무엇을 만들고 싶은지 대략적인 개념은 있지만 아이디어를 정리할 대상이 필요할 때가 많습니다. AI 도구는 후속 질문을 하고, 빠진 구성 요소나 잠재적인 함정을 함께 검토하면서 생각을 구체화하도록 도와줍니다. Copilot CLI는 이 과정을 지원하기 위해 plan mode를 제공합니다. 또한 계획 수립에 들인 시간은 Copilot이 요구 사항에 더 잘 맞는 코드를 생성하는 데 도움이 됩니다.
 
@@ -57,7 +57,7 @@ Copilot CLI의 plan mode를 사용해 새 기능 생성 과정을 시작합니�
 >
 > `Yes, and switch to autopilot mode`.
 >
-> Copilot은 위 예시처럼 [autopilot mode](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot)를 활성화하는 옵션을 제안할 수 있습니다. autopilot mode를 사용하면 Copilot CLI가 각 단계마다 입력을 기다리지 않고 작업을 진행합니다. 처음 지시를 주면 Copilot CLI가 작업이 완료되었다고 판단할 때까지 각 단계를 자율적으로 처리합니다. 현재는 격리된 환경에서 작업하므로 autopilot을 실행하고 모든 도구를 허용해도 괜찮습니다.
+> Copilot은 위 예시처럼 [autopilot mode](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot)를 활성화하는 옵션을 제안할 수 있습니다. Autopilot mode를 사용하면 Copilot CLI가 각 단계마다 입력을 기다리지 않고 작업을 진행합니다. 처음 지시를 주면 Copilot CLI가 작업이 완료되었다고 판단할 때까지 각 단계를 자율적으로 처리합니다. 현재는 격리된 환경에서 작업하므로 autopilot을 실행하고 모든 도구를 허용해도 괜찮습니다.
 
 6. Copilot이 파일 생성을 시작합니다.
 
@@ -80,10 +80,10 @@ AI가 생성한 코드는 운영 환경에 병합하기 전에 반드시 검토�
 
 이제 Copilot CLI의 도움으로 웹 사이트에 필터링 기능을 추가했습니다. 구체적으로 다음을 수행했습니다.
 
-- plan mode를 사용해 필터링 기능 구현 계획을 생성했습니다.
+- Plan mode를 사용해 필터링 기능 구현 계획을 생성했습니다.
 - Copilot을 사용해 웹 사이트에 필터링을 추가하는 데 필요한 코드를 생성했습니다.
 
-물론 다음 단계는 실제로 동작하는지 확인하는 것입니다. pull request를 열기 전에 [Playwright MCP server로 기능 테스트하기][next-lesson]로 이동해 검증해 보겠습니다.
+물론 다음 단계는 실제로 동작하는지 확인하는 것입니다. Pull request를 열기 전에 [Playwright MCP server로 기능 테스트하기][next-lesson]로 이동해 검증해 보겠습니다.
 
 ## 리소스
 

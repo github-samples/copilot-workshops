@@ -55,7 +55,7 @@ AI 도구를 포함해 어떤 도구든 잘 활용하는 것은 하나의 기술
 
 ## Copilot CLI의 컨텍스트 살펴보기
 
-더 크거나 복잡한 작업을 수행할 때는 모델의 최대 context window에 도달할 수 있습니다. 창의 정확한 크기는 사용 중인 모델과 Copilot CLI 버전에 따라 달라집니다. context window가 가득 차면 Copilot CLI는 이를 자동으로 compact하여 정보를 요약하고 현재 작업과 관련이 없다고 판단한 항목을 제거합니다. slash commands를 사용하면 현재 컨텍스트 상태를 확인할 수도 있고 수동으로 compact할 수도 있습니다. 이제 context window를 살펴보겠습니다.
+더 크거나 복잡한 작업을 수행할 때는 모델의 최대 context window에 도달할 수 있습니다. 창의 정확한 크기는 사용 중인 모델과 Copilot CLI 버전에 따라 달라집니다. Context window가 가득 차면 Copilot CLI는 이를 자동으로 compact하여 정보를 요약하고 현재 작업과 관련이 없다고 판단한 항목을 제거합니다. Slash commands를 사용하면 현재 컨텍스트 상태를 확인할 수도 있고 수동으로 compact할 수도 있습니다. 이제 context window를 살펴보겠습니다.
 
 1. Copilot CLI 프롬프트 창에서 다음 명령을 보냅니다.
 
@@ -119,7 +119,7 @@ AI 도구를 포함해 어떤 도구든 잘 활용하는 것은 하나의 기술
 > [!CAUTION]
 > Copilot CLI의 모델 선택은 유지됩니다.
 
-## cloud agent에 위임하기(선택 사항)
+## Cloud agent에 위임하기(선택 사항)
 
 터미널에서 계속 작업하고 싶지만 더 오래 걸리는 작업은 Copilot cloud agent에 넘기고 싶을 때가 있습니다. `/delegate` 명령은 현재 Copilot CLI 세션을 GitHub.com으로 보내고, cloud agent가 이를 받아 비동기적으로 작업한 뒤 완료되면 pull request를 엽니다.
 

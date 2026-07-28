@@ -5,7 +5,7 @@ authors:
 lastUpdated: 2026-06-30
 ---
 
-방금 Copilot CLI로 필터링 기능을 생성했습니다. pull request를 열기 전에 브라우저에서 실제로 동작하는지 확인해야 합니다. 직접 앱을 눌러 보며 확인하는 대신 **Playwright MCP server**를 연결해 Copilot이 실제 브라우저를 제어하면서 기능을 테스트하도록 해보겠습니다.
+방금 Copilot CLI로 필터링 기능을 생성했습니다. Pull request를 열기 전에 브라우저에서 실제로 동작하는지 확인해야 합니다. 직접 앱을 눌러 보며 확인하는 대신 **Playwright MCP server**를 연결해 Copilot이 실제 브라우저를 제어하면서 기능을 테스트하도록 해보겠습니다.
 
 이 연습에서는 다음을 수행합니다.
 
@@ -131,7 +131,7 @@ Report what you observe at each step, and call out anything that does not behave
 Copilot은 Playwright MCP server를 통해 브라우저를 실행하고, 각 단계를 수행한 뒤, 확인한 내용을 보고합니다. 요약 내용을 issue의 acceptance criteria와 비교해 보고, 어긋나는 부분이 있으면 후속 질문을 하거나 pull request를 열기 전에 코드를 수정하도록 다시 요청합니다.
 
 > [!NOTE]
-> 이 테스트를 수행하려면 앱이 `http://localhost:4321`에서 실행 중이어야 합니다. dev server를 중지했다면 프롬프트를 보내기 전에 다시 시작합니다. Copilot이 처음으로 Playwright MCP server를 사용할 때 브라우저를 다운로드해야 할 수도 있습니다. 브라우저가 없다고 보고하면 `npx playwright install chromium`를 실행하도록 요청한 뒤 다시 시도합니다.
+> 이 테스트를 수행하려면 앱이 `http://localhost:4321`에서 실행 중이어야 합니다. Dev server를 중지했다면 프롬프트를 보내기 전에 다시 시작합니다. Copilot이 처음으로 Playwright MCP server를 사용할 때 브라우저를 다운로드해야 할 수도 있습니다. 브라우저가 없다고 보고하면 `npx playwright install chromium`를 실행하도록 요청한 뒤 다시 시도합니다.
 
 [playwright-mcp-server]: https://github.com/microsoft/playwright-mcp
 ## 요약 및 다음 단계

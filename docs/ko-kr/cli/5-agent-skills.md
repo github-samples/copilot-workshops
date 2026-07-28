@@ -41,7 +41,7 @@ description: All changes to code must follow the guidance documented in the repo
 
 이 연습에서는 다음을 수행합니다.
 
-- pull request 생성을 위한 기존 스킬을 살펴봅니다.
+- Pull request 생성을 위한 기존 스킬을 살펴봅니다.
 - AI agent가 스킬을 활용하는 방식을 학습합니다.
 - 스킬의 도움으로 가이드라인에 맞는 PR을 만듭니다.
 
@@ -102,7 +102,7 @@ Tailspin Toys에는 PR 생성에 대한 요구 사항이 있으므로, AI 도구
 
 에이전트 스킬의 도움으로 문서화된 요구 사항을 충족하는 새로운 PR을 만들었습니다. 다음을 수행했습니다.
 
-- pull request 생성을 위한 기존 스킬을 살펴보았습니다.
+- Pull request 생성을 위한 기존 스킬을 살펴보았습니다.
 - AI agent가 스킬을 활용하는 방식을 학습했습니다.
 - 스킬의 도움으로 가이드라인에 맞는 PR을 만들었습니다.
 
@@ -113,7 +113,7 @@ Tailspin Toys에는 PR 생성에 대한 요구 사항이 있으므로, AI 도구
 - [에이전트 스킬 소개][about-agent-skills]
 - [Agent Skills Specification][agent-skills-spec]
 - [Agent Skills Repository][agent-skills-repo]
-- [awesome-copilot의 Agent Skills][awesome-copilot-skills]
+- [Awesome-copilot의 Agent Skills][awesome-copilot-skills]
 
 [previous-lesson]: ../4-mcp/
 [next-lesson]: ../6-custom-agents/

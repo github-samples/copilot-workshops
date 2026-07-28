@@ -7,7 +7,7 @@ lastUpdated: 2026-06-30
 
 [← 이전 연습: Copilot CLI 설치][previous-lesson] · [다음 연습: CLI로 코드 생성하기 →][next-lesson]
 
-생성형 AI로 작업할 때는 컨텍스트가 핵심입니다. 작업을 특정 방식으로 수행해야 하거나 Copilot이 알아야 할 배경 정보가 있다면, 그 컨텍스트를 사용할 수 있게 해야 합니다. Copilot을 돕는 여러 도구가 있으며, 이 워크숍 전반에서 이를 살펴봅니다. 먼저 [instruction files][instruction-files]부터 시작합니다. instruction files는 일반적으로 코드 자체를 어떻게 구성해야 하는지에 초점을 맞춥니다. 이를 통해 Copilot은 원하는 코드가 *무엇인지*뿐 아니라 *어떻게* 구조화되어야 하는지도 이해할 수 있습니다.
+생성형 AI로 작업할 때는 컨텍스트가 핵심입니다. 작업을 특정 방식으로 수행해야 하거나 Copilot이 알아야 할 배경 정보가 있다면, 그 컨텍스트를 사용할 수 있게 해야 합니다. Copilot을 돕는 여러 도구가 있으며, 이 워크숍 전반에서 이를 살펴봅니다. 먼저 [instruction files][instruction-files]부터 시작합니다. Instruction files는 일반적으로 코드 자체를 어떻게 구성해야 하는지에 초점을 맞춥니다. 이를 통해 Copilot은 원하는 코드가 *무엇인지*뿐 아니라 *어떻게* 구조화되어야 하는지도 이해할 수 있습니다.
 
 이 연습에서는 다음을 수행합니다.
 
@@ -31,7 +31,7 @@ lastUpdated: 2026-06-30
 - 코드 문서는 TSDoc doc comments 형태로 추가해야 합니다.
 - 각 파일의 맨 앞에는 파일의 역할을 설명하는 주석 블록을 추가해야 합니다.
 
-instruction files를 사용하면 Copilot이 이러한 관행에 맞춰 작업을 수행하는 데 필요한 정보를 갖추도록 할 수 있습니다.
+Instruction files를 사용하면 Copilot이 이러한 관행에 맞춰 작업을 수행하는 데 필요한 정보를 갖추도록 할 수 있습니다.
 
 ### 커스텀 지침
 
@@ -64,7 +64,7 @@ AI를 사용하는 방법이 하나로 정해져 있지 않듯, 지침 파일을
 >
 > Copilot은 instruction files 생성도 도와줄 수 있습니다. 각 표면마다 노출 방식은 다르지만(예: VS Code의 **Configure Chat → Generate Agent Instructions**, Copilot CLI의 `/init`) 관련이 있는 경우 현재 사용 중인 표면의 연습에서 이를 안내합니다.
 >
-> 템플릿이나 시작점을 찾고 있나요? instruction files, custom agents, 기타 리소스를 모아 둔 리포지토리인 [awesome-copilot][awesome-copilot]을 살펴봅니다.
+> 템플릿이나 시작점을 찾고 있나요? Instruction files, custom agents, 기타 리소스를 모아 둔 리포지토리인 [awesome-copilot][awesome-copilot]을 살펴봅니다.
 
 [ui-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/ui.instructions.md
 [astro-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/astro.instructions.md
@@ -232,7 +232,7 @@ AI를 사용하는 방법이 하나로 정해져 있지 않듯, 지침 파일을
 - [GitHub Copilot 사용자 지정을 위한 instruction files][instruction-files]
 - [커스텀 지침 작성 모범 사례][instructions-best-practices]
 - [Copilot용 더 나은 커스텀 지침을 작성하는 5가지 팁][copilot-instructions-five-tips]
-- [instruction files와 기타 리소스를 모아 둔 Awesome Copilot][awesome-copilot]
+- [Instruction files와 기타 리소스를 모아 둔 Awesome Copilot][awesome-copilot]
 
 [previous-lesson]: ../1-install-copilot-cli/
 [next-lesson]: ../3-generating-code/

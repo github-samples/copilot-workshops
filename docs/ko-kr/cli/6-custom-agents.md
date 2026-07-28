@@ -100,7 +100,7 @@ Copilot CLI에서는 `/agent` 명령으로 커스텀 에이전트를 시작할 �
 
 - [커스텀 에이전트][custom-agents]
 - [리포지토리용 커스텀 에이전트 만들기][creating-custom-agents]
-- [awesome-copilot의 커스텀 에이전트][awesome-copilot-agents]
+- [Awesome-copilot의 커스텀 에이전트][awesome-copilot-agents]
 - [조직에서 커스텀 에이전트를 사용하기 위한 준비][org-custom-agents]
 - [엔터프라이즈에서 커스텀 에이전트를 사용하기 위한 준비][enterprise-custom-agents]
 
