@@ -66,10 +66,6 @@ There isn't one specific way to create instructions files, just as there isn't o
 >
 > Looking for templates or a starting point? Explore [awesome-copilot][awesome-copilot], a repository full of instruction files, custom agents, and other resources.
 
-[ui-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/ui.instructions.md
-[astro-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/astro.instructions.md
-[awesome-copilot]: https://github.com/github/awesome-copilot
-[custom-instructions-support]: https://docs.github.com/copilot/reference/custom-instructions-support
 ## Explore the custom instructions files in this project
 
 Take a moment to read the instruction files this repository ships with — there's one core `copilot-instructions.md` and a collection of `*.instructions.md` files for various tasks. Open these in your editor or the GitHub web UI.
@@ -105,34 +101,23 @@ You'll be making code changes, so create a branch to work in.
 
 To see the impact of custom instructions, start by generating code with the current instructions in place. Later, you'll update the file and run a follow-up prompt.
 
-> [!TIP]
-> **Start a Copilot CLI session**
->
-> Before you start the exercises below, return to your codespace and open a terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> if one isn't already open). Then start Copilot CLI with `--yolo` and `--enable-all-github-mcp-tools`:
->
-> ```bash
-> copilot --yolo --enable-all-github-mcp-tools
-> ```
->
-> To pick up your most recent session for this project instead of starting fresh, run `copilot --yolo --enable-all-github-mcp-tools --continue`. If Copilot CLI is already running from an earlier exercise, send `/clear` to start a clean conversation.
->
-> `--enable-all-github-mcp-tools` enables the read/write GitHub MCP tools for the current session, so Copilot can read your backlog and open pull requests during the workshop flow.
-
 > [!CAUTION]
 > `--yolo` enables full automatic permissions (`--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`). Use it only in an isolated environment like a Codespace or VM, and never alias it as your default for day-to-day development. See [Allowing and denying tool use][allow-all-warning] for details.
 
-[allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
-1. Make sure your Copilot CLI session is running from the **repository root** so it picks up `.github/copilot-instructions.md` automatically.
-2. At the Copilot CLI prompt, ask it to generate the publishers helper that the filtering UI will use:
+Running Copilot CLI from the **repository root** ensures it picks up `.github/copilot-instructions.md` automatically. `--enable-all-github-mcp-tools` turns on the read/write GitHub MCP tools so Copilot can read your backlog and open pull requests later in the workshop.
+
+1. Return to your codespace. If you closed it, navigate to your repository on GitHub.com, select **Code** > **Codespaces**, then reopen your existing codespace.
+2. Return to your open Copilot CLI session. If the terminal is closed or you exited Copilot CLI, open a terminal by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>, then start it from the repository root by running `copilot --yolo --enable-all-github-mcp-tools`. Trust the project folder if prompted, then run `/models` and select **Auto**.
+3. At the Copilot CLI prompt, ask it to generate the publishers helper that the filtering UI will use:
 
    ```plaintext
    Create a new data-access helper at src/lib/publishers.ts to return a list of all publishers. It should return the name and id for all publishers. Do not run the tests yet.
    ```
 
-3. Copilot CLI will explore the project, propose a plan, and write the file in this `--yolo` session. Monitor the changes in your terminal output, then review in your editor.
-4. Open the generated `src/lib/publishers.ts` in your editor.
-5. Notice the helper is a typed function that takes a `db` client as its first argument and returns a typed array of publishers — that's coming from the data-layer conventions in `.github/instructions/drizzle.instructions.md` (which applies to `src/lib/*.ts`).
-6. Notice the generated code **is missing** TSDoc doc comments and a file-level comment header.
+4. Copilot CLI will explore the project, propose a plan, and write the file in this `--yolo` session. Monitor the changes in your terminal output, then review in your editor.
+5. Open the generated `src/lib/publishers.ts` in your editor.
+6. Notice the helper is a typed function that takes a `db` client as its first argument and returns a typed array of publishers — that's coming from the data-layer conventions in `.github/instructions/drizzle.instructions.md` (which applies to `src/lib/*.ts`).
+7. Notice the generated code **is missing** TSDoc doc comments and a file-level comment header.
 
 > [!CAUTION]
 > Copilot is probabilistic — there's a chance it'll add doc comments even without being told. If that happens, that's fine; the *consistency* improvement after the instruction update is still the takeaway.
@@ -237,3 +222,8 @@ Next, you'll apply these instructions while implementing backlog work in [the ge
 [instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [instructions-best-practices]: https://docs.github.com/enterprise-cloud@latest/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository
 [copilot-instructions-five-tips]: https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/
+[allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
+[ui-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/ui.instructions.md
+[astro-instructions]: https://github.com/github-samples/tailspin-toys/blob/main/.github/instructions/astro.instructions.md
+[awesome-copilot]: https://github.com/github/awesome-copilot
+[custom-instructions-support]: https://docs.github.com/copilot/reference/custom-instructions-support
