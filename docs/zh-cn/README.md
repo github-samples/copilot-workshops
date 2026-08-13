@@ -21,7 +21,7 @@ GitHub Copilot 最近新增的功能为开发人员提供了贯穿整个软件�
 
 在 **Visual Studio Code** 和 GitHub Codespaces 中使用 GitHub Copilot。无需离开熟悉的编辑器，即可使用 Copilot Chat 智能体模式、MCP 服务器和自定义智能体。如果希望将 AI 辅助直接融入 IDE，这是理想选择。
 
-### 💻 [Copilot CLI](../cli/)
+### 💻 [Copilot CLI](cli/)
 
 **GitHub Copilot CLI** 是一款在终端中运行的智能体助手。安装后，可以连接 MCP 服务器、使用计划模式生成代码，还能完全通过命令行构建自己的技能、自定义智能体和斜杠命令。
 

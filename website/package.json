@@ -23,5 +23,8 @@
   "devDependencies": {
     "@typescript/native-preview": "^7.0.0-dev.20260707.2",
     "remark-github-admonitions-to-directives": "^2.1.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }
