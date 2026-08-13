@@ -88,8 +88,6 @@ Como se indicó antes, Copilot CLI invoca automáticamente las habilidades. Como
 
 2. Copilot confirmará la solicitud. Al cabo de unos instantes, verás que Copilot indica que está utilizando la habilidad **make-contribution**.
 
-    ![Captura de la habilidad de agente invocada por Copilot CLI](../../_images/cli-5-agent-skill.png)
-
 3. Después, Copilot seguirá las instrucciones de la habilidad. Empezará ejecutando las pruebas y luego creará una rama, confirmaciones y, finalmente, la PR.
 4. Cuando se cree la PR, vuelve a tu repositorio y ábrela. Observa que las secciones siguen las directrices definidas en la habilidad y coinciden con los requisitos establecidos por el equipo.
 5. Antes de pasar al siguiente ejercicio, restablece tu espacio de trabajo local en una rama nueva desde `main` para que el trabajo de accesibilidad quede separado de esta PR de filtrado:

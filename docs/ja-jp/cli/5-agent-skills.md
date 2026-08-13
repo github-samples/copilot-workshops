@@ -86,8 +86,6 @@ Tailspin Toys には PR 作成に関する要件があるため、AI ツール�
 
 2. Copilot がリクエストを受け付けます。しばらくすると、Copilot が **make-contribution** skill を利用していることが表示されます。
 
-    ![Copilot CLI が agent skill を呼び出しているスクリーンショット](../../_images/cli-5-agent-skill.png)
-
 3. その後、Copilot は skill の instruction に従います。まず test を実行し、その後 branch、commit、最終的には PR を作成します。
 4. PR が作成されたら、リポジトリに戻って PR を開きます。セクションが skill で定められたガイドラインに従い、チームの要件に一致していることを確認してください。
 5. 次の演習に進む前に、このフィルタリング PR とアクセシビリティ作業を分けておけるよう、ローカル workspace を `main` から新しい branch にリセットします。

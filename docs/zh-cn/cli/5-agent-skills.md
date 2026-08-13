@@ -88,8 +88,6 @@ description: All changes to code must follow the guidance documented in the repo
 
 2. Copilot 会确认这个请求。稍等片刻后，会看到 Copilot 显示它正在使用 **make-contribution** 技能。
 
-    ![Copilot CLI 调用智能体技能的截图](../../_images/cli-5-agent-skill.png)
-
 3. 然后 Copilot 会遵循该技能中的说明。它会先运行测试，然后创建分支、提交，最后创建 PR。
 4. 创建 PR 后，返回存储库并打开该 PR。注意其中各个部分遵循了技能中设定的准则，与团队提出的要求一致。
 5. 在进入下一节练习前，将本地工作区重置到从 `main` 创建的新分支，以便后续无障碍工作与这个过滤功能 PR 保持分离：

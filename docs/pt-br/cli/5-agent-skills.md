@@ -88,8 +88,6 @@ Como destacado anteriormente, as skills são invocadas automaticamente pelo Copi
 
 2. O Copilot reconhecerá a solicitação. Após alguns instantes, você verá o Copilot indicar que está usando a skill **make-contribution**.
 
-    ![Captura de tela da skill de agente sendo chamada pelo Copilot CLI](../../_images/cli-5-agent-skill.png)
-
 3. O Copilot seguirá as instruções da skill. Ele começará executando os testes, depois criará uma branch, fará commits e, por fim, abrirá o PR.
 4. Quando o PR for criado, volte ao repositório e abra-o. Observe como as seções seguem as diretrizes definidas na skill e atendem aos requisitos da equipe.
 5. Antes de passar para a próxima lição, redefina seu workspace local para uma branch nova criada a partir de `main`, para manter o trabalho de acessibilidade separado deste PR de filtragem:
