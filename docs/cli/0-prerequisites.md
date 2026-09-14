@@ -2,7 +2,7 @@
 title: "Exercise 0: Prerequisites"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 Before you start the Copilot CLI exercises, you need to get everything ready. You'll create your own copy of the Tailspin Toys repository and spin up a [codespace][codespaces], whose integrated terminal you'll use to install and run Copilot CLI in the next exercise.
@@ -10,6 +10,8 @@ Before you start the Copilot CLI exercises, you need to get everything ready. Yo
 ## Setting up the lab repository
 
 To create a copy of the repository for the code you'll create, you'll make an instance from the [template][template-repository]. The new instance will contain all of the necessary files for the lab, and you'll use it as you work through the exercises.
+
+Use a fresh template copy. It includes repository instructions, application code, tests, and CI, but no supplied custom agents or skills. You'll create those assets yourself. If you are returning to an older copy, inspect existing customizations before changing them; do not overwrite your own work.
 
 1. In a new browser window, navigate to the GitHub repository for this lab: `https://github.com/github-samples/tailspin-toys`.
 2. Create your own copy of the repository by selecting the **Use this template** button on the lab repository page. Then select **Create a new repository**.
@@ -26,6 +28,9 @@ To create a copy of the repository for the code you'll create, you'll make an in
 > **Your backlog is ready**
 >
 > When you create your repository from the template, a backlog of GitHub issues is created for you automatically. You'll work from these issues throughout the workshop — there's nothing to file yourself.
+
+Wait for the issue-bootstrap workflow to finish, then check the **Issues** tab for **Allow users to filter games by category and publisher** and **Update our repository coding standards**. Use their actual titles and URLs in the lessons, not assumed issue numbers. If the backlog is missing, inspect the workflow result before proceeding.
+
 ## Creating a codespace
 
 Next up, you'll use a codespace to complete the lab exercises.
@@ -48,6 +53,8 @@ The creation of the codespace will take several minutes, although it's still far
 
 > [!NOTE]
 > This workshop is built to run inside a codespace or local [dev container][dev-containers]. Both ensure the environment has all the necessary prerequisites installed for a smooth experience. If you'd prefer to run it locally, open the cloned repository in VS Code and select **Reopen in Container** when prompted — VS Code will build the same dev container the codespace uses.
+
+Once your codespace is ready, [Exercise 1][next-lesson] will open its terminal and check the repository, runtime, and authentication before installing Copilot CLI.
 
 ## Summary
 

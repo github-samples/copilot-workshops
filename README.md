@@ -22,7 +22,7 @@ For PR/CI rules, see **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
 - **`docs/`** — **Lesson source (plain Markdown). Edit here.** Browsable directly on github.com, no build required.
   - `README.md` — Workshop landing page (also the published site's home via `slug: index`).
   - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / cloud agent / GitHub Copilot app). Each codespace-based harness opens with its own `0-prerequisites.md` setup lesson, and a folder `README.md` (routed via a `slug:` matching the folder) is its landing page.
-  - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Translated locale trees (currently the app harness).
+  - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Translated App and CLI locale trees.
   - `_images/` — Screenshots and diagrams (shared across all locales).
 - **`website/`** — Optional Astro + Starlight site that publishes `docs/` to GitHub Pages. Only needed to self-host or preview the rendered site.
   - `astro.config.mjs` — Site URL, base path, `locales` block, sidebar.
@@ -49,7 +49,7 @@ The site runs at <http://localhost:4321/copilot-workshops/>.
 
 ## Verification
 
-Before opening a PR, build the site and run the full verification sequence — clean build, page-count check, and offline link check (lychee). The canonical commands live in **[AUTHORING.md → Building and verifying](./AUTHORING.md#building-and-verifying)** and the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill. CI (`pages.yml`) runs the build and the lychee link check.
+Before opening a PR, run the full verification sequence — type checks, clean build, page-count check, and offline link check (lychee). The canonical commands live in **[AUTHORING.md → Building and verifying](./AUTHORING.md#building-and-verifying)** and the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill. CI (`pages.yml`) runs `check:all`, the build, and the lychee link check.
 
 ## License
 

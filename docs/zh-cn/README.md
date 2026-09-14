@@ -3,7 +3,7 @@ slug: zh-cn
 title: "动手实践 GitHub Copilot 智能体"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 GitHub Copilot 最近新增的功能为开发人员提供了贯穿整个软件开发生命周期 (SDLC) 的强大工具，包括处理 GitHub 上的议题和拉取请求、与外部服务交互，当然也包括创建代码。本实验将探索这些功能，并通过实际用例和技巧，帮助你充分发挥这些工具的价值。
@@ -23,11 +23,11 @@ GitHub Copilot 最近新增的功能为开发人员提供了贯穿整个软件�
 
 ### 💻 [Copilot CLI](cli/)
 
-**GitHub Copilot CLI** 是一款在终端中运行的智能体助手。安装后，可以连接 MCP 服务器、使用计划模式生成代码，还能完全通过命令行构建自己的技能、自定义智能体和斜杠命令。
+**GitHub Copilot CLI** 是一款在终端中运行的智能体助手。完成设置后，学习九个核心模块：添加星级评分快速上手，建立指令，规划并构建筛选功能，创建 quality-checks 技能，通过 Playwright MCP 验证，创建 QA 智能体，再合并功能。最后探索 CLI 控件并进行总结。整个流程有三个拉取请求里程碑。
 
 ### 🤖 [Copilot App](app/)
 
-**GitHub Copilot app** 是一款基于 Copilot CLI 构建的桌面应用。它支持并行运行智能体会话、切换会话模式、在画布上协作，以及直接管理 GitHub 议题和拉取请求。其中包括 **Agent Merge**，可引导拉取请求完成变基、处理审查反馈、修复 CI 问题并最终合并。
+**GitHub Copilot app** 是一款基于 Copilot CLI 构建的桌面应用。使用应用的隔离会话和 **Agent Merge**，按相同的设置和九个核心模块完成星级评分、指令、筛选功能、技能、MCP、QA 和功能 PR 工作流。创建并合并保存在存储库中的画布，完成第四个拉取请求里程碑，然后总结。
 
 ### ☁️ [Copilot Cloud Agent](../cloud/)
 

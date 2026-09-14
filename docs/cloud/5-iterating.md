@@ -98,7 +98,7 @@ Copilot has built the related games feature! Just as before, you can work iterat
 
 ## Review the accessibility features
 
-Finally, let's review the accessibility features that were implemented using the custom accessibility agent. This PR should include both the high-contrast mode you assigned in Exercise 3, and the light mode that was requested in mission control in Exercise 4.
+Finally, let's review the accessibility features that were implemented using the custom accessibility agent. The profile was added to the default branch before assignment in Exercise 3; this feature PR should include both the high-contrast mode assigned there and the light mode requested in mission control in Exercise 4. Confirm the PR description identifies the accessibility agent, and review its reported npm check results rather than treating agent selection alone as verification.
 
 1. Return to your repository in GitHub.com.
 2. Select the **Pull Requests** tab.

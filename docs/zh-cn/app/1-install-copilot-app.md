@@ -41,23 +41,23 @@ lastUpdated: 2026-07-09
 
 连接项目后，花一点时间熟悉工作区。应用将功能组织在侧边栏的以下几个区域：
 
-- **Sessions**：智能体执行工作的区域。每个会话都在独立工作区中运行，因此可以同时运行多个会话，且更改不会发生冲突。下一课将启动第一个会话。
+- **Sessions**：智能体执行工作的区域。本研讨会请选择 **new working tree**，为每个 PR 里程碑提供隔离的检出目录和分支。应用还有其他工作区选项，但本研讨会不使用它们。
 - **Quick chats**：适合提问和集思广益的轻量对话，无需单独创建分支或工作区。本课结束时会进行一次快速聊天。
 - **My work**：通过应用的 **GitHub 原生集成**显示议题和拉取请求。在这里，无需离开应用即可浏览和筛选议题与拉取请求、检查 CI 状态、从议题启动会话以及审查拉取请求。
-- **Automations**：可按计划或按需运行的已保存智能体任务。本学习路径接近结束时会创建一个自动化任务。
+- **Customize**：发现和管理 MCP 服务器、技能及画布。你将使用它配置 Playwright MCP。
+- **Automations**：可按计划或按需运行的已保存智能体任务。总结课程会将其作为后续方向提供链接，而不再添加研讨会练习。
 
 ### 查找模板创建的待办事项
 
 由于应用与 GitHub 原生集成，存储库中待处理的工作会直接显示在应用内。通过模板创建存储库时，系统已生成一组议题。现在确认它们是否存在。
 
 1. 在侧边栏中选择 **My work**。
-2. 模板在待办列表中创建了八个议题。本课程聚焦以下三个，确认它们可见：
+2. 按标题查找以下议题，不要假设议题编号：
 
    - Allow users to filter games by category and publisher
    - Update our repository coding standards
-   - Implement pagination on the game list page
 
-3. 选择一个议题以阅读详细信息。每个议题也可以作为智能体会话的启动点，后续课程会从这些议题开始工作。
+3. 选择一个议题以阅读详细信息。每个议题也可以作为智能体会话的启动点，后续课程会从这些议题开始工作。其他待办议题用于为画布提供上下文，而不是另一项实现任务。
 
 > [!NOTE]
 > My work 中的项目会自动筛选，仅显示已添加到 Copilot app 的存储库中的项目。要查看其他存储库中的工作项，请将相应存储库添加到应用。
@@ -70,7 +70,7 @@ lastUpdated: 2026-07-09
 2. 询问应用自身的会话工作方式：
 
    ```plaintext
-   How does the GitHub Copilot app use worktrees?
+   GitHub Copilot app 如何使用工作树？
    ```
 
 3. 在对话视图中阅读回复。每个会话都在独立的 git 工作树中运行，因此可以并行运行多个智能体，而不会造成更改冲突。你可以随时继续对话或开始新聊天。
@@ -84,7 +84,13 @@ lastUpdated: 2026-07-09
 - 熟悉工作区，并在 **My work** 中找到模板创建的待办事项。
 - 使用快速聊天提出一次性问题。
 
-接下来，你将启动第一个智能体会话，并对项目进行第一次更改，即在游戏卡片上显示星级评分。继续学习[第 2 课 - 运行第一个智能体会话][next-lesson]。
+## 分开管理 PR 里程碑
+
+你将合并四个 PR：星级评分；指令及小型示例改动；筛选功能及技能、QA 配置文件和测试；最后是分类画布。每个 PR 里程碑使用一个分支。第 4–8 课沿用同一筛选会话、工作树和分支，以检查点提交保存进度，而不额外创建 PR。
+
+新的 App 工作树可能从过时的本地状态开始。每个新里程碑在编辑文件前，都应获取存储库更新，并将新会话分支快进到最新的 `origin/main`。后续课程会明确展示这些步骤。不要堆叠分支、挑选之前的提交，也不要将进行中的筛选会话切换到其他分支。
+
+接下来，你将启动第一个智能体会话，并对项目进行第一次更改，即在游戏卡片上显示星级评分。继续学习[第 2 课 - 添加星级评分：快速上手][next-lesson]。
 
 ## 资源
 
@@ -92,7 +98,7 @@ lastUpdated: 2026-07-09
 - [GitHub Copilot app 入门][getting-started]
 - [在 GitHub Copilot app 中使用智能体会话][agent-sessions]
 
-[ex0]: ../0-prerequisites/
+[previous-lesson]: ../0-prerequisites/
 [next-lesson]: ../2-add-star-rating/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
 [getting-started]: https://docs.github.com/copilot/how-tos/github-copilot-app/getting-started

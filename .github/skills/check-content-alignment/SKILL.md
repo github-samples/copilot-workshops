@@ -26,7 +26,7 @@ There are three recurring kinds of duplication in this repo. Most alignment gaps
    - The "**Approve and run workflows**" step (appears in `cloud/5-iterating.md` and `vscode/6-iterating.md`).
    - Shared prerequisites, MCP-setup, and recap blurbs.
 2. **Parallel concepts across harnesses.** The same idea is taught up to four times, once per harness: `cli/`, `vscode/`, `app/`, and `cloud/`. A conceptual change (how MCP works, what a custom instruction is, how an agent proposes changes, the description of the Tailspin Toys demo app) often needs the same correction in the sibling lessons of the other harnesses.
-3. **Cross-references and shared facts.** Reference-style links to a renamed/retitled lesson, lesson numbers in prose, the published URL shape (`/cli/3-generating-code/`), the demo-app repo URL (`github.com/github-samples/tailspin-toys/...`), tool/library names, and screenshots referenced from multiple pages.
+3. **Cross-references and shared facts.** Reference-style links to a renamed/retitled lesson, lesson numbers in prose, the published URL shape (`/cli/4-build-filtering/`), the demo-app repo URL (`github.com/github-samples/tailspin-toys/...`), tool/library names, and screenshots referenced from multiple pages.
 
 ## Procedure
 
@@ -69,7 +69,7 @@ grep -rn "Approve and run workflows" docs --include='*.md'
 grep -rln "custom instruction" docs/cli docs/vscode docs/app docs/cloud --include='*.md'
 
 # Find cross-references to a page you renamed/retitled
-grep -rn "2-custom-instructions" docs --include='*.md'
+grep -rn "4-build-filtering" docs --include='*.md'
 ```
 
 Exclude the file(s) you already changed from the candidate list.

@@ -15,18 +15,18 @@ Nesta lição, você vai:
 
 ## Instalar o Node.js
 
-Em várias lições, você pedirá a um agente que crie recursos e execute localmente o conjunto de testes do Tailspin Toys. Para isso, é necessário o [**Node.js**][nodejs], o único ambiente de execução exigido pelo projeto. Instale a versão **22 ou posterior**; a versão **LTS** atual é uma escolha segura.
+Em várias lições, você pedirá a um agente que crie recursos e execute localmente o conjunto de testes do Tailspin Toys. Para isso, é necessário o [**Node.js**][nodejs]. Use **Node.js 22.13 ou posterior** e confirme a versão compatível em `package.json` e README da sua cópia de trabalho.
 
 A opção mais simples em todas as plataformas é o instalador oficial:
 
 1. No sistema operacional, abra uma janela de terminal usando o Windows Terminal, o Terminal do macOS ou o aplicativo que você costuma usar.
-2. Execute o comando a seguir para confirmar que você tem o Node.js 22 ou posterior instalado:
+2. Execute o comando a seguir para confirmar que você tem o Node.js 22.13 ou posterior instalado:
 
     ```shell
     node --version
     ```
 
-3. Se você vir `v22` ou um número maior, pule para a próxima seção.
+3. Se a versão informada for pelo menos `v22.13.0` e compatível com o projeto, pule para a próxima seção.
 
 > [!TIP]
 > Você só precisa concluir estas etapas se não tiver o Node instalado ou se precisar atualizá-lo.
@@ -41,10 +41,10 @@ A opção mais simples em todas as plataformas é o instalador oficial:
     node --version
     ```
 
-9. Você deve ver `v22.x.x` ou posterior.
+9. Confirme que a versão informada é pelo menos `v22.13.0` e compatível com o projeto.
 
-> [!TIP]
-> Prefere contêineres? Se você tem o [**Docker**][docker], pode usar o [contêiner de desenvolvimento][dev-containers] do repositório em vez de instalar o Node.js localmente. Ele já inclui o Node. Você não precisa dos dois.
+> [!IMPORTANT]
+> Este percurso do aplicativo usa worktrees locais. Um runtime instalado apenas em um contêiner não está disponível para essas sessões locais. Cada worktree também precisa das dependências do projeto e do Chromium do Playwright para verificações E2E. Siga o README do repositório do participante ao preparar um worktree e revise qualquer solicitação de instalação antes de aprová-la.
 
 ## Configurar o repositório do laboratório
 
@@ -64,6 +64,8 @@ Você trabalhará na sua própria cópia do projeto Tailspin Toys. Crie-a agora 
 > [!NOTE]
 > Quando você cria o repositório a partir do modelo, um backlog de issues do GitHub é criado automaticamente. Você trabalhará com essas issues durante todo o workshop e não precisará criar nenhuma.
 
+Use uma cópia nova do modelo revisado: ele inclui instruções do repositório, código da aplicação, testes e uma extensão de canvas existente, mas não inclui agentes personalizados nem skills. Você criará sua própria skill quality-checks e um perfil QA durante o workshop. Se usar uma cópia mais antiga, examine as personalizações existentes em vez de sobrescrevê-las.
+
 ## Resumo e próximos passos
 
 Tudo pronto! Você instalou o Node.js para criar e testar o projeto no seu computador e criou sua própria cópia do repositório Tailspin Toys a partir do modelo.
@@ -79,7 +81,5 @@ Em seguida, você instalará o aplicativo GitHub Copilot, conectará o repositó
 [next-lesson]: ../1-install-copilot-app/
 [nodejs]: https://nodejs.org/
 [node-download]: https://nodejs.org/en/download
-[docker]: https://www.docker.com/products/docker-desktop/
-[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

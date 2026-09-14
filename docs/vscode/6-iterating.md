@@ -21,7 +21,7 @@ The high-contrast and light-mode toggles you implemented with the accessibility 
 
 1. Return to your codespace.
 2. Open the **Source Control** view in VS Code.
-3. Confirm your accessibility changes are committed. If you have uncommitted changes from Exercise 5, stage and commit them now with a descriptive message such as `Add high-contrast and light-mode toggles`.
+3. Confirm your accessibility changes and `.github/agents/accessibility.agent.md` are committed on `accessibility-vscode`. If you have uncommitted changes from Exercise 5, verify them with the existing npm checks, then stage and commit them with a descriptive message such as `Add high-contrast and light-mode toggles`.
 4. Publish the branch by selecting **Publish Branch** (or use the **...** menu → **Push**).
 5. VS Code will offer to open the new branch on github.com. Accept the prompt, or navigate to your repository manually and select **Compare & pull request** on the branch banner.
 6. Set a clear title (for example, `Add high-contrast and light-mode toggles`) and a short description summarizing what was done and why.
@@ -57,7 +57,7 @@ Congratulations — you've completed the VS Code harness! Through this lab you:
 
 - **Used Playwright MCP to manually test your feature.** You added the Playwright MCP server and let Copilot drive a browser to verify your filtering feature before opening a pull request.
 - **Drove agent mode through coordinated changes across the stack.** You added a filter feature that touched the client, the server, and the tests in a single session.
-- **Used a custom agent.** You selected the accessibility-focused custom agent from the agent picker and watched it implement high-contrast mode against the repository.
+- **Created and used a custom agent.** You generated and reviewed the accessibility profile, selected it from the agent picker, and watched it implement high-contrast mode against the repository.
 - **Managed and steered an agent session.** You reviewed proposed changes inline, accepted what you wanted, and extended the session with a light-mode follow-up.
 - **Closed the loop with a pull request.** You published your local work and reviewed it end-to-end the way your team would.
 

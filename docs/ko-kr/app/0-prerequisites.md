@@ -15,18 +15,18 @@ GitHub Copilot app은 Copilot과 GitHub를 모두 사용하는 중앙 허브 역
 
 ## Node.js 설치
 
-여러 레슨에서 에이전트에게 기능을 구축하고 Tailspin Toys 테스트 도구 모음을 로컬에서 실행하도록 요청합니다. 이 작업에는 프로젝트에 필요한 유일한 런타임인 [**Node.js**][nodejs]가 필요합니다. **22 이상** 버전을 설치합니다. 현재 **LTS** 릴리스가 안전한 선택입니다.
+여러 레슨에서 에이전트에게 기능을 구축하고 Tailspin Toys 테스트 도구 모음을 로컬에서 실행하도록 요청합니다. 이 작업에는 [**Node.js**][nodejs]가 필요합니다. **Node.js 22.13 이상**을 사용하고 체크아웃의 `package.json`과 README에서 지원 버전을 확인합니다.
 
 모든 플랫폼에서 가장 간단한 방법은 공식 설치 프로그램을 사용하는 것입니다.
 
 1. 운영 체제에서 Windows Terminal, macOS 터미널 또는 평소 사용하는 도구로 터미널 창을 엽니다.
-2. 다음 명령을 실행하여 Node.js 22 이상이 설치되어 있는지 확인합니다.
+2. 다음 명령을 실행하여 Node.js 22.13 이상이 설치되어 있는지 확인합니다.
 
     ```shell
     node --version
     ```
 
-3. `v22` 이상의 숫자가 표시되면 다음 섹션으로 건너뛸 수 있습니다.
+3. 표시된 버전이 `v22.13.0` 이상이고 프로젝트에서 지원한다면 다음 섹션으로 건너뛸 수 있습니다.
 
 > [!TIP]
 > Node가 설치되어 있지 않거나 업데이트해야 하는 경우에만 다음 단계를 수행하면 됩니다.
@@ -41,10 +41,10 @@ GitHub Copilot app은 Copilot과 GitHub를 모두 사용하는 중앙 허브 역
     node --version
     ```
 
-9. `v22.x.x` 이상이 표시되어야 합니다.
+9. 표시된 버전이 `v22.13.0` 이상이며 프로젝트에서 지원하는지 확인합니다.
 
-> [!TIP]
-> 컨테이너를 선호합니까? [**Docker**][docker]가 있다면 Node.js를 로컬에 설치하는 대신 리포지토리의 [dev container][dev-containers]를 사용할 수 있습니다. 이 컨테이너에는 Node가 포함되어 있으므로 두 가지가 모두 필요하지는 않습니다.
+> [!IMPORTANT]
+> 이 App 학습 과정은 로컬 워크트리를 사용합니다. 컨테이너에만 설치한 런타임은 로컬 세션에서 사용할 수 없습니다. 각 워크트리에는 프로젝트 의존성과 E2E 검사용 Playwright Chromium도 필요합니다. 워크트리를 준비할 때 학습용 리포지토리의 README를 따르고, 설치 요청을 검토한 후 승인합니다.
 
 ## 실습 리포지토리 설정
 
@@ -64,6 +64,8 @@ Tailspin Toys 프로젝트의 복사본에서 작업합니다. 지금 [템플릿
 > [!NOTE]
 > 템플릿에서 리포지토리를 만들면 GitHub 이슈 백로그가 자동으로 생성됩니다. 워크숍 전체에서 이 이슈를 사용하므로 직접 등록할 항목은 없습니다.
 
+개정된 템플릿의 새 복사본을 사용합니다. 리포지토리 지침, 애플리케이션 코드, 테스트, 기존 캔버스 확장은 포함되지만 사용자 지정 에이전트나 스킬은 제공되지 않습니다. 워크숍에서 직접 quality-checks 스킬과 QA 프로필을 만듭니다. 이전 복사본을 사용한다면 기존 사용자 지정을 덮어쓰지 말고 먼저 살펴봅니다.
+
 ## 요약 및 다음 단계
 
 설정이 완료되었습니다. 프로젝트를 컴퓨터에서 빌드하고 테스트할 수 있도록 Node.js를 설치하고, 템플릿에서 Tailspin Toys 리포지토리의 복사본을 만들었습니다.
@@ -79,7 +81,5 @@ Tailspin Toys 프로젝트의 복사본에서 작업합니다. 지금 [템플릿
 [next-lesson]: ../1-install-copilot-app/
 [nodejs]: https://nodejs.org/
 [node-download]: https://nodejs.org/en/download
-[docker]: https://www.docker.com/products/docker-desktop/
-[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

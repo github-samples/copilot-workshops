@@ -15,8 +15,8 @@ copilot-workshops/
 │   ├── cli/                     ← Copilot CLI lessons (0-prerequisites.md + numbered exercises)
 │   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
 │   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
-│   ├── app/                     ← GitHub Copilot app lessons (setup folded into Exercise 1)
-│   ├── es-es/ ja-jp/ ...        ← Translated locale trees (currently the app harness)
+│   ├── app/                     ← GitHub Copilot app lessons (setup 0–1, core modules 2–10)
+│   ├── es-es/ ja-jp/ ...        ← Translated App and CLI locale trees
 │   └── _images/                 ← Screenshots and diagrams (shared across locales)
 ├── website/                     ← Optional Astro + Starlight publisher
 │   ├── astro.config.mjs         ← Site URL, base path, locales, sidebar
@@ -31,7 +31,7 @@ copilot-workshops/
 
 ### Add a new lesson
 
-1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`).
+1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/4-build-filtering/`).
 2. **Create the file** with frontmatter:
    ```markdown
    ---
@@ -44,8 +44,8 @@ copilot-workshops/
 3. **Write the body.** Use Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
 4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
    ```markdown
-   [previous-lesson]: ../2-custom-instructions/
-   [next-lesson]: ../4-mcp/
+   [previous-lesson]: ../3-custom-instructions/
+   [next-lesson]: ../5-agent-skills/
    ```
    Then surface them in the body using **the same style as the other lessons in your path** — don't mix styles within a path:
    - **Woven into prose** (common in the CLI path): end the lesson with a sentence like ``the next step is to [create the PR][next-lesson]``.
@@ -60,7 +60,7 @@ copilot-workshops/
      ```
    The first lesson in a path omits `[previous-lesson]`; the last omits `[next-lesson]`.
 5. **Register in the sidebar.** Open `website/astro.config.mjs` and add an entry to the appropriate `items: []` block. The sidebar is *manually* maintained — order in the file is the order learners see.
-6. **Preview and verify, then open a PR.** Preview locally and run the verification sequence before committing — see [Building and verifying](#building-and-verifying) below. CI runs the Astro build and the lychee link check; both must pass.
+6. **Preview and verify, then open a PR.** Preview locally and run the verification sequence before committing — see [Building and verifying](#building-and-verifying) below. CI runs type checks, the Astro build, and the lychee link check; all must pass.
 
 ### Landing pages (folder `README.md`)
 
@@ -85,7 +85,7 @@ When you add a new harness or locale landing, name it `README.md` and set its `s
 
 ### Edit an existing lesson
 
-1. **Find the file** under `docs/` (use the published URL as a hint — `/cli/3-generating-code/` lives at `docs/cli/3-generating-code.md`).
+1. **Find the file** under `docs/` (use the published URL as a hint — `/cli/4-build-filtering/` lives at `docs/cli/4-build-filtering.md`).
 2. **Edit the Markdown.** Same conventions apply — see **Style essentials** below.
 3. **Preview** with `npm run dev` in `website/`.
 4. **Commit, PR, merge.**
@@ -112,11 +112,11 @@ The site runs at <http://localhost:4321/copilot-workshops/>.
 
 **Verify** before committing:
 
-1. **Build** — `cd website && rm -rf dist && npm run build`. Must succeed.
-2. **Page-count invariant** — Starlight emits 36 workshop routes for English and each of the five configured locales, then adds the legacy redirect. This equals 217 built `index.html` pages when excluding the 404 page; the build reports 218 HTML files including the 404 page.
+1. **Type-check and build** — `cd website && npm run check:all && rm -rf dist && npm run build`. Must succeed.
+2. **Page-count invariant** — Starlight emits 40 workshop routes for English and each of the five configured locales, then adds the legacy redirect. This equals 241 built `index.html` pages when excluding the 404 page; the build reports 242 HTML files including the 404 page.
 3. **Link check** — lychee (offline) against the built `website/dist/`. Catches broken internal links/images.
 
-**What CI enforces vs. what you run locally:** CI (`pages.yml`) runs the **build** and the **lychee** link check on every PR. It does not run browser validation or the content-alignment agentic workflow as part of the Pages build job. After merge to `main`, `pages.yml` deploys the site to GitHub Pages.
+**What CI enforces vs. what you run locally:** CI (`pages.yml`) runs **`check:all`**, the **build**, and the **lychee** link check on every PR. It does not run browser validation or the content-alignment agentic workflow as part of the Pages build job. After merge to `main`, `pages.yml` deploys the site to GitHub Pages.
 
 **Consistency pass.** When a change renames a file or folder, adds or removes a skill or instruction file, touches duplicated prose, or changes how the build works, also sweep for stale references — the structure trees and cross-doc pointers in `README.md`, `AUTHORING.md`, and `.github/copilot-instructions.md` aren't checked by the Astro build. The [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill has the full checklist, and the `check-content-alignment` skill plus `.github/workflows/content-alignment.md` help catch prose that needs aligned updates.
 

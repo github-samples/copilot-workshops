@@ -9,13 +9,13 @@ lastUpdated: 2026-06-30
 
 [Custom agents][custom-agents-concept] in GitHub Copilot allow you to create specialized AI assistants tailored to specific tasks or domains within your development workflow. By defining agents through markdown files in the `.github/agents` folder of your repository, you can provide Copilot with focused instructions, best practices, coding patterns, and domain-specific knowledge that guide it to perform particular types of work more effectively. Teams can codify their expertise into reusable agents — an accessibility agent that enforces [WCAG][wcag] compliance, a security agent that follows secure coding practices, or a testing agent that maintains consistent test patterns.
 
-Custom agents are defined by markdown files in the `.github/agents` folder of your project, or globally in `~/.copilot/agents`. Each file has YAML frontmatter with at least a `name` and `description`, followed by a markdown prompt that defines the agent's behavior, expertise, and instructions.
+Repository custom agents are defined by `.agent.md` files in the `.github/agents` folder. Each file has YAML frontmatter with a required `description`, followed by a Markdown prompt that defines the agent's behavior, expertise, and instructions. This exercise also supplies an optional, readable `name` so you can recognize the agent in the picker.
 
 ### Custom agents compared with agent skills
 
-There's some logical overlap between custom agents and [agent skills][agent-skills-concept]. Both are primarily defined with markdown files and tell an AI how to perform operations. The cleanest way to separate them: a **custom agent** is the worker, and **skills** are tools.
+There's some logical overlap between custom agents and [agent skills][agent-skills-concept]. A **custom agent** defines a specialized role, instructions, and available tools. A **skill** packages task-specific instructions and can include scripts and supporting resources.
 
-Custom agents have their own context window and are built to orchestrate skills (and even other agents) as part of doing their work. In this lab, the accessibility custom agent reviews and updates the site against accessibility guidelines; as part of that work it could call skills such as a pull-request workflow skill or one that runs and manages tests.
+Agents can run scripts directly through available tools, or follow a skill when one is available. Selecting a custom agent does not inherently create a separate context window or require orchestration of other agents. In this lab, you'll create an accessibility profile and use the project's existing npm checks directly; no skill from another workshop harness is required.
 
 > [!NOTE]
 > There's no single "right" way to author a custom agent. As with anything in AI, test and iterate to find what works for your environments and scenarios.
@@ -25,7 +25,7 @@ Custom agents have their own context window and are built to orchestrate skills 
 [wcag]: https://www.w3.org/WAI/standards-guidelines/wcag/
 You'll explore the following with custom agents:
 
-- how custom agents are defined.
+- creating and reviewing a custom-agent profile.
 - assigning a task to a custom agent.
 
 ## Scenario
@@ -33,23 +33,37 @@ You'll explore the following with custom agents:
 Tailspin Toys is committed to ensuring their crowdfunding platform is accessible to all users, regardless of their visual abilities or preferences. Recent user feedback has highlighted that some users find the current dark theme difficult to read due to insufficient contrast between text and background colors. To address this accessibility concern, the design team has requested the implementation of a high-contrast mode that users can toggle on and off.
 
 Because accessibility is critical, you want to ensure this is implemented as quickly as possible. You're going to utilize a custom agent to generate the functionality.
-## Reviewing the accessibility custom agent
+## Creating and reviewing the accessibility custom agent
 
-A custom agent has already been created for you for accessibility. Let's review the contents to understand how it will guide Copilot.
+The template does not supply custom agents or skills. Before assigning the high-contrast issue, create an accessibility profile using GitHub's [custom-agent creation flow][creating-custom-agents]. The profile must reach your repository's **default branch** before you select it for an issue.
 
-Return to your codespace, then review the accessibility custom agent file:
+1. Open the [Copilot agents page][agents-page] and select your Tailspin Toys repository in the prompt box's repository dropdown.
+2. Select your repository's default branch (`main` for this workshop).
+3. Open **Select a custom agent**, then select **Create an agent**. GitHub opens a template at `.github/agents/my-agent.agent.md` in its file editor.
+4. Rename the file to `.github/agents/accessibility.agent.md`. Replace the template with this profile:
 
-1. Open `.github/agents/accessibility.md`.
-2. Note the YAML frontmatter with the `name` and `description` fields.
+   ```markdown
+   ---
+   name: Accessibility agent
+   description: Implement and review accessible Astro UI changes, including contrast, keyboard access, and user preference controls.
+   ---
 
-> [!CAUTION]
-> The frontmatter with `name` and `description` is required for custom agents.
+   Follow the user's requirements and repository instructions. Inspect existing components, styles, package.json, and tests before making focused accessibility changes.
 
-3. From there, scan and review the next sections which highlight:
-   - Core responsibilities when generating code for an accessible website.
-   - Best practices for accessibility.
-   - Code examples for HTML, CSS, and JavaScript.
-   - A list of common pitfalls and mistakes.
+   Use semantic HTML, keyboard-accessible controls, visible focus, accessible names and states, and WCAG contrast guidance. Preserve existing behavior and persist user preferences when requested.
+
+   Add or update relevant tests. Run npm run lint, npm run test:unit, npm run test:e2e, and npm run typecheck:all directly using the existing project setup. Do not depend on supplied agents or skills.
+
+   Report changes and evidence, with accurate pass/fail/blocked check results. Distinguish automated checks from browser observations and identify any accessibility checks not performed. Report missing prerequisites or access rather than claiming success.
+   ```
+
+5. Review the profile against the repository's instructions and existing npm scripts. Confirm it guides accessibility work without prescribing an unrelated feature. `description` is required; `name` is optional but intentionally supplied here. Omitting `tools` makes the available tools accessible within the cloud agent's normal permissions.
+6. Save the reviewed profile to the default branch. Commit directly **only if** your permissions and branch rules allow it. Otherwise commit on a setup branch, open a pull request, review it, and merge it into the default branch before continuing.
+7. Open `.github/agents/accessibility.agent.md` on the default branch and confirm the reviewed contents are present. Return to the agents page, refresh it if needed, and confirm **Accessibility agent** appears in the custom-agent dropdown.
+
+> [!IMPORTANT]
+> A profile that exists only in an unmerged branch is not ready for this issue-assignment flow. If you cannot merge it or select it, resolve that access or discovery blocker before assigning the issue. Asking the default agent to read the profile is not a substitute for selecting the custom agent.
+
 ## Create and assign an issue
 
 Mission control is the central location for working with all agents for your environment. You can assign tasks to Copilot cloud agent, monitor tasks, and even redirect and provide additional guidance. Let's start by assigning a task to create the high contrast mode to Copilot.
@@ -67,12 +81,12 @@ Mission control is the central location for working with all agents for your env
 
 7. Select **Create** to create the issue.
 8. On the right side, select **Assign to Copilot** to open the assignment dialog.
-9. Select **Accessibility agent** from the list of custom agents.
+9. Select **Accessibility agent** from the custom-agent dropdown and confirm that it is the selected agent in the assignment dialog before proceeding.
 
     ![Screenshot of cloud agent assignment, with custom agent and accessibility highlighted](../_images/ex5-select-custom-agent.png)
 
 10. Select **Assign**.
-11. Copilot gets to work on the task in the background!
+11. Copilot gets to work on the task in the background! When its pull request appears, check the description for the custom agent used and confirm it names your accessibility agent.
 
 ## Summary and next steps
 
@@ -80,7 +94,7 @@ This lesson explored [custom agents][custom-agents] in GitHub Copilot, specializ
 
 You explored these concepts:
 
-- how custom agents are defined.
+- creating, reviewing, and publishing a custom-agent profile to the default branch before assignment.
 - assigning a task to a custom agent.
 
 With Copilot working on implementing the high contrast mode, we can now turn our attention to [monitoring and steering the agent session][next-lesson] from mission control.
@@ -88,6 +102,8 @@ With Copilot working on implementing the high contrast mode, we can now turn our
 ## Resources
 
 - [About custom agents][custom-agents]
+- [Creating custom agents for Copilot cloud agent][creating-custom-agents]
+- [Custom agents configuration][custom-agents-config]
 - [Preparing to use custom agents in your organization][org-custom-agents]
 - [Preparing to use custom agents in your enterprise][enterprise-custom-agents]
 
@@ -99,5 +115,8 @@ With Copilot working on implementing the high contrast mode, we can now turn our
 [previous-lesson]: ../2-cloud-agent/
 [next-lesson]: ../4-managing-agents/
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
+[creating-custom-agents]: https://docs.github.com/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents
+[custom-agents-config]: https://docs.github.com/copilot/reference/custom-agents-configuration
+[agents-page]: https://github.com/copilot/agents
 [org-custom-agents]: https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents
 [enterprise-custom-agents]: https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents

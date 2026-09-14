@@ -2,7 +2,7 @@
 title: "练习 0：先决条件"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 开始 Copilot CLI 练习前，需要先完成环境准备。将先创建 Tailspin Toys 存储库的个人副本，再启动一个 [codespace][codespaces]。下一节练习会使用其中集成的终端来安装并运行 Copilot CLI。
@@ -10,6 +10,8 @@ lastUpdated: 2026-06-30
 ## 设置实验存储库
 
 为了给即将编写的代码创建一份存储库副本，需要基于 [模板][template-repository] 创建一个实例。这个新实例会包含实验所需的全部文件，后续练习都会在其中完成。
+
+使用模板的新副本。其中包含存储库指令、应用代码、测试和 CI，但不附带自定义智能体或技能。你将自行创建这些资产。如果回到旧副本，应先检查现有自定义配置再修改，不要覆盖自己的工作。
 
 1. 在新的浏览器窗口中，访问本实验的 GitHub 存储库：`https://github.com/github-samples/tailspin-toys`。
 2. 在实验存储库页面上，选择 **Use this template** 按钮创建自己的存储库副本。然后选择 **Create a new repository**。
@@ -26,6 +28,8 @@ lastUpdated: 2026-06-30
 > **积压工作已准备就绪**
 >
 > 通过模板创建存储库时，系统会自动创建一组 GitHub issue 作为积压工作。整个工作坊都会围绕这些 issue 展开，无需手动新建。
+
+等待议题初始化工作流完成，再到 **Issues** 选项卡中查找 **Allow users to filter games by category and publisher** 和 **Update our repository coding standards**。课程中使用它们的实际标题和 URL，不要假设议题编号。如果待办事项缺失，应先检查工作流结果再继续。
 
 ## 创建 codespace
 
@@ -50,8 +54,7 @@ codespace 的创建需要几分钟，但仍然比手动安装所有服务快得�
 > [!NOTE]
 > 本工作坊设计为在 codespace 或本地 [dev container][dev-containers] 中运行。这两种方式都能确保环境已安装顺畅体验所需的全部先决条件。如果更希望在本地运行，请在 VS Code 中打开克隆后的存储库，并在出现提示时选择 **Reopen in Container**——VS Code 会构建与 codespace 相同的 dev container。
 
-[codespaces]: https://github.com/features/codespaces
-[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
+codespace 准备就绪后，[练习 1][next-lesson]将打开其终端，在安装 Copilot CLI 前检查存储库、运行时和身份验证。
 
 ## 总结
 
@@ -70,3 +73,5 @@ codespace 的创建需要几分钟，但仍然比手动安装所有服务快得�
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [codespaces-quickstart]: https://docs.github.com/codespaces/getting-started/quickstart
 [next-lesson]: ../1-install-copilot-cli/
+[codespaces]: https://github.com/features/codespaces
+[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers

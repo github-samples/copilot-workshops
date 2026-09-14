@@ -2,7 +2,7 @@
 title: "演習 0: 前提条件"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 Copilot CLI の演習を始める前に、必要な準備を整えます。Tailspin Toys リポジトリの自分用コピーを作成し、[codespace][codespaces] を立ち上げます。次の演習では、その統合ターミナルを使って Copilot CLI をインストールし、実行します。
@@ -10,6 +10,8 @@ Copilot CLI の演習を始める前に、必要な準備を整えます。Tails
 ## ラボ用リポジトリを設定する
 
 これから作成するコード用にリポジトリのコピーを作成するため、[template][template-repository] からインスタンスを作成します。新しいインスタンスにはラボに必要なすべてのファイルが含まれており、演習を進める間はこのリポジトリを使用します。
+
+テンプレートの新しいコピーを使用してください。リポジトリの指示、アプリケーションコード、テスト、CI は含まれていますが、カスタムエージェントやスキルは同梱されていません。これらの資産は自分で作成します。以前のコピーに戻る場合は、既存のカスタマイズを確認してから変更し、自分の作業を上書きしないでください。
 
 1. 新しいブラウザー ウィンドウで、このラボの GitHub リポジトリ `https://github.com/github-samples/tailspin-toys` に移動します。
 2. ラボ用リポジトリ ページの **Use this template** ボタンを選択して、自分用のリポジトリ コピーを作成します。次に **Create a new repository** を選択します。
@@ -26,6 +28,8 @@ Copilot CLI の演習を始める前に、必要な準備を整えます。Tails
 > **バックログの準備は完了しています**
 >
 > テンプレートからリポジトリを作成すると、GitHub issue のバックログが自動的に作成されます。ワークショップ全体を通してこれらの issue を使って作業するため、自分で起票する必要はありません。
+
+Issue を初期作成するワークフローの完了を待ち、**Issues** タブで **Allow users to filter games by category and publisher** と **Update our repository coding standards** を確認します。演習では、推測した Issue 番号ではなく、実際のタイトルと URL を使ってください。バックログがない場合は、ワークフローの結果を確認してから進みます。
 
 ## Codespace を作成する
 
@@ -50,8 +54,8 @@ Codespace の作成には数分かかりますが、すべてのサービスを�
 > [!NOTE]
 > このワークショップは、codespace またはローカルの [dev container][dev-containers] 内で実行する前提で作られています。どちらでも、必要な前提条件がすべてインストールされた環境を用意できるため、スムーズに進められます。ローカルで実行したい場合は、クローンしたリポジトリを VS Code で開き、表示されたら **Reopen in Container** を選択してください。VS Code が、codespace と同じ dev container を構築します。
 
-[codespaces]: https://github.com/features/codespaces
-[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
+Codespace の準備ができたら、[演習 1][next-lesson]でターミナルを開き、Copilot CLI をインストールする前にリポジトリ、ランタイム、認証を確認します。
+
 ## まとめ
 
 おめでとうございます。ラボ用リポジトリのコピーを作成できました。さらに、Copilot CLI を使い始めるときに使用する codespace の作成も開始しました。
@@ -69,3 +73,5 @@ Copilot CLI をインストールし、GitHub アカウントで認証しまし�
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [codespaces-quickstart]: https://docs.github.com/codespaces/getting-started/quickstart
 [next-lesson]: ../1-install-copilot-cli/
+[codespaces]: https://github.com/features/codespaces
+[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers

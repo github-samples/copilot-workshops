@@ -35,15 +35,15 @@ Open <http://localhost:4321/copilot-workshops/>. Lesson content lives in the rep
 
 Run all three. Don't commit if any fails.
 
-### 1. Build (clean)
+### 1. Type-check and build (clean)
 
 ```bash
-cd website && rm -rf dist && npm run build
+cd website && npm run check:all && rm -rf dist && npm run build
 ```
 
 ### 2. Page-count invariant
 
-The workshop has 36 distinct route slugs. Starlight emits each route for the English root locale and the five configured localized routes, using English fallback content when a translation is unavailable. The built site therefore contains $36 \times 6 = 216$ workshop routes plus the one legacy redirect (`/shared/0-prereqs/`, authored as a full-HTML redirect page at `website/src/pages/shared/0-prereqs.astro`). The expected count is 217 `index.html` files when excluding the 404 page. Astro reports 218 HTML files because it includes the 404 page.
+The workshop has 40 distinct route slugs. Starlight emits each route for the English root locale and the five configured localized routes, using English fallback content when a translation is unavailable. The built site therefore contains $40 \times 6 = 240$ workshop routes plus the one legacy redirect (`/shared/0-prereqs/`, authored as a full-HTML redirect page at `website/src/pages/shared/0-prereqs.astro`). The expected count is 241 `index.html` files when excluding the 404 page. Astro reports 242 HTML files because it includes the 404 page.
 
 ```bash
 # distinct route slugs in the English root locale (docs/README.md + docs/<harness>/*.md)
@@ -61,14 +61,14 @@ find website/dist -name index.html | grep -v 404 | wc -l
 
 ### 2b. Translations actually render (not silent English fallback)
 
-The build and the page-count above are **blind to which content actually renders** — a mis-nested or wrongly-identified locale tree still emits 217 pages served from English fallback. Assert that a known translated page carries translated text and the right `lang` attribute:
+The build and the page-count above are **blind to which content actually renders** — a mis-nested or wrongly-identified locale tree still emits 241 pages served from English fallback. Assert that a known translated page carries translated text and the right `lang` attribute:
 
 ```bash
 grep -o '<title>[^<]*</title>' website/dist/es-es/app/2-add-star-rating/index.html   # Spanish title
 grep -o 'lang="[^"]*"' website/dist/es-es/app/2-add-star-rating/index.html | head -1  # lang="es-ES"
 ```
 
-The Spanish title should read `Lección 2 - Ejecutar tu primera sesión de agente`, not the English string. Spot-check a second locale (e.g. `ja-jp` -> `lang="ja-JP"`).
+The Spanish title should match the translated `title` in `docs/es-es/app/2-add-star-rating.md`, not the English string. Check the changed CLI pages as well, and spot-check another locale (e.g. `ja-jp` -> `lang="ja-JP"`).
 
 ### 3. Link check (lychee, offline)
 
@@ -86,8 +86,9 @@ Lychee runs offline and won't catch broken **external** GitHub URLs. When you ch
 `.github/workflows/pages.yml` runs on PRs and on push to `main`. It runs **only**:
 
 1. `npm ci`
-2. `npm run build` (Astro build) — must succeed
-3. lychee offline link check against `website/dist/` — must pass
+2. `npm run check:all` (Astro and TypeScript checks) — must succeed
+3. `npm run build` (Astro build) — must succeed
+4. lychee offline link check against `website/dist/` — must pass
 
 After a push to `main`, `pages.yml` deploys `website/dist` to GitHub Pages. Browser validation and content-alignment analysis are separate optional/safety-net workflows, not part of the Pages build job.
 
@@ -109,7 +110,7 @@ When in doubt, `grep -rn "<old-name>" --include='*.md' .` (excluding `node_modul
 
 ```bash
 # from repo root
-cd website && rm -rf dist && npm run build && cd ..
+cd website && npm run check:all && rm -rf dist && npm run build && cd ..
 mkdir -p /tmp/lychee-root && ln -sfn "$PWD/website/dist" /tmp/lychee-root/copilot-workshops \
   && lychee --offline --no-progress --root-dir /tmp/lychee-root 'website/dist/**/*.html'
 ```

@@ -14,11 +14,10 @@
 
 ## Verification
 
-<!-- Confirm the build + link checks pass before requesting review. -->
+<!-- Confirm type, build, and link checks pass before requesting review. -->
 
-- [ ] `cd website && rm -rf dist && npm run build` succeeds (target: 36 routes × 6 locales + 1 redirect = 217 built pages excluding 404; build reports 218 HTML files including 404, or note any intentional change)
-- [ ] Lychee link check passes:
-      `mkdir -p /tmp/lychee-root && ln -sfn $PWD/website/dist /tmp/lychee-root/copilot-workshops && lychee --offline --no-progress --root-dir /tmp/lychee-root 'website/dist/**/*.html'`
+- [ ] `cd website && npm run check:all && rm -rf dist && npm run build` succeeds (target: 40 routes × 6 locales + 1 redirect = 241 built pages excluding 404; build reports 242 HTML files including 404, or note any intentional change)
+- [ ] Lychee link check passes: `mkdir -p /tmp/lychee-root && ln -sfn $PWD/website/dist /tmp/lychee-root/copilot-workshops && lychee --offline --no-progress --root-dir /tmp/lychee-root 'website/dist/**/*.html'`
 - [ ] External GitHub URLs that I changed have been clicked manually (lychee runs offline)
 
 ## Screenshots

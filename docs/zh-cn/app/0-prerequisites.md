@@ -15,18 +15,18 @@ GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央�
 
 ## 安装 Node.js
 
-多节课程会要求智能体构建功能，并在本地运行 Tailspin Toys 测试套件。这需要项目唯一依赖的运行时 [**Node.js**][nodejs]。请安装 **22 或更高版本**；当前的 **LTS** 版本是稳妥的选择。
+多节课程会要求智能体构建功能，并在本地运行 Tailspin Toys 测试套件。这需要 [**Node.js**][nodejs]。使用 **Node.js 22.13 或更高版本**，并查看当前检出项目的 `package.json` 和 README，确认支持的版本。
 
 所有平台上最简单的方式都是使用官方安装程序：
 
 1. 在操作系统中使用 Windows Terminal、macOS 终端或常用工具打开终端窗口。
-2. 运行以下命令，确认已安装 Node.js 22 或更高版本：
+2. 运行以下命令，确认已安装 Node.js 22.13 或更高版本：
 
     ```shell
     node --version
     ```
 
-3. 如果看到 `v22` 或更高版本号，可以跳到下一节。
+3. 如果显示的版本至少为 `v22.13.0`，且项目支持该版本，可以跳到下一节。
 
 > [!TIP]
 > 仅当尚未安装 Node 或需要更新时，才需要完成以下步骤。
@@ -41,10 +41,10 @@ GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央�
     node --version
     ```
 
-9. 应会看到 `v22.x.x` 或更高版本。
+9. 确认显示的版本至少为 `v22.13.0`，且项目支持该版本。
 
-> [!TIP]
-> 更喜欢容器？如果已安装 [**Docker**][docker]，可以使用存储库的[开发容器][dev-containers]，无需在本地安装 Node.js。开发容器已包含 Node，两种方式无需同时使用。
+> [!IMPORTANT]
+> App 学习路径使用本地工作树。仅安装在容器中的运行时无法供这些本地会话使用。每个工作树还需要项目依赖项及用于 E2E 检查的 Playwright Chromium。准备工作树时，请遵循练习存储库的 README，并在批准前审查所有安装请求。
 
 ## 设置实验存储库
 
@@ -64,6 +64,8 @@ GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央�
 > [!NOTE]
 > 通过模板创建存储库时，系统会自动创建一组 GitHub 议题作为待办事项。整个研讨会都会使用这些议题，无需自行创建。
 
+使用修订后模板的新副本：其中包含存储库指令、应用代码、测试和现有画布扩展，但不附带自定义智能体或技能。你将在研讨会中创建自己的 quality-checks 技能和 QA 配置文件。如果使用旧副本，应先检查现有自定义配置，而不是直接覆盖。
+
 ## 总结与后续步骤
 
 准备工作已完成。你安装了 Node.js，因此可以在本机构建和测试项目；还通过模板创建了自己的 Tailspin Toys 存储库副本。
@@ -79,7 +81,5 @@ GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央�
 [next-lesson]: ../1-install-copilot-app/
 [nodejs]: https://nodejs.org/
 [node-download]: https://nodejs.org/en/download
-[docker]: https://www.docker.com/products/docker-desktop/
-[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

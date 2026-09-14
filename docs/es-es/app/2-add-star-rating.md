@@ -1,5 +1,5 @@
 ---
-title: "Lección 2 - Ejecutar tu primera sesión de agente"
+title: "Lección 2 - Añadir valoraciones por estrellas: una mejora rápida"
 description: "Inicia tu primera sesión de agente en la aplicación GitHub Copilot, realiza un pequeño cambio en las tarjetas de los juegos y combínalo como tu primera solicitud de incorporación de cambios."
 authors:
   - geektrainer
@@ -22,7 +22,7 @@ Cada juego de Tailspin Toys puede tener una valoración por estrellas, que ya ap
 
 ## Anatomía de una sesión
 
-Una **sesión** es una conversación con un agente que se ejecuta en su propio espacio de trabajo aislado. Cada sesión recibe un **árbol de trabajo y una rama de Git dedicados**, lo que permite ejecutar varias sesiones a la vez, por ejemplo, una para añadir una funcionalidad y otra para corregir un error, sin que sus cambios entren en conflicto. Las sesiones aparecen en la barra lateral agrupadas por repositorio; selecciona cualquiera de ellas para cambiar de sesión.
+Una **sesión** es una conversación con un agente. En este taller eliges **new working tree**, lo que proporciona a la sesión una copia de trabajo y una rama dedicadas. Así se aísla cada hito de PR sin una rama distinta para cada lección. Las sesiones aparecen en la barra lateral agrupadas por repositorio; selecciona cualquiera de ellas para cambiar de sesión.
 
 Dentro de una sesión verás tres elementos: la **conversación** con el agente, la **actividad de las herramientas** del agente mientras explora y edita archivos, y la lista de **archivos modificados** con sus diferencias.
 
@@ -36,16 +36,20 @@ Vamos a iniciar una sesión nueva para comenzar a explorar el proyecto e impleme
 
    ![Cuadro de indicaciones de la aplicación GitHub Copilot con el selector de repositorio establecido en tailspin-toys y el selector de modelo debajo](../../_images/app-2-start-session.png)
 
-4. Utiliza la indicación siguiente para solicitar el cambio:
+4. Elige **new working tree** y el modo **Interactive** debajo del cuadro de indicaciones. Utiliza la indicación siguiente para solicitar el cambio:
 
    ```plaintext
-   On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
+   Antes de editar, identifica esta copia de trabajo y su rama, confirma que es un worktree nuevo y limpio, obtén los cambios de origin y actualiza la rama de esta sesión mediante un avance rápido hasta origin/main. Confirma que HEAD coincide con origin/main. Detente y explica el motivo si hay cambios pendientes, divergencias o no se puede actualizar; no restablezcas ni descartes trabajo.
+
+   Muestra la valoración por estrellas de cada juego en las tarjetas. El tipo Game ya incluye un campo starRating: un número sobre 5, o null cuando el juego aún no tiene valoración. Muéstralo en cada tarjeta de src/components/GameCard.astro y, cuando starRating sea null, muestra "No rating yet". Mantén el cambio pequeño y no reestructures el diseño de las tarjetas ni cambies el modelo de datos.
+
+   Sigue las instrucciones del repositorio, añade o actualiza las pruebas adecuadas y ejecuta las comprobaciones npm existentes pertinentes. Examina los requisitos previos y pregunta antes de instalar cualquier cosa. Informa de los archivos modificados y los resultados de las comprobaciones y después detente para que los revise. No crees commits, no envíes cambios, no abras una solicitud de incorporación de cambios ni implementes otra funcionalidad.
    ```
 
 > [!NOTE]
 > Observa que la indicación contiene el nombre del archivo que Copilot debe actualizar. Aunque no es necesario especificar los archivos que Copilot debe incluir en su trabajo, orientarlo ayuda a que genere el código con rapidez y reduzca el uso de tokens.
 
-5. Selecciona <kbd>Enter</kbd> para enviar la indicación a Copilot.
+5. Pulsa <kbd>Enter</kbd> para enviar la indicación a Copilot.
 
 La aplicación Copilot comienza por crear un árbol de trabajo nuevo, una copia aislada del proyecto. Después explora el proyecto, localiza los archivos que debe actualizar para añadir la funcionalidad y crea el código necesario. Ya has añadido una nueva funcionalidad con la aplicación Copilot.
 
@@ -76,7 +80,9 @@ Todos los cambios generados por IA deben revisarse antes de combinarlos, incluso
 
 ## Comprobar los cambios
 
-No debemos limitarnos a leer el código y dar por hecho que funciona. También debemos probarlo visualmente. Para ello, iniciaremos la aplicación desde la terminal y confirmaremos que todo funciona. La aplicación Copilot incluye una terminal integrada.
+Revisa los resultados de las comprobaciones automatizadas del agente antes de abrir un navegador. Confirma que las pruebas cubren un `starRating` numérico y la alternativa para `null`, mediante los scripts npm existentes del proyecto en lugar de una habilidad que aún no existe. Un requisito previo ausente o una comprobación omitida no cuentan como superados.
+
+Después examina la aplicación manualmente desde la terminal integrada de la sesión. Identifica el worktree antes de iniciar el servidor y no reutilices un servidor de otra copia de trabajo.
 
 1. En el panel de revisión situado a la derecha de la aplicación Copilot, selecciona **Terminal**. Si no aparece el botón **Terminal**, selecciona **+** (con la etiqueta **Open in panel**) y, después, **Terminal**.
 
@@ -89,26 +95,30 @@ No debemos limitarnos a leer el código y dar por hecho que funciona. También d
    ```
 
 3. Cuando se inicie el servidor, lo que solo tardará un momento, abre una ventana del navegador.
-4. Ve a http://localhost:4321.
-5. Ahora deberías ver valoraciones por estrellas en todos los juegos de la página de inicio.
+4. Abre la URL local que muestra el servidor, normalmente `http://localhost:4321`. Si el puerto está ocupado, identifica a quién pertenece en lugar de detener un proceso ajeno.
+5. Confirma que las tarjetas de juegos valorados muestran su puntuación sobre cinco. Si hay datos sin valoración, confirma que aparece **No rating yet**; de lo contrario, verifica el caso null mediante la prueba automatizada en lugar de afirmar que lo has observado.
 6. Vuelve a la ventana de terminal.
-7. Selecciona <kbd>Ctrl</kbd>+<kbd>C</kbd> para detener el servidor de desarrollo.
+7. Pulsa <kbd>Control</kbd>+<kbd>C</kbd> (Mac) o <kbd>Ctrl</kbd>+<kbd>C</kbd> (Windows/Linux) para detener el servidor de desarrollo que has iniciado.
 
 ## Abrir y combinar tu primera solicitud de incorporación de cambios
 
-El cambio tiene buen aspecto; ha llegado el momento de publicarlo. Pedirás al agente que abra una solicitud de incorporación de cambios y, después, la revisarás y combinarás en github.com. Por ahora, gestionarás este proceso de forma manual. En una próxima lección descubrirás cómo Copilot puede encargarse automáticamente de parte del trabajo.
+El cambio tiene buen aspecto; ha llegado el momento de entregar la PR 1. Primero autoriza el commit y la PR por separado de la implementación:
 
-1. En la esquina superior derecha, selecciona **Create PR**.
+```plaintext
+Revisa todas las diferencias del cambio de valoraciones por estrellas y sus pruebas, resume la verificación y crea un commit con los cambios revisados en la rama de esta sesión. Envía la rama y crea una solicitud de incorporación de cambios destinada a main con la plantilla de PR del repositorio. No la combines.
+```
+
+1. Abre el enlace de la PR creada en la sesión. Si la aplicación muestra una confirmación **Create PR**, selecciónala para aprobar la solicitud en lugar de crear una segunda PR.
 2. Si se solicita, selecciona **Sign in with your browser** y sigue las indicaciones para autenticarte.
 3. Copilot comenzará a crear la solicitud de incorporación de cambios.
 
-Una vez creada, Copilot supervisará los flujos de trabajo del repositorio que deban ejecutarse. Después de unos instantes, el botón de la esquina superior derecha cambiará a **Ready to merge**. Esto indica que la solicitud está lista para combinarse.
+Una vez creada la PR, examina todas sus diferencias y las comprobaciones en **My work**. Lee los resultados de los flujos de trabajo del repositorio del participante; espera a que se completen las comprobaciones y revisiones obligatorias y resuelve los fallos antes de combinar. **Ready to merge** no sustituye la revisión del cambio ni las pruebas de verificación locales.
 
 4. Selecciona la burbuja **PR** situada justo encima del chat para abrir la solicitud en el panel de revisión. Puedes revisarla aquí según sea necesario.
 5. Cuando esté lista, selecciona **Ready to merge**.
 6. Selecciona **Merge pull request** en el nuevo cuadro de diálogo para combinar la solicitud.
 
-Ya has publicado una nueva funcionalidad en el sitio web.
+Confirma que la PR 1 se ha combinado en `main` antes de continuar. Combinar cambios en el repositorio del participante no despliega por sí solo un sitio web. La siguiente lección inicia un worktree nuevo y lo actualiza desde `origin/main` para que incluya esta PR.
 
 ## Resumen y pasos siguientes
 
@@ -118,7 +128,7 @@ Has iniciado tu primera sesión de agente y publicado tu primer cambio. En concr
 - has indicado al agente que realice un cambio pequeño y específico en las tarjetas de los juegos.
 - has revisado el cambio en la vista de diferencias del espacio de trabajo.
 - has ejecutado la aplicación en local para confirmar la valoración por estrellas en el navegador.
-- has abierto una solicitud de incorporación de cambios y la has combinado personalmente en github.com.
+- has abierto la PR 1, revisado sus comprobaciones y autorizado explícitamente su combinación.
 
 A continuación, utilizarás la aplicación para añadir al repositorio un estándar de instrucciones personalizadas a partir de una de las incidencias de la lista de trabajo pendiente. Continúa con la [Lección 3 - Guiar a Copilot con instrucciones personalizadas][next-lesson].
 
@@ -128,7 +138,8 @@ A continuación, utilizarás la aplicación para añadir al repositorio un está
 - [Acerca de la aplicación GitHub Copilot][about-copilot-app]
 - [Gestionar incidencias y solicitudes de incorporación de cambios con la aplicación GitHub Copilot][managing-issues-prs]
 
-[prior-lesson]: ../1-install-copilot-app/#instalar-y-configurar-la-aplicacion-github-copilot
+[prior-lesson]: ../1-install-copilot-app/#instalar-y-configurar-la-aplicación-github-copilot
+[previous-lesson]: ../1-install-copilot-app/
 [next-lesson]: ../3-custom-instructions/
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
