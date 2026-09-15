@@ -16,7 +16,7 @@ copilot-workshops/
 │   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
 │   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
 │   ├── app/                     ← GitHub Copilot app lessons (setup folded into Exercise 1)
-│   ├── es-es/ ja-jp/ ...        ← Translated locale trees (currently the app harness)
+│   ├── es-es/ ja-jp/ ko-kr/ pl-pl/ pt-br/ zh-cn/  ← Translated locale trees (app + cli)
 │   └── _images/                 ← Screenshots and diagrams (shared across locales)
 ├── website/                     ← Optional Astro + Starlight publisher
 │   ├── astro.config.mjs         ← Site URL, base path, locales, sidebar
