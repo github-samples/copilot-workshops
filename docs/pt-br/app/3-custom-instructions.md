@@ -1,9 +1,9 @@
 ---
 title: "Lição 3 - Orientar o Copilot com instruções personalizadas"
-description: "Use o aplicativo GitHub Copilot para adicionar ao repositório um padrão de instruções personalizadas, começando por uma issue do backlog e fazendo o merge da alteração como um pull request."
+description: "Adicione um padrão de documentação, demonstre-o em uma pequena função auxiliar ou componente existente e integre ambos como segundo pull request."
 authors:
   - geektrainer
-lastUpdated: 2026-07-09
+lastUpdated: 2026-09-11
 ---
 
 O contexto é fundamental ao trabalhar com IA generativa. Se uma tarefa precisa ser realizada de determinada maneira ou se há informações de apoio que o Copilot deve conhecer, esse contexto precisa estar disponível. Uma das ferramentas mais eficientes para isso são os [arquivos de instruções][instruction-files], que descrevem não apenas *qual* código você deseja, mas *como* ele deve ser estruturado. Nesta lição, você adicionará um padrão de documentação ao repositório. Você fará isso da mesma forma que realizará a maior parte do trabalho daqui em diante: começando por uma issue do backlog e permitindo que o agente faça a alteração.
@@ -12,15 +12,17 @@ Nesta lição, você vai:
 
 - explorar como as instruções do repositório e os arquivos de instruções com escopo de caminho chegam ao agente.
 - iniciar uma sessão a partir da issue de instruções no backlog.
-- pedir ao agente que adicione um padrão de documentação a `.github/copilot-instructions.md`.
-- revisar a alteração e fazer o merge dela como um pull request.
+- pedir ao agente que adicione um padrão de documentação específico aos arquivos de instruções adequados do repositório.
+- demonstrar o padrão com uma pequena alteração real de código, validá-la e fazer o merge do PR 2.
 
 ## Cenário
 
 Como toda boa equipe de desenvolvimento, a Tailspin Toys tem diretrizes e requisitos para as práticas de desenvolvimento. Entre eles estão:
 
-- A documentação deve ser adicionada ao código na forma de comentários de documentação TSDoc.
-- A formatação deve ser documentada e aplicada por meio de linting.
+- Os comentários devem explicar a intenção e as decisões não óbvias, em vez de repetir o código.
+- As funções exportadas em `db/` e `src/lib/` devem documentar seu propósito, parâmetros e valores de retorno com TSDoc/JSDoc, incluindo um argumento `db` injetável quando presente.
+- Os componentes reutilizáveis de Astro devem documentar seus contratos de `Props`, e os comentários devem ser mantidos atualizados quando o código relacionado mudar.
+- As orientações existentes de formatação e lint devem ser preservadas.
 
 Com os arquivos de instruções, você garantirá que o Copilot tenha as informações certas para executar as tarefas de acordo com as práticas destacadas.
 
@@ -28,13 +30,13 @@ Com os arquivos de instruções, você garantirá que o Copilot tenha as informa
 
 As instruções personalizadas permitem fornecer contexto e preferências ao Copilot para que ele compreenda melhor seu estilo de programação e seus requisitos. Esse recurso ajuda a orientar o Copilot para obter sugestões e trechos de código mais relevantes. Você pode especificar convenções de código, bibliotecas e até os tipos de comentários que deseja incluir no código. É possível criar instruções para todo o repositório ou para tipos de arquivo específicos, fornecendo contexto no nível da tarefa.
 
-Há dois tipos de arquivos de instruções:
+O projeto usa dois tipos de arquivos de instruções:
 
 - `.github/copilot-instructions.md`, um único arquivo de instruções enviado ao Copilot em **todas** as solicitações do repositório. Esse arquivo deve conter informações no nível do projeto, ou seja, contexto relevante para a maioria das solicitações enviadas ao Copilot pelo chat ou pela CLI. Isso pode incluir a pilha de tecnologias usada, uma visão geral do que está sendo criado, boas práticas e outras orientações globais.
 - Os arquivos `.github/instructions/*.instructions.md` podem ser criados para tarefas ou tipos de arquivo específicos. Você pode usá-los para fornecer diretrizes para determinadas linguagens, como TypeScript ou Astro, ou para tarefas como criar um componente de interface ou um novo conjunto de testes de unidade.
 
 > [!NOTE]
-> O Copilot também oferece suporte a outros padrões para incorporar orientações por meio de AGENTS.md, CLAUDE.md e GEMINI.md, garantindo que ele sempre tenha o contexto correto.
+> Outros formatos de instruções e seu suporte variam conforme o ambiente. Consulte a [referência de suporte a instruções personalizadas][custom-instructions-support] antes de depender de um formato específico.
 
 ### Boas práticas para gerenciar arquivos de instruções
 
@@ -74,49 +76,55 @@ Reserve um momento para ler os arquivos de instruções incluídos no repositór
 11. Por fim, abra `.github/instructions/drizzle.instructions.md` e role até o final. Observe os links para outros arquivos de instruções, como `unit-tests.instructions.md`, e para arquivos existentes no projeto. Isso permite dividir conjuntos maiores de instruções em arquivos menores e reutilizáveis e indicar ao Copilot exemplos a serem seguidos ao gerar código. Os caminhos ali são relativos ao arquivo de instruções, e não à raiz do repositório.
 
 > [!NOTE]
-> A seção **Code formatting requirements** em `copilot-instructions.md` documenta os padrões de código do projeto, mas ainda não exige documentação no código. Nas próximas etapas, você adicionará regras para comentários de documentação TSDoc e cabeçalhos de comentários nos arquivos.
+> Compare as orientações existentes com a issue real de padrões de código antes de adicionar regras. Esta lição foca em comentários que explicam intenção, documentação de funções exportadas da camada de dados e contratos de `Props` de Astro, não em cabeçalhos obrigatórios para todos os arquivos ou comentários que repetem o código.
 
 ## Começar pela issue de instruções
 
-Na lição anterior, você iniciou uma sessão com um prompt direto. No entanto, a maior parte do trabalho começa com uma issue. Vamos criar uma nova sessão com base em uma issue criada para atualizar os arquivos de instruções e depois solicitar a atualização.
+Confirme que o PR 1 foi integrado antes de criar esta sessão. Inicie um worktree novo para o PR 2; não continue na branch de avaliações por estrelas. A maior parte do trabalho começa com uma issue, então use a issue de padrões de código para fornecer os requisitos.
 
 > [!NOTE]
 > Como os arquivos de instruções têm grande impacto no código gerado pelo Copilot, é preciso garantir que eles orientem o Copilot com clareza. Permitir que o Copilot crie uma primeira versão, como você fará nesta lição, é uma ótima abordagem. Depois, revise o resultado para confirmar que as atualizações atendem aos requisitos.
 
 1. Selecione **My work** na barra lateral.
 2. Selecione a issue intitulada **Update our repository coding standards** para abri-la.
-3. Selecione **New session** no canto superior direito para iniciar uma nova sessão com base na issue.
+3. Selecione **New session** no canto superior direito, escolha **new working tree** e selecione o modo **Interactive**.
 
    ![Visualização da issue no aplicativo GitHub Copilot com uma seta apontando para o botão New session no canto superior direito](../../_images/app-new-session-from-issue.png)
 
-4. Use o prompt a seguir para solicitar que o Copilot atualize os arquivos de instruções de acordo com os requisitos documentados na issue:
+4. Use o prompt a seguir. Atualizar a branch da nova sessão antes de editar faz com que a versão integrada mais recente de `main` seja o ponto de partida real, mesmo se a cópia local do aplicativo estiver desatualizada:
 
-  ```plaintext
-  Following this issue, make the updates to the instructions files in this project to meet the requirements documented. Don't create the PR quite yet!
-  ```
+   ```plaintext
+   Antes de editar, identifique esta cópia de trabalho e a branch, confirme que é um worktree novo e limpo, busque as atualizações de origin e avance a branch desta sessão por fast-forward até origin/main. Confirme que HEAD corresponde a origin/main e inclui o PR integrado de avaliações por estrelas. Pare se houver alterações pendentes, divergências ou se esse merge estiver ausente; não redefina, não descarte trabalho nem crie outra branch.
+
+   Leia a issue "Update our repository coding standards" e as instruções existentes do repositório. Adicione uma convenção de documentação específica: explique a intenção em vez da mecânica; documente funções exportadas em db/ e src/lib/ com TSDoc/JSDoc cobrindo propósito, parâmetros, retornos e argumentos db injetáveis quando presentes; documente os contratos de Props dos componentes reutilizáveis de Astro; e mantenha os comentários atualizados quando o código relacionado mudar.
+
+   Coloque cada regra no arquivo de instruções existente adequado, sem duplicações ou contradições, e inclua um link ou resumo do padrão atualizado em README. Preserve as orientações existentes de formatação e lint. Não exija cabeçalhos para todos os arquivos, não migre ferramentas de formatação, não reescreva a documentação de toda a aplicação nem implemente a filtragem. Mostre o diff das instruções e pare para revisão. Não crie uma skill ou agente, não faça commit, push nem crie um PR.
+   ```
 
 O Copilot fará as atualizações.
 
 ## Revisar a alteração
 
-Vamos ler as atualizações feitas pelo Copilot e também pedir um exemplo do código que ele passará a gerar com base nas instruções atualizadas.
+Leia as orientações atualizadas e demonstre seu efeito em um arquivo real. Apenas um trecho proposto não demonstra que as instruções do repositório influenciaram uma alteração de código.
 
 1. Selecione **Changes** no canto superior direito para abrir as alterações no código.
 
    ![Abas do painel da sessão no aplicativo GitHub Copilot com uma seta apontando para a aba Changes](../../_images/app-select-changes.png)
 
-2. Revise o arquivo de instruções atualizado. Confirme se ele contém as diretrizes para adicionar documentação e comentários ao código.
+2. Revise os arquivos de instruções atualizados e a referência em README. Confirme que as regras correspondem à filosofia de comentários, à documentação de funções exportadas e aos contratos de componentes da issue, sem inventar uma exigência geral de cabeçalhos de arquivo.
 
 > [!NOTE]
 > Como a IA é probabilística, e não determinística, o texto exato pode variar.
 
-3. Use o prompt a seguir para pedir ao Copilot que crie um exemplo do código que passará a gerar:
+3. Após revisar as instruções, solicite uma demonstração com escopo limitado nesta mesma sessão:
 
-  ```plaintext
-  Do not make any updates, but show me what the code would look like. Based on the new instructions, if I asked Copilot to create a new library component to return all Publishers what would that code look like?
-  ```
+   ```plaintext
+   Demonstre a convenção de documentação atualizada em uma pequena função auxiliar TypeScript exportada existente em db/ ou src/lib/, ou em um componente reutilizável de Astro. Examine o repositório para escolher um arquivo existente adequado; não presuma que existe uma função auxiliar de distribuidoras. Faça uma pequena melhoria de legibilidade que preserve o comportamento e aplique as orientações relevantes de documentação de funções ou contratos de Props. Explique intenções não óbvias sem adicionar comentários que apenas repitam o código.
 
-4. Revise o código proposto pelo Copilot. Observe os comentários de documentação TSDoc e o comentário de cabeçalho do arquivo, exatamente como solicitado pelas instruções atualizadas.
+   Limite a alteração a essa demonstração e aos testes diretamente relevantes. Não implemente a filtragem nem crie um recurso novo. Execute as verificações npm existentes relevantes, relate o que mudou e como a instrução afetou o código e pare para revisão. Pergunte antes de instalar qualquer coisa. Não faça commit, push nem crie um PR.
+   ```
+
+4. Revise o diff real do arquivo, não apenas a resposta do chat. Verifique se a documentação explica o comportamento real e se a melhoria de legibilidade o preserva. Revise os resultados relevantes de testes, lint e verificação de tipos; resolva falhas antes de continuar.
 
 Você atualizou os arquivos de instruções do projeto e viu o impacto que eles terão.
 
@@ -124,17 +132,23 @@ Você atualizou os arquivos de instruções do projeto e viu o impacto que eles 
 
 Os arquivos de instruções se tornam ativos do repositório, portanto são compartilhados com o restante da equipe. Vamos criar um PR com esse trabalho, como faríamos com qualquer outro ativo.
 
-1. No canto superior direito, selecione **Create PR**.
+Primeiro, autorize as instruções e a demonstração revisadas em conjunto:
+
+```plaintext
+Revise o diff completo das instruções de padrões de código, da referência em README e da demonstração de código com escopo limitado, incluindo os testes relacionados. Resuma a verificação e faça commit dessas alterações revisadas na branch desta sessão. Envie a branch e crie um único pull request destinado a main, usando o modelo de PR do repositório e vinculando a issue de padrões de código. Descreva isso como contribuição parcial, a menos que todos os critérios de aceitação da issue sejam atendidos; não use palavras-chave de fechamento para trabalho incompleto. Não faça o merge.
+```
+
+1. Abra o link do PR na sessão. Se o aplicativo apresentar uma confirmação **Create PR**, selecione-a sem criar um PR duplicado.
 2. Se solicitado, selecione **Sign in with your browser** e siga as instruções para se autenticar.
 3. O Copilot começará a criar o PR.
 
-Após a criação do PR, o Copilot monitorará os fluxos de trabalho do repositório que precisam ser executados. Depois de alguns instantes, o botão no canto superior direito mudará para **Ready to merge**, indicando que o PR está pronto para o merge.
+Examine o diff completo do PR em **My work**, incluindo as alterações de instruções e código. Revise os resultados de CI do repositório do participante e as revisões obrigatórias. Resolva falhas antes de selecionar **Ready to merge**; a CI não substitui a demonstração nem sua revisão.
 
 4. Selecione **Ready to merge**.
 5. Na nova caixa de diálogo, selecione **Merge pull request** para fazer o merge do pull request.
 
 > [!NOTE]
-> Depois que o padrão for integrado à branch padrão, ele fará parte do projeto para toda a equipe e para cada nova sessão. Quando você iniciar a sessão de filtragem na próxima lição a partir de uma branch padrão atualizada, o agente seguirá esse padrão automaticamente. O código TypeScript gerado incluirá comentários de documentação TSDoc sem que você precise solicitá-los, uma demonstração pequena, mas concreta, de como as instruções moldam o código gerado.
+> Confirme que o PR 2 foi integrado a `main` antes de iniciar a filtragem. Apenas um worktree novo não garante código atualizado: na Lição 4, você buscará as atualizações e avançará a branch da nova sessão por fast-forward até `origin/main`, verificando se os dois merges anteriores estão presentes antes de planejar.
 
 ## Resumo e próximos passos
 
@@ -142,10 +156,10 @@ Você explorou como o aplicativo obtém contexto dos arquivos de instruções e 
 
 - explorou o arquivo `copilot-instructions.md` do repositório e os arquivos `*.instructions.md` com escopo de caminho.
 - iniciou uma sessão a partir da issue de instruções no backlog.
-- pediu ao agente que adicionasse um padrão de documentação a `.github/copilot-instructions.md`.
-- revisou a alteração e fez o merge dela como um pull request.
+- pediu ao agente que adicionasse regras de documentação específicas aos arquivos de instruções adequados e as referenciasse em README.
+- examinou o efeito do padrão em uma alteração real de código, validou o resultado e integrou ambos como PR 2.
 
-Em seguida, você criará o recurso de filtragem em uma nova sessão e verá como ele adota o padrão que acabou de integrar. Continue para a [Lição 4 - Criar um recurso com o Autopilot][next-lesson].
+Em seguida, você criará o recurso de filtragem em uma nova sessão e verificará se ele segue o padrão que acabou de integrar. Continue para a [Lição 4 - Criar a filtragem com Plan e Autopilot][next-lesson].
 
 ## Recursos
 
@@ -154,6 +168,7 @@ Em seguida, você criará o recurso de filtragem em uma nova sessão e verá com
 - [Boas práticas para criar instruções personalizadas][instructions-best-practices]
 - [Awesome Copilot — uma coleção de arquivos de instruções e outros recursos][awesome-copilot]
 
+[previous-lesson]: ../2-add-star-rating/
 [next-lesson]: ../4-build-filtering/
 [instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app

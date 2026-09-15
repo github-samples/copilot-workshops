@@ -1,9 +1,9 @@
 ---
 title: "第 3 课 - 使用自定义指令引导 Copilot"
-description: "使用 GitHub Copilot app 向存储库添加自定义指令标准，从待办议题开始，并通过拉取请求合并更改。"
+description: "添加文档标准，在一个现有的小型辅助函数或组件上展示其效果，并通过第二个拉取请求一并合并。"
 authors:
   - geektrainer
-lastUpdated: 2026-07-09
+lastUpdated: 2026-09-11
 ---
 
 使用生成式 AI 时，上下文至关重要。如果任务需要以特定方式完成，或 Copilot 应了解一些背景信息，就应提供这些上下文。[指令文件][instruction-files]是实现此目的最强大的工具之一，它不仅说明需要什么代码，还说明代码应如何组织。本课将向存储库添加文档标准，并采用后续大多数工作的方式：从待办议题开始，让智能体完成更改。
@@ -12,15 +12,17 @@ lastUpdated: 2026-07-09
 
 - 探索存储库指令和路径范围指令文件如何传递给智能体。
 - 从待办事项中的指令议题启动会话。
-- 要求智能体向 `.github/copilot-instructions.md` 添加文档标准。
-- 审查更改，并通过拉取请求合并更改。
+- 要求智能体向适当的存储库指令文件添加范围明确的文档标准。
+- 通过一个小型的真实代码改动展示标准的效果，完成验证，并合并 PR 2。
 
 ## 场景
 
 与所有优秀的开发团队一样，Tailspin Toys 针对开发实践制定了一组准则和要求，其中包括：
 
-- 应以 TSDoc 文档注释的形式向代码添加文档。
-- 应记录格式规范，并通过 lint 强制执行。
+- 注释应说明意图和不明显的决策，而不是复述代码。
+- `db/` 和 `src/lib/` 中导出的函数应使用 TSDoc/JSDoc 记录用途、参数和返回值；如果存在可注入的 `db` 参数，也应记录。
+- 可复用的 Astro 组件应记录其 `Props` 契约，并在相关代码变化时同步更新注释。
+- 应保留现有格式和 lint 指导。
 
 通过指令文件，可以确保 Copilot 获得正确的信息，按照这些实践完成任务。
 
@@ -28,13 +30,13 @@ lastUpdated: 2026-07-09
 
 自定义指令可向 Copilot 提供上下文和偏好，使其更好地理解编码风格与要求。这项强大功能可引导 Copilot 提供更相关的建议和代码片段。你可以指定首选编码约定、库，甚至希望代码中包含的注释类型。可以为整个存储库创建指令，也可以针对特定文件类型提供任务级上下文。
 
-指令文件分为两类：
+项目使用两类指令文件：
 
 - `.github/copilot-instructions.md`：每次针对存储库的请求都会发送给 Copilot 的单个指令文件。此文件应包含项目级信息，即与大多数发送给 Copilot 的聊天或 CLI 请求相关的上下文，例如所用技术栈、正在构建的内容概述、最佳实践和其他全局指导。
 - `.github/instructions/*.instructions.md`：可针对特定任务或文件类型创建。可以用它们为特定语言（如 TypeScript 或 Astro）提供准则，也可以为创建 UI 组件或一组新单元测试等任务提供指导。
 
 > [!NOTE]
-> Copilot 还支持通过 AGENTS.md、CLAUDE.md 和 GEMINI.md 等其他标准引入指令指导，确保 Copilot 始终具有正确的上下文。
+> 其他指令格式及支持情况因操作环境而异。依赖某种格式前，请查阅[自定义指令支持参考][custom-instructions-support]。
 
 ### 管理指令文件的最佳实践
 
@@ -74,49 +76,55 @@ lastUpdated: 2026-07-09
 11. 最后，打开 `.github/instructions/drizzle.instructions.md` 并滚动到底部。注意其中指向其他指令文件（如 `unit-tests.instructions.md`）和项目现有文件的链接。这样可以将较大的指令集拆分为较小的可复用文件，并让 Copilot 在生成代码时参考示例。（其中的路径相对于指令文件，而非存储库根目录。）
 
 > [!NOTE]
-> `copilot-instructions.md` 中的 **Code formatting requirements** 部分记录了项目编码标准，但尚未要求代码内文档。接下来，你将添加 TSDoc 文档注释和文件注释标头的规则。
+> 添加规则前，将现有指导与实际编码标准议题进行比较。本课关注说明意图的注释、导出的数据层函数文档和 Astro `Props` 契约，而不是统一要求文件标头或复述代码的注释。
 
 ## 从指令议题开始
 
-上一课通过直接提示词启动了会话。不过，大多数工作都从议题开始。接下来，根据用于更新指令文件的议题创建新会话，再请求更新。
+创建此会话前，确认 PR 1 已合并。为 PR 2 创建新工作树，不要继续使用星级评分分支。大多数工作都从议题开始，因此使用编码标准议题提供需求。
 
 > [!NOTE]
 > 指令文件对 Copilot 生成的代码影响很大，因此应确保它们能清晰地引导 Copilot。让 Copilot 创建第一版（正如本课将要做的），再由你审查更新是否满足要求，是一种有效方法。
 
 1. 在侧边栏中选择 **My work**。
 2. 选择标题为 **Update our repository coding standards** 的议题，将其打开。
-3. 选择右上角的 **New session**，根据该议题启动新会话。
+3. 选择右上角的 **New session**，选择 **new working tree**，再选择 **Interactive** 模式。
 
    ![GitHub Copilot app 的议题视图，箭头指向右上角的 New session 按钮](../../_images/app-new-session-from-issue.png)
 
-4. 使用以下提示词，请求 Copilot 更新指令文件以满足议题中记录的要求：
+4. 使用以下提示词。即使应用的本地检出内容已过时，编辑前更新新会话分支，也能确保实际起点是最新合并后的 `main`：
 
-  ```plaintext
-  Following this issue, make the updates to the instructions files in this project to meet the requirements documented. Don't create the PR quite yet!
-  ```
+   ```plaintext
+   编辑前，确定当前检出目录和分支，确认这是一个干净的新工作树，获取 origin，并将当前会话分支快进到 origin/main。确认 HEAD 与 origin/main 一致，并包含已合并的星级评分 PR。如果工作树不干净、已发生分叉或缺少该合并，停止；不要重置、丢弃工作或创建其他分支。
+
+   阅读议题 "Update our repository coding standards" 和现有存储库指令。添加范围明确的文档约定：说明意图而不是机械过程；使用 TSDoc/JSDoc 记录 db/ 和 src/lib/ 中导出函数的用途、参数、返回值，以及存在时可注入的 db 参数；记录可复用 Astro 组件的 Props 契约；并在相关代码变化时同步更新注释。
+
+   将每条规则放入适当的现有指令文件，避免重复或矛盾，并在 README 中链接到或概述更新后的标准。保留现有格式和 lint 指导。不要统一要求文件标头、迁移格式工具、重写整个应用的文档或实现筛选功能。向我展示指令差异，然后停止，供我审查。不要创建技能或智能体、提交、推送或创建 PR。
+   ```
 
 Copilot 会进行更新。
 
 ## 审查更改
 
-接下来阅读 Copilot 所做的更新，并要求它提供根据更新后指令生成的代码示例。
+阅读更新后的指导，再通过真实文件展示其效果。仅提供建议代码片段，无法证明存储库指令影响了代码改动。
 
 1. 选择右上角的 **Changes**，打开代码更改。
 
    ![GitHub Copilot app 会话面板选项卡，箭头指向 Changes 选项卡](../../_images/app-select-changes.png)
 
-2. 审查更新后的指令文件，确认其中包含有关向代码添加文档和注释的准则。
+2. 审查更新后的指令文件和 README 引用。确认规则符合议题的注释理念、导出函数文档要求和组件契约，不要自行添加统一的文件标头要求。
 
 > [!NOTE]
 > AI 具有概率性而非确定性，因此实际文本会有所不同。
 
-3. 使用以下提示词，要求 Copilot 创建它现在会生成的代码示例：
+3. 审查指令后，在同一会话中请求一个范围明确的示例改动：
 
-  ```plaintext
-  Do not make any updates, but show me what the code would look like. Based on the new instructions, if I asked Copilot to create a new library component to return all Publishers what would that code look like?
-  ```
+   ```plaintext
+   在 db/ 或 src/lib/ 中一个现有的小型导出 TypeScript 辅助函数，或一个可复用 Astro 组件上展示更新后的文档约定。检查存储库，选择合适的现有文件；不要假设已有 publishers 辅助函数。进行一项不改变行为的小型可读性改进，并应用相关函数文档或 Props 契约指导。解释不明显的意图，不添加仅复述代码的注释。
 
-4. 审查 Copilot 提议的代码。注意其中包含 TSDoc 文档注释和文件标头注释，这正是更新后的指令所要求的内容。
+   将更改限制在该示例及直接相关的测试内。不要实现筛选功能或创建新功能。运行相关的现有 npm 检查，报告更改内容及指令如何影响代码，然后停止，供我审查。在安装任何内容前先询问。不要提交、推送或创建 PR。
+   ```
+
+4. 审查实际文件差异，而不只是聊天回复。检查文档是否说明了真实行为，以及可读性改动是否保留了原有行为。审查相关测试、lint 和类型检查结果，解决失败项后再继续。
 
 现在，你已更新项目中的指令文件，并了解了更新带来的影响。
 
@@ -124,17 +132,23 @@ Copilot 会进行更新。
 
 指令文件会成为存储库中的资产，与团队其他成员共享。接下来像处理任何其他资产一样，为此次工作创建 PR。
 
-1. 在右上角选择 **Create PR**。
+先一并授权已审查的指令和示例改动：
+
+```plaintext
+审查编码标准指令、README 引用和范围明确的代码示例的完整差异，包括相关测试。汇总验证结果，并在当前会话分支上提交这些已审查的更改。推送分支，使用存储库的 PR 模板创建一个以 main 为目标的拉取请求，并关联编码标准议题。除非满足议题的每项验收标准，否则将其描述为部分贡献；不要为未完成的工作使用关闭议题的关键字。不要合并。
+```
+
+1. 打开会话中的 PR 链接。如果应用显示 **Create PR** 确认提示，选择它，不要创建重复的 PR。
 2. 如果系统提示，请选择 **Sign in with your browser**，并按照提示完成身份验证。
 3. Copilot 开始创建 PR。
 
-PR 创建后，Copilot 会监视存储库中需要运行的工作流。片刻后，右上角的按钮会变为 **Ready to merge**，表示 PR 已可合并。
+在 **My work** 中检查完整的 PR 差异，包括指令和代码更改。审查练习存储库的 CI 结果及必需的审查。在选择 **Ready to merge** 前解决失败项；CI 不能替代示例改动或你的审查。
 
 4. 选择 **Ready to merge**。
 5. 在新对话框窗口中选择 **Merge pull request**，合并拉取请求。
 
 > [!NOTE]
-> 标准合并到默认分支后，便会成为每位成员和每个新会话的项目组成部分。下一课从最新默认分支启动筛选会话时，智能体会自动遵循此标准。生成的 TypeScript 无需提示便会包含 TSDoc 文档注释。这是指令影响代码生成的一个虽小但真实的示例。
+> 开始筛选功能前，确认 PR 2 已合并到 `main`。仅创建新工作树并不能保证代码是最新的：第 4 课会先获取更新，将新会话分支快进到 `origin/main`，并在规划前确认前两个合并都已包含在内。
 
 ## 总结与后续步骤
 
@@ -142,10 +156,10 @@ PR 创建后，Copilot 会监视存储库中需要运行的工作流。片刻后
 
 - 探索了存储库中的 `copilot-instructions.md` 和路径范围 `*.instructions.md` 文件。
 - 从待办事项中的指令议题启动了会话。
-- 要求智能体向 `.github/copilot-instructions.md` 添加文档标准。
-- 审查了更改，并通过拉取请求将其合并。
+- 要求智能体向适当的指令文件添加范围明确的文档规则，并从 README 引用这些规则。
+- 检查了标准对真实代码改动的影响，验证了结果，并通过 PR 2 一并合并。
 
-接下来，你将在新会话中构建筛选功能，并观察它如何采用刚合并的标准。继续学习[第 4 课 - 使用 Autopilot 构建功能][next-lesson]。
+接下来，你将在新会话中构建筛选功能，并检查它是否遵循刚合并的标准。继续学习[第 4 课 - 使用 Plan 和 Autopilot 构建筛选功能][next-lesson]。
 
 ## 资源
 
@@ -154,6 +168,7 @@ PR 创建后，Copilot 会监视存储库中需要运行的工作流。片刻后
 - [创建自定义指令的最佳实践][instructions-best-practices]
 - [Awesome Copilot：指令文件和其他资源集合][awesome-copilot]
 
+[previous-lesson]: ../2-add-star-rating/
 [next-lesson]: ../4-build-filtering/
 [instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app

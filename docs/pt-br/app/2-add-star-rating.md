@@ -1,5 +1,5 @@
 ---
-title: "Lição 2 - Executar sua primeira sessão de agente"
+title: "Lição 2 - Adicionar avaliações por estrelas: uma melhoria rápida"
 description: "Inicie sua primeira sessão de agente no aplicativo GitHub Copilot, faça uma pequena alteração nos cards dos jogos e integre-a como seu primeiro pull request."
 authors:
   - geektrainer
@@ -22,7 +22,7 @@ Cada jogo no Tailspin Toys pode ter uma avaliação por estrelas, que já aparec
 
 ## Anatomia de uma sessão
 
-Uma **sessão** é uma conversa com um agente executada em seu próprio espaço de trabalho isolado. Cada sessão recebe um **git worktree e uma branch dedicados**, o que permite executar várias sessões ao mesmo tempo, uma adicionando um recurso e outra corrigindo um bug, sem que as alterações entrem em conflito. Suas sessões aparecem na barra lateral agrupadas por repositório. Selecione qualquer uma delas para acessá-la.
+Uma **sessão** é uma conversa com um agente. Neste workshop, você escolhe **new working tree**, dando à sessão uma cópia de trabalho e uma branch dedicadas. Isso isola cada marco de PR sem uma branch separada para cada lição. Suas sessões aparecem na barra lateral agrupadas por repositório. Selecione qualquer uma delas para acessá-la.
 
 Em uma sessão, você verá três elementos: a **conversa** com o agente, a **atividade de ferramentas** do agente enquanto ele explora e edita arquivos e a lista de **arquivos alterados** com os respectivos diffs.
 
@@ -36,16 +36,20 @@ Vamos iniciar uma nova sessão para começar a explorar o projeto e implementar 
 
    ![Caixa de prompt do aplicativo GitHub Copilot com o seletor de repositório definido como tailspin-toys e o seletor de modelo exibido abaixo do prompt](../../_images/app-2-start-session.png)
 
-4. Use o prompt a seguir para solicitar a alteração:
+4. Escolha **new working tree** e o modo **Interactive** abaixo da caixa de prompt. Use o prompt a seguir para solicitar a alteração:
 
    ```plaintext
-   On the game cards, show each game's star rating. The Game type already includes a starRating field — it's a number out of 5, or null when a game hasn't been rated yet. Display it on each card in src/components/GameCard.astro, and when starRating is null show "No rating yet" instead. Keep the change small and don't restructure the card layout.
+   Antes de editar, identifique esta cópia de trabalho e a branch, confirme que é um worktree novo e limpo, busque as atualizações de origin e avance a branch desta sessão por fast-forward até origin/main. Confirme que HEAD corresponde a origin/main. Pare e explique se houver alterações pendentes, divergências ou se não for possível atualizar; não redefina nem descarte trabalho.
+
+   Nos cards dos jogos, mostre a avaliação por estrelas de cada jogo. O tipo Game já inclui um campo starRating: um número em uma escala de cinco, ou null quando o jogo ainda não foi avaliado. Exiba-o em cada card em src/components/GameCard.astro e, quando starRating for null, mostre "No rating yet". Mantenha a alteração pequena e não reestruture o layout do card nem altere o modelo de dados.
+
+   Siga as instruções do repositório, adicione ou atualize os testes adequados e execute as verificações npm existentes relevantes. Examine os pré-requisitos e pergunte antes de instalar qualquer coisa. Relate os arquivos alterados e os resultados das verificações e pare para minha revisão. Não faça commit, push, não abra um pull request nem implemente outro recurso.
    ```
 
 > [!NOTE]
 > Observe que o prompt contém o nome do arquivo que o Copilot deve atualizar. Embora não seja obrigatório especificar os arquivos que o Copilot deve incluir no trabalho, indicar a direção certa ajuda o Copilot a gerar código mais rapidamente e reduz o uso de tokens.
 
-5. Selecione <kbd>Enter</kbd> para enviar o prompt ao Copilot.
+5. Pressione <kbd>Enter</kbd> para enviar o prompt ao Copilot.
 
 O aplicativo Copilot começa criando um novo worktree, uma cópia isolada do projeto. Em seguida, ele explora o projeto, localiza os arquivos que precisam ser atualizados e cria o código necessário para adicionar o novo recurso. Você acabou de adicionar um recurso com o aplicativo Copilot.
 
@@ -76,7 +80,9 @@ Todas as alterações geradas por IA devem ser revisadas antes do merge, mesmo a
 
 ## Verificar as alterações
 
-Não devemos apenas ler o código e presumir que ele funciona. Também precisamos testar tudo visualmente. Para isso, iniciaremos o aplicativo no terminal e confirmaremos o funcionamento. O aplicativo Copilot inclui um terminal.
+Revise os resultados das verificações automatizadas do agente antes de abrir um navegador. Confirme que os testes cobrem um `starRating` numérico e a alternativa para `null`, usando os scripts npm existentes do projeto em vez de uma skill que ainda não existe. Um pré-requisito ausente ou uma verificação ignorada não conta como aprovação.
+
+Depois, examine o aplicativo manualmente pelo terminal integrado da sessão. Identifique o worktree antes de iniciar o servidor e não reutilize um servidor de outra cópia de trabalho.
 
 1. No painel de revisão à direita do aplicativo Copilot, selecione **Terminal**. Se não houver um botão **Terminal**, selecione **+** (identificado como **Open in panel**) e depois selecione **Terminal**.
 
@@ -89,26 +95,30 @@ Não devemos apenas ler o código e presumir que ele funciona. Também precisamo
    ```
 
 3. Quando o servidor iniciar, o que levará apenas alguns instantes, abra uma janela do navegador.
-4. Acesse http://localhost:4321.
-5. Agora você deve ver avaliações por estrelas em todos os jogos da página inicial.
+4. Abra a URL local exibida pelo servidor, normalmente `http://localhost:4321`. Se a porta estiver ocupada, identifique seu responsável em vez de interromper um processo não relacionado.
+5. Confirme que os cards de jogos avaliados mostram a nota em uma escala de cinco. Quando houver dados sem avaliação, confirme que **No rating yet** aparece; caso contrário, use o teste automatizado para verificar o caso null em vez de afirmar que o observou.
 6. Volte à janela do terminal.
-7. Selecione <kbd>Ctrl</kbd>+<kbd>C</kbd> para interromper o servidor de desenvolvimento.
+7. Pressione <kbd>Control</kbd>+<kbd>C</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>C</kbd> (Windows/Linux) para interromper o servidor de desenvolvimento que você iniciou.
 
 ## Abrir e fazer merge do primeiro pull request
 
-A alteração está correta. Agora é hora de entregá-la. Você pedirá ao agente que abra um pull request e depois fará a revisão e o merge no github.com. Por enquanto, gerenciaremos esse processo manualmente. Em uma próxima lição, veremos como o Copilot pode automatizar parte desse trabalho.
+A alteração está correta. Agora é hora de entregar o PR 1. Primeiro, autorize o commit e o PR separadamente da implementação:
 
-1. No canto superior direito, selecione **Create PR**.
+```plaintext
+Revise o diff completo da alteração de avaliações por estrelas e seus testes, resuma a verificação e faça commit das alterações revisadas na branch desta sessão. Envie a branch e crie um pull request destinado a main usando o modelo de PR do repositório. Não faça o merge.
+```
+
+1. Abra o link do PR criado na sessão. Se o aplicativo apresentar uma confirmação **Create PR**, selecione-a para aprovar a solicitação em vez de criar um segundo PR.
 2. Se solicitado, selecione **Sign in with your browser** e siga as instruções para se autenticar.
 3. O Copilot começará a criar o PR.
 
-Após a criação do PR, o Copilot monitorará os fluxos de trabalho do repositório que precisam ser executados. Depois de alguns instantes, o botão no canto superior direito mudará para **Ready to merge**, indicando que o PR está pronto para o merge.
+Após a criação do PR, examine o diff completo e as verificações em **My work**. Leia os resultados dos fluxos de trabalho do repositório do participante; aguarde as verificações e revisões obrigatórias e resolva falhas antes do merge. **Ready to merge** não substitui a revisão da alteração ou das evidências locais.
 
 4. Selecione o indicador **PR** logo acima do chat para abrir o PR no painel de revisão e visualizá-lo. Faça as revisões necessárias nesse painel.
 5. Quando estiver tudo pronto, selecione **Ready to merge**.
 6. Na nova caixa de diálogo, selecione **Merge pull request** para fazer o merge do pull request.
 
-Você acaba de enviar um novo recurso para o site.
+Confirme que o PR 1 foi integrado a `main` antes de continuar. Fazer merge no repositório do participante não implanta um site por si só. A próxima lição inicia um worktree novo e o atualiza a partir de `origin/main` para incluir esse PR.
 
 ## Resumo e próximos passos
 
@@ -118,7 +128,7 @@ Você iniciou sua primeira sessão de agente e entregou sua primeira alteração
 - orientou o agente a fazer uma alteração pequena e específica nos cards dos jogos.
 - revisou a alteração na visualização de diff do espaço de trabalho.
 - executou o aplicativo localmente para confirmar a avaliação por estrelas no navegador.
-- abriu um pull request e fez o merge por conta própria no github.com.
+- abriu o PR 1, revisou as verificações e fez o merge explicitamente.
 
 Em seguida, você usará o aplicativo para adicionar um padrão de instruções personalizadas ao repositório, começando por uma das issues do backlog. Continue para a [Lição 3 - Orientar o Copilot com instruções personalizadas][next-lesson].
 
@@ -129,6 +139,7 @@ Em seguida, você usará o aplicativo para adicionar um padrão de instruções 
 - [Gerenciar issues e pull requests com o aplicativo GitHub Copilot][managing-issues-prs]
 
 [prior-lesson]: ../1-install-copilot-app/#instalar-e-configurar-o-aplicativo-github-copilot
+[previous-lesson]: ../1-install-copilot-app/
 [next-lesson]: ../3-custom-instructions/
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

@@ -15,18 +15,18 @@ In this lesson, you will:
 
 ## Install Node.js
 
-Several lessons ask an agent to build features and run the Tailspin Toys test suite locally, which needs **[Node.js][nodejs]** — the only runtime the project requires. Install version **22 or newer**; the current **LTS** release is a safe choice.
+Several lessons ask an agent to build features and run the Tailspin Toys test suite locally, which needs **[Node.js][nodejs]**. Use **Node.js 22.13 or later**, and confirm the supported version in your checkout's `package.json` and README.
 
 The simplest option on every platform is the official installer:
 
 1. In your operating system, open a terminal window using Windows Terminal, macOS terminal, or whatever you typically use.
-2. Run the following command to confirm you have at least Node.js 22 or higher installed:
+2. Run the following command to confirm you have Node.js 22.13 or later installed:
 
     ```shell
     node --version
     ```
 
-3. If you see `v22` or a higher number, you can skip to the next section!
+3. If the reported version is at least `v22.13.0` and supported by the project, you can skip to the next section.
 
 > [!TIP]
 > You only need to complete these steps if you don't have Node installed, or you need to update.
@@ -41,10 +41,10 @@ The simplest option on every platform is the official installer:
     node --version
     ```
 
-9. You should see `v22.x.x` or higher.
+9. Confirm the reported version is at least `v22.13.0` and supported by the project.
 
-> [!TIP]
-> Prefer containers? If you have **[Docker][docker]**, you can use the repository's [dev container][dev-containers] instead of installing Node.js locally — it bundles Node for you. You don't need both.
+> [!IMPORTANT]
+> This App path uses local worktrees. A runtime installed only in a container is not available to those local sessions. Each worktree also needs the project dependencies and Playwright Chromium for E2E checks. Follow the learner repository's README when preparing a worktree, and review any installation request before approving it.
 
 ## Set up the lab repository
 
@@ -64,6 +64,8 @@ You'll work against your own copy of the Tailspin Toys project. Create it now fr
 > [!NOTE]
 > When you create your repository from the template, a backlog of GitHub issues is created for you automatically. You'll work from these issues throughout the workshop — there's nothing to file yourself.
 
+Use a fresh copy of the revised template: it includes repository instructions, application code, tests, and an existing canvas extension, but no supplied custom agents or skills. You will create your own quality-checks skill and QA profile during the workshop. If you use an older copy, inspect existing customizations rather than overwrite them.
+
 ## Summary and next steps
 
 You're set up! You installed Node.js so the project can build and test on your machine, and you created your own copy of the Tailspin Toys repository from the template.
@@ -79,7 +81,5 @@ Next, you'll install the GitHub Copilot app, connect the repository you just cre
 [next-lesson]: ../1-install-copilot-app/
 [nodejs]: https://nodejs.org/
 [node-download]: https://nodejs.org/en/download
-[docker]: https://www.docker.com/products/docker-desktop/
-[dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

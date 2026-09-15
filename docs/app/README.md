@@ -3,12 +3,14 @@ slug: app
 title: "GitHub Copilot app"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 The **[GitHub Copilot app](https://docs.github.com/copilot/concepts/agents/github-copilot-app)** is a desktop application built on Copilot CLI that brings agent-driven development into a single, focused workspace. It adds parallel agent sessions, switchable session modes, shared canvases, and native GitHub issue and pull request management — including **Agent Merge**, which shepherds a pull request through rebases, review feedback, CI fixes, and merge.
 
-Across these lessons you'll install the app and set up your project, then get oriented in the app's workspace and the backlog the template seeded for you. You'll start with a small change — adding a star rating — then add a custom instructions standard from an issue, build a filtering feature in an isolated agent session, and verify it with a reusable skill. You'll add the Playwright MCP server to explore the feature in a real browser, then climb a ladder of merge automation that ends with **Agent Merge** landing your pull request. Finally you'll collaborate on a shared canvas and automate recurring work — a complete loop from idea to merged feature.
+Setup Lessons 0–1 prepare your project and App workspace. The nine core modules, Lessons 2–10, begin with a star-rating quick win and a documentation convention demonstrated in real code. Then you'll plan and build filtering, create and execute a shell-bundled quality-checks skill, observe the feature through Playwright MCP, and create a QA custom agent to assess requirements and coverage. You'll review the complete feature PR and authorize Agent Merge, then create and merge a shared triage canvas.
+
+The workshop has four PR milestones: star ratings; instructions with their demonstration; filtering with the skill, QA profile, and tests; then the canvas. Start each milestone from updated `main`, using one branch per PR rather than one per module. Lessons 4–8 stay in the same filtering session, worktree, and branch. Reopening the canvas adds issue context without launching another feature or fifth PR. Automations are linked as a next step, not an additional exercise.
 
 ## Lessons
 
@@ -16,13 +18,15 @@ Across these lessons you'll install the app and set up your project, then get or
 |--------|-------|-------------|
 | [0. Prerequisites][ex0] | Setup | Install Node.js and create your copy of the Tailspin Toys project |
 | [1. Install the Copilot app][ex1] | Setup | Install the app, connect your project, and get oriented in the workspace |
-| [2. Running your first agent session][ex2] | First change | Start a session and ship a small change as your first pull request |
-| [3. Guiding Copilot with custom instructions][ex3] | Context | Add a documentation standard from an issue and merge it |
-| [4. Building a feature with Autopilot][ex4] | Core Feature | Use Plan and Autopilot to build filtering, then verify it with a skill |
-| [5. Testing with Playwright MCP][ex5] | External Tools | Add the Playwright MCP server and explore your feature in a browser |
-| [6. Merging with Agent Merge][ex6] | Merge | Let Agent Merge fix and land your filtering pull request |
-| [7. Planning with canvases][ex7] | Collaboration | Create a shared canvas to plan and track your work |
-| [8. Review and next steps][ex8] | Summary | Automate recurring tasks and explore what's next |
+| [2. Add star ratings: a quick win][ex2] | First change | Display existing ratings and the null fallback, then merge PR 1 |
+| [3. Guide Copilot with custom instructions][ex3] | Context | Add a documentation standard and a real demonstration, then merge PR 2 |
+| [4. Build filtering with Plan and Autopilot][ex4] | Implementation | Approve the plan, implement and check filtering, and checkpoint |
+| [5. Create and use a quality-checks skill][ex5] | Repeatable checks | Create, inspect, and execute bundled shell scripts |
+| [6. Validate functionality with Playwright MCP][ex6] | Browser observation | Configure MCP through Customize and inspect filtering behavior |
+| [7. Create and use a QA agent][ex7] | Requirements and coverage | Select a specialist profile and gather final verification evidence |
+| [8. Create and merge the feature PR][ex8] | Review and merge | Review filtering, the skill, QA profile, and tests, then authorize Agent Merge for PR 3 |
+| [9. Create a triage canvas][ex9] | Collaboration | Share a repository-backed canvas in PR 4 and add issue context |
+| [10. Wrap-up and next steps][ex10] | Summary | Review the workflow, artifacts, and further resources |
 
 ## Prerequisites
 
@@ -50,9 +54,11 @@ Before attending this workshop, please ensure you have:
 [ex2]: 2-add-star-rating/
 [ex3]: 3-custom-instructions/
 [ex4]: 4-build-filtering/
-[ex5]: 5-mcp-playwright/
-[ex6]: 6-agent-merge/
-[ex7]: 7-canvases/
-[ex8]: 8-review/
+[ex5]: 5-agent-skills/
+[ex6]: 6-mcp-playwright/
+[ex7]: 7-qa-agent/
+[ex8]: 8-create-pull-request/
+[ex9]: 9-canvases/
+[ex10]: 10-review/
 [install-git]: https://github.com/git-guides/install-git
 [callout-student-plan-education]: https://github.com/education/students

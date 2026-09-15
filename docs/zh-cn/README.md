@@ -27,7 +27,7 @@ GitHub Copilot 最近新增的功能为开发人员提供了贯穿整个软件�
 
 ### 🤖 [Copilot App](app/)
 
-**GitHub Copilot app** 是一款基于 Copilot CLI 构建的桌面应用。它支持并行运行智能体会话、切换会话模式、在画布上协作，以及直接管理 GitHub 议题和拉取请求。其中包括 **Agent Merge**，可引导拉取请求完成变基、处理审查反馈、修复 CI 问题并最终合并。
+**GitHub Copilot app** 是一款基于 Copilot CLI 构建的桌面应用。使用应用的隔离会话和 **Agent Merge**，按相同的设置和九个核心模块完成星级评分、指令、筛选功能、技能、MCP、QA 和功能 PR 工作流。创建并合并保存在存储库中的画布，完成第四个拉取请求里程碑，然后总结。
 
 ### ☁️ [Copilot Cloud Agent](../cloud/)
 

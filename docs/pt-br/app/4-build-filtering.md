@@ -1,186 +1,128 @@
 ---
-title: "Lição 4 - Criar um recurso com o Autopilot"
-description: "Use os modos Plan e Autopilot no aplicativo GitHub Copilot para criar um recurso estático de filtragem no lado do cliente, observar como ele herda seu padrão de documentação e verificá-lo com uma skill de agente."
+title: "Lição 4 - Criar a filtragem com Plan e Autopilot"
+description: "Planeje a filtragem a partir da issue, aprove o Autopilot explicitamente, valide com as verificações npm existentes e uma visita manual ao navegador e salve um checkpoint."
 authors:
   - geektrainer
-lastUpdated: 2026-07-13
+lastUpdated: 2026-09-11
 ---
 
-Até agora, fizemos algumas pequenas atualizações no projeto. No entanto, alterações mais robustas exigem um processo mais completo. O aplicativo GitHub Copilot foi criado para trabalhar com nosso fluxo existente e ajudar a garantir que criemos as soluções certas da maneira correta. Esta é a primeira de três lições nas quais você seguirá um processo típico de desenvolvimento, começando por usar uma issue para gerar um novo recurso e uma skill de agente para executar os testes de validação e os linters.
+Você integrou as avaliações por estrelas e o padrão de documentação com sua demonstração de código. Agora crie o recurso de filtragem. Este é o início de um marco de PR maior: mantenha esta mesma sessão, worktree e branch durante as Lições 4–8.
 
 Nesta lição, você vai:
 
-- iniciar uma nova sessão a partir da issue de filtragem.
-- usar o modo **Plan** para planejar o recurso e depois o **Autopilot** para criá-lo.
-- confirmar que o código gerado segue o padrão de documentação integrado anteriormente.
-- verificar o trabalho com a skill `quality-checks` do projeto.
+- partir de `main` atualizado e ler a issue real de filtragem.
+- resolver os requisitos no modo **Plan** antes de aprovar explicitamente o **Autopilot**.
+- revisar a filtragem e os testes e executar as quatro verificações npm existentes.
+- visitar o recurso manualmente no navegador e salvar um checkpoint.
+
+A skill, a validação MCP, o perfil QA e o PR do recurso vêm nos próximos módulos. Não os crie durante esta etapa de implementação.
 
 ## Cenário
 
-A página inicial lista todos os jogos, mas os visitantes não conseguem restringir a lista. A issue de filtragem solicita que eles possam filtrar jogos por **categoria** e **distribuidora**. Vamos usar o Copilot para implementar essa funcionalidade.
-
-## Contexto
-
-Introduzir agentes de programação com IA no fluxo de desenvolvimento não muda os fundamentos. Na verdade, eles se tornam ainda mais importantes. A maioria das pessoas desenvolvedoras segue um fluxo semelhante a este:
-
-1. Abrir uma issue com os detalhes do que precisa ser feito.
-2. Criar um plano do que precisa ser desenvolvido.
-3. Criar e revisar o código.
-4. Executar os testes para validar o código.
-5. Validar manualmente a nova funcionalidade.
-6. Criar um pull request (PR).
-7. Depois que o código for revisado e o processo de integração contínua for concluído com êxito, fazer o merge do código.
-
-> [!NOTE]
-> Os detalhes exatos variam de acordo com sua equipe e organização, mas a maioria dos fluxos será uma variação do processo descrito acima.
-
-Ao seguir essa abordagem padrão, você garante que o código gerado por IA atenda aos requisitos definidos e passe pelo mesmo processo de avaliação do código escrito manualmente.
+O catálogo da Tailspin Toys está crescendo, e os visitantes precisam filtrar os jogos por categoria e editora. A issue do backlog descreve o recurso, mas detalhes como a combinação de categorias precisam ser acordados antes de programar. Você usará o modo Plan para resolver essas decisões e depois autorizará uma implementação delimitada com Autopilot.
 
 ## Modos de sessão
 
-O **modo de sessão** controla o grau de autonomia do agente. Você pode defini-lo no menu suspenso abaixo do campo de prompt e alterá-lo a qualquer momento:
+O seletor de modo abaixo do prompt controla a autonomia do agente:
 
-- **Interactive**: você e o agente trabalham em conjunto. O agente sugere alterações e aguarda sua orientação antes de prosseguir.
-- **Plan**: o agente cria primeiro um plano. Você revisa e aprova o plano antes que o agente o execute.
-- **Autopilot**: o agente trabalha com total autonomia, escrevendo código, executando testes e iterando sem aguardar sua orientação.
+- **Interactive** mantém você envolvido enquanto o agente trabalha e solicita informações.
+- **Plan** prepara um plano para revisão antes da implementação.
+- **Autopilot** implementa e itera de forma autônoma dentro do escopo e das permissões aprovados.
+
+Planeje primeiro, aprove explicitamente e volte ao Interactive antes de criar personalizações reutilizáveis.
+
+## Partir de main atualizado
+
+Confirme que o PR 1 e o PR 2 foram integrados no GitHub. Crie um worktree novo para a filtragem em vez de continuar em qualquer uma das branches anteriores.
+
+1. Selecione **My work** e encontre **Allow users to filter games by category and publisher** pelo título. Abra a issue e copie sua URL real; os números de issue variam entre repositórios.
+2. Selecione **New session** e escolha **new working tree**. Mantenha o modo **Interactive** para atualizar o estado inicial.
+
+   ![Visualização da issue no aplicativo GitHub Copilot com uma seta apontando para o botão New session](../../_images/app-new-session-from-issue.png)
+
+3. Envie esta solicitação de preparação antes de planejar ou editar:
+
+   ```plaintext
+   Prepare esta nova sessão de filtragem sem implementar nada. Identifique a cópia de trabalho e a branch, confirme que o worktree está limpo, busque as atualizações de origin e avance a branch desta sessão por fast-forward até origin/main. Confirme que HEAD corresponde a origin/main e inclui os PRs integrados de avaliações por estrelas e padrões de código.
+
+   Pare e explique se houver alterações pendentes, divergências ou se algum dos merges estiver ausente. Não redefina nem descarte trabalho, não mude de branch, não crie outra branch nem edite arquivos da aplicação. Informe a revisão inicial.
+   ```
+
+4. Verifique o estado inicial informado. Apenas buscar atualizações não atualiza o worktree: a branch da sessão atual deve avançar por fast-forward e seu `HEAD` deve corresponder ao `origin/main` obtido antes de começar o trabalho.
 
 ## Planejar o recurso de filtragem
 
-O melhor momento para detectar um possível problema é antes que qualquer código seja escrito, e a melhor maneira de fazer isso é planejar com antecedência. Ao planejar com o Copilot, você pedirá que ele gere um conjunto de etapas e documente a abordagem que seguirá. Em seguida, poderá revisar o plano e fazer sugestões para melhorá-lo antes de permitir que o Copilot gere o código com base nele.
+Mude o seletor de modo para **Plan**. Substitua o marcador da issue abaixo pela URL que você copiou.
 
-Vamos abrir a issue, iniciar uma nova sessão e criar um plano alternando para o modo Plan e fazendo a solicitação.
+```plaintext
+Planeje o recurso de filtragem a partir desta issue: <filtering-issue-URL>. Leia todos os critérios de aceitação e as instruções do repositório e examine a aplicação estática Astro atual, suas funções auxiliares de acesso a dados e os testes existentes. Não implemente ainda.
 
-1. Selecione **My work** na aba de navegação.
-2. Selecione a issue intitulada **Allow users to filter games by category and publisher**.
-3. Selecione **New session** no canto superior direito.
+Cubra a seleção de várias categorias, a filtragem por distribuidora, a combinação de categorias e distribuidora, as funções auxiliares de acesso a dados adequadas, os controles acessíveis e a cobertura de unidade e de ponta a ponta exigida pela issue. Pergunte para que eu esclareça comportamentos não especificados, como a combinação de várias categorias, a limpeza dos filtros e os resultados vazios, em vez de inventar requisitos silenciosamente. Não introduza uma API de servidor, a menos que os requisitos e a arquitetura existente justifiquem.
 
-   ![Visualização da issue no aplicativo GitHub Copilot com uma seta apontando para o botão New session no canto superior direito](../../_images/app-new-session-from-issue.png)
+Proponha um plano de implementação e verificação com escopo limitado que siga a convenção de documentação do repositório e adicione ou atualize os testes de unidade e de ponta a ponta necessários. Após confirmar os comandos em package.json, planeje executar npm run lint, npm run test:unit, npm run test:e2e e npm run typecheck:all com as ferramentas existentes do projeto. Registre a URL da issue e meus esclarecimentos aprovados no plano para que eu possa reutilizá-los no QA.
 
-4. Selecione <kbd>Shift</kbd>+<kbd>Tab</kbd> até que o modo exibido seja **Plan**.
+Inclua estas medidas de segurança de execução no plano antes da minha aprovação: identifique a cópia de trabalho e o servidor em teste; examine os pré-requisitos antes de executar verificações; pergunte antes de instalar software, dependências ou navegadores; não reutilize o servidor de outro worktree; pare apenas os servidores que você iniciou; e relate outros conflitos de porta em vez de interromper processos não relacionados. Pré-requisitos ausentes e verificações ignoradas devem ser relatados como bloqueios, não como verificações aprovadas.
 
-   ![Caixa de prompt do aplicativo GitHub Copilot com uma seta apontando para o seletor de modo definido como Plan](../../_images/app-4-plan-mode.png)
+Inclua este limite de implementação no plano: depois que eu aprovar explicitamente o Autopilot, implemente apenas o recurso de filtragem acordado e seus testes neste mesmo worktree e branch, execute as quatro verificações, relate a implementação e todos os resultados, incluindo falhas ou bloqueios, e pare para minha revisão e verificação manual no navegador. Não crie skills ou agentes personalizados, não configure MCP, não mude de branch, não faça commit, push nem abra um PR durante a implementação. A verificação manual no navegador e o commit de checkpoint ocorrerão depois, sob minha orientação separada.
 
-5. Envie o prompt a seguir. A issue de filtragem já está no contexto da sessão porque você iniciou a partir dela:
+Por enquanto, permaneça no modo Plan e pare com o plano para minha revisão. Não implemente, não crie skills ou agentes personalizados, não configure MCP, não mude de branch, não faça commit, push nem abra um PR.
+```
 
-   ```plaintext
-   Plan the work based on the requirements documented in the issue. Please ask any clarifying questions you might have as you build the plan.
-   ```
+Responda às perguntas de esclarecimento e compare o plano com a issue. Procure as alterações de acesso a dados, os controles acessíveis e os testes, em vez de aceitar uma implementação apenas de interface. Guarde a URL real da issue e os esclarecimentos aprovados do plano para as Lições 6 e 7; use `none` quando não forem necessários critérios adicionais.
 
-6. O agente pode fazer perguntas complementares enquanto cria o plano. Responda com base em como você criaria o recurso.
+Antes de aprovar, confirme que o próprio plano contém as quatro verificações, a convenção de documentação, as medidas de segurança de pré-requisitos e servidores, a exigência de manter o mesmo worktree e branch e a parada após implementação e verificação. Ele deve proibir skills, agentes e configuração MCP posteriores, commits, pushes e PRs durante a implementação. Se faltar algum limite, peça um plano revisado ainda no modo **Plan** e examine a revisão antes de aprovar.
 
-> [!NOTE]
-> Como o Copilot é probabilístico, as perguntas complementares exatas podem variar. Na verdade, ele pode não fazer nenhuma pergunta. Isso é perfeitamente normal.
+## Aprovar o Autopilot explicitamente
 
-7. Ao terminar, o Copilot apresentará um resumo do plano. Revise-o. Ele deve propor a criação de consultas, a adição de controles de filtro e, naturalmente, testes. Se desejar, forneça feedback para refiná-lo. O agente incorporará suas sugestões em uma nova versão.
+Somente depois que o plano revisado contiver seus requisitos e todos os limites de execução, selecione **Approve and implement with autopilot** nos controles de aprovação do plano, ou a opção explícita equivalente de Autopilot exibida na sua versão. Confirme que o indicador de modo mostra **Autopilot**.
 
-## Criar com o Autopilot
+A aprovação pode iniciar a execução imediatamente. Portanto, todo o escopo de implementação, as regras de segurança e os limites de parada precisam estar no plano revisado antes da aprovação; não dependa de adicioná-los em uma mensagem posterior quando a execução já começou.
 
-Com o plano pronto, vamos permitir que o Copilot crie a implementação.
+O Autopilot pode escrever código e testes e iterar sobre falhas, mas essa permissão não autoriza concluir os próximos módulos do workshop. Um pré-requisito ausente é um bloqueio a resolver com aprovação, não uma verificação aprovada.
 
-1. Na lista de opções da caixa de diálogo **Plan summary**, selecione a opção mais próxima de **Approve and implement with autopilot**.
+## Revisar e verificar a implementação
 
-O Copilot começará a trabalhar na implementação.
+1. Abra **Changes** e examine a implementação da filtragem e os testes.
+2. Compare o resultado com a issue e os esclarecimentos aprovados, incluindo combinações de várias categorias e distribuidoras. Verifique se as funções auxiliares novas ou modificadas seguem o padrão de documentação da Lição 3.
+3. Examine a saída real dos comandos das quatro verificações npm. Elas são executadas diretamente agora porque você ainda não criou a skill quality-checks.
+4. Resolva falhas e execute novamente as verificações afetadas antes de aceitar a implementação. A configuração E2E do Playwright faz o build e serve uma prévia, podendo reutilizar um servidor local; confirme que o servidor testado pertence a este worktree, não a uma lição anterior.
 
-> [!NOTE]
-> Se o Copilot não começar a criar automaticamente o código necessário, você poderá solicitar isso com um prompt como "Go ahead and start building out the plan!".
->
-> A criação das atualizações necessárias levará vários minutos. O agente edita e cria arquivos, escreve e executa testes e faz iterações. Este é um bom momento para refletir sobre o que você explorou até agora ou fazer uma pausa.
+## Verificar o recurso manualmente
 
-## Revisar as alterações
+Volte a sessão ao modo **Interactive** antes da revisão manual e mantenha-o para a Lição 5.
 
-Todo código gerado por IA precisa ser revisado antes do merge. Vamos revisar o código e executar o site para confirmar que tudo está correto.
-
-1. Selecione **Changes** no canto superior direito para abrir as alterações no código.
-
-   ![Abas do painel da sessão no aplicativo GitHub Copilot com uma seta apontando para a aba Changes](../../_images/app-select-changes.png)
-
-2. Revise as alterações. Você deverá ver novos arquivos TypeScript e Astro, além de arquivos de teste. Observe que as novas funções auxiliares incluem comentários de documentação TSDoc e um comentário de cabeçalho do arquivo. O padrão de documentação integrado na Lição 3 foi aplicado automaticamente, sem que você precisasse solicitá-lo.
-3. No painel de revisão à direita do aplicativo Copilot, selecione **Terminal**. Se não houver um botão **Terminal**, selecione **+** (identificado como **Open in panel**) e depois selecione **Terminal**.
-
-   ![Botão Terminal no painel de revisão do aplicativo GitHub Copilot](../../_images/app-terminal-screenshot.png)
-
-4. Digite o comando a seguir na janela do terminal para iniciar o servidor de desenvolvimento do aplicativo Web:
+1. Abra **Terminal** no painel de revisão desta sessão. Se necessário, selecione **+** e depois **Terminal**.
+2. Confirme que o terminal está no worktree de filtragem e execute:
 
    ```shell
    npm run dev
    ```
 
-5. Quando o servidor iniciar, o que levará apenas alguns instantes, abra uma janela do navegador.
-6. Acesse http://localhost:4321.
-7. Agora você deve ver filtros disponíveis na página inicial.
-8. Se algo não estiver correto, peça ao Copilot que faça as atualizações.
-9. Quando estiver tudo certo, volte à janela do terminal.
-10. Selecione <kbd>Ctrl</kbd>+<kbd>C</kbd> para interromper o servidor de desenvolvimento.
+3. Abra no navegador a URL exibida por esse servidor, normalmente `http://localhost:4321`. Se a porta estiver ocupada, identifique seu responsável em vez de interromper um processo não relacionado ou presumir que o servidor existente contém suas alterações.
+4. Exercite a seleção de categorias, a seleção de distribuidora e sua combinação conforme o comportamento aprovado. Verifique o acesso por teclado e os comportamentos acordados para limpeza dos filtros e resultados vazios.
+5. Se algo falhar, solicite uma correção específica, revise o diff, execute novamente as verificações automatizadas afetadas e repita as verificações relevantes no navegador.
+6. Volte ao terminal e pressione <kbd>Control</kbd>+<kbd>C</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>C</kbd> (Windows/Linux) para parar o servidor que você iniciou. Confirme que ele parou antes da execução E2E do próximo módulo.
 
-## Verificar o trabalho com a skill quality-checks
+Esta é sua observação manual no navegador. A observação no navegador conduzida pelo agente via MCP vem na Lição 6.
 
-Você poderia apenas examinar o diff e considerar o trabalho concluído, mas a equipe definiu um padrão de qualidade e uma maneira repetível de verificá-lo.
+## Salvar um checkpoint
 
-As **skills de agente** permitem fornecer ao Copilot orientações sobre como executar tarefas repetíveis, como executar testes, gerar builds ou criar pull requests. Uma skill é uma pasta de instruções, scripts e recursos que o agente pode carregar sob demanda. [Agent Skills é um padrão aberto][agent-skills-repo] usado por vários agentes. Por isso, a mesma skill funciona no Copilot Chat em modo de agente, no agente de nuvem do Copilot, no Copilot CLI e no aplicativo GitHub Copilot.
+Após revisar as alterações e a verificação, autorize um commit local:
 
-As skills ficam na pasta `.github/skills` de um projeto ou globalmente em `~/.copilot/skills`. Cada skill é uma pasta que contém um arquivo `SKILL.md` com frontmatter YAML, formado por `name` e `description`, seguido pelas instruções em Markdown:
-
-```yaml
----
-name: quality-checks
-description: Run the project's test suites and linter to verify code changes are ready to commit, push, or merge.
----
+```plaintext
+Revise o diff atual e crie um commit de checkpoint para a implementação da filtragem e seus testes. Mantenha esta mesma branch e worktree de filtragem. Não crie skills ou agentes, não configure MCP, não faça push nem abra um pull request.
 ```
-
-As skills também podem incluir subpastas com scripts, ativos e materiais de referência. A estrutura completa é descrita na [especificação de skills de agente][agent-skills-spec].
-
-> [!TIP]
-> As skills são carregadas dinamicamente. O agente decide qual skill se aplica com base no campo `description`. Uma descrição clara e específica para o cenário é o que diferencia uma skill usada de uma ignorada.
-
-## Explorar a skill quality-checks
-
-Vamos explorar a skill para entender o que ela faz.
-
-1. Se o painel de revisão ainda não estiver visível, abra-o selecionando **Toggle review panel** no canto superior direito.
-
-   ![Barra de ferramentas superior do aplicativo GitHub Copilot com uma seta apontando para o botão Toggle review panel à direita de Create PR](../../_images/app-2-review-panel.png)
-
-2. Selecione **+** para adicionar um novo item ao painel de revisão.
-3. Selecione **File**.
-4. Pesquise `SKILL.md`.
-5. Selecione `SKILL.md .github/skills/quality-checks` na lista de arquivos para abri-lo.
-6. Observe `name` e `description`. A descrição informa ao agente *quando* usar a skill: sempre que alterações no código precisarem ser testadas, verificadas por lint ou validadas antes de um commit, push ou merge.
-7. Leia a skill. Observe que ela documenta qual script executa cada conjunto, como testes de unidade, testes de ponta a ponta do Playwright e ESLint, em que ordem e como depurar falhas comuns. Assim, o agente executa as verificações da maneira definida pela equipe, em vez de tentar adivinhar.
-
-## Executar as verificações
-
-Na mesma sessão de filtragem, peça ao agente que verifique o trabalho. Você não precisará nomear a skill, pois o agente a associará à sua solicitação.
-
-1. Volte ao aplicativo Copilot.
-2. Chame diretamente a skill usando o comando de barra `/quality-checks` e selecione <kbd>Enter</kbd>.
-3. Seguindo a skill, o agente executa os testes de unidade, o linter e os testes de ponta a ponta e relata os resultados. Se algo falhar, peça que ele corrija o problema e execute novamente as verificações até que tudo passe.
-4. **Mantenha esta sessão aberta.** Na próxima lição, você adicionará o servidor MCP do Playwright e o usará para ver o recurso de filtragem funcionando em um navegador real.
 
 ## Resumo e próximos passos
 
-Você criou um recurso real de ponta a ponta e o verificou de acordo com o padrão da equipe. Especificamente, você:
-
-- iniciou uma nova sessão a partir da issue de filtragem em um projeto atualizado.
-- usou o modo Plan para planejar o recurso e o Autopilot para criá-lo.
-- confirmou que o código auxiliar gerado seguiu o padrão de documentação integrado na Lição 3.
-- verificou o trabalho com a skill `quality-checks`.
-
-Em seguida, você conectará o servidor MCP do Playwright e pedirá ao agente que explore o recurso de filtragem em um navegador real. Continue para a [Lição 5 - Testar com o servidor MCP do Playwright][next-lesson].
+Você acordou os requisitos de filtragem, revisou a implementação e os testes e verificou o recurso manualmente. Este checkpoint faz parte do PR 3, não de um PR separado. Permaneça no modo **Interactive**, na mesma sessão, para a [Lição 5 - Criar e usar uma skill quality-checks][next-lesson].
 
 ## Recursos
 
 - [Trabalhar com sessões de agente no aplicativo GitHub Copilot][agent-sessions]
-- [Sobre Agent Skills][about-agent-skills]
-- [Personalizar o aplicativo GitHub Copilot][customize-app]
 - [Sobre sandboxes locais e na nuvem para o GitHub Copilot][sandboxes]
 
-[ex0]: ../0-prerequisites/
-[ex2]: ../2-add-star-rating/
-[ex3]: ../3-custom-instructions/
-[next-lesson]: ../5-mcp-playwright/
+[previous-lesson]: ../3-custom-instructions/
+[next-lesson]: ../5-agent-skills/
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
-[about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
-[customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app
 [sandboxes]: https://docs.github.com/copilot/concepts/about-cloud-and-local-sandboxes
-[agent-skills-repo]: https://github.com/agentskills/agentskills
-[agent-skills-spec]: https://agentskills.io/specification

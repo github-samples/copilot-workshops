@@ -1,186 +1,128 @@
 ---
-title: "第 4 课 - 使用 Autopilot 构建功能"
-description: "在 GitHub Copilot app 中使用 Plan 和 Autopilot 模式构建静态客户端筛选功能，观察它如何继承文档标准，并使用智能体技能进行验证。"
+title: "第 4 课 - 使用 Plan 和 Autopilot 构建筛选功能"
+description: "根据议题规划筛选功能，明确批准 Autopilot，使用现有 npm 检查和手动浏览器访问进行验证，并保存检查点。"
 authors:
   - geektrainer
-lastUpdated: 2026-07-13
+lastUpdated: 2026-09-11
 ---
 
-本项目已完成一些小更新。但更复杂的更改需要更完善的流程。GitHub Copilot app 可以配合现有流程，确保以正确的方式构建正确的内容。这是连续三节课程中的第一节，你将遵循典型开发流程：先使用议题生成新功能，再使用智能体技能运行验证测试和 lint。
+你已合并星级评分、文档标准及其代码示例。现在开始构建筛选功能。这是一个较大 PR 里程碑的起点：第 4–8 课始终沿用同一会话、工作树和分支。
 
 本课将介绍如何：
 
-- 从筛选议题启动新会话。
-- 使用 **Plan** 模式规划功能，再通过 **Autopilot** 构建功能。
-- 确认生成的代码遵循之前合并的文档标准。
-- 使用项目的 `quality-checks` 技能验证工作。
+- 从更新后的 `main` 开始，并阅读实际的筛选议题。
+- 在 **Plan** 模式中明确需求，再明确批准 **Autopilot**。
+- 审查筛选功能和测试，然后运行四项现有 npm 检查。
+- 在浏览器中手动检查功能，并保存检查点。
+
+技能、MCP 验证、QA 配置文件及功能 PR 将在后续模块中完成。不要在此实现步骤中提前创建它们。
 
 ## 场景
 
-主页列出了所有游戏，但访问者无法缩小列表范围。筛选议题要求允许用户按**类别**和**发行商**筛选游戏。接下来使用 Copilot 实现该功能。
-
-## 背景
-
-将 AI 编码智能体引入开发流程不会改变基本原则。事实上，这些原则反而更加重要。大多数开发人员遵循类似以下的流程：
-
-1. 打开已创建的议题，查看需要完成的工作详情。
-2. 为需要构建的内容制定计划。
-3. 构建并审查代码。
-4. 运行测试以验证代码。
-5. 手动验证新功能。
-6. 创建拉取请求 (PR)。
-7. 代码通过审查且持续集成流程成功后，合并代码。
-
-> [!NOTE]
-> 具体流程会因团队和组织而异，但大多数流程都是以上主题的变体。
-
-坚持这种标准方法，可以确保 AI 生成的代码满足既定要求，并经过与手写代码相同的审查流程。
+Tailspin Toys 的游戏目录不断扩大，访客需要按类别和发行商缩小游戏范围。待办 issue 描述了功能，但类别如何组合等细节需要在编码前达成共识。你将使用 Plan 模式确定这些决策，然后授权 Autopilot 在明确范围内实现功能。
 
 ## 会话模式
 
-**会话模式**控制智能体的自主程度。可以从提示词字段下方的下拉菜单中设置模式，并随时更改：
+提示框下方的模式选择器控制智能体的自主程度：
 
-- **Interactive**：你与智能体协同工作。智能体提出更改建议，并等待输入后再继续。
-- **Plan**：智能体先创建计划。你审查并批准计划后，智能体才会执行。
-- **Autopilot**：智能体完全自主工作，包括编写代码、运行测试和迭代，无需等待输入。
+- **Interactive** 让你在智能体工作和请求输入时持续参与。
+- **Plan** 在实现前准备计划，供你审查。
+- **Autopilot** 在批准的范围和权限内自主实现并迭代。
+
+先规划，再明确批准，创建可复用的自定义配置前切回 Interactive。
+
+## 从更新后的 main 开始
+
+确认 PR 1 和 PR 2 已在 GitHub 上合并。为筛选功能创建新工作树，不要继续使用之前的任一分支。
+
+1. 选择 **My work**，按标题找到 **Allow users to filter games by category and publisher**。打开议题并复制其实际 URL；不同存储库中的议题编号可能不同。
+2. 选择 **New session**，再选择 **new working tree**。更新基线时保持 **Interactive** 模式。
+
+   ![GitHub Copilot app 的议题视图，箭头指向 New session 按钮](../../_images/app-new-session-from-issue.png)
+
+3. 在规划或编辑前发送以下准备请求：
+
+   ```plaintext
+   准备这个新的筛选会话，不要实现任何内容。确定检出目录和分支，确认工作树干净，获取 origin，并将当前会话分支快进到 origin/main。确认 HEAD 与 origin/main 一致，并包含已合并的星级评分和编码标准 PR。
+
+   如果检出目录不干净、已发生分叉或缺少任一合并，停止并说明原因。不要重置或丢弃工作、切换分支、创建其他分支或编辑应用文件。报告基线修订版本。
+   ```
+
+4. 检查报告中的基线。仅获取更新不会更新工作树：工作开始前，当前会话分支必须完成快进，且其 `HEAD` 必须与获取后的 `origin/main` 一致。
 
 ## 规划筛选功能
 
-发现潜在问题的最佳时机是在编写任何代码之前，而提前规划正是最好的方法。让 Copilot 进行规划时，它会生成一组步骤，并记录将采用的方法。你可以审查计划并提出改进建议，然后让 Copilot 根据计划生成代码。
+将模式选择器切换为 **Plan**。把下方的议题占位符替换为刚复制的 URL。
 
-接下来打开议题、启动新会话，再切换到 Plan 模式并发出请求，以创建计划。
+```plaintext
+根据此议题规划筛选功能：<filtering-issue-URL>。阅读完整验收标准和存储库指令，然后检查当前的静态 Astro 应用、现有数据访问辅助函数及测试。暂时不要实现。
 
-1. 在导航选项卡中选择 **My work**。
-2. 选择标题为 **Allow users to filter games by category and publisher** 的议题。
-3. 选择右上角的 **New session**。
+涵盖议题要求的多类别选择、发行商筛选、类别与发行商组合筛选、适当的数据访问辅助函数、无障碍控件，以及单元测试和端到端测试覆盖。对于未明确的行为，例如多个类别如何组合、清除筛选和空结果，请让我决定，不要悄悄编造需求。除非需求和现有架构确有依据，否则不要引入服务器 API。
 
-   ![GitHub Copilot app 的议题视图，箭头指向右上角的 New session 按钮](../../_images/app-new-session-from-issue.png)
+提出范围明确的实现和验证计划，遵循存储库文档约定，并添加或更新必要的单元测试和端到端测试。在 package.json 中确认命令后，计划使用项目现有工具运行 npm run lint、npm run test:unit、npm run test:e2e 和 npm run typecheck:all。将议题 URL 和我批准的澄清内容记录在计划中，以便用于 QA。
 
-4. 选择 <kbd>Shift</kbd>+<kbd>Tab</kbd>，直到模式显示为 **Plan**。
+在我批准前，将以下执行保障纳入计划：确定被测检出目录和服务器；运行检查前检查先决条件；安装软件、依赖项或浏览器前先询问；不要复用其他工作树的服务器；仅停止自己启动的服务器；报告其他端口冲突，不要停止无关进程。必须将缺少先决条件和跳过检查报告为阻塞项，而不是通过。
 
-   ![GitHub Copilot app 提示框，箭头指向设为 Plan 的模式选择器](../../_images/app-4-plan-mode.png)
+将以下实现边界纳入计划：在我明确批准 Autopilot 后，仅在同一工作树和分支上实现约定的筛选功能及其测试，运行四项检查，报告实现情况和全部检查结果，包括失败或阻塞项，然后停止，供我审查并进行手动浏览器检查。实现期间不要创建技能或自定义智能体、配置 MCP、更改分支、提交、推送或打开 PR。手动浏览器检查和检查点提交将在之后由我单独指示。
 
-5. 发送以下提示词。由于会话从筛选议题启动，因此该议题已在会话上下文中：
+目前保持 Plan 模式，完成计划后停止，供我审查。不要实现、创建技能或自定义智能体、配置 MCP、更改分支、提交、推送或打开 PR。
+```
 
-   ```plaintext
-   Plan the work based on the requirements documented in the issue. Please ask any clarifying questions you might have as you build the plan.
-   ```
+回答澄清问题，并根据议题审查计划。检查其中是否包含数据访问改动、无障碍控件和测试，不要接受仅实现 UI 的方案。保存计划中的实际议题 URL 和批准的澄清内容，以供第 6 课和第 7 课使用；如果无需附加标准，使用 `none`。
 
-6. 智能体在制定计划时可能会提出后续问题。根据你会如何构建功能来回答这些问题。
+批准前，确认计划本身包含四项检查、文档约定、先决条件和服务器保障、保持同一工作树及分支的要求，以及实现和验证后停止的边界。计划必须禁止在实现期间提前创建技能、智能体、设置 MCP、提交、推送和创建 PR。如果缺少任何边界，保持 **Plan** 模式请求修订计划，检查修订版后再批准。
 
-> [!NOTE]
-> Copilot 具有概率性，因此它提出的具体后续问题会有所不同。事实上，它可能不会提出任何问题，这完全正常。
+## 明确批准 Autopilot
 
-7. 完成后，Copilot 会提供计划摘要。审查该计划，应会看到构建查询、添加筛选控件和测试的建议。可以根据需要提供反馈来完善计划，智能体会将建议纳入新版本。
+只有经过审查的计划已包含需求和全部执行边界，才能在计划批准控件中选择 **Approve and implement with autopilot**，或当前版本中等效的明确 Autopilot 选项。确认模式指示器显示 **Autopilot**。
 
-## 使用 Autopilot 构建
+批准后可能立即开始执行。因此，所有实现范围、安全规则和停止边界都必须在批准前写入已审查的计划；不要依赖执行开始后再通过后续消息补充。
 
-计划创建后，让 Copilot 构建实现。
+Autopilot 可以编写代码和测试，并针对失败进行迭代，但这并不意味着获准完成后续研讨会模块。缺少先决条件是需要获批后解决的阻塞项，不是通过了检查。
 
-1. 在 **Plan summary** 对话框的选项列表中，选择最接近 **Approve and implement with autopilot** 的选项。
+## 审查并验证实现
 
-Copilot 将开始实现。
+1. 打开 **Changes**，检查筛选实现和测试。
+2. 对照议题和批准的澄清内容检查结果，包括多类别及发行商组合。检查新增或修改的辅助函数是否遵循第 3 课的文档标准。
+3. 查看全部四项 npm 检查的实际命令输出。此时直接运行命令，因为尚未创建 quality-checks 技能。
+4. 接受实现前，解决失败项并重新运行受影响的检查。Playwright 的 E2E 配置会构建并提供预览服务，且可能复用本地服务器；确保被测服务器属于此工作树，而不是之前的课程。
 
-> [!NOTE]
-> 如果 Copilot 未自动开始创建所需代码，可以使用类似 "Go ahead and start building out the plan!" 的提示词让它继续。
->
-> 创建所需更新需要几分钟。智能体会编辑和创建文件、编写并运行测试，以及进行迭代。此时可以回顾目前探索的内容，或稍作休息。
+## 手动检查功能
 
-## 审查更改
+手动审查前，将会话切回 **Interactive** 模式，并在第 5 课中保持该模式。
 
-所有 AI 生成的代码在合并前都需要审查。接下来审查代码并运行网站，确保一切正常。
-
-1. 选择右上角的 **Changes**，打开代码更改。
-
-   ![GitHub Copilot app 会话面板选项卡，箭头指向 Changes 选项卡](../../_images/app-select-changes.png)
-
-2. 审查更改。应会看到新的 TypeScript、Astro 和测试文件。注意，新辅助函数包含 TSDoc 文档注释和文件标头注释。这是第 3 课中合并的文档标准，无需提示便已自动应用。
-3. 在 Copilot app 右侧的审查面板中选择 **Terminal**。如果没有 **Terminal** 按钮，请选择 **+**（标记为 **Open in panel**），再选择 **Terminal**。
-
-   ![GitHub Copilot app 审查面板中的 Terminal 按钮](../../_images/app-terminal-screenshot.png)
-
-4. 在终端窗口中输入以下命令，启动 Web 应用的开发服务器：
+1. 在此会话的审查面板中打开 **Terminal**。如有需要，选择 **+**，再选择 **Terminal**。
+2. 确认终端位于筛选工作树中，然后运行：
 
    ```shell
    npm run dev
    ```
 
-5. 服务器启动后（只需片刻），打开浏览器窗口。
-6. 转到 [http://localhost:4321](http://localhost:4321)。
-7. 现在应能在主页上看到筛选器。
-8. 如果有任何问题，可以要求 Copilot 进行更新。
-9. 满意后，返回终端窗口。
-10. 选择 <kbd>Ctrl</kbd>+<kbd>C</kbd> 停止开发服务器。
+3. 在浏览器中打开此服务器输出的 URL，通常是 `http://localhost:4321`。如果端口已被占用，应先确定其归属，不要停止无关进程，也不要假定现有服务器包含本次更改。
+4. 按批准的行为测试类别选择、发行商选择及两者组合。检查键盘访问，以及约定的清除筛选和空结果行为。
+5. 如果发现失败，请求针对性修正，审查差异，重新运行受影响的自动化检查，再重复相关浏览器检查。
+6. 返回终端，按 <kbd>Control</kbd>+<kbd>C</kbd>（Mac）或 <kbd>Ctrl</kbd>+<kbd>C</kbd>（Windows/Linux），停止自己启动的服务器。下一模块运行 E2E 前，确认服务器已停止。
 
-## 使用 quality-checks 技能验证工作
+这是你的手动浏览器观察。第 6 课才会通过 MCP 由智能体观察浏览器。
 
-可以仅查看差异就认为工作完成，但团队已经定义了质量标准和可重复的检查方式。
+## 保存检查点
 
-**智能体技能**可指导 Copilot 如何执行重复性任务，例如运行测试、生成构建或创建拉取请求。技能是一个包含指令、脚本和资源的文件夹，智能体可以按需加载。[Agent Skills 是一项开放标准][agent-skills-repo]，适用于多种智能体，因此同一技能可在智能体模式下的 Copilot Chat、Copilot cloud agent、Copilot CLI 和 GitHub Copilot app 中使用。
+审查更改和验证结果后，授权创建本地提交：
 
-技能位于项目的 `.github/skills` 文件夹或全局 `~/.copilot/skills` 中。每个技能都在一个文件夹中，其中包含具有 YAML frontmatter（`name` 和 `description`）及 Markdown 指令的 `SKILL.md` 文件：
-
-```yaml
----
-name: quality-checks
-description: Run the project's test suites and linter to verify code changes are ready to commit, push, or merge.
----
+```plaintext
+审查当前差异，为筛选实现及其测试创建检查点提交。保持同一筛选分支和工作树。不要创建技能或智能体、配置 MCP、推送或打开拉取请求。
 ```
-
-技能还可包含脚本、资产和参考资料子文件夹。[智能体技能规范][agent-skills-spec]介绍了完整结构。
-
-> [!TIP]
-> 技能会动态加载。智能体根据 `description` 字段决定适用的技能。清晰且针对具体场景的说明决定了技能是会被使用还是被忽略。
-
-## 探索 quality-checks 技能
-
-接下来探索该技能，了解其作用。
-
-1. 如果审查面板尚不可见，请选择右上角的 **Toggle review panel** 将其打开。
-
-   ![GitHub Copilot app 顶部工具栏，箭头指向 Create PR 右侧的 Toggle review panel 按钮](../../_images/app-2-review-panel.png)
-
-2. 选择 **+**，向审查面板添加新项目。
-3. 选择 **File**。
-4. 搜索 `SKILL.md`。
-5. 从文件列表中选择 `SKILL.md .github/skills/quality-checks` 将其打开。
-6. 注意 `name` 和 `description`。说明会告知智能体*何时*使用该技能，即每当代码更改需要在提交、推送或合并前进行测试、lint 或验证时。
-7. 阅读该技能。它记录了哪个脚本运行哪个套件（单元测试、Playwright 端到端测试、ESLint）、运行顺序，以及如何调试常见故障。因此，智能体会按团队规定的方式运行检查，而不是猜测。
-
-## 运行检查
-
-在同一筛选会话中，要求智能体验证工作。你无需说出技能名称，智能体会根据请求进行匹配。
-
-1. 返回 Copilot app。
-2. 使用 slash command `/quality-checks` 直接调用技能，然后选择 <kbd>Enter</kbd>。
-3. 智能体按照技能运行单元测试、lint 和端到端测试，并报告结果。如果有任何失败，请要求它修复问题并重新运行检查，直到全部通过。
-4. **保持此会话打开。**下一课将添加 Playwright MCP 服务器，并使用它在真实浏览器中查看筛选功能。
 
 ## 总结与后续步骤
 
-你端到端构建了一项真实功能，并按照团队的质量标准进行了验证。具体而言，你：
-
-- 从最新项目的筛选议题启动了新会话。
-- 使用 Plan 模式规划功能，并使用 Autopilot 构建功能。
-- 确认生成的辅助函数遵循第 3 课中合并的文档标准。
-- 使用 `quality-checks` 技能验证了工作。
-
-接下来，你将连接 Playwright MCP 服务器，并要求智能体在真实浏览器中探索筛选功能。继续学习[第 5 课 - 使用 Playwright MCP 服务器测试][next-lesson]。
+你已明确筛选需求、审查实现和测试，并手动检查功能。此检查点属于 PR 3，而不是单独的 PR。保持 **Interactive** 模式，在同一会话中继续学习[第 5 课 - 创建并使用 quality-checks 技能][next-lesson]。
 
 ## 资源
 
 - [在 GitHub Copilot app 中使用智能体会话][agent-sessions]
-- [关于 Agent Skills][about-agent-skills]
-- [自定义 GitHub Copilot app][customize-app]
 - [关于 GitHub Copilot 的云沙盒和本地沙盒][sandboxes]
 
-[ex0]: ../0-prerequisites/
-[ex2]: ../2-add-star-rating/
-[ex3]: ../3-custom-instructions/
-[next-lesson]: ../5-mcp-playwright/
+[previous-lesson]: ../3-custom-instructions/
+[next-lesson]: ../5-agent-skills/
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
-[about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
-[customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app
 [sandboxes]: https://docs.github.com/copilot/concepts/about-cloud-and-local-sandboxes
-[agent-skills-repo]: https://github.com/agentskills/agentskills
-[agent-skills-spec]: https://agentskills.io/specification

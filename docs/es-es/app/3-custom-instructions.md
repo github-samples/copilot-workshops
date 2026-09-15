@@ -1,9 +1,9 @@
 ---
 title: "Lección 3 - Guiar a Copilot con instrucciones personalizadas"
-description: "Utiliza la aplicación GitHub Copilot para añadir al repositorio un estándar de instrucciones personalizadas a partir de una incidencia de la lista de trabajo pendiente y combina el cambio como una solicitud de incorporación de cambios."
+description: "Añade un estándar de documentación, demuéstralo en una pequeña función auxiliar o un componente existente y combina ambos como segunda solicitud de incorporación de cambios."
 authors:
   - geektrainer
-lastUpdated: 2026-07-09
+lastUpdated: 2026-09-11
 ---
 
 El contexto es fundamental al trabajar con IA generativa. Si una tarea debe realizarse de una forma concreta o Copilot necesita conocer información de fondo, conviene que ese contexto esté disponible. Una de las herramientas más potentes para proporcionarlo son los [archivos de instrucciones][instruction-files], que describen no solo *qué* código quieres, sino también *cómo* debe estructurarse. En esta lección añadirás un estándar de documentación al repositorio y lo harás como realizarás la mayor parte del trabajo a partir de ahora: comenzarás desde una incidencia de la lista de trabajo pendiente y dejarás que el agente realice el cambio.
@@ -12,15 +12,17 @@ En esta lección:
 
 - explorarás cómo llegan al agente las instrucciones del repositorio y los archivos de instrucciones limitados por ruta.
 - iniciarás una sesión desde la incidencia sobre instrucciones de la lista de trabajo pendiente.
-- pedirás al agente que añada un estándar de documentación a `.github/copilot-instructions.md`.
-- revisarás el cambio y lo combinarás como una solicitud de incorporación de cambios.
+- pedirás al agente que añada un estándar de documentación específico a los archivos de instrucciones adecuados del repositorio.
+- demostrarás el estándar con un pequeño cambio de código real, lo validarás y combinarás la PR 2.
 
 ## Escenario
 
 Como cualquier buen equipo de desarrollo, Tailspin Toys dispone de directrices y requisitos para las prácticas de desarrollo. Entre ellos se incluyen:
 
-- Se debe añadir documentación al código mediante comentarios de documentación TSDoc.
-- El formato se debe documentar y aplicar mediante linting.
+- Los comentarios deben explicar la intención y las decisiones no evidentes, en lugar de repetir lo que hace el código.
+- Las funciones exportadas de `db/` y `src/lib/` deben documentar su propósito, parámetros y valores de retorno mediante TSDoc/JSDoc, incluido un argumento `db` inyectable cuando exista.
+- Los componentes reutilizables de Astro deben documentar sus contratos de `Props`, y los comentarios deben mantenerse actualizados cuando cambie el código relacionado.
+- Deben conservarse las directrices existentes de formato y lint.
 
 Mediante los archivos de instrucciones, garantizarás que Copilot disponga de la información adecuada para realizar las tareas conforme a estas prácticas.
 
@@ -28,13 +30,13 @@ Mediante los archivos de instrucciones, garantizarás que Copilot disponga de la
 
 Las instrucciones personalizadas permiten proporcionar contexto y preferencias a Copilot para que comprenda mejor el estilo y los requisitos de programación. Esta potente funcionalidad ayuda a orientar a Copilot para obtener sugerencias y fragmentos de código más pertinentes. Puedes especificar las convenciones de programación, las bibliotecas e incluso los tipos de comentarios que prefieres incluir en el código. También puedes crear instrucciones para todo el repositorio o para tipos de archivo concretos, con contexto específico para una tarea.
 
-Hay dos tipos de archivos de instrucciones:
+El proyecto utiliza dos tipos de archivos de instrucciones:
 
 - `.github/copilot-instructions.md`, un único archivo de instrucciones que se envía a Copilot con **cada** solicitud del repositorio. Debe contener información del proyecto que sea pertinente para la mayoría de las solicitudes de chat o CLI enviadas a Copilot, como la pila tecnológica, una descripción general de lo que se está creando, procedimientos recomendados y otras directrices globales.
 - Los archivos `.github/instructions/*.instructions.md` se pueden crear para tareas o tipos de archivo concretos. Puedes utilizarlos para proporcionar directrices para lenguajes específicos, como TypeScript o Astro, o para tareas como crear un componente de interfaz de usuario o un nuevo conjunto de pruebas unitarias.
 
 > [!NOTE]
-> Copilot admite otros estándares para incorporar instrucciones mediante AGENTS.md, CLAUDE.md y GEMINI.md, de modo que siempre disponga del contexto adecuado.
+> Los demás formatos de instrucciones y su compatibilidad varían según el entorno. Consulta la [referencia de compatibilidad de instrucciones personalizadas][custom-instructions-support] antes de depender de un formato concreto.
 
 ### Procedimientos recomendados para gestionar archivos de instrucciones
 
@@ -74,49 +76,55 @@ Dedica un momento a leer los archivos de instrucciones incluidos en este reposit
 11. Por último, abre `.github/instructions/drizzle.instructions.md` y desplázate hasta el final. Observa los vínculos a otros archivos de instrucciones, como `unit-tests.instructions.md`, y a archivos existentes del proyecto. De este modo puedes dividir conjuntos de instrucciones grandes en archivos más pequeños y reutilizables, y señalar a Copilot ejemplos que debe seguir al generar código. Las rutas son relativas al archivo de instrucciones, no a la raíz del repositorio.
 
 > [!NOTE]
-> La sección **Code formatting requirements** de `copilot-instructions.md` documenta los estándares de programación del proyecto, pero todavía no exige documentación dentro del código. En los pasos siguientes añadirás reglas para comentarios de documentación TSDoc y comentarios de cabecera de archivo.
+> Compara las directrices existentes con la incidencia real de estándares de programación antes de añadir reglas. Esta lección se centra en comentarios que explican la intención, documentación de funciones exportadas de la capa de datos y contratos de `Props` de Astro, no en cabeceras obligatorias para todos los archivos ni en comentarios que repiten el código.
 
 ## Empezar desde la incidencia sobre instrucciones
 
-En la lección anterior iniciaste una sesión con una indicación directa. Sin embargo, la mayor parte del trabajo comienza con una incidencia. Vamos a crear una sesión basada en una incidencia presentada para actualizar los archivos de instrucciones y, después, solicitaremos la actualización.
+Confirma que la PR 1 está combinada antes de crear esta sesión. Inicia un worktree nuevo para la PR 2; no continúes en la rama de valoraciones por estrellas. La mayor parte del trabajo comienza con una incidencia, así que utiliza la de estándares de programación para aportar los requisitos.
 
 > [!NOTE]
 > Como los archivos de instrucciones influyen mucho en el código que genera Copilot, debes asegurarte de que lo orienten con claridad. Pedir a Copilot que cree una primera versión, como harás en esta lección, es un buen enfoque, siempre que después la revises para confirmar que las actualizaciones cumplen tus requisitos.
 
 1. Selecciona **My work** en la barra lateral.
 2. Selecciona la incidencia titulada **Update our repository coding standards** para abrirla.
-3. Selecciona **New session** en la esquina superior derecha para iniciar una sesión basada en la incidencia.
+3. Selecciona **New session** en la esquina superior derecha, elige **new working tree** y selecciona el modo **Interactive**.
 
    ![Vista de una incidencia en la aplicación GitHub Copilot con una flecha que señala el botón New session de la esquina superior derecha](../../_images/app-new-session-from-issue.png)
 
-4. Utiliza la indicación siguiente para pedir a Copilot que actualice los archivos de instrucciones de acuerdo con los requisitos documentados en la incidencia:
+4. Utiliza la siguiente indicación. Actualizar la rama de la nueva sesión antes de editar hace que el último `main` combinado sea el punto de partida real, aunque la copia local de la aplicación estuviera desactualizada:
 
-  ```plaintext
-  Following this issue, make the updates to the instructions files in this project to meet the requirements documented. Don't create the PR quite yet!
-  ```
+   ```plaintext
+   Antes de editar, identifica esta copia de trabajo y su rama, confirma que es un worktree nuevo y limpio, obtén los cambios de origin y actualiza la rama de esta sesión mediante un avance rápido hasta origin/main. Confirma que HEAD coincide con origin/main e incluye la PR de valoraciones por estrellas combinada. Detente si hay cambios pendientes, divergencias o falta esa combinación; no restablezcas, no descartes trabajo ni crees otra rama.
+
+   Lee la incidencia "Update our repository coding standards" y las instrucciones existentes del repositorio. Añade una convención de documentación específica: explica la intención en lugar de la mecánica; documenta las funciones exportadas de db/ y src/lib/ con TSDoc/JSDoc que cubra propósito, parámetros, valores de retorno y argumentos db inyectables cuando existan; documenta los contratos de Props de los componentes reutilizables de Astro; y mantén los comentarios actualizados cuando cambie el código relacionado.
+
+   Coloca cada regla en el archivo de instrucciones existente adecuado, sin duplicaciones ni contradicciones, y enlaza o resume el estándar actualizado en README. Conserva las directrices existentes de formato y lint. No exijas cabeceras para todos los archivos, no migres herramientas de formato, no reescribas la documentación de toda la aplicación ni implementes el filtrado. Muéstrame las diferencias de las instrucciones y después detente para que las revise. No crees una habilidad o un agente, no crees commits, no envíes cambios ni crees una PR.
+   ```
 
 Copilot realizará las actualizaciones.
 
 ## Revisar el cambio
 
-Vamos a leer las actualizaciones de Copilot y también a pedirle un ejemplo del código que generará a partir de las instrucciones actualizadas.
+Lee las directrices actualizadas y demuestra su efecto en un archivo real. Un fragmento propuesto por sí solo no demuestra que las instrucciones del repositorio hayan influido en un cambio de código.
 
 1. Selecciona **Changes** en la esquina superior derecha para abrir los cambios de código.
 
    ![Pestañas del panel de sesión de la aplicación GitHub Copilot con una flecha que señala la pestaña Changes](../../_images/app-select-changes.png)
 
-2. Revisa el archivo de instrucciones actualizado. Confirma que contiene las directrices para añadir documentación y comentarios al código.
+2. Revisa los archivos de instrucciones actualizados y la referencia en README. Confirma que las reglas coinciden con la filosofía de comentarios, la documentación de funciones exportadas y los contratos de componentes de la incidencia, sin inventar un requisito general de cabeceras de archivo.
 
 > [!NOTE]
 > Como la IA es probabilística y no determinista, el texto exacto puede variar.
 
-3. Utiliza la indicación siguiente para pedir a Copilot que cree un ejemplo del código que generará ahora:
+3. Tras revisar las instrucciones, solicita una demostración acotada en esta misma sesión:
 
-  ```plaintext
-  Do not make any updates, but show me what the code would look like. Based on the new instructions, if I asked Copilot to create a new library component to return all Publishers what would that code look like?
-  ```
+   ```plaintext
+   Demuestra la convención de documentación actualizada en una pequeña función auxiliar exportada de TypeScript existente en db/ o src/lib/, o en un componente reutilizable de Astro. Examina el repositorio para elegir un archivo existente adecuado; no des por hecho que existe una función auxiliar de editores. Realiza una pequeña mejora de legibilidad que conserve el comportamiento y aplica las directrices pertinentes de documentación de funciones o contratos de Props. Explica las intenciones no evidentes sin añadir comentarios que se limiten a repetir el código.
 
-4. Revisa el código que propone Copilot. Observa los comentarios de documentación TSDoc y el comentario de cabecera de archivo que incluye, exactamente lo que solicitan las instrucciones actualizadas.
+   Limita el cambio a esa demostración y las pruebas directamente relacionadas. No implementes el filtrado ni crees una funcionalidad nueva. Ejecuta las comprobaciones npm existentes pertinentes, informa de lo que ha cambiado y de cómo la instrucción ha influido en el código y detente para que lo revise. Pregunta antes de instalar cualquier cosa. No crees commits, no envíes cambios ni crees una PR.
+   ```
+
+4. Revisa las diferencias reales del archivo, no solo la respuesta del chat. Comprueba que la documentación explica el comportamiento real y que la mejora de legibilidad lo conserva. Revisa los resultados pertinentes de pruebas, lint y comprobaciones de tipos; resuelve los fallos antes de continuar.
 
 Ya has actualizado los archivos de instrucciones del proyecto y has comprobado el efecto que tendrán.
 
@@ -124,17 +132,23 @@ Ya has actualizado los archivos de instrucciones del proyecto y has comprobado e
 
 Los archivos de instrucciones pasan a ser recursos del repositorio y, por tanto, se comparten con el resto del equipo. Vamos a crear una solicitud de incorporación de cambios con nuestro trabajo, igual que haríamos con cualquier otro recurso.
 
-1. En la esquina superior derecha, selecciona **Create PR**.
+Primero autoriza conjuntamente las instrucciones y la demostración revisadas:
+
+```plaintext
+Revisa todas las diferencias de las instrucciones de estándares de programación, la referencia en README y la demostración de código acotada, incluidas las pruebas relacionadas. Resume la verificación y crea un commit con estos cambios revisados en la rama de esta sesión. Envía la rama y crea una única solicitud de incorporación de cambios destinada a main, con la plantilla de PR del repositorio y un enlace a la incidencia de estándares de programación. Descríbela como contribución parcial salvo que se cumplan todos los criterios de aceptación de la incidencia; no utilices palabras clave de cierre para trabajo incompleto. No la combines.
+```
+
+1. Abre el enlace de la PR en la sesión. Si la aplicación muestra una confirmación **Create PR**, selecciónala sin crear una PR duplicada.
 2. Si se solicita, selecciona **Sign in with your browser** y sigue las indicaciones para autenticarte.
 3. Copilot comenzará a crear la solicitud de incorporación de cambios.
 
-Una vez creada, Copilot supervisará los flujos de trabajo del repositorio que deban ejecutarse. Después de unos instantes, el botón de la esquina superior derecha cambiará a **Ready to merge**. Esto indica que la solicitud está lista para combinarse.
+Examina todas las diferencias de la PR en **My work**, incluidos los cambios de instrucciones y código. Revisa los resultados de CI del repositorio del participante y las revisiones obligatorias. Resuelve los fallos antes de seleccionar **Ready to merge**; CI no sustituye la demostración ni tu revisión.
 
 4. Selecciona **Ready to merge**.
 5. Selecciona **Merge pull request** en el nuevo cuadro de diálogo para combinar la solicitud.
 
 > [!NOTE]
-> Una vez combinado el estándar en la rama predeterminada, pasa a formar parte del proyecto para todo el equipo y para cada sesión nueva. Cuando inicies la sesión de filtrado de la siguiente lección desde una rama predeterminada actualizada, el agente seguirá este estándar automáticamente. Verás que el código TypeScript que genera incluye comentarios de documentación TSDoc sin que se lo pidas: una demostración pequeña pero real de cómo las instrucciones determinan el código generado.
+> Confirma que la PR 2 se ha combinado en `main` antes de empezar el filtrado. Un worktree nuevo por sí solo no garantiza código actualizado: en la Lección 4 obtendrás los cambios y actualizarás la rama de la nueva sesión mediante un avance rápido hasta `origin/main`, y verificarás que ambas combinaciones anteriores están presentes antes de planificar.
 
 ## Resumen y pasos siguientes
 
@@ -142,10 +156,10 @@ Has explorado cómo la aplicación obtiene contexto de los archivos de instrucci
 
 - has explorado el archivo `copilot-instructions.md` del repositorio y los archivos `*.instructions.md` limitados por ruta.
 - has iniciado una sesión desde la incidencia sobre instrucciones de la lista de trabajo pendiente.
-- has pedido al agente que añada un estándar de documentación a `.github/copilot-instructions.md`.
-- has revisado el cambio y lo has combinado como una solicitud de incorporación de cambios.
+- has pedido al agente que añada reglas de documentación específicas a los archivos de instrucciones adecuados y las referencie desde README.
+- has examinado el efecto del estándar en un cambio de código real, validado el resultado y combinado ambos como PR 2.
 
-A continuación, crearás la funcionalidad de filtrado en una sesión nueva y comprobarás cómo adopta el estándar que acabas de combinar. Continúa con la [Lección 4 - Crear una funcionalidad con Autopilot][next-lesson].
+A continuación, crearás la funcionalidad de filtrado en una sesión nueva y comprobarás que sigue el estándar que acabas de combinar. Continúa con la [Lección 4 - Crear el filtrado con Plan y Autopilot][next-lesson].
 
 ## Recursos
 
@@ -154,6 +168,7 @@ A continuación, crearás la funcionalidad de filtrado en una sesión nueva y co
 - [Procedimientos recomendados para crear instrucciones personalizadas][instructions-best-practices]
 - [Awesome Copilot: colección de archivos de instrucciones y otros recursos][awesome-copilot]
 
+[previous-lesson]: ../2-add-star-rating/
 [next-lesson]: ../4-build-filtering/
 [instruction-files]: https://docs.github.com/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 [customize-app]: https://docs.github.com/copilot/how-tos/github-copilot-app/customize-github-copilot-app

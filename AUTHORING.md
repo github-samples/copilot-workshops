@@ -15,7 +15,7 @@ copilot-workshops/
 │   ├── cli/                     ← Copilot CLI lessons (0-prerequisites.md + numbered exercises)
 │   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
 │   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
-│   ├── app/                     ← GitHub Copilot app lessons (setup folded into Exercise 1)
+│   ├── app/                     ← GitHub Copilot app lessons (setup 0–1, core modules 2–10)
 │   ├── es-es/ ja-jp/ ...        ← Translated locale trees (currently the app harness)
 │   └── _images/                 ← Screenshots and diagrams (shared across locales)
 ├── website/                     ← Optional Astro + Starlight publisher

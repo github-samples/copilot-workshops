@@ -27,7 +27,7 @@ GitHub Copilot no **Visual Studio Code** e no GitHub Codespaces. Trabalhe com o 
 
 ### 🤖 [Aplicativo Copilot](app/)
 
-O **aplicativo GitHub Copilot** — um aplicativo para desktop criado com base no Copilot CLI. Execute sessões paralelas de agentes, alterne entre modos de sessão, colabore em telas e gerencie problemas e solicitações de pull do GitHub de forma nativa — incluindo o **Agent Merge**, que conduz uma solicitação de pull por rebases, comentários de revisão, correções de CI e mesclagem.
+O **aplicativo GitHub Copilot** — um aplicativo para desktop criado com base no Copilot CLI. Siga a mesma configuração e os nove módulos principais do fluxo de avaliações por estrelas, instruções, filtragem, skill, MCP, QA e PR do recurso, usando as sessões isoladas do aplicativo e o **Agent Merge**. Crie e integre um canvas salvo no repositório como quarto marco de pull request e conclua com o resumo.
 
 ### ☁️ [Agente de nuvem do Copilot](../cloud/)
 

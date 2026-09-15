@@ -27,7 +27,7 @@ GitHub Copilot は、どの環境で作業していても利用できます。�
 
 ### 🤖 [Copilot App](app/)
 
-**GitHub Copilot app** は、Copilot CLI を基盤とするデスクトップ アプリケーションです。複数のエージェント セッションを並行して実行し、セッション モードの切り替え、キャンバスでの共同作業、GitHub Issue と pull request の管理をアプリ内で行えます。さらに **Agent Merge** を使用すると、リベース、レビュー フィードバックへの対応、CI の修正、マージまで、pull request の一連の作業を進められます。
+**GitHub Copilot app** は、Copilot CLI を基盤とするデスクトップ アプリケーションです。同じセットアップと9つのコアモジュールを通じて、星評価、指示、フィルター機能、スキル、MCP、QA、機能の PR という流れに取り組みます。アプリの分離されたセッションと **Agent Merge** を使用します。4つ目の pull request のマイルストーンとして、リポジトリに保存するキャンバスを作成してマージし、最後に振り返ります。
 
 ### ☁️ [Copilot Cloud Agent](../cloud/)
 
