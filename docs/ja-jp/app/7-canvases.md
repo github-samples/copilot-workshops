@@ -121,7 +121,7 @@ Copilot app が PR の作成と管理を開始します。最初にプロジェ�
 - [Awesome Copilot の Canvases][awesome-copilot-canvases]
 - [GitHub Copilot app について][about-copilot-app]
 
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

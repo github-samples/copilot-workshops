@@ -121,7 +121,7 @@ Con la lista de trabajo pendiente organizada, da un paso atrás para revisar tod
 - [Lienzos en Awesome Copilot][awesome-copilot-canvases]
 - [Acerca de la aplicación GitHub Copilot][about-copilot-app]
 
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

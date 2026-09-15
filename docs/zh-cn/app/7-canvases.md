@@ -121,7 +121,7 @@ Copilot app 会开始创建并管理 PR。它先探索项目以确定创建 PR �
 - [Awesome Copilot 上的画布][awesome-copilot-canvases]
 - [关于 GitHub Copilot app][about-copilot-app]
 
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

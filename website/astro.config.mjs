@@ -195,7 +195,8 @@ export default defineConfig({
             { label: '5. Testing with Playwright MCP', link: '/app/5-mcp-playwright/' },
             { label: '6. Merging with Agent Merge', link: '/app/6-agent-merge/' },
             { label: '7. Planning with canvases', link: '/app/7-canvases/' },
-            { label: '8. Review', link: '/app/8-review/' },
+            { label: '8. Build a Backer Concierge Agent (Optional)', link: '/app/8-foundry-canvas/' },
+            { label: '9. Review', link: '/app/9-review/' },
           ],
         },
         {

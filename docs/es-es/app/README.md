@@ -53,6 +53,6 @@ Antes de asistir a este taller, asegúrate de disponer de:
 [ex5]: 5-mcp-playwright/
 [ex6]: 6-agent-merge/
 [ex7]: 7-canvases/
-[ex8]: 8-review/
+[ex8]: 9-review/
 [install-git]: https://github.com/git-guides/install-git
 [callout-student-plan-education]: https://github.com/education/students
