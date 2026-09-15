@@ -55,9 +55,10 @@ Now that high-contrast mode is in place, you'll extend the same conversation to 
 Before committing the work, take a quick pass over everything the agent touched.
 
 1. Open the **Source Control** view in VS Code.
-2. Review the full list of changed files. You should see updates to the Astro components, styles, and any related tests.
+2. Review the full list of changed files. You should see the new `.github/agents/accessibility.agent.md` profile alongside updates to the Astro components, styles, and any related tests.
 3. Open a couple of the changed files and walk through the diffs. Confirm the accessibility patterns from the custom agent are reflected — ARIA attributes, keyboard navigation, semantic HTML, and persistence via local storage.
-4. When you're satisfied, stage and commit the changes from the Source Control panel. You'll publish them in [the next lesson][next-lesson].
+4. Have the agent run `npm run lint`, `npm run test:unit`, `npm run test:e2e`, and `npm run typecheck:all` directly, then review the tool output and resolve failures or missing prerequisites. No skill from the CLI or App harness is required.
+5. When you're satisfied with the changes and verification, stage and commit the profile and feature changes on the same `accessibility-vscode` branch from the Source Control panel. You'll publish them in [the next lesson][next-lesson].
 
 ## Summary and next steps
 

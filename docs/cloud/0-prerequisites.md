@@ -7,6 +7,11 @@ lastUpdated: 2026-06-30
 
 Before you start the Copilot cloud agent exercises, you need to get everything ready. You'll create your own copy of the Tailspin Toys repository and spin up a [codespace][codespaces] you can use to edit instruction files and review the work the cloud agent produces.
 
+In this exercise, you will:
+
+- create your own repository from the Tailspin Toys template.
+- open a codespace for instruction edits and review.
+
 ## Setting up the lab repository
 
 To create a copy of the repository for the code you'll create, you'll make an instance from the [template][template-repository]. The new instance will contain all of the necessary files for the lab, and you'll use it as you work through the exercises.
