@@ -39,7 +39,7 @@ The authoritative sources are [`AUTHORING.md`](../../../AUTHORING.md), [`CONTRIB
   Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
   ```
 - **Commits:** small, logically grouped, with short messages.
-- **Verify before a PR** with the [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) skill (build, page-count check, lychee link check); CI runs the build + link check. An optional deeper browser pass lives in [`validate-site-playwright`](../validate-site-playwright/SKILL.md).
+- **Verify before a PR** with the [`build-and-verify-docs`](../build-and-verify-docs/SKILL.md) skill. It owns the current verification procedure and explains CI coverage. An optional deeper browser pass lives in [`validate-site-playwright`](../validate-site-playwright/SKILL.md).
 
 ## Using existing guidelines
 

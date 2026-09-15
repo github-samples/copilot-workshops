@@ -41,7 +41,7 @@ copilot-workshops/
    Body starts here.
    ```
    Only `title` is required; it becomes the H1 and the page title. Don't add a body H1 — Starlight renders the title automatically.
-3. **Write the body.** Use Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
+3. **Write the body.** Follow the [lesson pattern](#lesson-pattern), using Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
 4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
    ```markdown
    [previous-lesson]: ../2-custom-instructions/
@@ -60,7 +60,19 @@ copilot-workshops/
      ```
    The first lesson in a path omits `[previous-lesson]`; the last omits `[next-lesson]`.
 5. **Register in the sidebar.** Open `website/astro.config.mjs` and add an entry to the appropriate `items: []` block. The sidebar is *manually* maintained — order in the file is the order learners see.
-6. **Preview and verify, then open a PR.** Preview locally and run the verification sequence before committing — see [Building and verifying](#building-and-verifying) below. CI runs the Astro build and the lychee link check; both must pass.
+6. **Preview and verify, then open a PR.** Preview locally and run the verification sequence before committing — see [Building and verifying](#building-and-verifying) below. CI runs type checks, the Astro build, and the lychee link check; all must pass.
+
+### Lesson pattern
+
+Use the same teaching flow across harnesses without forcing identical exercises or wording:
+
+1. **Introduction and objectives.** Connect to the previous work and give a short list of what the learner will do.
+2. **Scenario.** Before the technical explanation or steps, use a `## Scenario` section to explain the Tailspin Toys need and why this task matters.
+3. **Concepts and guided work.** Explain new concepts where needed, then use task-specific headings and ordered steps. Keep prompts next to the actions they support.
+4. **Review and verification.** Tell the learner what to inspect, what evidence to expect, and how to handle failures before moving on. This can be part of the guided steps rather than a separate section.
+5. **Summary and next steps.** Briefly connect the completed work to the next module, making the branch, session, checkpoint, or PR handoff clear where relevant. Add a Resources section when useful.
+
+Prerequisite modules use setup goals and a readiness check instead of an artificial feature scenario. Final recap modules review outcomes and further learning rather than introduce a new task. Landing pages remain workshop overviews. Preserve harness-specific controls and workflow boundaries, and mirror structural changes in existing translations.
 
 ### Landing pages (folder `README.md`)
 
@@ -98,25 +110,9 @@ Because copied prose can drift, run the `check-content-alignment` skill when you
 
 ## Building and verifying
 
-Before opening a PR, preview the site and run the full verification sequence. The canonical commands live in the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill — the summary below mirrors it.
+Use the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill for preview commands and pre-commit verification: type checks, a clean build, inspection of affected pages and translations, and offline link checking. Expected output comes from the current source and site configuration, not a fixed page total.
 
-**Preview** with the Astro dev server (hot reload):
-
-```bash
-cd website
-npm install
-npm run dev
-```
-
-The site runs at <http://localhost:4321/copilot-workshops/>.
-
-**Verify** before committing:
-
-1. **Build** — `cd website && rm -rf dist && npm run build`. Must succeed.
-2. **Page-count invariant** — Starlight emits 36 workshop routes for English and each of the five configured locales, then adds the legacy redirect. This equals 217 built `index.html` pages when excluding the 404 page; the build reports 218 HTML files including the 404 page.
-3. **Link check** — lychee (offline) against the built `website/dist/`. Catches broken internal links/images.
-
-**What CI enforces vs. what you run locally:** CI (`pages.yml`) runs the **build** and the **lychee** link check on every PR. It does not run browser validation or the content-alignment agentic workflow as part of the Pages build job. After merge to `main`, `pages.yml` deploys the site to GitHub Pages.
+**What CI enforces vs. what you run locally:** CI (`pages.yml`) runs **`check:all`**, the **build**, and the **lychee** link check on every PR. It does not run browser validation or the content-alignment agentic workflow as part of the Pages build job. After merge to `main`, `pages.yml` deploys the site to GitHub Pages.
 
 **Consistency pass.** When a change renames a file or folder, adds or removes a skill or instruction file, touches duplicated prose, or changes how the build works, also sweep for stale references — the structure trees and cross-doc pointers in `README.md`, `AUTHORING.md`, and `.github/copilot-instructions.md` aren't checked by the Astro build. The [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill has the full checklist, and the `check-content-alignment` skill plus `.github/workflows/content-alignment.md` help catch prose that needs aligned updates.
 

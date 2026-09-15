@@ -46,7 +46,7 @@ Because inline copies can drift, run the `check-content-alignment` skill after e
 
 ## Building, previewing, and verifying
 
-The tooling for building, previewing, and verifying the site — dev server, clean build, the page-count invariant, and the lychee link check — lives in the [`build-and-verify-docs`](skills/build-and-verify-docs/SKILL.md) skill. Run that verification sequence before every commit, and don't commit if any step fails.
+The tooling for building, previewing, and verifying the site lives in the [`build-and-verify-docs`](skills/build-and-verify-docs/SKILL.md) skill. Run that verification sequence before every commit, and don't commit if any step fails. Derive expected pages from the current content and configuration rather than fixed totals.
 
 Before opening or updating a PR, also make the **PR-time consistency pass** documented in that skill — a structural-drift sweep (renamed paths, stale skill/instruction references, CI claims, repository-structure trees, and copied prose alignment) that the build and link check can't catch.
 

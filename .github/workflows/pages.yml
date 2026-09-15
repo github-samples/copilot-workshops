@@ -2,7 +2,7 @@ name: Build and deploy workshop site
 
 # Builds the Astro + Starlight site under `website/` (sourcing lesson Markdown from
 # `docs/`) and deploys to GitHub Pages on pushes to main. Every push and pull
-# request runs a build-only validation pass plus a link check, so the build can
+# request runs type-check, build, and offline link validation, so this job can
 # serve as a required status check on any PR.
 
 on:

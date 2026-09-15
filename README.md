@@ -49,7 +49,7 @@ The site runs at <http://localhost:4321/copilot-workshops/>.
 
 ## Verification
 
-Before opening a PR, build the site and run the full verification sequence — clean build, page-count check, and offline link check (lychee). The canonical commands live in **[AUTHORING.md → Building and verifying](./AUTHORING.md#building-and-verifying)** and the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill. CI (`pages.yml`) runs the build and the lychee link check.
+Before opening a PR, follow the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill for type checks, a clean build, inspection of affected pages, and offline link checking. See [AUTHORING.md](./AUTHORING.md#building-and-verifying) for authoring context.
 
 ## License
 

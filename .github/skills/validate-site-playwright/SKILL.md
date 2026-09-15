@@ -5,7 +5,7 @@ description: Render-validate the built Copilot Workshops site in a real browser 
 
 # Validate the built site with Playwright
 
-`build-and-verify-docs` checks the site *statically* — it builds, confirms the page-count invariant, and link-checks the HTML with lychee. It never opens a page in a browser, so it cannot see runtime failures: console/hydration errors, images that 404 at load time, or rendered Markdown that looks wrong.
+`build-and-verify-docs` checks the site *statically* — it type-checks, builds, inspects affected output against its source, and link-checks the HTML with lychee. Browser checks complement that evidence by finding runtime failures: console/hydration errors, images that fail to load, or visual rendering problems.
 
 This skill is the **optional, deeper, browser-based pass**. It drives the **Playwright MCP server** against a local preview of the built site. It is **interactive/local only** — CI (`pages.yml`) has no browser step, so this is never a merge gate. Run it before a PR that changes how pages render (new site-shell components, image-heavy lessons, layout changes), or whenever you want to confirm the real rendered output.
 
