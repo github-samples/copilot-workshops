@@ -1,105 +1,99 @@
 ---
-title: "Exercise 5 - Using agent skills"
+title: "Exercise 5 - Create and use a quality-checks skill"
+description: "Ask Copilot to create reusable shell-bundled quality checks, inspect the skill, and execute it on the filtering branch."
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
-Doing app development often involves repeatable tasks like generating builds, running tests, or creating pull requests. **Agent skills** let you give Copilot — and other AI agents — guidance on how to perform those tasks. A skill is a folder of instructions, scripts, and resources that the agent can load on demand. [Agent Skills is an open standard][agent-skills-repo] used by a range of agents, so the same skill can work across Copilot Chat in agent mode, Copilot cloud agent, Copilot CLI, and the GitHub Copilot app.
+Your filtering feature is implemented and checked with the existing npm commands. Now you'll package those checks as a reusable **agent skill**. Stay in the same filtering session and branch through Exercises 4–8; this exercise does not create a pull request.
 
-Let's explore how a skill can ensure pull requests follow the specifications set forth by our team.
+In this exercise, you will:
+
+- return to **Interactive** mode before creating customizations.
+- ask Copilot to create and then stop for inspection of `quality-checks`.
+- execute all four checks through its bundled scripts and prove a single-file test argument selects only that file.
+- checkpoint the skill alongside the filtering feature.
 
 ## Scenario
 
-The team has a set of requirements for pull requests (PR):
+Tailspin Toys needs the same quality checks whenever filtering changes. Instead of explaining the commands and prerequisites in every conversation, the team wants a reusable skill. You'll create it, inspect its scripts, and verify that another request can run the checks correctly.
 
-- clear commit messages, with files grouped logically.
-- all tests must pass before a PR is created.
-- each PR must contain the following sections:
-    - a description of why the changes were made.
-    - an overview of the files changed.
-    - snippets of important code blocks.
-    - details of the changes made grouped together.
+## Instructions, scripts, and resources
 
-As the team is using Copilot to generate code and PRs, it wants to ensure the AI tools follow these requirements.
+Skills package reusable task instructions, executable scripts, and supporting resources that an agent loads on demand. Custom agents define specialist roles, instructions, and available tools. These are complementary: a custom agent can execute scripts, including those bundled with a skill.
 
-In this exercise you will:
+A repository skill lives in `.github/skills/<skill-name>/SKILL.md`, with `name` and `description` frontmatter and Markdown instructions. Scripts and other resources live beside it. You'll ask Copilot to generate `.github/skills/quality-checks/SKILL.md` and its bundled scripts, rather than copy a prebuilt answer. The [Agent Skills specification][skill-spec] describes the format.
 
-- explore an existing skill for creating pull requests.
-- learn how skills are utilized by the AI agent.
-- create a PR which matches the guidelines with the help of the skill.
+Copilot uses a discovered skill's description to decide when to load it. Don't assume a new skill is immediately discovered in an already open session; the run section includes an explicit-read fallback. A portable format does not remove shell or project prerequisites.
 
-## Creating agent skills
+## Create the skill
 
-Skills live in the `.github/skills` folder of a project, or globally in `~/.copilot/skills`. Each skill is a folder containing a `SKILL.md` file with YAML frontmatter (a `name` and a `description`) followed by the markdown instructions:
+Return to **Interactive** mode before sending the prompt. Keep the current checkout and branch. If you started with an older template that already has this skill, inspect and extend it rather than overwrite your customizations.
 
-```yaml
----
-name: make-contribution
-description: All changes to code must follow the guidance documented in the repository. Before any issue is filed, branch is made, commits generated, or pull request (or PR) created, a search must be done to ensure the right steps are followed. Whenever asked to create an issue, commit messages, to push code, or create a PR, use this skill so everything is done correctly.
----
+```plaintext
+Create .github/skills/quality-checks/SKILL.md and four scripts wrapping npm run lint, npm run test:unit, npm run test:e2e, and npm run typecheck:all. Read package.json, README, test configuration, and repository instructions first.
+
+Detect this environment. Create ONLY Bash .sh scripts for macOS/Linux/WSL OR PowerShell .ps1 scripts for native Windows; ask if uncertain. Do not create both. Keep wrappers limited to resolving the repository root from their own location, verifying this project's package.json there, and invoking npm. Fail clearly for an invalid root. Support any working directory and paths with spaces. Preserve output and failure exit codes, including PowerShell native failures. Insert npm's -- exactly once; callers supply tool arguments directly without another --. No port or process management.
+
+Give SKILL.md name/description frontmatter, instructions to run all four wrappers, prerequisites, troubleshooting, and portable examples including one existing unit-test file. Every Bash example must invoke bash explicitly; never bypass PowerShell execution policy. Explain Playwright server reuse: stop only servers you actually started; otherwise ask.
+
+Only create the skill and necessary scripts. Do not run checks or probes, install anything, change application code, commit, or open a PR. Stop for inspection.
 ```
 
-Skills can also include subfolders with scripts, assets, and reference material. The full structure is covered in the [agent skills specification][agent-skills-spec].
+## Inspect the skill
 
-> [!TIP]
-> Skills are loaded dynamically. The agent decides which skill applies based on the `description` field — a clear, scenario-specific description is the difference between a skill that gets used and one that gets ignored.
+1. Open `.github/skills/quality-checks/SKILL.md` and its bundled scripts in your editor, and inspect the diff.
+2. Check that `name` and `description` describe the skill and when it applies. Read the instructions, not just the metadata.
+3. Confirm the execution sequence actually invokes bundled scripts under `.github/skills/quality-checks/` for lint, unit tests, E2E, and type checking.
+4. Inspect each wrapper for script-relative root resolution and an explicit check that the derived directory contains this checkout's intended `package.json`. A command that succeeds because npm searches ancestor directories does not prove the root is correct. Check quoted paths, argument forwarding, visible output, and failure exits; PowerShell must propagate native npm failures.
+5. Check the documented single-unit-test-file example. The wrapper inserts npm's `--` separator, so callers pass target-tool arguments directly without another separator. Keep reusable instructions free of machine-specific absolute checkout paths. Ask Copilot to correct gaps before running anything.
+6. Keep the scripts limited to root/manifest validation and running the existing npm checks. Port and process decisions belong in SKILL.md, not shell process-management code. Confirm that only servers actually started by the agent may be stopped; a matching working directory or process name does not establish ownership. The delivered files should contain only the skill, required wrappers, and any needed shared helper, without temporary probe or debug files.
 
-## Executing skills
+> [!NOTE]
+> Current Tailspin Toys requires Node.js 22.13 or later, project dependencies, and Playwright Chromium for E2E checks. Confirm prerequisites in your checkout's README and `package.json`. Missing prerequisites or a blocked PowerShell execution policy need an approved resolution, not an automatic installation, policy bypass, or silent switch to direct npm.
 
-Skills are loaded dynamically when the agent determines they're necessary. The decision of what skills to use is driven by the description in the `SKILL.md` file. As such, it's important to have clear descriptions which define the use case for the skill.
+## Run the skill
 
-## Exploring the PR skill
+Confirm the development server from the previous exercise has stopped. Playwright builds and serves a preview for E2E, but its local configuration can reuse a server on port `4321`. A server from another checkout is not valid evidence for your feature.
 
-Because Tailspin Toys has a set of requirements for creating PRs, they created a skill to help AI tools be able to generate PRs which follow these guidelines. Let's explore the skill to understand what it'll do.
+If Copilot CLI offers `/quality-checks`, select it to explicitly invoke the discovered skill and include the request below. If it is not discovered, send the same request directly in this session; reading the skill is a supported fallback for this exercise.
 
-1. Open `.github/skills/make-contribution/SKILL.md`.
-2. Note the name and description. Notice how the description highlights the scenario in which it should be used, which is whenever a request is made to create a pull request or committing code.
-3. Read through the skill. Notice the rules are defined about how branches should be created, commits generated, and the contents of the pull request.
+```plaintext
+Read .github/skills/quality-checks/SKILL.md and follow its instructions to validate the filtering feature in this checkout. First inspect each wrapper's code to verify that it derives the directory containing this checkout's intended package.json and explicitly fails for an invalid root, rather than relying on npm's ancestor-package discovery. Do not move, rename, delete, or modify repository files to simulate failures. Actually run its bundled scripts for lint, unit tests, end-to-end tests, and type checks. Also run the documented single-unit-test-file example, passing target-tool arguments directly because the wrapper owns npm's -- separator. Verify from the test runner's results that ONLY the named file ran, and report that filename and the executed test-file count. Echoing arguments or returning exit code 0 alone is not proof of correct selection.
 
-## Using the skill
+Report each script invocation and result, including failures, skipped checks, or missing prerequisites. Do not silently substitute direct npm commands for an unusable skill script. Identify the checkout and server under test, stop only servers you started, and ask before installing anything or stopping another process. Do not change application code, change branches, commit, push, or open a pull request.
+```
 
-As highlighted previously, skills are automatically invoked by Copilot CLI. As a result, all we need to do is ask Copilot to create a PR!
+Inspect the tool calls and output. All four scripts must actually execute; a description of the checks or a skipped check is not a pass. For the single-file example, compare the requested filename with the runner's actual file results and reported count: only that file should run. Echoed arguments or exit code 0 are insufficient if other files also ran. A failure is useful evidence: correct the skill or resolve the setup blocker with approval, then rerun the affected checks. Don't stop unrelated processes or force a port conflict away.
 
-1. Return to your codespace. If you closed it, navigate to your repository on GitHub.com, select **Code** > **Codespaces**, then reopen your existing codespace.
-2. Return to your open Copilot CLI session. If the terminal is closed or you exited Copilot CLI, open a terminal by selecting <kbd>Ctrl</kbd>+<kbd>\`</kbd>, then start it from the repository root by running `copilot --yolo --enable-all-github-mcp-tools`. Trust the project folder if prompted, then run `/models` and select **Auto**.
-3. Ask Copilot to create a PR by using the following prompt:
+## Save a checkpoint
 
-    ```
-    Can you please create a pull request for me!
-    ```
+Once you have reviewed the skill and its results, authorize a local checkpoint:
 
-4. Copilot will acknowledge the request. After a few moments, you'll notice Copilot will indicate it's utilizing the **make-contribution** skill.
-5. Copilot will then follow the instructions in the skill. It will start by running the tests, then create a branch, commits, and eventually the PR.
-6. Once the PR is created, return to your repository and open the PR. Note the sections follow the guidelines set forth in the skill, matching the requirements the team put forth.
-7. Before moving to the next exercise, reset your local workspace to a fresh branch from `main` so your accessibility work stays separate from this filtering PR:
-
-    ```bash
-    git checkout main
-    git pull
-    git checkout -b accessibility-cli
-    ```
+```plaintext
+Review the current diff and create a checkpoint commit for the quality-checks skill files only. Keep the existing filtering branch. Do not push or create a pull request.
+```
 
 ## Summary and next steps
 
-With the help of an agent skill, you created a new PR which matches documented requirements! You:
+You've created, inspected, and run a reusable quality-checks skill, including its single-file test example. The skill files will accompany filtering, the QA profile, and associated tests in the feature PR in Exercise 8. Continue in this same checkout to [Exercise 6 - Validate functionality with Playwright MCP][next-lesson].
 
-- explored an existing skill for creating pull requests.
-- learned how skills are utilized by the AI agent.
-- created a PR which matches the guidelines with the help of the skill.
+## More skill examples
 
-Skills are perfect for tasks, but for more robust operations we want to take advantage of [custom agents][next-lesson], which we'll explore next!
+These community examples are references, not additional tasks. Review their prerequisites and behavior before adopting them:
 
-## Resources
+- [Contribution workflow: `make-repo-contribution`][contribution-example].
+- [Requirements documents: `prd`][prd-example].
+- [Diagrams and a bundled export script: `drawio`][drawio-example].
+- [Browser testing: `webapp-testing`][browser-example].
 
-- [About Agent Skills][about-agent-skills]
-- [Agent Skills Specification][agent-skills-spec]
-- [Agent Skills Repository][agent-skills-repo]
-- [Agent Skills on awesome-copilot][awesome-copilot-skills]
+The upstream contribution example is named `make-repo-contribution`; older Tailspin templates used a different name, `make-contribution`. This workshop does not depend on either contribution skill.
 
-[previous-lesson]: ../4-mcp/
-[next-lesson]: ../6-custom-agents/
-[about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
-[awesome-copilot-skills]: https://github.com/github/awesome-copilot/tree/main/skills
-[agent-skills-repo]: https://github.com/agentskills/agentskills
-[agent-skills-spec]: https://agentskills.io/specification
+[previous-lesson]: ../4-build-filtering/
+[next-lesson]: ../6-mcp-playwright/
+[skill-spec]: https://agentskills.io/specification
+[contribution-example]: https://github.com/github/awesome-copilot/tree/main/skills/make-repo-contribution
+[prd-example]: https://github.com/github/awesome-copilot/tree/main/skills/prd
+[drawio-example]: https://github.com/github/awesome-copilot/tree/main/skills/drawio
+[browser-example]: https://github.com/github/awesome-copilot/tree/main/skills/webapp-testing

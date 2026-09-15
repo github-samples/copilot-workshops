@@ -3,7 +3,7 @@ slug: es-es
 title: "Manos a la obra con los agentes de GitHub Copilot"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 Las recientes ampliaciones de las capacidades de GitHub Copilot ofrecen a los desarrolladores herramientas potentes para todo el ciclo de vida del desarrollo de software (SDLC). Estas capacidades incluyen trabajar con incidencias y solicitudes de incorporación de cambios en GitHub, interactuar con servicios externos y, por supuesto, crear código. En este laboratorio se exploran estas funciones mediante casos de uso reales y consejos para aprovechar al máximo las herramientas.
@@ -17,19 +17,19 @@ Las recientes ampliaciones de las capacidades de GitHub Copilot ofrecen a los de
 
 GitHub Copilot te acompaña allí donde trabajes. Elige el entorno que se ajuste a tu forma de desarrollar y completa sus ejercicios con el trabajo pendiente compartido de Tailspin Toys. Cada entorno comienza con su propia configuración para que puedas empezar directamente con el que elijas.
 
-### 🖥️ [VS Code](../vscode/)
+### 🖥️ [VS Code](vscode/)
 
 GitHub Copilot dentro de **Visual Studio Code** y GitHub Codespaces. Trabaja con el modo agente de Copilot Chat, servidores MCP y agentes personalizados sin salir del editor que ya utilizas. Es ideal si quieres integrar la asistencia de IA directamente en el IDE.
 
 ### 💻 [Copilot CLI](cli/)
 
-**GitHub Copilot CLI** es un asistente basado en agentes que se ejecuta en el terminal. Instálalo, conecta servidores MCP, genera código con el modo de planificación y crea tus propias skills, agentes personalizados y comandos con barra diagonal, todo desde la línea de comandos.
+**GitHub Copilot CLI** es un asistente basado en agentes que se ejecuta en el terminal. Tras la configuración, sigue nueve módulos principales: entrega una mejora rápida de valoraciones por estrellas, establece instrucciones, planifica y crea el filtrado, crea una habilidad quality-checks, valida mediante MCP de Playwright, crea un agente QA y combina la funcionalidad. Termina con los controles de CLI y un resumen. El flujo tiene tres hitos de solicitudes de incorporación de cambios.
 
 ### 🤖 [Copilot App](app/)
 
 La **aplicación GitHub Copilot** es una aplicación de escritorio basada en Copilot CLI. Sigue la misma configuración y los nueve módulos principales del flujo de valoraciones por estrellas, instrucciones, filtrado, habilidad, MCP, QA y PR de la funcionalidad, mediante las sesiones aisladas de la aplicación y **Agent Merge**. Crea y combina un lienzo guardado en el repositorio como cuarto hito de solicitudes de incorporación de cambios y termina con el resumen.
 
-### ☁️ [Copilot Cloud Agent](../cloud/)
+### ☁️ [Copilot Cloud Agent](cloud/)
 
 El **agente de Copilot en la nube** es un compañero de programación asíncrono que trabaja en segundo plano en las incidencias de GitHub. Asígnale trabajo, guíalo con agentes personalizados, supervisa el progreso desde el panel de agentes y revisa las solicitudes de incorporación de cambios que abre.
 

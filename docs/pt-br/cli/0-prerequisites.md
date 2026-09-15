@@ -2,14 +2,21 @@
 title: "Lição 0: Pré-requisitos"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 Antes de começar as lições do Copilot CLI, você precisa deixar tudo pronto. Você criará sua própria cópia do repositório Tailspin Toys e iniciará um [codespace][codespaces], cujo terminal integrado será usado para instalar e executar o Copilot CLI na próxima lição.
 
+Nesta lição, você vai:
+
+- criar seu próprio repositório a partir do modelo da Tailspin Toys.
+- abrir um codespace e confirmar que o ambiente está pronto para configurar a CLI.
+
 ## Configurar o repositório do laboratório
 
 Para criar uma cópia do repositório para o código que você desenvolverá, crie uma instância a partir do [modelo][template-repository]. A nova instância conterá todos os arquivos necessários para o laboratório, e você a usará ao longo das lições.
+
+Use uma cópia nova do modelo. Ele inclui instruções do repositório, código da aplicação, testes e CI, mas não agentes personalizados ou skills. Você criará esses ativos. Se estiver voltando a uma cópia antiga, examine as personalizações existentes antes de alterá-las; não sobrescreva seu trabalho.
 
 1. Em uma nova janela do navegador, acesse o repositório do GitHub deste laboratório: `https://github.com/github-samples/tailspin-toys`.
 2. Crie sua própria cópia do repositório selecionando o botão **Use this template** na página do repositório do laboratório. Em seguida, selecione **Create a new repository**.
@@ -26,6 +33,8 @@ Para criar uma cópia do repositório para o código que você desenvolverá, cr
 > **Seu backlog já está pronto**
 >
 > Quando você cria o repositório a partir do modelo, um backlog de issues do GitHub é criado automaticamente. Você trabalhará com essas issues durante todo o workshop e não precisará criar nada por conta própria.
+
+Aguarde o término do fluxo de criação inicial de issues e verifique na aba **Issues** se aparecem **Allow users to filter games by category and publisher** e **Update our repository coding standards**. Use seus títulos e URLs reais nas lições, não números de issue presumidos. Se o backlog estiver ausente, examine o resultado do fluxo antes de prosseguir.
 
 ## Criar um codespace
 
@@ -52,6 +61,8 @@ A criação do codespace levará alguns minutos, embora ainda seja muito mais r�
 
 [codespaces]: https://github.com/features/codespaces
 [dev-containers]: https://code.visualstudio.com/docs/devcontainers/containers
+
+Quando o codespace estiver pronto, a [Lição 1][next-lesson] abrirá o terminal e verificará o repositório, o ambiente de execução e a autenticação antes de instalar o Copilot CLI.
 
 ## Resumo
 

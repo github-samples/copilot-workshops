@@ -2,7 +2,7 @@
 title: "演習 1 - GitHub Copilot CLI をインストールする"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 [GitHub Copilot CLI][about-copilot-cli] は、ターミナルで動作する強力なエージェント型コーディング アシスタントです。コードベースの探索、コード生成、コマンド実行、外部ツールとの連携をすべてコマンド ラインから行えます。タスクを任せたり、変更を依頼したりしながら、集中を保って作業できます。最初のステップは、想像どおりツールをインストールすることです。幸い、すでによく知っているツールを使って実行できます。
@@ -21,9 +21,24 @@ lastUpdated: 2026-06-30
 
 Copilot CLI をインストールする前に、codespace でターミナル ウィンドウを開く必要があります。
 
-1. まだ開いていない場合は、codespace に戻ります。
+1. Codespace に戻り、セットアップの完了を待ちます。
 2. <kbd>Ctrl</kbd>+<kbd>\`</kbd> を押してターミナル ウィンドウを開きます。
 3. VS Code ウィンドウの下部にターミナル パネルが表示されます。
+
+## 学習用環境を確認する
+
+Codespace のターミナルで、ワークショップ教材のリポジトリではなく、自分の Tailspin Toys リポジトリにいることを確認します。`README.md` と `package.json` を読み、セットアップとチェックのコマンドを確認してください。現在の Tailspin Toys には Node.js 22.13 以降、プロジェクトの依存関係、E2E テスト用の Playwright Chromium が必要です。
+
+```bash
+pwd
+git remote -v
+node --version
+gh auth status
+```
+
+GitHub CLI（`gh`）は PR と CI の確認に役立ちます。認証されていない場合は、`gh auth login` を実行してブラウザーの案内に従います。このリポジトリでブランチをプッシュし、PR を作成・マージできるアカウントであることを確認してください。組織のポリシーによっては、別のレビュアーが必要です。コードの変更を始める前に、リポジトリのセットアップ手順に従って不足している前提条件を解消し、インストール内容を確認してから承認します。
+
+CLI は起動したチェックアウトで動作します。会話を始めても、独立したワークツリーが自動的に作成されるわけではありません。このワークショップでは PR マイルストーンごとに1つのブランチを使います。先に星評価と指示の実証をマージし、演習4～8では同じフィルター機能のブランチを維持します。
 
 ## Copilot CLI をインストールする
 
@@ -35,7 +50,7 @@ Copilot CLI は [npm][install-npm]、[WinGet][install-winget]、[Homebrew][insta
    node --version
    ```
 
-   バージョン 22 以上（例: `v22.x.x`）が表示されるはずです。
+   CLI 自体の要件が異なる場合でも、Tailspin Toys にはバージョン 22.13 以上が必要です。バージョンが古い場合は、学習用リポジトリのセットアップ手順に従ってください。
 
 2. npm を使って codespace に Copilot CLI をグローバル インストールします。
 
@@ -51,8 +66,8 @@ Copilot CLI は [npm][install-npm]、[WinGet][install-winget]、[Homebrew][insta
 
    バージョン番号（例: `v1.0.XX`）が表示されるはずです。
 
-> [!TIP]
-> 権限エラーが発生した場合は、一部のシステムで `sudo npm install -g @github/copilot` の使用が必要になることがあります。ただし、GitHub Codespaces では通常必要ありません。
+> [!NOTE]
+> 権限エラーでインストールに失敗した場合は、不慣れなコマンドを管理者権限で再実行せず、npm の設定を確認するか、ワークショップの講師に相談してください。
 
 ## GitHub で認証する
 
@@ -85,22 +100,39 @@ Copilot CLI は [npm][install-npm]、[WinGet][install-winget]、[Homebrew][insta
 2. このワークショップでは、このリポジトリで継続して作業するため、**Yes, and remember this folder for future sessions** を選択します。
 3. Copilot に簡単な質問をして、正しく動作していることを確認します。
 
-   ```
-   What files are in this project?
+   ```plaintext
+   このプロジェクトにはどのようなファイルがありますか。
    ```
 
 4. Copilot がリポジトリを探索し、プロジェクト構造の概要を返すはずです。
 5. `/help` コマンドを試して、利用可能な slash command を確認します。
 
-   ```
+   ```text
    /help
    ```
 
-6. ターミナルで次のコマンドを入力して Copilot CLI を終了します。後続の演習で再び Copilot CLI に戻ります。
+6. Copilot のプロンプトで次のコマンドを入力して、このセッションを終了します。最初の変更には新しいセッションを使います。
 
+   ```text
+   /exit
    ```
-   exit
-   ```
+
+## モードと権限を理解する
+
+Copilot CLI は起動したディレクトリと Git ブランチで作業します。ディレクトリを信頼するとリポジトリのコンテキストを利用できるようになりますが、すべてのツール操作の承認とは異なります。ファイル変更、シェルコマンド、GitHub 操作の権限要求を確認してください。
+
+コードの演習は、学習用リポジトリのルートから次のコマンドで開始します。
+
+```bash
+copilot --enable-all-github-mcp-tools
+```
+
+GitHub MCP サーバーは組み込まれています。このフラグで Issue や PR の作業に使うすべてのツールを公開しますが、認証、リポジトリの権限、ツールの承認は引き続き必要です。このフラグだけでコミットや PR を承認するわけではありません。
+
+<kbd>Shift</kbd>+<kbd>Tab</kbd> で通常の **Interactive**、**Plan**、**Autopilot** モードを切り替えます。リクエストを送る前にモード表示を確認してください。最初の変更では Interactive を維持し、フィルター機能は計画してから構築します。カスタマイズの作成とレビューの前には、明示的に Interactive に戻します。
+
+> [!CAUTION]
+> モードと権限の設定は別です。Autopilot は自律的に作業を続け、`--allow-all` とその別名 `--yolo` はすべてのツール、パス、URL の権限を付与します。このワークショップでは、毎回のセッションを無制限の権限で始める必要はありません。Codespace 内でも、アクセスを許可する前に範囲を確認してください。
 
 ## まとめと次のステップ
 
@@ -111,7 +143,7 @@ Copilot CLI は [npm][install-npm]、[WinGet][install-winget]、[Homebrew][insta
 - Copilot CLI が作業できるようにディレクトリを信頼する。
 - インストールが正しく動作していることを確認する。
 
-Copilot CLI をインストールできたので、次は Copilot にプロジェクトのコンテキストを与えます。[演習 2 - Copilot CLI のカスタム命令][next-lesson] に進んでください。
+Copilot CLI をインストールできたので、[演習 2 - 星評価を追加して小さな成果を得る][next-lesson]で、レビューしやすい小さな変更を行います。
 
 ## リソース
 
@@ -120,7 +152,7 @@ Copilot CLI をインストールできたので、次は Copilot にプロジ�
 - [Copilot CLI を使う][using-copilot-cli]
 
 [previous-lesson]: ../0-prerequisites/
-[next-lesson]: ../2-custom-instructions/
+[next-lesson]: ../2-add-star-rating/
 [install-copilot-cli]: https://docs.github.com/copilot/how-tos/set-up/install-copilot-cli
 [install-npm]: https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-npm-all-platforms
 [install-winget]: https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli#installing-with-winget-windows

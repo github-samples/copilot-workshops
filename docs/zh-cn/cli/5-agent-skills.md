@@ -1,121 +1,99 @@
 ---
-title: "练习 5 - 使用智能体技能"
+title: "练习 5 - 创建并使用 quality-checks 技能"
+description: "让 Copilot 创建带有配套 shell 脚本的可复用质量检查技能，检查技能内容，并在筛选功能分支上执行。"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
-应用开发经常包含一些可重复的任务，例如生成构建、运行测试或创建 pull request。**智能体技能 (Agent skills)** 让你可以为 Copilot——以及其他 AI 智能体——提供执行这些任务的指导。一个技能是一个文件夹，其中包含说明、脚本和资源，智能体可以按需加载。[Agent Skills 是一项开放标准][agent-skills-repo]，被多种智能体采用，因此同一个技能可以同时在 agent mode 的 Copilot Chat、Copilot cloud agent、Copilot CLI 和 GitHub Copilot app 中使用。
-
-技能存放在项目的 `.github/skills` 文件夹中，也可以全局存放在 `~/.copilot/skills`。每个技能都是一个文件夹，其中包含一个 `SKILL.md` 文件。该文件具有 YAML frontmatter（至少包含 `name` 和 `description`），后面跟着 markdown 说明：
-
-```yaml
----
-name: make-contribution
-description: All changes to code must follow the guidance documented in the repository. Before any issue is filed, branch is made, commits generated, or pull request (or PR) created, a search must be done to ensure the right steps are followed. Whenever asked to create an issue, commit messages, to push code, or create a PR, use this skill so everything is done correctly.
----
-```
-
-技能还可以包含脚本、资源和参考资料等子文件夹。完整结构请参见[智能体技能规范][agent-skills-spec]。
-
-> [!TIP]
-> 技能是动态加载的。智能体会根据 `description` 字段判断应使用哪个技能——清晰、针对场景的描述，是一个技能会被使用还是被忽略的关键区别。
-
-[agent-skills-repo]: https://github.com/agentskills/agentskills
-[agent-skills-spec]: https://agentskills.io/specification
-
-接下来看看，一个技能如何确保 pull request 符合团队制定的规范。
-
-## 场景
-
-团队对 pull request（PR）有一组要求：
-
-- 提交消息要清晰，文件分组要合理。
-- 创建 PR 之前，所有测试都必须通过。
-- 每个 PR 都必须包含以下部分：
-    - 说明为什么要进行这些更改。
-    - 概述已更改的文件。
-    - 重要代码块的片段。
-    - 按组整理的更改详情。
-
-由于团队正在使用 Copilot 生成代码和 PR，因此希望确保 AI 工具也能遵循这些要求。
+筛选功能已经实现，并已使用现有 npm 命令完成检查。现在，将这些检查封装为可复用的**智能体技能**。练习 4–8 始终使用同一个筛选功能会话和分支；本练习不创建 pull request。
 
 在本练习中，将：
 
-- 探索一个现有的用于创建 pull request 的技能。
-- 了解 AI 智能体如何使用技能。
-- 在技能的帮助下，创建一个符合准则的 PR。
+- 在创建自定义配置前返回 **Interactive** 模式。
+- 让 Copilot 创建 `quality-checks`，然后停下来供你检查。
+- 通过配套脚本执行全部四项检查，并证明单文件测试参数只会选中指定文件。
+- 在筛选功能分支上为技能创建检查点。
 
-## 执行技能
+## 场景
 
-当智能体判断某个技能有必要时，会动态加载它。决定使用哪些技能的依据，就是 `SKILL.md` 文件中的描述。因此，使用场景清晰的描述非常重要。
+每次修改筛选功能，Tailspin Toys 都需要运行相同的质量检查。团队希望使用可复用的技能，而不是在每次对话中解释命令和前提条件。你将创建技能、检查脚本，并验证后续请求能否正确运行这些检查。
 
-## 探索 PR 技能
+## 指令、脚本和资源
 
-由于 Tailspin Toys 对创建 PR 有一套要求，因此他们创建了一个技能，帮助 AI 工具生成符合这些准则的 PR。现在来看看这个技能，了解它会执行什么。
+技能将可复用的任务指令、可执行脚本和辅助资源打包，供智能体按需加载。自定义智能体定义专业角色、指令和可用工具。两者相辅相成：自定义智能体可以执行脚本，包括技能附带的脚本。
 
-1. 打开 `.github/skills/make-contribution/SKILL.md`。
-2. 注意其中的名称和描述。可以看到，描述中强调了它适用的场景，也就是当请求创建 pull request 或提交代码时。
-3. 通读这个技能。注意其中定义了分支应如何创建、提交应如何生成，以及 pull request 的内容应包含什么。
+存储库技能位于 `.github/skills/<skill-name>/SKILL.md`，包含带有 `name` 和 `description` 的 frontmatter 以及 Markdown 指令。脚本和其他资源存放在旁边。这里将让 Copilot 生成 `.github/skills/quality-checks/SKILL.md` 及其配套脚本，而不是复制现成答案。[Agent Skills 规范][skill-spec]介绍了这种格式。
 
-## 使用技能
+Copilot 根据已发现技能的描述，决定何时加载它。不要假定新技能会立即被已打开的会话发现；运行部分提供了明确读取技能的备用方式。格式可移植并不意味着无需满足 shell 或项目的前提条件。
 
-如前所述，技能会由 Copilot CLI 自动调用。因此，只需请求 Copilot 创建一个 PR。
+## 创建技能
 
-> [!TIP]
-> **启动 Copilot CLI 会话**
->
-> 开始下面的练习前，先返回 codespace 并打开一个终端（如果还没打开，可按 <kbd>Ctrl</kbd>+<kbd>\`</kbd>）。然后使用 `--yolo` 和 `--enable-all-github-mcp-tools` 启动 Copilot CLI：
->
-> ```bash
-> copilot --yolo --enable-all-github-mcp-tools
-> ```
->
-> 如果希望接续这个项目最近一次会话，而不是重新开始，请运行 `copilot --yolo --enable-all-github-mcp-tools --continue`。如果 Copilot CLI 仍在运行之前练习中的会话，请发送 `/clear` 开始一段新的对话。
->
-> `--enable-all-github-mcp-tools` 会为当前会话启用 GitHub MCP 读写工具，因此在工作坊流程中 Copilot 可以读取积压工作并打开 pull request。
+发送提示前返回 **Interactive** 模式。保持当前检出目录和分支。如果使用的旧版模板已经包含此技能，应先检查并扩展它，而不是覆盖已有的自定义内容。
 
-> [!CAUTION]
-> `--yolo` 会启用完整的自动权限（`--allow-all-tools`、`--allow-all-paths` 和 `--allow-all-urls`）。只能在 Codespace 或 VM 这类隔离环境中使用，绝不要把它设成日常开发的默认别名。详情见[允许和拒绝工具使用][allow-all-warning]。
+```plaintext
+创建 .github/skills/quality-checks/SKILL.md 和四个封装脚本，分别调用 npm run lint、npm run test:unit、npm run test:e2e 和 npm run typecheck:all。先阅读 package.json、README、测试配置和存储库指令。
 
-[allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
+识别当前环境。macOS/Linux/WSL 只创建 Bash .sh 脚本，原生 Windows 只创建 PowerShell .ps1 脚本；如果无法确定，先询问。不要同时创建两种实现。封装脚本仅负责根据自身位置解析存储库根目录，验证该目录包含本项目的 package.json，然后调用 npm。根目录无效时，应明确报错并失败退出。支持任意工作目录和包含空格的路径。保留输出和失败退出代码，包括 PowerShell 原生命令的失败。npm 的 -- 分隔符只插入一次；调用方直接提供工具参数，不再添加 --。不要管理端口或进程。
 
-1. 使用以下提示，请 Copilot 创建一个 PR：
+在 SKILL.md 中提供 name 和 description frontmatter、运行全部四个封装脚本的指令、前提条件、故障排查方法，以及包含一个现有单元测试文件的可移植调用示例。所有 Bash 示例都必须显式调用 bash；绝不绕过 PowerShell 执行策略。解释 Playwright 的服务器复用：只停止确实由自己启动的服务器，否则先询问。
 
-    ```
-    Can you please create a pull request for me!
-    ```
+只创建技能和必需的脚本。不要运行检查或探测，不要安装任何内容、修改应用代码、提交或创建 PR。然后停止，等待检查。
+```
 
-2. Copilot 会确认这个请求。稍等片刻后，会看到 Copilot 显示它正在使用 **make-contribution** 技能。
+## 检查技能
 
-3. 然后 Copilot 会遵循该技能中的说明。它会先运行测试，然后创建分支、提交，最后创建 PR。
-4. 创建 PR 后，返回存储库并打开该 PR。注意其中各个部分遵循了技能中设定的准则，与团队提出的要求一致。
-5. 在进入下一节练习前，将本地工作区重置到从 `main` 创建的新分支，以便后续无障碍工作与这个过滤功能 PR 保持分离：
+1. 在编辑器中打开 `.github/skills/quality-checks/SKILL.md` 及其配套脚本，并检查差异。
+2. 检查 `name` 和 `description` 是否说明了技能及其适用场景。阅读指令，不要只看元数据。
+3. 确认执行顺序确实调用 `.github/skills/quality-checks/` 下的配套脚本，执行 lint、单元测试、E2E 和类型检查。
+4. 检查每个封装脚本是否根据自身位置解析根目录，并明确检查推导出的目录是否包含此检出目录中预期的 `package.json`。命令因 npm 搜索祖先目录而成功，并不能证明根目录正确。检查路径是否加引号、参数是否转发、输出是否可见，以及失败时是否正确退出；PowerShell 必须传递原生 npm 命令的失败状态。
+5. 检查文档中只运行一个单元测试文件的示例。封装脚本负责插入 npm 的 `--` 分隔符，因此调用方应直接传递目标工具的参数，不再添加分隔符。可复用指令中不应包含特定机器的检出目录绝对路径。在运行任何内容之前，让 Copilot 修正遗漏或问题。
+6. 脚本应仅负责根目录和清单文件验证，以及运行现有 npm 检查。端口和进程相关决策应放在 SKILL.md 中，而不是通过 shell 进程管理代码实现。确认只有智能体实际启动的服务器才可以停止；工作目录或进程名称匹配不能证明归属。交付的文件应仅包含技能、必需的封装脚本和必要的共享辅助文件，不含临时探测或调试文件。
 
-    ```bash
-    git checkout main
-    git pull
-    git checkout -b accessibility-cli
-    ```
+> [!NOTE]
+> 当前 Tailspin Toys 需要 Node.js 22.13 或更高版本、项目依赖项，以及用于 E2E 检查的 Playwright Chromium。在检出目录的 README 和 `package.json` 中确认前提条件。缺少前提条件或 PowerShell 执行策略阻止运行时，需要经批准的解决方案，而不是自动安装、绕过策略或悄悄改为直接运行 npm。
 
-## 总结和后续步骤
+## 运行技能
 
-在智能体技能的帮助下，已经创建了一个符合文档要求的新 PR。完成了以下事项：
+确认上一练习的开发服务器已停止。Playwright 会为 E2E 构建并提供预览服务，但其本地配置可以复用端口 `4321` 上的服务器。其他检出目录的服务器不能为当前功能提供有效证据。
 
-- 探索了一个现有的 pull request 创建技能。
-- 了解了 AI 智能体如何使用技能。
-- 在技能的帮助下，创建了一个符合准则的 PR。
+如果 Copilot CLI 提供 `/quality-checks`，选择它来显式调用已发现的技能，并附上以下请求。如果未发现技能，直接在此会话中发送相同请求；本练习支持通过读取技能的方式运行它。
 
-技能非常适合处理任务，但如果需要更强大的操作能力，就应该利用[自定义智能体][next-lesson]，下一节就会探索这一点。
+```plaintext
+读取 .github/skills/quality-checks/SKILL.md，并按照其中的指令验证此检出目录中的筛选功能。先检查每个封装脚本的代码，确认其推导出的目录包含此检出目录中预期的 package.json，且根目录无效时会明确报错并失败退出，而不是依赖 npm 在祖先目录中查找包。不要为模拟失败而移动、重命名、删除或修改存储库文件。实际运行其配套脚本，执行 lint、单元测试、端到端测试和类型检查。同时运行文档中只运行一个单元测试文件的示例，直接传递目标工具的参数，因为 npm 的 -- 分隔符由封装脚本负责。根据测试运行器的结果，确认仅运行了指定文件，并报告该文件名及实际执行的测试文件数量。仅回显参数或返回退出代码 0，不能证明文件选择正确。
 
-## 资源
+报告每次脚本调用及其结果，包括失败、跳过的检查或缺失的前提条件。不要在技能脚本无法使用时悄悄改为直接运行 npm 命令。确认待测试的检出目录和服务器，只停止你启动的服务器，并在安装任何内容或停止其他进程前询问。不要修改应用代码、切换分支、提交、推送或创建 pull request。
+```
 
-- [关于 Agent Skills][about-agent-skills]
-- [Agent Skills 规范][agent-skills-spec]
-- [Agent Skills 存储库][agent-skills-repo]
-- [awesome-copilot 上的 Agent Skills][awesome-copilot-skills]
+检查工具调用和输出。四个脚本都必须实际执行；描述检查内容或跳过检查都不算通过。对于单文件示例，将请求的文件名与运行器实际输出的文件结果及报告的数量进行比较：应只运行该文件。如果还运行了其他文件，回显参数或退出代码 0 都不足以证明正确。失败是有用的证据：修正技能，或在获批后解决环境配置阻碍，再重新运行受影响的检查。不要停止无关进程，也不要强行消除端口冲突。
 
-[previous-lesson]: ../4-mcp/
-[next-lesson]: ../6-custom-agents/
-[about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
-[awesome-copilot-skills]: https://github.com/github/awesome-copilot/tree/main/skills
+## 保存检查点
+
+检查技能及其运行结果后，授权创建本地检查点：
+
+```plaintext
+检查当前差异，仅为 quality-checks 技能文件创建检查点提交。保留现有筛选功能分支。不要推送或创建 pull request。
+```
+
+## 总结与后续步骤
+
+你已创建、检查并运行可复用的 quality-checks 技能，包括其单文件测试示例。技能文件将与筛选功能、QA 配置和相关测试一起纳入练习 8 的功能 PR。继续在同一检出目录中完成[练习 6 - 使用 Playwright MCP 验证功能][next-lesson]。
+
+## 更多技能示例
+
+以下社区示例仅供参考，不是额外任务。采用前先检查其前提条件和行为：
+
+- [贡献工作流：`make-repo-contribution`][contribution-example]。
+- [需求文档：`prd`][prd-example]。
+- [图表及配套导出脚本：`drawio`][drawio-example]。
+- [浏览器测试：`webapp-testing`][browser-example]。
+
+上游贡献示例名为 `make-repo-contribution`；旧版 Tailspin 模板使用另一个名称 `make-contribution`。本工作坊不依赖其中任何一个贡献技能。
+
+[previous-lesson]: ../4-build-filtering/
+[next-lesson]: ../6-mcp-playwright/
+[skill-spec]: https://agentskills.io/specification
+[contribution-example]: https://github.com/github/awesome-copilot/tree/main/skills/make-repo-contribution
+[prd-example]: https://github.com/github/awesome-copilot/tree/main/skills/prd
+[drawio-example]: https://github.com/github/awesome-copilot/tree/main/skills/drawio
+[browser-example]: https://github.com/github/awesome-copilot/tree/main/skills/webapp-testing

@@ -3,7 +3,7 @@ title: "Hands-on with GitHub Copilot's agents"
 slug: index
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
 The recent additions to the capabilities of GitHub Copilot provide powerful tools to the developer across the entire software development lifecycle (SDLC). This includes working with issues and pull requests on GitHub, interacting with external services, and of course code creation. This lab explores the functionality, providing real-world use cases and tips on how to get the most out of the tools.
@@ -23,7 +23,7 @@ GitHub Copilot inside **Visual Studio Code** and GitHub Codespaces. Work with Co
 
 ### 💻 [Copilot CLI](cli/)
 
-**GitHub Copilot CLI** — an agentic assistant that runs in your terminal. Install it, connect MCP servers, generate code with plan mode, and build your own skills, custom agents, and slash commands, all from the command line.
+**GitHub Copilot CLI** — an agentic assistant that runs in your terminal. After setup, follow nine core modules: ship a star-rating quick win, establish instructions, plan and build filtering, create a quality-checks skill, validate through Playwright MCP, create a QA agent, and merge the feature. Finish with CLI controls and a wrap-up. The flow has three pull-request milestones.
 
 ### 🤖 [Copilot App](app/)
 

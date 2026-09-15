@@ -1,121 +1,99 @@
 ---
-title: "Ejercicio 5 - Usar habilidades de agente"
+title: "Ejercicio 5 - Crear y utilizar una habilidad quality-checks"
+description: "Pide a Copilot que cree comprobaciones de calidad reutilizables con scripts de shell incluidos, examina la habilidad y ejecútala en la rama de filtrado."
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
-Desarrollar una aplicación suele implicar tareas repetibles, como generar builds, ejecutar pruebas o crear pull requests. Las **habilidades de agente** te permiten dar a Copilot, y a otros agentes de IA, directrices sobre cómo realizar esas tareas. Una habilidad es una carpeta de instrucciones, scripts y recursos que el agente puede cargar bajo demanda. [Agent Skills es un estándar abierto][agent-skills-repo] utilizado por distintos agentes, por lo que la misma habilidad puede funcionar en Copilot Chat en modo agente, Copilot cloud agent, Copilot CLI y la aplicación GitHub Copilot.
+La funcionalidad de filtrado está implementada y comprobada con los comandos npm existentes. Ahora reunirás esas comprobaciones en una **habilidad de agente** reutilizable. Mantén la misma sesión y rama de filtrado durante los Ejercicios 4–8; este ejercicio no crea una solicitud de incorporación de cambios.
 
-Las habilidades viven en la carpeta `.github/skills` de un proyecto, o globalmente en `~/.copilot/skills`. Cada habilidad es una carpeta que contiene un archivo `SKILL.md` con frontmatter YAML (un `name` y un `description`) seguido de las instrucciones en Markdown:
+En este ejercicio:
 
-```yaml
----
-name: make-contribution
-description: All changes to code must follow the guidance documented in the repository. Before any issue is filed, branch is made, commits generated, or pull request (or PR) created, a search must be done to ensure the right steps are followed. Whenever asked to create an issue, commit messages, to push code, or create a PR, use this skill so everything is done correctly.
----
-```
-
-Las habilidades también pueden incluir subcarpetas con scripts, recursos y material de referencia. La estructura completa se describe en la [especificación de agent skills][agent-skills-spec].
-
-> [!TIP]
-> Las habilidades se cargan dinámicamente. El agente decide qué habilidad se aplica a partir del campo `description`; una descripción clara y específica para el escenario marca la diferencia entre una habilidad que se usa y otra que se ignora.
-
-[agent-skills-repo]: https://github.com/agentskills/agentskills
-[agent-skills-spec]: https://agentskills.io/specification
-
-Vamos a ver cómo una habilidad puede garantizar que las pull requests sigan las especificaciones marcadas por nuestro equipo.
+- volverás al modo **Interactive** antes de crear personalizaciones.
+- pedirás a Copilot que cree `quality-checks` y después se detenga para que la examines.
+- ejecutarás las cuatro comprobaciones mediante los scripts incluidos y demostrarás que un argumento que indica un único archivo de pruebas selecciona solo ese archivo.
+- guardarás un punto de control de la habilidad junto con la funcionalidad de filtrado.
 
 ## Escenario
 
-El equipo tiene una serie de requisitos para las pull requests (PR):
+Tailspin Toys necesita las mismas comprobaciones de calidad cada vez que cambia el filtrado. En lugar de explicar los comandos y requisitos previos en cada conversación, el equipo quiere una habilidad reutilizable. La crearás, examinarás sus scripts y verificarás que otra solicitud puede ejecutar las comprobaciones correctamente.
 
-- mensajes de confirmación claros, con los archivos agrupados de forma lógica.
-- todas las pruebas deben superarse antes de crear una PR.
-- cada PR debe contener las siguientes secciones:
-    - una descripción de por qué se hicieron los cambios.
-    - una visión general de los archivos modificados.
-    - fragmentos de bloques de código importantes.
-    - detalles de los cambios realizados agrupados juntos.
+## Instrucciones, scripts y recursos
 
-Como el equipo usa Copilot para generar código y PR, quiere asegurarse de que las herramientas de IA sigan estos requisitos.
+Las habilidades reúnen instrucciones de tareas reutilizables, scripts ejecutables y recursos de apoyo que un agente carga cuando los necesita. Los agentes personalizados definen roles especializados, instrucciones y herramientas disponibles. Son complementarios: un agente personalizado puede ejecutar scripts, incluidos los de una habilidad.
 
-En este ejercicio vas a:
+Una habilidad del repositorio reside en `.github/skills/<skill-name>/SKILL.md`, con `name` y `description` en el frontmatter e instrucciones en Markdown. Los scripts y otros recursos se encuentran junto a ese archivo. Pedirás a Copilot que genere `.github/skills/quality-checks/SKILL.md` y sus scripts incluidos, en lugar de copiar una solución preparada. La [especificación de Agent Skills][skill-spec] describe el formato.
 
-- explorar una habilidad existente para crear pull requests.
-- aprender cómo utiliza el agente de IA las habilidades.
-- crear una PR que cumpla las directrices con ayuda de la habilidad.
+Copilot utiliza la descripción de una habilidad descubierta para decidir cuándo cargarla. No supongas que una habilidad nueva se descubre inmediatamente en una sesión ya abierta; la sección de ejecución incluye una alternativa de lectura explícita. Un formato portable no elimina los requisitos previos del shell o del proyecto.
 
-## Ejecutar habilidades
+## Crear la habilidad
 
-Las habilidades se cargan dinámicamente cuando el agente determina que son necesarias. La decisión de qué habilidades usar depende de la descripción del archivo `SKILL.md`. Por eso, es importante que las descripciones sean claras y definan el caso de uso de la habilidad.
+Vuelve al modo **Interactive** antes de enviar la indicación. Mantén la copia de trabajo y la rama actuales. Si empezaste con una plantilla antigua que ya contiene esta habilidad, examínala y amplíala en lugar de sobrescribir tus personalizaciones.
 
-## Explorar la habilidad de PR
+```plaintext
+Crea .github/skills/quality-checks/SKILL.md y cuatro scripts envoltorio para npm run lint, npm run test:unit, npm run test:e2e y npm run typecheck:all. Lee primero package.json, README, la configuración de pruebas y las instrucciones del repositorio.
 
-Como Tailspin Toys tiene un conjunto de requisitos para crear PR, ha creado una habilidad para ayudar a las herramientas de IA a generar PR que cumplan esas directrices. Vamos a explorar la habilidad para entender qué hará.
+Detecta este entorno. Crea SOLO scripts Bash .sh para macOS/Linux/WSL O scripts PowerShell .ps1 para Windows nativo; pregunta si no está claro. No crees ambos. Limita los scripts envoltorio a resolver la raíz del repositorio desde su propia ubicación, verificar que allí está el package.json de este proyecto e invocar npm. Si la raíz no es válida, falla con un mensaje claro. Admite cualquier directorio de trabajo y rutas con espacios. Conserva la salida y los códigos de salida de los fallos, incluidos los fallos de comandos nativos en PowerShell. Inserta el separador -- de npm exactamente una vez; quienes invoquen los scripts deben pasar directamente los argumentos de la herramienta, sin otro --. No gestiones puertos ni procesos.
 
-1. Abre `.github/skills/make-contribution/SKILL.md`.
-2. Fíjate en el nombre y la descripción. Observa cómo la descripción destaca el escenario en el que debe usarse, es decir, siempre que se solicite crear una pull request o confirmar código.
-3. Lee la habilidad. Observa que define reglas sobre cómo deben crearse las ramas, generarse las confirmaciones y redactarse los contenidos de la pull request.
+Incluye en SKILL.md un frontmatter con name y description, instrucciones para ejecutar los cuatro scripts envoltorio, requisitos previos, resolución de problemas y ejemplos portables que incluyan un archivo existente de pruebas unitarias. Todos los ejemplos de Bash deben invocar bash explícitamente; nunca eludas la directiva de ejecución de PowerShell. Explica la reutilización de servidores de Playwright: detén solo los servidores que hayas iniciado realmente; en caso contrario, pregunta.
 
-## Usar la habilidad
+Crea únicamente la habilidad y los scripts necesarios. No ejecutes comprobaciones ni sondeos, no instales nada, no cambies código de la aplicación, no crees commits ni abras una PR. Detente para que pueda revisar los archivos.
+```
 
-Como se indicó antes, Copilot CLI invoca automáticamente las habilidades. Como resultado, lo único que tienes que hacer es pedirle a Copilot que cree una PR.
+## Examinar la habilidad
 
-> [!TIP]
-> **Inicia una sesión de Copilot CLI**
->
-> Antes de empezar los ejercicios siguientes, vuelve a tu codespace y abre un terminal (<kbd>Ctrl</kbd>+<kbd>\`</kbd> si no hay ninguno abierto). Después, inicia Copilot CLI con `--yolo` y `--enable-all-github-mcp-tools`:
->
-> ```bash
-> copilot --yolo --enable-all-github-mcp-tools
-> ```
->
-> Para retomar la sesión más reciente de este proyecto en lugar de empezar desde cero, ejecuta `copilot --yolo --enable-all-github-mcp-tools --continue`. Si Copilot CLI ya se está ejecutando desde un ejercicio anterior, envía `/clear` para empezar una conversación limpia.
->
-> `--enable-all-github-mcp-tools` habilita las herramientas GitHub MCP de lectura y escritura para la sesión actual, de modo que Copilot pueda leer tu backlog y abrir pull requests durante el flujo del taller.
+1. Abre `.github/skills/quality-checks/SKILL.md` y sus scripts incluidos en el editor y examina las diferencias.
+2. Comprueba que `name` y `description` describen la habilidad y cuándo se aplica. Lee las instrucciones, no solo los metadatos.
+3. Confirma que la secuencia de ejecución invoca realmente los scripts incluidos bajo `.github/skills/quality-checks/` para lint, pruebas unitarias, E2E y comprobación de tipos.
+4. Examina en cada script envoltorio la resolución de la raíz relativa al script y la comprobación explícita de que el directorio calculado contiene el `package.json` previsto para esta copia de trabajo. Que un comando termine correctamente porque npm busca en directorios superiores no demuestra que la raíz sea correcta. Comprueba las rutas entre comillas, el reenvío de argumentos, la salida visible y los códigos de salida ante fallos; PowerShell debe propagar los fallos nativos de npm.
+5. Comprueba el ejemplo documentado de un único archivo de pruebas unitarias. El script envoltorio inserta el separador `--` de npm, por lo que quienes lo invoquen pasan directamente los argumentos de la herramienta de destino sin otro separador. Mantén las instrucciones reutilizables sin rutas absolutas de la copia de trabajo específicas de una máquina. Pide a Copilot que corrija las carencias antes de ejecutar nada.
+6. Limita los scripts a validar la raíz y el manifiesto y a ejecutar las comprobaciones npm existentes. Las decisiones sobre puertos y procesos corresponden a SKILL.md, no a código de gestión de procesos en shell. Confirma que solo se pueden detener servidores que el agente haya iniciado realmente; que coincidan el directorio de trabajo o el nombre del proceso no demuestra a quién pertenece. Los archivos entregados deben contener solo la habilidad, los scripts envoltorio necesarios y cualquier archivo auxiliar compartido que haga falta, sin archivos temporales de sondeo o depuración.
 
-> [!CAUTION]
-> `--yolo` habilita permisos automáticos completos (`--allow-all-tools`, `--allow-all-paths` y `--allow-all-urls`). Úsalo solo en un entorno aislado, como un Codespace o una máquina virtual, y no lo configures nunca como alias predeterminado para el desarrollo diario. Consulta [Allowing and denying tool use][allow-all-warning] para más información.
+> [!NOTE]
+> Tailspin Toys requiere actualmente Node.js 22.13 o posterior, las dependencias del proyecto y Chromium de Playwright para las comprobaciones E2E. Confirma los requisitos previos en README y `package.json` de tu copia de trabajo. Los requisitos previos ausentes o una directiva de ejecución de PowerShell que bloquee la ejecución necesitan una solución aprobada, no una instalación automática, una elusión de la directiva ni un cambio silencioso a npm directo.
 
-[allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
+## Ejecutar la habilidad
 
-1. Pídele a Copilot que cree una PR con el siguiente prompt:
+Confirma que el servidor de desarrollo del ejercicio anterior se ha detenido. Playwright compila y sirve una vista previa para E2E, pero su configuración local puede reutilizar un servidor en el puerto `4321`. Un servidor de otra copia de trabajo no proporciona pruebas de verificación válidas para tu funcionalidad.
 
-    ```
-    Can you please create a pull request for me!
-    ```
+Si Copilot CLI ofrece `/quality-checks`, selecciónalo para invocar explícitamente la habilidad descubierta e incluye la solicitud siguiente. Si no se ha descubierto, envía la misma solicitud directamente en esta sesión; leer la habilidad es una alternativa admitida en este ejercicio.
 
-2. Copilot confirmará la solicitud. Al cabo de unos instantes, verás que Copilot indica que está utilizando la habilidad **make-contribution**.
+```plaintext
+Lee .github/skills/quality-checks/SKILL.md y sigue sus instrucciones para validar la funcionalidad de filtrado en esta copia de trabajo. Primero examina el código de cada script envoltorio para verificar que calcula el directorio que contiene el package.json previsto para esta copia de trabajo y falla de forma explícita si la raíz no es válida, en lugar de depender de que npm descubra paquetes en directorios superiores. No muevas, renombres, elimines ni modifiques archivos del repositorio para simular fallos. Ejecuta realmente los scripts incluidos para lint, pruebas unitarias, pruebas de un extremo a otro y comprobaciones de tipos. Ejecuta también el ejemplo documentado de un único archivo de pruebas unitarias, pasando directamente los argumentos de la herramienta de destino porque el script envoltorio se encarga del separador -- de npm. Verifica en los resultados del ejecutor de pruebas que SOLO se ha ejecutado el archivo indicado e informa de su nombre y del número de archivos de prueba ejecutados. Mostrar los argumentos o devolver el código de salida 0 no demuestra por sí solo que la selección sea correcta.
 
-3. Después, Copilot seguirá las instrucciones de la habilidad. Empezará ejecutando las pruebas y luego creará una rama, confirmaciones y, finalmente, la PR.
-4. Cuando se cree la PR, vuelve a tu repositorio y ábrela. Observa que las secciones siguen las directrices definidas en la habilidad y coinciden con los requisitos establecidos por el equipo.
-5. Antes de pasar al siguiente ejercicio, restablece tu espacio de trabajo local en una rama nueva desde `main` para que el trabajo de accesibilidad quede separado de esta PR de filtrado:
+Informa de cada invocación de script y su resultado, incluidos fallos, comprobaciones omitidas o requisitos previos ausentes. No sustituyas silenciosamente un script inutilizable de la habilidad por comandos npm directos. Identifica la copia de trabajo y el servidor que se prueban, detén solo los servidores que hayas iniciado y pregunta antes de instalar algo o detener otro proceso. No cambies código de la aplicación, no cambies de rama, no crees commits, no envíes cambios ni abras una solicitud de incorporación de cambios.
+```
 
-    ```bash
-    git checkout main
-    git pull
-    git checkout -b accessibility-cli
-    ```
+Examina las llamadas a herramientas y su salida. Los cuatro scripts deben ejecutarse realmente; una descripción de las comprobaciones o una comprobación omitida no equivale a superarlas. Para el ejemplo de un único archivo, compara el nombre de archivo solicitado con los resultados reales por archivo del ejecutor y el número comunicado: solo debe ejecutarse ese archivo. Mostrar los argumentos o devolver el código de salida 0 es insuficiente si también se ejecutaron otros archivos. Un fallo aporta información útil: corrige la habilidad o resuelve el bloqueo de configuración con aprobación y después repite las comprobaciones afectadas. No detengas procesos ajenos ni fuerces la resolución de un conflicto de puerto.
 
-## Resumen y siguientes pasos
+## Guardar un punto de control
 
-Con la ayuda de una habilidad de agente, has creado una PR nueva que cumple los requisitos documentados. Has hecho lo siguiente:
+Cuando hayas revisado la habilidad y sus resultados, autoriza un punto de control local:
 
-- explorar una habilidad existente para crear pull requests.
-- aprender cómo utiliza el agente de IA las habilidades.
-- crear una PR que cumple las directrices con ayuda de la habilidad.
+```plaintext
+Revisa las diferencias actuales y crea un commit de punto de control solo para los archivos de la habilidad quality-checks. Mantén la rama de filtrado existente. No envíes cambios ni crees una solicitud de incorporación de cambios.
+```
 
-Las habilidades son perfectas para tareas concretas, pero para operaciones más amplias conviene aprovechar los [agentes personalizados][next-lesson], que exploraremos a continuación.
+## Resumen y pasos siguientes
 
-## Recursos
+Has creado, examinado y ejecutado una habilidad quality-checks reutilizable, incluido su ejemplo de prueba de un solo archivo. Los archivos de la habilidad acompañarán al filtrado, al perfil de QA y a las pruebas asociadas en la PR de funcionalidad del Ejercicio 8. Continúa en esta misma copia de trabajo con el [Ejercicio 6 - Validar la funcionalidad con MCP de Playwright][next-lesson].
 
-- [Acerca de las habilidades de agente][about-agent-skills]
-- [Especificación de Agent Skills][agent-skills-spec]
-- [Repositorio de Agent Skills][agent-skills-repo]
-- [Habilidades de agente en awesome-copilot][awesome-copilot-skills]
+## Ejemplos adicionales de habilidades
 
-[previous-lesson]: ../4-mcp/
-[next-lesson]: ../6-custom-agents/
-[about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
-[awesome-copilot-skills]: https://github.com/github/awesome-copilot/tree/main/skills
+Estos ejemplos de la comunidad son referencias, no tareas adicionales. Revisa sus requisitos previos y su comportamiento antes de adoptarlos:
+
+- [Flujo de contribución: `make-repo-contribution`][contribution-example].
+- [Documentos de requisitos: `prd`][prd-example].
+- [Diagramas y un script de exportación incluido: `drawio`][drawio-example].
+- [Pruebas de navegador: `webapp-testing`][browser-example].
+
+El ejemplo de contribución original se llama `make-repo-contribution`; las plantillas antiguas de Tailspin utilizaban otro nombre, `make-contribution`. Este taller no depende de ninguna de esas habilidades de contribución.
+
+[previous-lesson]: ../4-build-filtering/
+[next-lesson]: ../6-mcp-playwright/
+[skill-spec]: https://agentskills.io/specification
+[contribution-example]: https://github.com/github/awesome-copilot/tree/main/skills/make-repo-contribution
+[prd-example]: https://github.com/github/awesome-copilot/tree/main/skills/prd
+[drawio-example]: https://github.com/github/awesome-copilot/tree/main/skills/drawio
+[browser-example]: https://github.com/github/awesome-copilot/tree/main/skills/webapp-testing

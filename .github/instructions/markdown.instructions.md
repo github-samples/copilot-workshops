@@ -142,7 +142,7 @@ Use Markdown image syntax with paths relative to the Markdown file:
 
 ## Path conventions
 
-- Per-path lessons: `cli/`, `vscode/`, `cloud/`, `app/`. Files are numbered by lesson order: `1-installing.md`, `2-custom-instructions.md`, etc.
+- Per-path lessons: `cli/`, `vscode/`, `cloud/`, `app/`. Files are numbered by lesson order: `1-install-copilot-cli.md`, `3-custom-instructions.md`, etc.
 - Support images live in `_images/` directories and are excluded from routing by `website/src/content.config.ts`.
 
 ## Cross-repo links

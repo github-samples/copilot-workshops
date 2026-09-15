@@ -16,7 +16,7 @@ copilot-workshops/
 │   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
 │   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
 │   ├── app/                     ← GitHub Copilot app lessons (setup 0–1, core modules 2–10)
-│   ├── es-es/ ja-jp/ ...        ← Translated locale trees (currently the app harness)
+│   ├── es-es/ ja-jp/ ...        ← Translated App and CLI locale trees
 │   └── _images/                 ← Screenshots and diagrams (shared across locales)
 ├── website/                     ← Optional Astro + Starlight publisher
 │   ├── astro.config.mjs         ← Site URL, base path, locales, sidebar
@@ -31,7 +31,7 @@ copilot-workshops/
 
 ### Add a new lesson
 
-1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`).
+1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/4-build-filtering/`).
 2. **Create the file** with frontmatter:
    ```markdown
    ---
@@ -44,8 +44,8 @@ copilot-workshops/
 3. **Write the body.** Follow the [lesson pattern](#lesson-pattern), using Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
 4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
    ```markdown
-   [previous-lesson]: ../2-custom-instructions/
-   [next-lesson]: ../4-mcp/
+   [previous-lesson]: ../3-custom-instructions/
+   [next-lesson]: ../5-agent-skills/
    ```
    Then surface them in the body using **the same style as the other lessons in your path** — don't mix styles within a path:
    - **Woven into prose** (common in the CLI path): end the lesson with a sentence like ``the next step is to [create the PR][next-lesson]``.
@@ -97,7 +97,7 @@ When you add a new harness or locale landing, name it `README.md` and set its `s
 
 ### Edit an existing lesson
 
-1. **Find the file** under `docs/` (use the published URL as a hint — `/cli/3-generating-code/` lives at `docs/cli/3-generating-code.md`).
+1. **Find the file** under `docs/` (use the published URL as a hint — `/cli/4-build-filtering/` lives at `docs/cli/4-build-filtering.md`).
 2. **Edit the Markdown.** Same conventions apply — see **Style essentials** below.
 3. **Preview** with `npm run dev` in `website/`.
 4. **Commit, PR, merge.**

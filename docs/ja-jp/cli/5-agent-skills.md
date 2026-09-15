@@ -1,119 +1,99 @@
 ---
-title: "演習 5 - エージェント スキルを使う"
+title: "演習 5 - quality-checks スキルを作成して使用する"
+description: "再利用可能なシェルスクリプト付き品質チェックスキルを Copilot に作成させ、内容を確認してフィルター機能のブランチで実行します。"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-11
 ---
 
-アプリ開発では、build の生成、test の実行、pull request の作成といった繰り返し可能なタスクがよく発生します。**Agent skill** を使うと、Copilot やほかの AI agent に対して、それらのタスクをどのように実行すべきかを示すガイダンスを与えられます。skill は、agent が必要に応じて読み込める instruction、script、resource のフォルダーです。[Agent Skills は open standard][agent-skills-repo] であり、さまざまな agent が利用しています。そのため、同じ skill を Copilot Chat の agent mode、Copilot cloud agent、Copilot CLI、GitHub Copilot app の間で共有できます。
-
-skill はプロジェクトの `.github/skills` フォルダー、またはグローバルな `~/.copilot/skills` に配置します。各 skill はフォルダー単位で、YAML frontmatter（`name` と `description`）を持つ `SKILL.md` ファイルと、その後に続く markdown の instruction で構成されます。
-
-```yaml
----
-name: make-contribution
-description: All changes to code must follow the guidance documented in the repository. Before any issue is filed, branch is made, commits generated, or pull request (or PR) created, a search must be done to ensure the right steps are followed. Whenever asked to create an issue, commit messages, to push code, or create a PR, use this skill so everything is done correctly.
----
-```
-
-skill には、script、asset、参照資料を含むサブフォルダーを追加することもできます。全体の構造は [agent skills specification][agent-skills-spec] で説明されています。
-
-> [!TIP]
-> skill は動的に読み込まれます。どの skill が適用されるかは、agent が `description` フィールドを基に判断します。明確でシナリオに即した説明にすることが、使われる skill と無視される skill を分けます。
-
-[agent-skills-repo]: https://github.com/agentskills/agentskills
-[agent-skills-spec]: https://agentskills.io/specification
-team の pull request が、定められた仕様に確実に従うよう skill を使う方法を見ていきましょう。
-
-## シナリオ
-
-チームでは pull request（PR）に対して、次の要件を定めています。
-
-- 明確な commit message にし、ファイルは論理的にグループ化する。
-- PR を作成する前に、すべての test が通過している必要がある。
-- 各 PR には次のセクションを含める必要がある。
-    - 変更を行った理由の説明。
-    - 変更したファイルの概要。
-    - 重要なコード ブロックの抜粋。
-    - 行った変更の詳細をまとめた説明。
-
-チームでは、Copilot を使ってコードや PR を生成しているため、AI ツールがこれらの要件に従うことを確実にしたいと考えています。
+フィルター機能を実装し、既存の npm コマンドでチェックしました。次は、これらのチェックを再利用可能な**エージェントスキル**にまとめます。演習4～8では同じフィルター機能のセッションとブランチを維持してください。この演習では pull request を作成しません。
 
 この演習では、次のことを行います。
 
-- pull request 作成用に既存の skill を確認する。
-- AI agent がどのように skill を利用するかを学ぶ。
-- skill の助けを借りて、ガイドラインに沿った PR を作成する。
+- カスタマイズを作成する前に **Interactive** モードに戻る。
+- Copilot に `quality-checks` を作成させ、確認のために停止させる。
+- 同梱のスクリプトを通じて4つすべてのチェックを実行し、単一のテストファイルを指定する引数が、そのファイルだけを選択することを実証する。
+- フィルター機能と同じブランチにスキルのチェックポイントを保存する。
 
-## skill を実行する
+## シナリオ
 
-skill は、agent が必要だと判断したときに動的に読み込まれます。どの skill を使うかの判断は、`SKILL.md` ファイル内の description によって決まります。そのため、skill の用途を明確に定義した説明を書くことが重要です。
+Tailspin Toys では、フィルター機能を変更するたびに同じ品質チェックが必要です。毎回の会話でコマンドと前提条件を説明する代わりに、チームは再利用可能なスキルを求めています。スキルを作成してスクリプトを確認し、別のリクエストでもチェックを正しく実行できるか検証します。
 
-## PR skill を確認する
+## 指示、スクリプト、リソース
 
-Tailspin Toys には PR 作成に関する要件があるため、AI ツールがこれらのガイドラインに従った PR を生成できるように skill が用意されています。どのような動作をするか理解するために、その skill を確認しましょう。
+スキルは、再利用可能なタスクの指示、実行可能なスクリプト、補助リソースをまとめたもので、エージェントが必要に応じて読み込みます。カスタムエージェントは、専門的な役割、指示、利用可能なツールを定義します。これらは補完関係にあります。カスタムエージェントは、スキルに同梱されたものを含め、スクリプトを実行できます。
 
-1. `.github/skills/make-contribution/SKILL.md` を開きます。
-2. name と description を確認します。description では、pull request の作成や commit の作成を求められたときに使うべき scenario が示されていることに注目してください。
-3. skill 全体を読みます。branch の作成方法、commit の作り方、pull request の内容に関するルールが定義されていることを確認します。
+リポジトリのスキルは `.github/skills/<skill-name>/SKILL.md` に配置し、`name` と `description` のフロントマターと Markdown の指示を持ちます。スクリプトやほかのリソースは、その隣に置きます。完成済みの答えをコピーせず、Copilot に `.github/skills/quality-checks/SKILL.md` と同梱のスクリプトを生成するよう依頼します。[Agent Skills 仕様][skill-spec]に形式が説明されています。
 
-## skill を使う
+Copilot は検出したスキルの説明を使い、いつ読み込むかを判断します。すでに開いているセッションで新しいスキルがすぐ検出されるとは限りません。実行の節では、明示的に読み込む代替手順も示します。形式に移植性があっても、シェルやプロジェクトの前提条件は必要です。
 
-先ほど触れたとおり、skill は Copilot CLI によって自動的に呼び出されます。そのため、必要なのは Copilot に PR を作成するよう依頼することだけです。
+## スキルを作成する
 
-> [!TIP]
-> **Copilot CLI セッションを開始する**
->
-> 以下の演習を始める前に、codespace に戻ってターミナルを開きます（まだ開いていない場合は <kbd>Ctrl</kbd>+<kbd>\`</kbd>）。次に、`--yolo` と `--enable-all-github-mcp-tools` を付けて Copilot CLI を起動します。
->
-> ```bash
-> copilot --yolo --enable-all-github-mcp-tools
-> ```
->
-> 新しく開始する代わりに、このプロジェクトの直近のセッションを引き継ぐには `copilot --yolo --enable-all-github-mcp-tools --continue` を実行します。前の演習から Copilot CLI がすでに実行中であれば、`/clear` を送ってクリーンな会話を開始してください。
->
-> `--enable-all-github-mcp-tools` を付けると、現在のセッションで GitHub MCP の読み取り / 書き込みツールが有効になります。これにより、ワークショップの流れの中で Copilot がバックログを読み取り、pull request を開けるようになります。
+プロンプトを送る前に **Interactive** モードに戻します。現在のチェックアウトとブランチを維持してください。古いテンプレートから始めてこのスキルがすでにある場合は、カスタマイズを上書きせず、確認して拡張します。
 
-> [!CAUTION]
-> `--yolo` は完全な自動権限（`--allow-all-tools`、`--allow-all-paths`、`--allow-all-urls`）を有効にします。Codespace や VM のような分離された環境でのみ使用し、日常的な開発の既定値として alias しないでください。詳しくは [Allowing and denying tool use][allow-all-warning] を参照してください。
+```plaintext
+.github/skills/quality-checks/SKILL.md と、npm run lint、npm run test:unit、npm run test:e2e、npm run typecheck:all を呼び出す4本のスクリプトを作成してください。まず package.json、README、テスト設定、リポジトリの指示を読んでください。
 
-[allow-all-warning]: https://docs.github.com/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools
-1. 次のプロンプトを使って、Copilot に PR を作成するよう依頼します。
+現在の環境を判別してください。macOS/Linux/WSL なら Bash の .sh スクリプト、ネイティブ Windows なら PowerShell の .ps1 スクリプトだけを作成し、不明な場合は質問してください。両方を作成しないでください。ラッパーの役割は、自分自身の配置場所からリポジトリのルートを解決し、そこにこのプロジェクトの package.json があることを検証して npm を呼び出すことに限定してください。不正なルートでは明確なエラーで失敗させてください。どの作業ディレクトリからでも、空白を含むパスでも動作するようにしてください。出力と失敗時の終了コードを維持し、PowerShell のネイティブコマンドの失敗も扱ってください。npm の区切り文字 -- は1回だけ挿入し、呼び出し側は余分な -- を付けずにツールの引数を直接渡すようにしてください。ポートやプロセスは管理しないでください。
 
-    ```
-    Can you please create a pull request for me!
-    ```
+SKILL.md に name と description のフロントマター、4本のラッパーを実行する指示、前提条件、トラブルシューティング、既存の単体テストファイル1つを使う例を含む移植可能な呼び出し例を記載してください。Bash の例はすべて bash を明示的に呼び出し、PowerShell の実行ポリシーは決して回避しないでください。Playwright のサーバー再利用について説明してください。停止してよいのは自分で実際に起動したサーバーだけとし、それ以外の場合は質問するようにしてください。
 
-2. Copilot がリクエストを受け付けます。しばらくすると、Copilot が **make-contribution** skill を利用していることが表示されます。
+スキルと必要なスクリプトだけを作成してください。チェックや調査用の試行、インストール、アプリケーションコードの変更、コミット、PR の作成はしないでください。内容を確認できるよう、そこで停止してください。
+```
 
-3. その後、Copilot は skill の instruction に従います。まず test を実行し、その後 branch、commit、最終的には PR を作成します。
-4. PR が作成されたら、リポジトリに戻って PR を開きます。セクションが skill で定められたガイドラインに従い、チームの要件に一致していることを確認してください。
-5. 次の演習に進む前に、このフィルタリング PR とアクセシビリティ作業を分けておけるよう、ローカル workspace を `main` から新しい branch にリセットします。
+## スキルを確認する
 
-    ```bash
-    git checkout main
-    git pull
-    git checkout -b accessibility-cli
-    ```
+1. エディターで `.github/skills/quality-checks/SKILL.md` と同梱のスクリプトを開き、差分を確認します。
+2. `name` と `description` がスキルの内容と適用する場面を説明しているか確認します。メタデータだけでなく、指示も読んでください。
+3. 実行手順が、lint、単体テスト、E2E、型チェックのために `.github/skills/quality-checks/` 以下の同梱スクリプトを実際に呼び出すことを確認します。
+4. 各ラッパーについて、スクリプトの場所を基準にしたルートの解決と、導き出したディレクトリにこのチェックアウトで使う対象の `package.json` があることを明示的に確認する処理を調べます。npm が祖先ディレクトリを探索してコマンドが成功しても、ルートが正しい証拠にはなりません。パスの引用符、引数の転送、出力の表示、失敗時の終了処理を確認してください。PowerShell はネイティブ npm コマンドの失敗を伝播する必要があります。
+5. 記載された単体テストの1ファイルだけを実行する例を確認します。npm の区切り文字 `--` はラッパーが挿入するため、呼び出し側は別の区切り文字を付けず、対象ツールの引数を直接渡します。再利用する指示には、マシン固有のチェックアウトの絶対パスを含めないでください。何かを実行する前に、不足を修正するよう Copilot に依頼してください。
+6. スクリプトは、ルートとマニフェストの検証、および既存の npm チェックの実行に限定します。ポートやプロセスに関する判断は、シェルのプロセス管理コードではなく SKILL.md に置きます。停止できるのはエージェントが実際に起動したサーバーだけであることを確認してください。作業ディレクトリやプロセス名の一致だけでは、所有者であると判断できません。成果物にはスキル、必須のラッパー、必要な共有ヘルパーだけを含め、一時的な調査用ファイルやデバッグ用ファイルを残さないようにします。
+
+> [!NOTE]
+> 現在の Tailspin Toys には Node.js 22.13 以降、プロジェクトの依存関係、E2E チェック用の Playwright Chromium が必要です。チェックアウトの README と `package.json` で前提条件を確認してください。前提条件の不足や PowerShell の実行ポリシーによる制限は、承認を得て解消する必要があります。自動インストール、ポリシーの回避、断りなく npm の直接実行に切り替える方法で対処してはいけません。
+
+## スキルを実行する
+
+前の演習の開発サーバーが停止していることを確認します。Playwright は E2E 用にビルドしてプレビューを配信しますが、ローカルの設定ではポート `4321` のサーバーを再利用できます。別のチェックアウトのサーバーは、この機能の有効な証拠にはなりません。
+
+Copilot CLI に `/quality-checks` が表示される場合は、選択して検出済みのスキルを明示的に呼び出し、以下のリクエストを含めます。検出されていない場合は、このセッションで同じリクエストを直接送信します。この演習では、スキルを読み込む方法を代替手順として使用できます。
+
+```plaintext
+.github/skills/quality-checks/SKILL.md を読み、その指示に従ってこのチェックアウトのフィルター機能を検証してください。まず各ラッパーのコードを調べ、npm による祖先ディレクトリのパッケージ探索に依存せず、このチェックアウトで使う対象の package.json を含むディレクトリを導き出し、不正なルートでは明確に失敗する処理があることを確認してください。失敗を再現するために、リポジトリのファイルを移動、名前変更、削除、変更しないでください。lint、単体テスト、エンドツーエンドテスト、型チェック用の同梱スクリプトを実際に実行してください。記載された単体テストの1ファイルだけを実行する例も実行してください。npm の区切り文字 -- はラッパーが挿入するため、対象ツールの引数を直接渡してください。テストランナーの結果から指定したファイルだけが実行されたことを確認し、そのファイル名と実行されたテストファイル数を報告してください。引数の表示や終了コード 0 だけでは、正しく選択された証拠にはなりません。
+
+各スクリプトの呼び出しと結果を、失敗、スキップしたチェック、不足する前提条件も含めて報告してください。使用できないスキルのスクリプトを、断りなく npm コマンドの直接実行で置き換えないでください。テスト対象のチェックアウトとサーバーを特定し、自分で起動したサーバーだけを停止してください。インストールや別のプロセスの停止前には確認してください。アプリケーションコードやブランチの変更、コミット、プッシュ、pull request の作成はしないでください。
+```
+
+ツールの呼び出しと出力を確認します。4つすべてのスクリプトを実際に実行する必要があります。チェックの説明やスキップされたチェックは成功ではありません。単一ファイルの例では、指定したファイル名をランナーの実際のファイル別結果と報告された件数に照らし合わせ、そのファイルだけが実行されたことを確認します。ほかのファイルも実行された場合は、引数の表示や終了コード 0 では不十分です。失敗は有用な証拠です。スキルを修正するか、承認を得てセットアップの阻害要因を解消し、影響するチェックを再実行します。無関係なプロセスを停止したり、ポート競合を強引に解消したりしてはいけません。
+
+## チェックポイントを保存する
+
+スキルと結果をレビューしたら、ローカルのチェックポイントを承認します。
+
+```plaintext
+現在の差分をレビューし、quality-checks スキルのファイルだけのチェックポイントコミットを作成してください。既存のフィルター機能のブランチを維持してください。プッシュや pull request の作成はしないでください。
+```
 
 ## まとめと次のステップ
 
-agent skill の助けを借りて、文書化された要件に沿う新しい PR を作成できました。次のことを行いました。
+再利用可能な quality-checks スキルを作成して確認し、単一ファイルのテスト例も含めて実行しました。スキルのファイルは、演習8の機能 PR に、フィルター機能、QA プロファイル、関連テストと一緒に含めます。この同じチェックアウトで[演習 6 - Playwright MCP で機能を検証する][next-lesson]に進みます。
 
-- pull request 作成用に既存の skill を確認する。
-- AI agent がどのように skill を利用するかを学ぶ。
-- skill の助けを借りて、ガイドラインに沿った PR を作成する。
+## ほかのスキルの例
 
-skill はタスク向けに最適ですが、より高度な作業には [カスタム エージェント][next-lesson] を活用したくなります。次はそれを確認しましょう。
+これらのコミュニティの例は参考資料であり、追加のタスクではありません。採用する前に前提条件と動作を確認してください。
 
-## リソース
+- [コントリビューションのワークフロー: `make-repo-contribution`][contribution-example]。
+- [要件文書: `prd`][prd-example]。
+- [図と同梱のエクスポートスクリプト: `drawio`][drawio-example]。
+- [ブラウザーテスト: `webapp-testing`][browser-example]。
 
-- [Agent Skills について][about-agent-skills]
-- [Agent Skills 仕様][agent-skills-spec]
-- [Agent Skills リポジトリ][agent-skills-repo]
-- [awesome-copilot の Agent Skills][awesome-copilot-skills]
+上流のコントリビューション例の名前は `make-repo-contribution` です。古い Tailspin テンプレートでは、異なる名前の `make-contribution` を使用していました。このワークショップは、どちらのコントリビューション用スキルにも依存しません。
 
-[previous-lesson]: ../4-mcp/
-[next-lesson]: ../6-custom-agents/
-[about-agent-skills]: https://docs.github.com/copilot/concepts/agents/about-agent-skills
-[awesome-copilot-skills]: https://github.com/github/awesome-copilot/tree/main/skills
+[previous-lesson]: ../4-build-filtering/
+[next-lesson]: ../6-mcp-playwright/
+[skill-spec]: https://agentskills.io/specification
+[contribution-example]: https://github.com/github/awesome-copilot/tree/main/skills/make-repo-contribution
+[prd-example]: https://github.com/github/awesome-copilot/tree/main/skills/prd
+[drawio-example]: https://github.com/github/awesome-copilot/tree/main/skills/drawio
+[browser-example]: https://github.com/github/awesome-copilot/tree/main/skills/webapp-testing
