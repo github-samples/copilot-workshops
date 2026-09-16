@@ -113,7 +113,7 @@ Has creado una superficie compartida en la que puedes colaborar con el agente. E
 - has guardado y combinado el lienzo con el repositorio mediante Agent Merge.
 - has abierto el lienzo en una sesión nueva y lo has utilizado para empezar a trabajar.
 
-Con la lista de trabajo pendiente organizada, da un paso atrás para revisar todo lo que has creado y descubrir cómo continuar. Continúa con la [Lección 8 - Repaso y pasos siguientes][next-lesson].
+Con la lista de trabajo pendiente organizada, puedes terminar aquí o continuar. Si quieres crear un agente de IA hospedado a partir del catálogo de Tailspin Toys, continúa con la [lección opcional sobre Backer Concierge][next-lesson]. De lo contrario, pasa a la [Lección 9 - Repaso y pasos siguientes][review-lesson].
 
 ## Recursos
 
@@ -121,7 +121,8 @@ Con la lista de trabajo pendiente organizada, da un paso atrás para revisar tod
 - [Lienzos en Awesome Copilot][awesome-copilot-canvases]
 - [Acerca de la aplicación GitHub Copilot][about-copilot-app]
 
-[next-lesson]: ../9-review/
+[next-lesson]: ../8-foundry-canvas/
+[review-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

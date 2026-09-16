@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 La [**aplicación GitHub Copilot**](https://docs.github.com/copilot/concepts/agents/github-copilot-app) es una aplicación de escritorio basada en Copilot CLI que reúne el desarrollo dirigido por agentes en un único espacio de trabajo específico. Añade sesiones de agente en paralelo, modos de sesión intercambiables, lienzos compartidos y gestión nativa de incidencias y solicitudes de incorporación de cambios de GitHub, incluido **Agent Merge**, que guía una solicitud durante reorganizaciones de base, comentarios de revisión, correcciones de CI y la combinación.
 
-A lo largo de estas lecciones instalarás la aplicación y configurarás el proyecto. Después, conocerás el espacio de trabajo de la aplicación y la lista de trabajo pendiente que la plantilla ha creado para ti. Empezarás con un cambio pequeño, añadir una valoración por estrellas, y luego añadirás desde una incidencia un estándar de instrucciones personalizadas, crearás una funcionalidad de filtrado en una sesión de agente aislada y la verificarás con una habilidad reutilizable. Añadirás el servidor MCP de Playwright para explorar la funcionalidad en un navegador real y avanzarás por niveles crecientes de automatización de combinaciones hasta que **Agent Merge** incorpore la solicitud. Por último, colaborarás en un lienzo compartido y automatizarás el trabajo recurrente: un ciclo completo desde la idea hasta una funcionalidad combinada.
+A lo largo de estas lecciones instalarás la aplicación y configurarás el proyecto. Después, conocerás el espacio de trabajo de la aplicación y la lista de trabajo pendiente que la plantilla ha creado para ti. Empezarás con un cambio pequeño, añadir una valoración por estrellas, y luego añadirás desde una incidencia un estándar de instrucciones personalizadas, crearás una funcionalidad de filtrado en una sesión de agente aislada y la verificarás con una habilidad reutilizable. Añadirás el servidor MCP de Playwright para explorar la funcionalidad en un navegador real y avanzarás por niveles crecientes de automatización de combinaciones hasta que **Agent Merge** incorpore la solicitud. Por último, colaborarás en un lienzo compartido, podrás crear opcionalmente un agente hospedado con Microsoft Foundry Canvas y automatizarás el trabajo recurrente: un ciclo completo desde la idea hasta una funcionalidad combinada.
 
 ## Lecciones
 
@@ -22,7 +22,8 @@ A lo largo de estas lecciones instalarás la aplicación y configurarás el proy
 | [5. Realizar pruebas con MCP de Playwright][ex5] | Herramientas externas | Añade el servidor MCP de Playwright y explora la funcionalidad en un navegador |
 | [6. Combinar cambios con Agent Merge][ex6] | Combinación | Deja que Agent Merge corrija e incorpore la solicitud de filtrado |
 | [7. Planificar con lienzos][ex7] | Colaboración | Crea un lienzo compartido para planificar y realizar el seguimiento del trabajo |
-| [8. Repaso y pasos siguientes][ex8] | Resumen | Automatiza tareas recurrentes y descubre cómo continuar |
+| [8. Crear un agente Backer Concierge (opcional)][foundry-canvas] | Agentes de IA | Crea, prueba, implementa e integra un agente hospedado basado en el catálogo |
+| [9. Repaso y pasos siguientes][ex9] | Resumen | Automatiza tareas recurrentes y descubre cómo continuar |
 
 ## Requisitos previos
 
@@ -53,6 +54,7 @@ Antes de asistir a este taller, asegúrate de disponer de:
 [ex5]: 5-mcp-playwright/
 [ex6]: 6-agent-merge/
 [ex7]: 7-canvases/
-[ex8]: 9-review/
+[foundry-canvas]: 8-foundry-canvas/
+[ex9]: 9-review/
 [install-git]: https://github.com/git-guides/install-git
 [callout-student-plan-education]: https://github.com/education/students

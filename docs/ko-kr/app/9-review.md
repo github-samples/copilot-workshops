@@ -1,5 +1,5 @@
 ---
-title: "Lesson 8 - 검토 및 다음 단계"
+title: "Lesson 9 - 검토 및 다음 단계"
 description: "GitHub Copilot app 실습 과정을 되짚어 보고, 반복 작업을 자동화하고, 다음에 살펴볼 내용을 알아봅니다."
 authors:
   - geektrainer

@@ -113,7 +113,7 @@ Copilot app 会开始创建并管理 PR。它先探索项目以确定创建 PR �
 - 使用 Agent Merge 将画布保存并合并到存储库。
 - 在新会话中打开画布，并使用它开始工作。
 
-待办事项现已得到跟踪。接下来回顾已构建的所有内容，并了解后续方向。继续学习[第 8 课 - 回顾与后续步骤][next-lesson]。
+待办事项现已得到跟踪，你可以在此结束，也可以继续学习。如果想基于 Tailspin Toys 目录创建托管 AI 智能体，请继续学习[可选的 Backer Concierge 课程][next-lesson]。否则，请跳转到[第 9 课 - 回顾与后续步骤][review-lesson]。
 
 ## 资源
 
@@ -121,7 +121,8 @@ Copilot app 会开始创建并管理 PR。它先探索项目以确定创建 PR �
 - [Awesome Copilot 上的画布][awesome-copilot-canvases]
 - [关于 GitHub Copilot app][about-copilot-app]
 
-[next-lesson]: ../9-review/
+[next-lesson]: ../8-foundry-canvas/
+[review-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

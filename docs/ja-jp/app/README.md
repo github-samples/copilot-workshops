@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 [**GitHub Copilot app**](https://docs.github.com/copilot/concepts/agents/github-copilot-app) は Copilot CLI を基盤とするデスクトップアプリケーションで、エージェント主導の開発を単一の作業用ワークスペースで実現します。並列エージェントセッション、切り替え可能なセッションモード、共有キャンバス、GitHub Issue と pull request のネイティブ管理機能を備えています。さらに、リベース、レビューのフィードバック、CI の修正、マージまで pull request を導く **Agent Merge** も利用できます。
 
-一連のレッスンでは、アプリをインストールしてプロジェクトを設定した後、アプリのワークスペースと、テンプレートによって用意されたバックログを確認します。まず、星評価を追加する小さな変更に取り組みます。次に、Issue に基づいてカスタム指示の標準を追加し、分離されたエージェントセッションでフィルター機能を構築して、再利用可能なスキルで検証します。Playwright MCP server を追加して実際のブラウザーで機能を確認した後、段階的にマージの自動化を進め、最後は **Agent Merge** で pull request をマージします。最後に、共有キャンバスで共同作業し、繰り返し発生する作業を自動化します。アイデアから機能のマージまで、開発の一連の流れを体験できます。
+一連のレッスンでは、アプリをインストールしてプロジェクトを設定した後、アプリのワークスペースと、テンプレートによって用意されたバックログを確認します。まず、星評価を追加する小さな変更に取り組みます。次に、Issue に基づいてカスタム指示の標準を追加し、分離されたエージェントセッションでフィルター機能を構築して、再利用可能なスキルで検証します。Playwright MCP server を追加して実際のブラウザーで機能を確認した後、段階的にマージの自動化を進め、最後は **Agent Merge** で pull request をマージします。最後に、共有キャンバスで共同作業し、必要に応じて Microsoft Foundry Canvas でホステッド エージェントを構築して、繰り返し発生する作業を自動化します。アイデアから機能のマージまで、開発の一連の流れを体験できます。
 
 ## レッスン
 
@@ -22,7 +22,8 @@ lastUpdated: 2026-06-30
 | [5. Playwright MCP によるテスト][ex5] | 外部ツール | Playwright MCP server を追加し、ブラウザーで機能を確認します |
 | [6. Agent Merge によるマージ][ex6] | マージ | Agent Merge でフィルター機能の pull request を修正してマージします |
 | [7. キャンバスを使った計画][ex7] | コラボレーション | 共有キャンバスを作成し、作業の計画と追跡に使用します |
-| [8. 振り返りと次のステップ][ex8] | まとめ | 繰り返し発生するタスクを自動化し、次に学ぶ内容を確認します |
+| [8. Backer Concierge エージェントの構築 (オプション)][foundry-canvas] | AI エージェント | カタログに基づくホステッド エージェントを構築、テスト、デプロイ、統合します |
+| [9. 振り返りと次のステップ][ex9] | まとめ | 繰り返し発生するタスクを自動化し、次に学ぶ内容を確認します |
 
 ## 前提条件
 
@@ -53,6 +54,7 @@ lastUpdated: 2026-06-30
 [ex5]: 5-mcp-playwright/
 [ex6]: 6-agent-merge/
 [ex7]: 7-canvases/
-[ex8]: 9-review/
+[foundry-canvas]: 8-foundry-canvas/
+[ex9]: 9-review/
 [install-git]: https://github.com/git-guides/install-git
 [callout-student-plan-education]: https://github.com/education/students

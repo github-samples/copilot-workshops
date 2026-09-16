@@ -113,7 +113,7 @@ Você criou uma superfície compartilhada na qual você e o agente podem colabor
 - salvou o canvas no repositório e fez o merge dele com o Agent Merge.
 - abriu o canvas em uma nova sessão e o usou para começar a trabalhar.
 
-Com o backlog acompanhado, é hora de revisar tudo o que você criou e decidir os próximos passos. Continue para a [Lição 8 - Revisão e próximos passos][next-lesson].
+Com o acompanhamento do backlog configurado, você pode encerrar por aqui ou continuar. Para criar um agente de IA hospedado com base no catálogo da Tailspin Toys, avance para a [lição opcional do Backer Concierge][next-lesson]. Caso contrário, vá para a [Lição 9 - Revisão e próximos passos][review-lesson].
 
 ## Recursos
 
@@ -121,7 +121,8 @@ Com o backlog acompanhado, é hora de revisar tudo o que você criou e decidir o
 - [Canvases no Awesome Copilot][awesome-copilot-canvases]
 - [Sobre o aplicativo GitHub Copilot][about-copilot-app]
 
-[next-lesson]: ../9-review/
+[next-lesson]: ../8-foundry-canvas/
+[review-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

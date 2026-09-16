@@ -1,5 +1,5 @@
 ---
-title: "Lição 8 - Revisão e próximos passos"
+title: "Lição 9 - Revisão e próximos passos"
 description: "Recapitule o percurso do aplicativo GitHub Copilot, automatize trabalhos recorrentes e explore os próximos passos."
 authors:
   - geektrainer

@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 [**GitHub Copilot app**](https://docs.github.com/copilot/concepts/agents/github-copilot-app) 是一款基于 Copilot CLI 构建的桌面应用，可将智能体驱动的开发集中到一个专注的工作区。它支持并行智能体会话、可切换的会话模式、共享画布，以及原生的 GitHub 议题和拉取请求管理功能。其中包括 **Agent Merge**，可处理拉取请求的变基、审查反馈、CI 修复与合并。
 
-在这些课程中，你将安装应用并设置项目，然后熟悉应用工作区和模板为你创建的待办事项。你会先完成一项小改动，即添加星级评分；再根据议题添加自定义指令标准，在隔离的智能体会话中构建筛选功能，并使用可复用技能进行验证。随后，你将添加 Playwright MCP 服务器，在真实浏览器中探索该功能，并逐步提高合并自动化程度，最终由 **Agent Merge** 合并拉取请求。最后，你将通过共享画布协作并自动执行重复性工作，完整体验从构想到功能合并的流程。
+在这些课程中，你将安装应用并设置项目，然后熟悉应用工作区和模板为你创建的待办事项。你会先完成一项小改动，即添加星级评分；再根据议题添加自定义指令标准，在隔离的智能体会话中构建筛选功能，并使用可复用技能进行验证。随后，你将添加 Playwright MCP 服务器，在真实浏览器中探索该功能，并逐步提高合并自动化程度，最终由 **Agent Merge** 合并拉取请求。最后，你将通过共享画布协作，可选择使用 Microsoft Foundry Canvas 构建托管智能体，并自动执行重复性工作，完整体验从构想到功能合并的流程。
 
 ## 课程
 
@@ -22,7 +22,8 @@ lastUpdated: 2026-06-30
 | [5. 使用 Playwright MCP 测试][ex5] | 外部工具 | 添加 Playwright MCP 服务器，并在浏览器中探索功能 |
 | [6. 使用 Agent Merge 合并][ex6] | 合并 | 让 Agent Merge 修复并合并筛选功能的拉取请求 |
 | [7. 使用画布规划][ex7] | 协作 | 创建共享画布来规划和跟踪工作 |
-| [8. 回顾与后续步骤][ex8] | 总结 | 自动执行重复性任务，并探索后续内容 |
+| [8. 构建 Backer Concierge 智能体（可选）][foundry-canvas] | AI 智能体 | 构建、测试、部署并集成基于目录的托管智能体 |
+| [9. 回顾与后续步骤][ex9] | 总结 | 自动执行重复性任务，并探索后续内容 |
 
 ## 先决条件
 
@@ -53,6 +54,7 @@ lastUpdated: 2026-06-30
 [ex5]: 5-mcp-playwright/
 [ex6]: 6-agent-merge/
 [ex7]: 7-canvases/
-[ex8]: 9-review/
+[foundry-canvas]: 8-foundry-canvas/
+[ex9]: 9-review/
 [install-git]: https://github.com/git-guides/install-git
 [callout-student-plan-education]: https://github.com/education/students

@@ -1,5 +1,5 @@
 ---
-title: "Lección 8 - Repaso y pasos siguientes"
+title: "Lección 9 - Repaso y pasos siguientes"
 description: "Repasa el recorrido de la aplicación GitHub Copilot, automatiza el trabajo recurrente y descubre cómo continuar."
 authors:
   - geektrainer

@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 O [**aplicativo GitHub Copilot**](https://docs.github.com/copilot/concepts/agents/github-copilot-app) é um aplicativo para desktop criado com base no Copilot CLI que reúne o desenvolvimento orientado por agentes em um espaço de trabalho único e focado. Ele oferece sessões paralelas de agentes, modos de sessão alternáveis, canvases compartilhados e gerenciamento nativo de issues e pull requests do GitHub, incluindo o **Agent Merge**, que conduz um pull request por rebases, feedback de revisão, correções de CI e merge.
 
-Ao longo destas lições, você instalará o aplicativo e configurará o projeto. Depois, conhecerá o espaço de trabalho do aplicativo e o backlog que o modelo criou para você. Você começará com uma pequena alteração, adicionando uma avaliação por estrelas, e então adicionará a partir de uma issue um padrão de instruções personalizadas, criará um recurso de filtragem em uma sessão isolada de agente e o verificará com uma skill reutilizável. Você adicionará o servidor MCP do Playwright para explorar o recurso em um navegador real e, em seguida, avançará por níveis de automação de merge até que o **Agent Merge** conclua o merge do pull request. Por fim, você colaborará em um canvas compartilhado e automatizará trabalhos recorrentes, completando todo o ciclo, da ideia ao recurso integrado.
+Ao longo destas lições, você instalará o aplicativo e configurará o projeto. Depois, conhecerá o espaço de trabalho do aplicativo e o backlog que o modelo criou para você. Você começará com uma pequena alteração, adicionando uma avaliação por estrelas, e então adicionará a partir de uma issue um padrão de instruções personalizadas, criará um recurso de filtragem em uma sessão isolada de agente e o verificará com uma skill reutilizável. Você adicionará o servidor MCP do Playwright para explorar o recurso em um navegador real e, em seguida, avançará por níveis de automação de merge até que o **Agent Merge** conclua o merge do pull request. Por fim, você colaborará em um canvas compartilhado, poderá criar opcionalmente um agente hospedado com o Microsoft Foundry Canvas e automatizará trabalhos recorrentes, completando todo o ciclo, da ideia ao recurso integrado.
 
 ## Lições
 
@@ -22,7 +22,8 @@ Ao longo destas lições, você instalará o aplicativo e configurará o projeto
 | [5. Testar com o MCP do Playwright][ex5] | Ferramentas externas | Adicione o servidor MCP do Playwright e explore o recurso em um navegador |
 | [6. Fazer merge com o Agent Merge][ex6] | Merge | Permita que o Agent Merge corrija e integre o pull request de filtragem |
 | [7. Planejar com canvases][ex7] | Colaboração | Crie um canvas compartilhado para planejar e acompanhar seu trabalho |
-| [8. Revisão e próximos passos][ex8] | Resumo | Automatize tarefas recorrentes e explore os próximos passos |
+| [8. Criar um agente Backer Concierge (opcional)][foundry-canvas] | Agentes de IA | Crie, teste, implante e integre um agente hospedado baseado no catálogo |
+| [9. Revisão e próximos passos][ex9] | Resumo | Automatize tarefas recorrentes e explore os próximos passos |
 
 ## Pré-requisitos
 
@@ -53,6 +54,7 @@ Antes de participar deste workshop, verifique se você tem:
 [ex5]: 5-mcp-playwright/
 [ex6]: 6-agent-merge/
 [ex7]: 7-canvases/
-[ex8]: 9-review/
+[foundry-canvas]: 8-foundry-canvas/
+[ex9]: 9-review/
 [install-git]: https://github.com/git-guides/install-git
 [callout-student-plan-education]: https://github.com/education/students

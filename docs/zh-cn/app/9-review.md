@@ -1,5 +1,5 @@
 ---
-title: "第 8 课 - 回顾与后续步骤"
+title: "第 9 课 - 回顾与后续步骤"
 description: "回顾 GitHub Copilot app 学习路径，自动执行重复性工作，并探索后续方向。"
 authors:
   - geektrainer

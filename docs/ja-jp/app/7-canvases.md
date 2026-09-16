@@ -113,7 +113,7 @@ Copilot app が PR の作成と管理を開始します。最初にプロジェ�
 - Agent Merge を使ってキャンバスをリポジトリに保存し、マージした。
 - 新しいセッションでキャンバスを開き、そこから作業を開始した。
 
-バックログを追跡できるようになったので、ここまで構築した内容と今後の進め方を振り返ります。[レッスン 8「振り返りと次のステップ」][next-lesson]に進んでください。
+バックログを追跡できるようになったので、ここで終了することも、さらに学習を続けることもできます。Tailspin Toys のカタログからホステッド AI エージェントを作成する場合は、[Backer Concierge のオプション レッスン][next-lesson]に進みます。それ以外の場合は、[レッスン 9「振り返りと次のステップ」][review-lesson]に進みます。
 
 ## リソース
 
@@ -121,7 +121,8 @@ Copilot app が PR の作成と管理を開始します。最初にプロジェ�
 - [Awesome Copilot の Canvases][awesome-copilot-canvases]
 - [GitHub Copilot app について][about-copilot-app]
 
-[next-lesson]: ../9-review/
+[next-lesson]: ../8-foundry-canvas/
+[review-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

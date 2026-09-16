@@ -113,7 +113,7 @@ Copilot app이 PR을 만들고 관리하는 프로세스를 시작합니다. 먼
 - Agent Merge를 사용하여 캔버스를 리포지토리에 저장하고 병합했습니다.
 - 새 세션에서 캔버스를 열고 캔버스를 사용하여 작업을 시작했습니다.
 
-백로그를 추적하도록 설정했으므로 지금까지 구축한 항목과 다음 단계를 돌아봅니다. [레슨 8 - 검토 및 다음 단계][next-lesson]를 계속 진행합니다.
+백로그 추적을 설정했으므로 여기서 마치거나 계속 진행할 수 있습니다. Tailspin Toys 카탈로그를 기반으로 호스팅 AI 에이전트를 만들려면 [Backer Concierge 선택 레슨][next-lesson]으로 이동합니다. 그렇지 않으면 [레슨 9 - 검토 및 다음 단계][review-lesson]로 이동합니다.
 
 ## 리소스
 
@@ -121,7 +121,8 @@ Copilot app이 PR을 만들고 관리하는 프로세스를 시작합니다. 먼
 - [Awesome Copilot의 캔버스][awesome-copilot-canvases]
 - [GitHub Copilot app 정보][about-copilot-app]
 
-[next-lesson]: ../9-review/
+[next-lesson]: ../8-foundry-canvas/
+[review-lesson]: ../9-review/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

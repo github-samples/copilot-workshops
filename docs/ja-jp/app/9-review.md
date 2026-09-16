@@ -1,5 +1,5 @@
 ---
-title: "レッスン 8 - 振り返りと次のステップ"
+title: "レッスン 9 - 振り返りと次のステップ"
 description: "GitHub Copilot app のハーネスを振り返り、繰り返し発生する作業を自動化して、次に学ぶ内容を確認します。"
 authors:
   - geektrainer
