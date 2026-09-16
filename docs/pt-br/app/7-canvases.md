@@ -4,6 +4,9 @@ description: "Crie um canvas compartilhado e orientado por agentes no aplicativo
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next:
+  link: /copilot-workshops/pt-br/app/9-review/
+  label: "Revisão e próximos passos"
 ---
 
 Até agora, você orientou agentes pelo chat. No entanto, grande parte do trabalho não acontece em uma conversa, mas em um quadro, documento ou checklist. Os **canvases** oferecem a você e ao agente uma superfície compartilhada exatamente para esse tipo de trabalho, dentro do aplicativo. Nesta lição, você criará um canvas simples para planejar e acompanhar o backlog no qual vem trabalhando.
@@ -113,7 +116,7 @@ Você criou uma superfície compartilhada na qual você e o agente podem colabor
 - salvou o canvas no repositório e fez o merge dele com o Agent Merge.
 - abriu o canvas em uma nova sessão e o usou para começar a trabalhar.
 
-Com o acompanhamento do backlog configurado, você pode encerrar por aqui ou continuar. Para criar um agente de IA hospedado com base no catálogo da Tailspin Toys, avance para a [lição opcional do Backer Concierge][next-lesson]. Caso contrário, vá para a [Lição 9 - Revisão e próximos passos][review-lesson].
+Com o acompanhamento do backlog configurado, continue para [revisar o que você criou][next-lesson]. Para uma extensão opcional usando o Microsoft Foundry Canvas, explore [Opcional: Incorporar o Foundry][foundry-canvas].
 
 ## Recursos
 
@@ -121,8 +124,8 @@ Com o acompanhamento do backlog configurado, você pode encerrar por aqui ou con
 - [Canvases no Awesome Copilot][awesome-copilot-canvases]
 - [Sobre o aplicativo GitHub Copilot][about-copilot-app]
 
-[next-lesson]: ../8-foundry-canvas/
-[review-lesson]: ../9-review/
+[next-lesson]: ../9-review/
+[foundry-canvas]: ../8-foundry-canvas/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

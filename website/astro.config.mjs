@@ -195,8 +195,63 @@ export default defineConfig({
             { label: '5. Testing with Playwright MCP', link: '/app/5-mcp-playwright/' },
             { label: '6. Merging with Agent Merge', link: '/app/6-agent-merge/' },
             { label: '7. Planning with canvases', link: '/app/7-canvases/' },
-            { label: '8. Build a Backer Concierge Agent (Optional)', link: '/app/8-foundry-canvas/' },
             { label: '9. Review', link: '/app/9-review/' },
+            {
+              label: 'Optional: Incorporate Foundry',
+              translations: {
+                'es-ES': 'Opcional: Incorporar Foundry',
+                'ja-JP': 'オプション: Foundry を組み込む',
+                'ko-KR': '선택 사항: Foundry 통합',
+                'pt-BR': 'Opcional: Incorporar o Foundry',
+                'zh-CN': '可选：集成 Foundry',
+              },
+              items: [
+                {
+                  label: 'Optional: Incorporate Foundry',
+                  link: '/app/8-foundry-canvas/',
+                  translations: {
+                    'es-ES': 'Opcional: Incorporar Foundry',
+                    'ja-JP': 'オプション: Foundry を組み込む',
+                    'ko-KR': '선택 사항: Foundry 통합',
+                    'pt-BR': 'Opcional: Incorporar o Foundry',
+                    'zh-CN': '可选：集成 Foundry',
+                  },
+                },
+                {
+                  label: 'Prepare project and model',
+                  link: '/app/8-foundry-canvas/1-project-and-model/',
+                  translations: {
+                    'es-ES': 'Preparar el proyecto y el modelo',
+                    'ja-JP': 'プロジェクトとモデルを準備する',
+                    'ko-KR': '프로젝트와 모델 준비',
+                    'pt-BR': 'Preparar o projeto e o modelo',
+                    'zh-CN': '准备项目和模型',
+                  },
+                },
+                {
+                  label: 'Build and deploy the agent',
+                  link: '/app/8-foundry-canvas/2-build-and-deploy/',
+                  translations: {
+                    'es-ES': 'Crear e implementar el agente',
+                    'ja-JP': 'エージェントを構築してデプロイする',
+                    'ko-KR': '에이전트 빌드 및 배포',
+                    'pt-BR': 'Criar e implantar o agente',
+                    'zh-CN': '构建并部署代理',
+                  },
+                },
+                {
+                  label: 'Connect the agent to the site',
+                  link: '/app/8-foundry-canvas/3-connect-to-site/',
+                  translations: {
+                    'es-ES': 'Conectar el agente al sitio',
+                    'ja-JP': 'エージェントをサイトに接続する',
+                    'ko-KR': '에이전트를 사이트에 연결',
+                    'pt-BR': 'Conectar o agente ao site',
+                    'zh-CN': '将代理连接到网站',
+                  },
+                },
+              ],
+            },
           ],
         },
         {

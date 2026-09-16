@@ -4,6 +4,7 @@ description: "回顾 GitHub Copilot app 学习路径，自动执行重复性工�
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next: false
 ---
 
 在过去几节课程中，你使用 GitHub Copilot app 将一项功能从构想推进到合并，包括：
@@ -62,6 +63,8 @@ lastUpdated: 2026-07-09
 
 要探索 GitHub Copilot 生态系统的更多内容，请查看 [VS Code 学习路径](../../vscode/)、[Copilot CLI 学习路径](../../cli/)或 [Cloud agent 学习路径](../../cloud/)。
 
+如果想通过 Microsoft Foundry Canvas 进行可选扩展，可继续探索[可选：集成 Foundry][foundry-canvas]。
+
 ## 资源
 
 - [关于 GitHub Copilot app][about-copilot-app]
@@ -81,3 +84,4 @@ lastUpdated: 2026-07-09
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [byok]: https://docs.github.com/copilot/how-tos/github-copilot-app/use-byok-models
 [deep-links]: https://docs.github.com/copilot/how-tos/github-copilot-app/open-with-deep-links
+[foundry-canvas]: ../8-foundry-canvas/

@@ -4,6 +4,7 @@ description: "Recap the GitHub Copilot app harness, automate recurring work, and
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next: false
 ---
 
 Over the last several lessons, you took a feature from idea to merge with the GitHub Copilot app, including:
@@ -62,6 +63,8 @@ The best way to improve with any tool is to keep using it! Use it for production
 
 If you'd like to explore more of the GitHub Copilot ecosystem, check out the [VS Code harness](../../vscode/), the [Copilot CLI harness](../../cli/), or the [Cloud agent harness](../../cloud/).
 
+For an optional extension using Microsoft Foundry Canvas, explore [Optional: Incorporate Foundry][foundry-canvas].
+
 ## Resources
 
 - [About the GitHub Copilot app][about-copilot-app]
@@ -81,3 +84,4 @@ If you'd like to explore more of the GitHub Copilot ecosystem, check out the [VS
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [byok]: https://docs.github.com/copilot/how-tos/github-copilot-app/use-byok-models
 [deep-links]: https://docs.github.com/copilot/how-tos/github-copilot-app/open-with-deep-links
+[foundry-canvas]: ../8-foundry-canvas/

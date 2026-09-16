@@ -4,6 +4,9 @@ description: "GitHub Copilot app에서 공유 에이전트 기반 캔버스를 �
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next:
+  link: /copilot-workshops/ko-kr/app/9-review/
+  label: "검토 및 다음 단계"
 ---
 
 지금까지 채팅을 통해 에이전트를 지시했습니다. 하지만 많은 작업은 대화가 아니라 보드, 문서, 검사 목록에서 이루어집니다. **캔버스**는 바로 이러한 작업을 위해 앱 안에서 사용자와 에이전트가 함께 사용하는 화면을 제공합니다. 이 레슨에서는 지금까지 처리한 백로그를 계획하고 추적하는 간단한 캔버스를 만듭니다.
@@ -113,7 +116,7 @@ Copilot app이 PR을 만들고 관리하는 프로세스를 시작합니다. 먼
 - Agent Merge를 사용하여 캔버스를 리포지토리에 저장하고 병합했습니다.
 - 새 세션에서 캔버스를 열고 캔버스를 사용하여 작업을 시작했습니다.
 
-백로그 추적을 설정했으므로 여기서 마치거나 계속 진행할 수 있습니다. Tailspin Toys 카탈로그를 기반으로 호스팅 AI 에이전트를 만들려면 [Backer Concierge 선택 레슨][next-lesson]으로 이동합니다. 그렇지 않으면 [레슨 9 - 검토 및 다음 단계][review-lesson]로 이동합니다.
+백로그 추적을 설정했으므로 [지금까지 만든 내용을 검토하는 단계][next-lesson]로 계속 진행합니다. Microsoft Foundry Canvas를 사용하는 선택 확장 과정을 살펴보려면 [선택 사항: Foundry 통합][foundry-canvas]으로 이동합니다.
 
 ## 리소스
 
@@ -121,8 +124,8 @@ Copilot app이 PR을 만들고 관리하는 프로세스를 시작합니다. 먼
 - [Awesome Copilot의 캔버스][awesome-copilot-canvases]
 - [GitHub Copilot app 정보][about-copilot-app]
 
-[next-lesson]: ../8-foundry-canvas/
-[review-lesson]: ../9-review/
+[next-lesson]: ../9-review/
+[foundry-canvas]: ../8-foundry-canvas/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

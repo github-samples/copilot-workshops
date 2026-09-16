@@ -4,6 +4,7 @@ description: "GitHub Copilot app のハーネスを振り返り、繰り返し�
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next: false
 ---
 
 ここ数回のレッスンでは、GitHub Copilot app を使い、アイデアから機能のマージまでを実践しました。取り組んだ内容は次のとおりです。
@@ -62,6 +63,8 @@ AI ツールを使用するときは、その周辺の基盤が出力の品質�
 
 GitHub Copilot エコシステムをさらに学ぶには、[VS Code ハーネス](../../vscode/)、[Copilot CLI ハーネス](../../cli/)、[Cloud agent ハーネス](../../cloud/)を確認してください。
 
+Microsoft Foundry Canvas を使った追加の学習に取り組む場合は、[オプション: Foundry を組み込む][foundry-canvas]を確認してください。
+
 ## リソース
 
 - [GitHub Copilot app について][about-copilot-app]
@@ -81,3 +84,4 @@ GitHub Copilot エコシステムをさらに学ぶには、[VS Code ハーネ�
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [byok]: https://docs.github.com/copilot/how-tos/github-copilot-app/use-byok-models
 [deep-links]: https://docs.github.com/copilot/how-tos/github-copilot-app/open-with-deep-links
+[foundry-canvas]: ../8-foundry-canvas/

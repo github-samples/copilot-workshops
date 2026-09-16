@@ -4,6 +4,7 @@ description: "GitHub Copilot app 실습 과정을 되짚어 보고, 반복 작�
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next: false
 ---
 
 지난 여러 레슨에서 GitHub Copilot app으로 아이디어를 기능으로 만들고 병합하기까지 다음 작업을 수행했습니다.
@@ -62,6 +63,8 @@ AI 도구를 사용할 때는 도구를 둘러싼 인프라가 결과의 품질�
 
 GitHub Copilot 생태계를 더 살펴보려면 [VS Code 실습 과정](../../vscode/), [Copilot CLI 실습 과정](../../cli/), [Cloud agent 실습 과정](../../cloud/)을 확인합니다.
 
+Microsoft Foundry Canvas를 사용하는 선택 확장 과정을 살펴보려면 [선택 사항: Foundry 통합][foundry-canvas]으로 이동합니다.
+
 ## 리소스
 
 - [GitHub Copilot app 정보][about-copilot-app]
@@ -81,3 +84,4 @@ GitHub Copilot 생태계를 더 살펴보려면 [VS Code 실습 과정](../../vs
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [byok]: https://docs.github.com/copilot/how-tos/github-copilot-app/use-byok-models
 [deep-links]: https://docs.github.com/copilot/how-tos/github-copilot-app/open-with-deep-links
+[foundry-canvas]: ../8-foundry-canvas/

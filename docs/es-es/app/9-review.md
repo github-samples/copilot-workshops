@@ -4,6 +4,7 @@ description: "Repasa el recorrido de la aplicación GitHub Copilot, automatiza e
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next: false
 ---
 
 Durante las últimas lecciones, has llevado una funcionalidad desde la idea hasta la combinación mediante la aplicación GitHub Copilot. Entre otras cosas, has aprendido a:
@@ -62,6 +63,8 @@ La mejor forma de mejorar con cualquier herramienta es seguir utilizándola. Ús
 
 Para explorar más elementos del ecosistema de GitHub Copilot, consulta el [recorrido de VS Code](../../vscode/), el [recorrido de Copilot CLI](../../cli/) o el [recorrido del agente en la nube](../../cloud/).
 
+Si quieres realizar una ampliación opcional con Microsoft Foundry Canvas, explora [Opcional: Incorporar Foundry][foundry-canvas].
+
 ## Recursos
 
 - [Acerca de la aplicación GitHub Copilot][about-copilot-app]
@@ -81,3 +84,4 @@ Para explorar más elementos del ecosistema de GitHub Copilot, consulta el [reco
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [byok]: https://docs.github.com/copilot/how-tos/github-copilot-app/use-byok-models
 [deep-links]: https://docs.github.com/copilot/how-tos/github-copilot-app/open-with-deep-links
+[foundry-canvas]: ../8-foundry-canvas/

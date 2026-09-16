@@ -4,6 +4,9 @@ description: "Crea un lienzo compartido y dirigido por agentes en la aplicación
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next:
+  link: /copilot-workshops/es-es/app/9-review/
+  label: "Repaso y pasos siguientes"
 ---
 
 Hasta ahora has dirigido a los agentes mediante el chat. Sin embargo, gran parte del trabajo no reside en una conversación, sino en un tablero, un documento o una lista de comprobación. Los **lienzos** ofrecen al agente y a ti una superficie compartida para ese tipo de trabajo, directamente en la aplicación. En esta lección crearás un lienzo sencillo para planificar y realizar el seguimiento de la lista de trabajo pendiente que has estado abordando.
@@ -113,7 +116,7 @@ Has creado una superficie compartida en la que puedes colaborar con el agente. E
 - has guardado y combinado el lienzo con el repositorio mediante Agent Merge.
 - has abierto el lienzo en una sesión nueva y lo has utilizado para empezar a trabajar.
 
-Con la lista de trabajo pendiente organizada, puedes terminar aquí o continuar. Si quieres crear un agente de IA hospedado a partir del catálogo de Tailspin Toys, continúa con la [lección opcional sobre Backer Concierge][next-lesson]. De lo contrario, pasa a la [Lección 9 - Repaso y pasos siguientes][review-lesson].
+Con la lista de trabajo pendiente organizada, continúa con el [repaso de lo que has creado][next-lesson]. Si quieres realizar una ampliación opcional con Microsoft Foundry Canvas, explora [Opcional: Incorporar Foundry][foundry-canvas].
 
 ## Recursos
 
@@ -121,8 +124,8 @@ Con la lista de trabajo pendiente organizada, puedes terminar aquí o continuar.
 - [Lienzos en Awesome Copilot][awesome-copilot-canvases]
 - [Acerca de la aplicación GitHub Copilot][about-copilot-app]
 
-[next-lesson]: ../8-foundry-canvas/
-[review-lesson]: ../9-review/
+[next-lesson]: ../9-review/
+[foundry-canvas]: ../8-foundry-canvas/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

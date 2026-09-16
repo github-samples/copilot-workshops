@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 The **[GitHub Copilot app](https://docs.github.com/copilot/concepts/agents/github-copilot-app)** is a desktop application built on Copilot CLI that brings agent-driven development into a single, focused workspace. It adds parallel agent sessions, switchable session modes, shared canvases, and native GitHub issue and pull request management — including **Agent Merge**, which shepherds a pull request through rebases, review feedback, CI fixes, and merge.
 
-Across these lessons you'll install the app and set up your project, then get oriented in the app's workspace and the backlog the template seeded for you. You'll start with a small change — adding a star rating — then add a custom instructions standard from an issue, build a filtering feature in an isolated agent session, and verify it with a reusable skill. You'll add the Playwright MCP server to explore the feature in a real browser, then climb a ladder of merge automation that ends with **Agent Merge** landing your pull request. Finally you'll collaborate on a shared canvas, optionally build a hosted agent with Microsoft Foundry Canvas, and automate recurring work — a complete loop from idea to merged feature.
+Across these lessons you'll install the app and set up your project, then get oriented in the app's workspace and the backlog the template seeded for you. You'll start with a small change — adding a star rating — then add a custom instructions standard from an issue, build a filtering feature in an isolated agent session, and verify it with a reusable skill. You'll add the Playwright MCP server to explore the feature in a real browser, then climb a ladder of merge automation that ends with **Agent Merge** landing your pull request. Finally you'll collaborate on a shared canvas and automate recurring work — a complete loop from idea to merged feature. An optional three-module extension uses Microsoft Foundry Canvas to prepare a project and model, build and deploy an agent, and connect it to the site.
 
 ## Lessons
 
@@ -22,8 +22,8 @@ Across these lessons you'll install the app and set up your project, then get or
 | [5. Testing with Playwright MCP][ex5] | External Tools | Add the Playwright MCP server and explore your feature in a browser |
 | [6. Merging with Agent Merge][ex6] | Merge | Let Agent Merge fix and land your filtering pull request |
 | [7. Planning with canvases][ex7] | Collaboration | Create a shared canvas to plan and track your work |
-| [8. Build a Backer Concierge Agent (Optional)][foundry-canvas] | AI agents | Build, test, deploy, and integrate a catalog-grounded hosted agent |
 | [9. Review and next steps][ex9] | Summary | Automate recurring tasks and explore what's next |
+| [Optional: Incorporate Foundry][foundry-canvas] | AI agents | Prepare a project and model, build and deploy a grounded agent, and connect it to the site |
 
 ## Prerequisites
 

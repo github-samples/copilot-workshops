@@ -4,6 +4,7 @@ description: "Recapitule o percurso do aplicativo GitHub Copilot, automatize tra
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next: false
 ---
 
 Nas últimas lições, você levou um recurso da ideia ao merge com o aplicativo GitHub Copilot. Nesse processo, você:
@@ -62,6 +63,8 @@ A melhor maneira de melhorar com qualquer ferramenta é continuar usando-a. Use-
 
 Para conhecer melhor o ecossistema do GitHub Copilot, confira o [percurso do VS Code](../../vscode/), o [percurso do Copilot CLI](../../cli/) ou o [percurso do agente de nuvem](../../cloud/).
 
+Para uma extensão opcional usando o Microsoft Foundry Canvas, explore [Opcional: Incorporar o Foundry][foundry-canvas].
+
 ## Recursos
 
 - [Sobre o aplicativo GitHub Copilot][about-copilot-app]
@@ -81,3 +84,4 @@ Para conhecer melhor o ecossistema do GitHub Copilot, confira o [percurso do VS 
 [custom-agents]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-custom-agents
 [byok]: https://docs.github.com/copilot/how-tos/github-copilot-app/use-byok-models
 [deep-links]: https://docs.github.com/copilot/how-tos/github-copilot-app/open-with-deep-links
+[foundry-canvas]: ../8-foundry-canvas/

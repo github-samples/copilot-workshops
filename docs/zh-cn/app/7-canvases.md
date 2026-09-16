@@ -4,6 +4,9 @@ description: "在 GitHub Copilot app 中创建智能体驱动的共享画布，�
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next:
+  link: /copilot-workshops/zh-cn/app/9-review/
+  label: "回顾与后续步骤"
 ---
 
 此前，你通过聊天指挥智能体。但许多工作并不只存在于对话中，而是呈现在看板、文档或检查清单上。借助**画布**，你和智能体可以直接在应用内共享一个适合此类工作的界面。本课将创建一个简单画布，用于规划和跟踪一直在处理的待办事项。
@@ -113,7 +116,7 @@ Copilot app 会开始创建并管理 PR。它先探索项目以确定创建 PR �
 - 使用 Agent Merge 将画布保存并合并到存储库。
 - 在新会话中打开画布，并使用它开始工作。
 
-待办事项现已得到跟踪，你可以在此结束，也可以继续学习。如果想基于 Tailspin Toys 目录创建托管 AI 智能体，请继续学习[可选的 Backer Concierge 课程][next-lesson]。否则，请跳转到[第 9 课 - 回顾与后续步骤][review-lesson]。
+待办事项现已得到跟踪，接下来[回顾已完成的工作][next-lesson]。如果想通过 Microsoft Foundry Canvas 进行可选扩展，可继续探索[可选：集成 Foundry][foundry-canvas]。
 
 ## 资源
 
@@ -121,8 +124,8 @@ Copilot app 会开始创建并管理 PR。它先探索项目以确定创建 PR �
 - [Awesome Copilot 上的画布][awesome-copilot-canvases]
 - [关于 GitHub Copilot app][about-copilot-app]
 
-[next-lesson]: ../8-foundry-canvas/
-[review-lesson]: ../9-review/
+[next-lesson]: ../9-review/
+[foundry-canvas]: ../8-foundry-canvas/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
