@@ -21,7 +21,7 @@ Each module ends with a checkpoint and a safe stopping point. The same Tailspin 
 
 - [Prepare project and model][module-1] establishes the catalog boundary, creates the project and model deployment, and checks them in Canvas.
 - [Build and deploy the agent][module-2] scaffolds the Backer Concierge, tests it locally, and deploys and retests the hosted agent.
-- [Connect the agent to the site][module-3] adds a local credential-safe proxy, an accessible chat widget, end-to-end tests, and Agent merge.
+- [Connect the agent to the site][module-3] adds a local credential-safe proxy, an accessible chat widget, and end-to-end tests.
 
 > [!IMPORTANT]
 > Microsoft Foundry Canvas and hosted agents are in public preview.
@@ -29,32 +29,49 @@ Each module ends with a checkpoint and a safe stopping point. The same Tailspin 
 > This journey creates billable Azure resources, including a model deployment and, from module 2, a hosted agent. Subscription, region, quota, and estimated cost need approval before resource creation. Cleanup applies even when stopping after only the project and model.
 
 1. Begin with [Prepare project and model][module-1], keeping the work in your Tailspin Toys repository rather than this workshop content repository.
-2. At your chosen stopping point—project and model, hosted deployment, or full integration—record the module's checkpoint and follow the shared cleanup below when you are finished experimenting. Continuing later after cleanup requires restoring the deleted resources and rechecking their configuration.
+2. If you'd rather finish the core workshop, continue to [Review and next steps][core-review].
 
 ## Clean up your resources
 
-Cleanup depends on how far you went. A project-and-model-only run has no requirement for `azure.yaml`, an `azd` environment, or a hosted agent.
+When you're done experimenting at any checkpoint, remove the Azure resources to avoid unwanted costs. Cleanup removes resources needed by later modules, so continuing afterward requires recreating them.
 
 > [!WARNING]
-> Resource deletion is destructive. Only resources dedicated to this workshop are eligible for deletion here. A shared resource group must never be deleted; individually removing workshop resources with the resource owner is the safe alternative.
+> Only delete `rg-tailspin-toys` if it is dedicated to this exercise and contains no resources you need to keep. Deleting a shared resource group would remove unrelated resources too.
+>
+> If you approved a different resource-group name in module 1, substitute it for `rg-tailspin-toys` in every command below.
 
-1. Stop any local Agent Inspector, Azure Function, and Astro development server processes you started, using their terminals. Record any checkpoint details you need before deleting Azure resources.
-2. In the Azure portal, confirm the active subscription ID, the exact workshop resource group name, and every resource it contains. Check that the Foundry project and model deployment belong to this run. If the subscription, ownership, or contents are unclear, stop cleanup until you have resolved them.
-3. Choose the cleanup path for your stopping point. If you completed only module 1, skip the next step and use step 5; do not create `azure.yaml` or initialize `azd` just to clean up. If you deployed with Canvas in module 2 or 3, continue with step 4.
-4. For a hosted deployment, open a terminal in the same Tailspin Toys worktree containing the root `azure.yaml`. Confirm that the selected `azd` environment targets this run's subscription and resources, review the resources to be deleted, and run the following only when all targets are dedicated to your workshop:
+1. Stop any local Agent Inspector, Azure Function, or Astro development server you started in its terminal.
+2. If you deployed the hosted agent in module 2 or 3, open a terminal in the same Tailspin Toys worktree and use the same `azd` environment, then run:
 
    ```bash
    azd down --purge
    ```
 
-5. For a project-and-model-only run, or after `azd down` if the dedicated workshop resource group still exists, recheck the subscription, group name, and complete resource list in the portal. If the entire group is dedicated to this run and its name is exactly `rg-tailspin-toys`, run the following. If the name differs, use the verified dedicated name instead; if the group is shared, do not run this command and coordinate individual resource cleanup with its owner.
+3. Check the selected subscription and whether the workshop resource group still exists:
+
+   ```bash
+   az account show --output table
+   az group exists --name rg-tailspin-toys
+   ```
+
+   If the command returns `false`, cleanup is complete. If it returns `true`, inspect the resources in the group:
+
+   ```bash
+   az resource list --resource-group rg-tailspin-toys --output table
+   ```
+
+   Verify that all remaining resources belong to this exercise. If you stopped after module 1, the Foundry project and model still need cleanup even though you did not deploy an `azd` service.
+4. If the dedicated workshop resource group still exists and contains only resources you intend to remove, run:
 
    ```bash
    az group delete --name rg-tailspin-toys --yes --no-wait
    ```
 
-6. Verify in the Azure portal that deletion finishes; `--no-wait` returns before deletion is complete. Confirm that the workshop model deployment and any hosted-agent resources are gone, and resolve any remaining billable workshop resources without deleting shared resources.
-7. Return to [Review and next steps][core-review] when your chosen checkpoint and cleanup are complete.
+5. Because `--no-wait` returns before deletion completes, rerun the following command until it returns `false`:
+
+   ```bash
+   az group exists --name rg-tailspin-toys
+   ```
 
 ## Resources
 

@@ -1,6 +1,6 @@
 ---
 title: "Connect the agent to the site"
-description: "Integrate the hosted Backer Concierge through a local credential-safe proxy, test the widget, and use Agent merge."
+description: "Integrate the hosted Backer Concierge through a local credential-safe proxy and test the widget end to end."
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
@@ -18,7 +18,7 @@ By the end, you will have:
 
 - A local Azure Functions proxy that protects Foundry credentials and conversation identifiers.
 - An accessible chat widget with verified end-to-end behavior.
-- A reviewed change handed to Agent merge and a resource cleanup checkpoint.
+- A locally verified integration and a resource cleanup checkpoint.
 
 ## Scenario
 
@@ -29,7 +29,7 @@ Tailspin Toys backers need catalog advice where they browse games. The Backer Co
 The integration uses the existing hosted agent rather than creating new Foundry resources.
 
 1. Resume the same Tailspin Toys repository, worktree branch, and **Add a Backer Concierge assistant for catalog questions** issue session from the earlier modules. Confirm the root `azure.yaml`, agent source, and catalog are present, and check the recorded subscription, dedicated resource group, Foundry project, model deployment, and tested hosted-agent version.
-2. Reopen Microsoft Foundry Canvas and confirm the same project, deployment, and hosted-agent status. If resources were cleaned up, restore the relevant [project and model][project-module] and [tested hosted deployment][previous-module] before integration. Otherwise, reuse them without creating another project.
+2. If resources were cleaned up, restore the relevant [project and model][project-module] and [tested hosted deployment][previous-module] before integration.
 
 ## Build the server-side proxy
 
@@ -79,22 +79,11 @@ With the proxy running, the widget provides the visible conversation on the site
 
     ![End-to-end test results for the Backer Concierge widget](../../_images/app-8-e2e-test-results.png)
 
-## Create and merge the pull request
-
-Agent merge wraps up the same issue-linked change after the local integration passes its checks.
-
-12. Review all changed files in the same Tailspin Toys worktree session, including the agent, root `azure.yaml`, local proxy, widget, and tests. Confirm no anonymous public proxy infrastructure was added.
-13. Confirm generated environment files, local settings, tokens, and credentials aren't included.
-14. Select the dropdown next to **Create PR**, then select **Agent merge**.
-15. Select **Agent merge** to create the pull request and monitor its checks. Review and address any reported failures before considering the change complete.
-
 ## Checkpoint and next steps
 
-The complete checkpoint combines hosted-agent evidence with a locally verified website integration; it is not a production deployment of the proxy or site.
+You built a local credential-safe proxy, connected an accessible chat widget, and verified the full conversation flow against the hosted Backer Concierge. The checkpoint for this module is a locally tested website integration that preserves the catalog boundary and keeps credentials and internal Foundry identifiers out of the browser. It is not a production deployment of the proxy or site.
 
-16. Record the proxy and end-to-end test results and the pull request/check status in the same issue session. Confirm the record identifies the same Tailspin Toys repository, worktree branch, Foundry project, model deployment, and hosted-agent version used throughout the three modules.
-17. Follow [Clean up your resources][cleanup] when finished experimenting, including stopping both local services and removing only dedicated workshop Azure resources.
-18. Continue to [Review and next steps][core-review] on the existing core workshop route.
+When you're finished experimenting, stop both local services and [clean up your Azure resources][cleanup]. Then continue to [Review and next steps][core-review] on the core workshop route.
 
 [previous-module]: ../2-build-and-deploy/
 [project-module]: ../1-project-and-model/

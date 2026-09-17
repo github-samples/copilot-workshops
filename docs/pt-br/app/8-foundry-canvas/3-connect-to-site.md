@@ -1,6 +1,6 @@
 ---
 title: "Conectar o agente ao site"
-description: "Integre o Backer Concierge hospedado por meio de um proxy local que protege as credenciais, teste o widget e use o Agent merge."
+description: "Integre o Backer Concierge hospedado por meio de um proxy local que protege as credenciais e teste o widget de ponta a ponta."
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
@@ -18,7 +18,7 @@ Ao final, você terá:
 
 - Um proxy local do Azure Functions que protege as credenciais do Foundry e os identificadores de conversa.
 - Um widget de chat acessível com comportamento verificado de ponta a ponta.
-- Uma alteração revisada encaminhada ao Agent merge e um ponto de verificação para a limpeza dos recursos.
+- Uma integração verificada localmente e um ponto de verificação para a limpeza dos recursos.
 
 ## Cenário
 
@@ -29,7 +29,7 @@ As pessoas que apoiam a Tailspin Toys precisam de orientações sobre o catálog
 A integração usa o agente hospedado existente, em vez de criar novos recursos do Foundry.
 
 1. Retome o mesmo repositório Tailspin Toys, branch do worktree e sessão da issue **Add a Backer Concierge assistant for catalog questions** dos módulos anteriores. Confirme que o `azure.yaml` na raiz, o código-fonte do agente e o catálogo estão presentes e verifique a assinatura registrada, o grupo de recursos dedicado, o projeto do Foundry, a implantação de modelo e a versão testada do agente hospedado.
-2. Reabra o Microsoft Foundry Canvas e confirme o mesmo projeto, a implantação e o status do agente hospedado. Se os recursos foram removidos na limpeza, restaure o [projeto e o modelo][project-module] e a [implantação hospedada testada][previous-module] correspondentes antes da integração. Caso contrário, reutilize-os sem criar outro projeto.
+2. Se os recursos foram removidos na limpeza, restaure o [projeto e o modelo][project-module] e a [implantação hospedada testada][previous-module] correspondentes antes da integração.
 
 ## Criar o proxy do lado do servidor
 
@@ -79,22 +79,11 @@ Com o proxy em execução, o widget apresenta a conversa no site sem expor detal
 
     ![Resultados dos testes de ponta a ponta do widget Backer Concierge](../../../_images/app-8-e2e-test-results.png)
 
-## Criar e fazer merge do pull request
-
-O Agent merge conclui a mesma alteração vinculada à issue após a integração local passar nas verificações.
-
-12. Revise todos os arquivos alterados na mesma sessão de worktree da Tailspin Toys, incluindo o agente, o `azure.yaml` na raiz, o proxy local, o widget e os testes. Confirme que não foi adicionada infraestrutura de proxy público anônimo.
-13. Confirme que arquivos de ambiente gerados, configurações locais, tokens e credenciais não estão incluídos.
-14. Selecione o menu suspenso ao lado de **Create PR** e selecione **Agent merge**.
-15. Selecione **Agent merge** para criar o pull request e acompanhar as verificações. Revise e resolva quaisquer falhas relatadas antes de considerar a alteração concluída.
-
 ## Ponto de verificação e próximos passos
 
-O ponto de verificação completo reúne as evidências do agente hospedado e uma integração ao site verificada localmente; ele não representa uma implantação de produção do proxy ou do site.
+Você criou um proxy local que protege as credenciais, conectou um widget de chat acessível e verificou todo o fluxo da conversa com o Backer Concierge hospedado. O ponto de verificação deste módulo é uma integração ao site testada localmente que preserva os limites do catálogo e mantém as credenciais e os identificadores internos do Foundry fora do navegador. Ela não representa uma implantação de produção do proxy ou do site.
 
-16. Registre os resultados dos testes do proxy e dos testes de ponta a ponta e o status do pull request e das verificações na mesma sessão da issue. Confirme que o registro identifica o mesmo repositório Tailspin Toys, branch do worktree, projeto do Foundry, implantação de modelo e versão do agente hospedado usados ao longo dos três módulos.
-17. Siga [Limpar seus recursos][cleanup] quando terminar de experimentar, incluindo interromper os dois serviços locais e remover somente os recursos do Azure dedicados ao workshop.
-18. Continue para [Revisão e próximos passos][core-review] na rota existente do workshop principal.
+Quando terminar de experimentar, interrompa os dois serviços locais e [limpe os recursos do Azure][cleanup]. Em seguida, continue para [Revisão e próximos passos][core-review] na rota principal do workshop.
 
 [previous-module]: ../2-build-and-deploy/
 [project-module]: ../1-project-and-model/

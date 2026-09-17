@@ -1,6 +1,6 @@
 ---
 title: "Conectar el agente al sitio"
-description: "Integra el Backer Concierge hospedado mediante un proxy local que protege las credenciales, prueba el widget y utiliza Agent merge."
+description: "Integra el Backer Concierge hospedado mediante un proxy local que protege las credenciales y prueba el widget de extremo a extremo."
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
@@ -18,7 +18,7 @@ Al terminar, tendrás:
 
 - Un proxy local de Azure Functions que protege las credenciales de Foundry y los identificadores de conversación.
 - Un widget de chat accesible con un comportamiento verificado de extremo a extremo.
-- Un cambio revisado que se ha pasado a Agent merge y un punto de control de limpieza de recursos.
+- Una integración verificada en local y un punto de control de limpieza de recursos.
 
 ## Escenario
 
@@ -29,7 +29,7 @@ Quienes apoyan los juegos de Tailspin Toys necesitan asesoramiento sobre el cat�
 La integración utiliza el agente hospedado existente en lugar de crear nuevos recursos de Foundry.
 
 1. Retoma el mismo repositorio de Tailspin Toys, la misma rama del worktree y la misma sesión de la incidencia **Add a Backer Concierge assistant for catalog questions** de los módulos anteriores. Confirma que estén presentes el archivo `azure.yaml` de la raíz, el código fuente del agente y el catálogo, y comprueba la suscripción registrada, el grupo de recursos dedicado, el proyecto de Foundry, la implementación del modelo y la versión probada del agente hospedado.
-2. Vuelve a abrir Microsoft Foundry Canvas y confirma el mismo proyecto, la misma implementación y el estado del agente hospedado. Si se eliminaron los recursos, restaura el [proyecto y el modelo][project-module] y la [implementación hospedada probada][previous-module] que correspondan antes de realizar la integración. De lo contrario, reutilízalos sin crear otro proyecto.
+2. Si se eliminaron los recursos, restaura el [proyecto y el modelo][project-module] y la [implementación hospedada probada][previous-module] que correspondan antes de realizar la integración.
 
 ## Crear el proxy del lado del servidor
 
@@ -79,22 +79,11 @@ Con el proxy en ejecución, el widget muestra la conversación en el sitio sin e
 
     ![Resultados de las pruebas de extremo a extremo del widget Backer Concierge](../../../_images/app-8-e2e-test-results.png)
 
-## Crear y combinar la solicitud de incorporación de cambios
-
-Agent merge completa el mismo cambio vinculado a la incidencia una vez que la integración local supera las comprobaciones.
-
-12. Revisa todos los archivos modificados en la misma sesión del worktree de Tailspin Toys, incluidos el agente, el archivo `azure.yaml` de la raíz, el proxy local, el widget y las pruebas. Confirma que no se haya añadido infraestructura de proxy público anónimo.
-13. Confirma que no se incluyan archivos de entorno generados, configuraciones locales, tokens ni credenciales.
-14. Selecciona el menú desplegable situado junto a **Create PR** y, después, **Agent merge**.
-15. Selecciona **Agent merge** para crear la solicitud de incorporación de cambios y supervisar sus comprobaciones. Revisa y resuelve los fallos que se comuniquen antes de dar el cambio por terminado.
-
 ## Punto de control y pasos siguientes
 
-El punto de control completo reúne las evidencias del agente hospedado con una integración del sitio web verificada en local; no es una implementación de producción del proxy ni del sitio.
+Has creado un proxy local que protege las credenciales, conectado un widget de chat accesible y verificado el flujo completo de la conversación con el Backer Concierge hospedado. El punto de control de este módulo es una integración del sitio web probada en local que conserva los límites del catálogo y mantiene las credenciales y los identificadores internos de Foundry fuera del navegador. No es una implementación de producción del proxy ni del sitio.
 
-16. Registra los resultados de las pruebas del proxy y de extremo a extremo, así como el estado de la solicitud de incorporación de cambios y sus comprobaciones, en la misma sesión de la incidencia. Confirma que el registro identifica el mismo repositorio de Tailspin Toys, la misma rama del worktree, el mismo proyecto de Foundry, la misma implementación del modelo y la misma versión del agente hospedado que se han utilizado durante los tres módulos.
-17. Sigue las instrucciones de [Limpiar los recursos][cleanup] cuando termines de experimentar, lo que incluye detener ambos servicios locales y eliminar únicamente los recursos de Azure dedicados al taller.
-18. Continúa con [Repaso y pasos siguientes][core-review] en la ruta principal existente del taller.
+Cuando termines de experimentar, detén ambos servicios locales y [limpia los recursos de Azure][cleanup]. Después, continúa con [Repaso y pasos siguientes][core-review] en la ruta principal del taller.
 
 [previous-module]: ../2-build-and-deploy/
 [project-module]: ../1-project-and-model/

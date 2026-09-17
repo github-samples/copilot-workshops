@@ -21,7 +21,7 @@ Cada módulo termina con un punto de control y un punto seguro para detenerte. D
 
 - [Preparar el proyecto y el modelo][module-1] establece los límites del catálogo, crea el proyecto y la implementación del modelo, y los comprueba en Canvas.
 - [Crear e implementar el agente][module-2] genera la estructura inicial de Backer Concierge, lo prueba en local, e implementa y vuelve a probar el agente hospedado.
-- [Conectar el agente al sitio][module-3] añade un proxy local que protege las credenciales, un widget de chat accesible, pruebas de extremo a extremo y Agent merge.
+- [Conectar el agente al sitio][module-3] añade un proxy local que protege las credenciales, un widget de chat accesible y pruebas de extremo a extremo.
 
 > [!IMPORTANT]
 > Microsoft Foundry Canvas y los agentes hospedados están en versión preliminar pública.
@@ -29,32 +29,49 @@ Cada módulo termina con un punto de control y un punto seguro para detenerte. D
 > Este recorrido crea recursos de Azure que generan costes, incluida una implementación de modelo y, a partir del módulo 2, un agente hospedado. Antes de crear recursos, es necesario aprobar la suscripción, la región, la cuota y el coste estimado. La limpieza también se aplica si te detienes tras crear únicamente el proyecto y el modelo.
 
 1. Empieza por [Preparar el proyecto y el modelo][module-1] y realiza el trabajo en el repositorio de Tailspin Toys, no en este repositorio de contenido del taller.
-2. En el punto en el que decidas detenerte —proyecto y modelo, implementación hospedada o integración completa—, registra el punto de control del módulo y sigue las instrucciones de limpieza comunes que aparecen a continuación cuando termines de experimentar. Para continuar más adelante después de la limpieza, tendrás que restaurar los recursos eliminados y volver a comprobar su configuración.
+2. Si prefieres terminar el taller principal, continúa con [Revisión y pasos siguientes][core-review].
 
 ## Limpiar los recursos
 
-La limpieza depende de hasta dónde hayas llegado. Si solo has creado el proyecto y el modelo, no necesitas `azure.yaml`, un entorno de `azd` ni un agente hospedado.
+Cuando termines de experimentar en cualquier punto de control, elimina los recursos de Azure para evitar costes no deseados. La limpieza elimina recursos necesarios para módulos posteriores, por lo que tendrás que volver a crearlos si quieres continuar después.
 
 > [!WARNING]
-> La eliminación de recursos es destructiva. En este taller solo se pueden eliminar recursos dedicados exclusivamente a él. Nunca se debe eliminar un grupo de recursos compartido; la alternativa segura es eliminar los recursos del taller de forma individual junto con el propietario de los recursos.
+> Elimina `rg-tailspin-toys` únicamente si está dedicado a este ejercicio y no contiene ningún recurso que necesites conservar. Si eliminas un grupo de recursos compartido, también se eliminarán recursos que no pertenecen al ejercicio.
+>
+> Si aprobaste otro nombre para el grupo de recursos en el módulo 1, sustituye `rg-tailspin-toys` por ese nombre en todos los comandos siguientes.
 
-1. Detén desde sus terminales los procesos locales de Agent Inspector, Azure Function y el servidor de desarrollo de Astro que hayas iniciado. Registra los datos del punto de control que necesites antes de eliminar recursos de Azure.
-2. En Azure Portal, confirma el identificador de la suscripción activa, el nombre exacto del grupo de recursos del taller y todos los recursos que contiene. Comprueba que el proyecto de Foundry y la implementación del modelo pertenecen a esta ejecución del taller. Si no tienes clara la suscripción, la propiedad o el contenido, detén la limpieza hasta aclararlos.
-3. Elige la opción de limpieza correspondiente al punto en el que te hayas detenido. Si solo has completado el módulo 1, omite el paso siguiente y utiliza el paso 5; no crees `azure.yaml` ni inicialices `azd` solo para realizar la limpieza. Si has realizado una implementación con Canvas en el módulo 2 o 3, continúa con el paso 4.
-4. Para una implementación hospedada, abre un terminal en el mismo worktree de Tailspin Toys que contiene el archivo `azure.yaml` en la raíz. Confirma que el entorno de `azd` seleccionado apunta a la suscripción y los recursos de esta ejecución, revisa los recursos que se van a eliminar y ejecuta lo siguiente solo cuando todos los destinos estén dedicados al taller:
+1. Detén desde sus terminales cualquier proceso local de Agent Inspector, Azure Function o servidor de desarrollo de Astro que hayas iniciado.
+2. Si has implementado el agente hospedado en el módulo 2 o 3, abre un terminal en el mismo worktree de Tailspin Toys, usa el mismo entorno de `azd` y ejecuta:
 
    ```bash
    azd down --purge
    ```
 
-5. Si solo has creado el proyecto y el modelo, o si el grupo de recursos dedicado al taller sigue existiendo después de `azd down`, vuelve a comprobar en el portal la suscripción, el nombre del grupo y la lista completa de recursos. Si todo el grupo está dedicado a esta ejecución y su nombre es exactamente `rg-tailspin-toys`, ejecuta lo siguiente. Si el nombre es distinto, utiliza el nombre dedicado que hayas verificado; si el grupo es compartido, no ejecutes este comando y coordina la limpieza individual de recursos con su propietario.
+3. Comprueba la suscripción seleccionada y si todavía existe el grupo de recursos del taller:
+
+   ```bash
+   az account show --output table
+   az group exists --name rg-tailspin-toys
+   ```
+
+   Si el comando devuelve `false`, la limpieza ha terminado. Si devuelve `true`, examina los recursos del grupo:
+
+   ```bash
+   az resource list --resource-group rg-tailspin-toys --output table
+   ```
+
+   Verifica que todos los recursos restantes pertenezcan a este ejercicio. Si te has detenido después del módulo 1, aún debes limpiar el proyecto de Foundry y el modelo aunque no hayas implementado un servicio de `azd`.
+4. Si el grupo de recursos dedicado del taller todavía existe y solo contiene recursos que quieres eliminar, ejecuta:
 
    ```bash
    az group delete --name rg-tailspin-toys --yes --no-wait
    ```
 
-6. Verifica en Azure Portal que la eliminación finalice; `--no-wait` devuelve el control antes de que termine. Confirma que se han eliminado la implementación del modelo del taller y todos los recursos del agente hospedado, y ocúpate de los recursos restantes del taller que generen costes sin eliminar recursos compartidos.
-7. Vuelve a [Repaso y pasos siguientes][core-review] cuando hayas completado el punto de control elegido y la limpieza.
+5. Como `--no-wait` devuelve el control antes de que termine la eliminación, vuelve a ejecutar el comando siguiente hasta que devuelva `false`:
+
+   ```bash
+   az group exists --name rg-tailspin-toys
+   ```
 
 ## Recursos
 

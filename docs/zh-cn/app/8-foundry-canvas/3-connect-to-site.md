@@ -1,6 +1,6 @@
 ---
 title: "将代理连接到网站"
-description: "通过保护凭据的本地代理服务集成托管的 Backer Concierge，测试聊天组件，并使用 Agent merge。"
+description: "通过保护凭据的本地代理服务集成托管的 Backer Concierge，并对聊天组件进行端到端测试。"
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
@@ -18,7 +18,7 @@ next:
 
 - 一个保护 Foundry 凭据和对话标识符的本地 Azure Functions 代理服务。
 - 一个支持无障碍访问、且端到端行为经过验证的聊天组件。
-- 一项经过审查并交由 Agent merge 处理的更改，以及一个资源清理检查点。
+- 一项经过本地验证的集成，以及一个资源清理检查点。
 
 ## 场景
 
@@ -29,7 +29,7 @@ Tailspin Toys 的支持者需要在浏览游戏时获得基于目录的建议。
 集成使用已有的托管代理，不创建新的 Foundry 资源。
 
 1. 返回前面模块中的同一个 Tailspin Toys 存储库、工作树分支和 **Add a Backer Concierge assistant for catalog questions** 议题会话。确认根目录下的 `azure.yaml`、代理源代码和目录均存在，并检查已记录的订阅、专用资源组、Foundry 项目、模型部署及经过测试的托管代理版本。
-2. 重新打开 Microsoft Foundry Canvas，确认仍为同一项目和部署，并检查托管代理的状态。如果已清理资源，请在集成前恢复相关的[项目和模型][project-module]以及[经过测试的托管部署][previous-module]。否则，继续使用这些资源，不要另建项目。
+2. 如果已清理资源，请在集成前恢复相关的[项目和模型][project-module]以及[经过测试的托管部署][previous-module]。
 
 ## 构建服务器端代理服务
 
@@ -79,22 +79,11 @@ Tailspin Toys 完全采用预渲染。浏览器代码绝不能直接调用托管
 
     ![Backer Concierge 聊天组件的端到端测试结果](../../../_images/app-8-e2e-test-results.png)
 
-## 创建并合并拉取请求
-
-本地集成通过检查后，Agent merge 将完成这项关联同一议题的更改。
-
-12. 在同一个 Tailspin Toys 工作树会话中审查所有更改的文件，包括代理、根目录下的 `azure.yaml`、本地代理服务、聊天组件和测试。确认未添加匿名公共代理服务基础设施。
-13. 确认未包含生成的环境文件、本地设置、令牌或凭据。
-14. 选择 **Create PR** 旁的下拉菜单，然后选择 **Agent merge**。
-15. 选择 **Agent merge** 创建拉取请求，并关注其检查状态。在认为更改完成之前，审查并解决所有报告的失败项。
-
 ## 检查点与后续步骤
 
-完整的检查点结合了托管代理的验证证据和经过本地验证的网站集成；它并不代表代理服务或网站已部署到生产环境。
+你已构建一个保护凭据的本地代理服务，连接支持无障碍访问的聊天组件，并针对托管的 Backer Concierge 验证了完整的对话流程。本模块的检查点是一个经过本地测试的网站集成，它能遵守目录边界，并且不会向浏览器暴露凭据或 Foundry 内部标识符。这并不代表代理服务或网站已部署到生产环境。
 
-16. 在同一个议题会话中记录代理服务和端到端测试结果，以及拉取请求和检查状态。确认记录明确标识了三个模块始终使用的同一个 Tailspin Toys 存储库、工作树分支、Foundry 项目、模型部署和托管代理版本。
-17. 结束实验后，按[清理资源][cleanup]操作，包括停止两个本地服务，并且只删除研讨会专用的 Azure 资源。
-18. 沿研讨会现有核心学习路径，继续学习[回顾与后续步骤][core-review]。
+结束实验后，停止两个本地服务并[清理 Azure 资源][cleanup]。然后沿核心研讨会学习路径继续学习[回顾与后续步骤][core-review]。
 
 [previous-module]: ../2-build-and-deploy/
 [project-module]: ../1-project-and-model/
