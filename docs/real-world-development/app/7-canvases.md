@@ -4,6 +4,9 @@ description: "Create a shared, agent-driven canvas in the GitHub Copilot app to 
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next:
+  link: /copilot-workshops/real-world-development/app/9-review/
+  label: "Review and next steps"
 ---
 
 So far you've directed agents through chat. But a lot of work doesn't live in a conversation — it lives on a board, in a document, or on a checklist. **Canvases** give you and the agent a shared surface for exactly that kind of work, right inside the app. In this lesson you'll create a simple canvas to plan and track the backlog you've been working through.
@@ -113,7 +116,7 @@ You created a shared surface where you and the agent can collaborate! You:
 - saved and merged the canvas to your repository with Agent Merge.
 - opened the canvas in a new session and used it to start work.
 
-With your backlog tracked, take a step back to review everything you've built and where to go next. Continue to [Lesson 8 - Review and next steps][next-lesson].
+With your backlog tracked, continue to [reviewing what you've built][next-lesson]. For an optional extension using Microsoft Foundry Canvas, explore [Optional: Incorporate Foundry][foundry-canvas].
 
 ## Resources
 
@@ -121,7 +124,8 @@ With your backlog tracked, take a step back to review everything you've built an
 - [Canvases on Awesome Copilot][awesome-copilot-canvases]
 - [About the GitHub Copilot app][about-copilot-app]
 
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
+[foundry-canvas]: ../8-foundry-canvas/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app

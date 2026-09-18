@@ -33,7 +33,7 @@ copilot-workshops/
 
 ### Add a new lesson
 
-1. **Pick a category, workshop, and number.** Lessons live under `docs/<category>/<workshop>/N-name.md`. `N` is the next available integer in that workshop; the number drives the URL slug (`/real-world-development/cli/3-generating-code/`).
+1. **Pick a category, workshop, and number.** Lessons live under `docs/<category>/<workshop>/N-name.md`. `N` is the next available integer in that workshop; the number drives the URL slug (`/real-world-development/cli/3-generating-code/`). A longer optional exercise can use `N-name/README.md` for its overview and numbered modules inside that folder. Preserve the entry URL with the overview's `slug`, keep the core review as the default next destination, and place the optional sidebar group after it.
 2. **Create the file** with frontmatter:
    ```markdown
    ---
@@ -85,12 +85,13 @@ Every folder's landing page is a `README.md` so it renders directly when someone
 - `docs/<category>/<workshop>/README.md` → `slug: <category>/<workshop>` (e.g. `slug: real-world-development/app` → `/real-world-development/app/`).
 - `docs/<locale>/README.md` → `slug: <locale>` (e.g. `slug: es-es` → `/es-es/`).
 - `docs/<locale>/<category>/<workshop>/README.md` → `slug: <locale>/<category>/<workshop>` (e.g. `slug: es-es/real-world-development/app` → `/es-es/real-world-development/app/`).
+- Nested lesson overviews follow the same rule: `docs/real-world-development/app/8-foundry-canvas/README.md` → `slug: real-world-development/app/8-foundry-canvas`; localized copies include the locale prefix. Numbered modules live beside the overview and retain nested routes. Links between lessons resolve from the published route, while image paths resolve from the Markdown source file.
 
 When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
 
 ### Optional multi-module series
 
-An optional series can live in a lesson subfolder, such as `docs/real-world-development/cli/8-foundry-agent/` or `docs/real-world-development/vscode/7-foundry-toolkit/`, with a `README.md` overview and numbered module files. The overview slug matches the complete category, workshop, and series path. The sidebar groups its overview and modules under the optional series title after the core workshop lessons.
+An optional series can live in a lesson subfolder, such as `docs/real-world-development/cli/8-foundry-agent/`, `docs/real-world-development/vscode/7-foundry-toolkit/`, or `docs/real-world-development/app/8-foundry-canvas/`, with a `README.md` overview and numbered module files. The overview slug matches the complete category, workshop, and series path. The sidebar groups its overview and modules under the optional series title after the core workshop lessons.
 
 Each module has its own objectives, story-focused scenario, numbered instructions, completion checkpoint, and next-module handoff. Shared cleanup instructions live on the overview and are linked from every module so learners can stop at any checkpoint. When moving a lesson into a subfolder, adjust image paths and navigation links for the extra directory level, and keep existing localized entry links aligned; missing module translations use the site's English fallback.
 

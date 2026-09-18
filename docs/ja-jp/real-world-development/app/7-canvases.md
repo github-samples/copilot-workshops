@@ -4,6 +4,9 @@ description: "GitHub Copilot app でエージェント主導の共有キャン�
 authors:
   - geektrainer
 lastUpdated: 2026-07-09
+next:
+  link: /copilot-workshops/ja-jp/real-world-development/app/9-review/
+  label: "振り返りと次のステップ"
 ---
 
 ここまでは、チャットを通じてエージェントを指示してきました。しかし、多くの作業は会話の中ではなく、ボード、ドキュメント、チェックリスト上で行われます。**キャンバス**は、まさにそのような作業のために、アプリ内でユーザーとエージェントが共有できる領域です。このレッスンでは、ここまで取り組んできたバックログの計画と追跡に使用する、シンプルなキャンバスを作成します。
@@ -113,7 +116,7 @@ Copilot app が PR の作成と管理を開始します。最初にプロジェ�
 - Agent Merge を使ってキャンバスをリポジトリに保存し、マージした。
 - 新しいセッションでキャンバスを開き、そこから作業を開始した。
 
-バックログを追跡できるようになったので、ここまで構築した内容と今後の進め方を振り返ります。[レッスン 8「振り返りと次のステップ」][next-lesson]に進んでください。
+バックログを追跡できるようになったので、[ここまでの成果を振り返るレッスン][next-lesson]に進みます。Microsoft Foundry Canvas を使った追加の学習に取り組む場合は、[オプション: Foundry を組み込む][foundry-canvas]を確認してください。
 
 ## リソース
 
@@ -121,7 +124,8 @@ Copilot app が PR の作成と管理を開始します。最初にプロジェ�
 - [Awesome Copilot の Canvases][awesome-copilot-canvases]
 - [GitHub Copilot app について][about-copilot-app]
 
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
+[foundry-canvas]: ../8-foundry-canvas/
 [canvas-docs]: https://docs.github.com/copilot/how-tos/github-copilot-app/working-with-canvas-extensions
 [awesome-copilot-canvases]: https://awesome-copilot.github.com/extensions/
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
