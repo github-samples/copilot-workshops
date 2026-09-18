@@ -1,5 +1,5 @@
 ---
-title: "演習 8 - 振り返りと次のステップ"
+title: "演習 9 - 振り返りと次のステップ"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30
@@ -12,6 +12,8 @@ lastUpdated: 2026-06-30
 - skill を実装して、Copilot CLI のツールボックスに tool を追加する。
 - custom agent を呼び出して、より高度で複雑なタスクに対応する。
 - slash command を使ってセッションを管理し、必要に応じて `/delegate` で cloud agent に橋渡しする。
+
+任意の追加課題に挑戦したい場合は、全 3 モジュールのシリーズで[GitHub Copilot CLI と Foundry を使ったコンシェルジュの構築][foundry-lesson]に取り組めます。モデルのセットアップ、エージェントの開発とデプロイ、Web サイトとの統合を学びます。
 
 ここでは、いくつかの slash command、ベスト プラクティス、次のステップについて確認します。
 
@@ -61,6 +63,7 @@ GitHub Copilot エコシステムをさらに試してみたい場合は、[VS C
 - [MCP 仕様][mcp-spec]
 
 [previous-lesson]: ../7-slash-commands/
+[foundry-lesson]: ../8-foundry-agent/
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [awesome-copilot]: https://github.com/github/awesome-copilot

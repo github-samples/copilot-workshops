@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 **[GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)** 将 GitHub Copilot 作为代理式编码助手带入终端。它可以探索代码库、生成代码、运行命令，并连接外部工具——全部通过命令行完成，无需切换到图形化编辑器即可保持工作流畅。
 
-在这些练习中，将先安装并验证 Copilot CLI，然后通过自定义说明为它提供项目上下文，再使用计划模式有目的地生成一个功能。接着连接 Playwright MCP 服务器，在真实浏览器中测试该功能；然后通过可复用的智能体技能和自定义智能体扩展 Copilot。最后，将探索用于管理上下文、模型和共享的斜杠命令，并回顾已完成的内容。
+在这些练习中，将先安装并验证 Copilot CLI，然后通过自定义说明为它提供项目上下文，再使用计划模式有目的地生成一个功能。接着连接 Playwright MCP 服务器，在真实浏览器中测试该功能；然后通过可复用的智能体技能和自定义智能体扩展 Copilot。最后，将探索用于管理上下文、模型和共享的斜杠命令，并回顾已完成的内容。还可以学习[使用 GitHub Copilot CLI 和 Foundry 的可选系列课程][foundry]，通过三个模块准备模型、构建并部署托管智能体，以及将其集成到网站中。
 
 ## 练习
 
@@ -22,7 +22,8 @@ lastUpdated: 2026-06-30
 | [5. 智能体技能][ex5] | 技能 | 用专门的技能增强 Copilot |
 | [6. 自定义智能体][ex6] | 智能体 | 查看并使用自定义智能体 |
 | [7. 斜杠命令][ex7] | CLI 功能 | 探索上下文、模型、共享，以及可选的委托给 cloud agent |
-| [8. 回顾][ex8] | 总结 | 回顾关键概念和后续步骤 |
+| [9. 回顾][ex9] | 总结 | 回顾关键概念和后续步骤 |
+| [可选：集成 Foundry][foundry] | 托管智能体 | 准备模型、构建并部署基于目录的 Backer Concierge，并将其连接到网站 |
 
 ## 先决条件
 
@@ -52,4 +53,5 @@ lastUpdated: 2026-06-30
 [ex5]: 5-agent-skills/
 [ex6]: 6-custom-agents/
 [ex7]: 7-slash-commands/
-[ex8]: 8-review/
+[foundry]: 8-foundry-agent/
+[ex9]: 9-review/

@@ -63,6 +63,52 @@ export default defineConfig({
             { label: '4. Custom agents', link: '/vscode/4-custom-agents/' },
             { label: '5. Managing agents', link: '/vscode/5-managing-agents/' },
             { label: '6. Iterating', link: '/vscode/6-iterating/' },
+            {
+              label: 'Optional: Incorporate Foundry',
+              translations: {
+                'es-ES': 'Opcional: Incorporar Foundry',
+                'ja-JP': '省略可能: Foundry を組み込む',
+                'ko-KR': '선택 사항: Foundry 통합',
+                'pt-BR': 'Opcional: Incorporar o Foundry',
+                'zh-CN': '可选：集成 Foundry',
+              },
+              items: [
+                { label: 'Overview', link: '/vscode/7-foundry-toolkit/' },
+                {
+                  label: 'Prepare a project and model',
+                  link: '/vscode/7-foundry-toolkit/1-project-and-model/',
+                  translations: {
+                    'es-ES': 'Preparar un proyecto y un modelo',
+                    'ja-JP': 'プロジェクトとモデルを準備する',
+                    'ko-KR': '프로젝트 및 모델 준비',
+                    'pt-BR': 'Preparar um projeto e um modelo',
+                    'zh-CN': '准备项目和模型',
+                  },
+                },
+                {
+                  label: 'Build and deploy an agent',
+                  link: '/vscode/7-foundry-toolkit/2-build-and-deploy/',
+                  translations: {
+                    'es-ES': 'Crear e implementar un agente',
+                    'ja-JP': 'エージェントを構築してデプロイする',
+                    'ko-KR': '에이전트 빌드 및 배포',
+                    'pt-BR': 'Criar e implantar um agente',
+                    'zh-CN': '构建并部署代理',
+                  },
+                },
+                {
+                  label: 'Connect the agent to the site',
+                  link: '/vscode/7-foundry-toolkit/3-connect-to-site/',
+                  translations: {
+                    'es-ES': 'Conectar el agente al sitio',
+                    'ja-JP': 'エージェントをサイトに接続する',
+                    'ko-KR': '사이트에 에이전트 연결',
+                    'pt-BR': 'Conectar o agente ao site',
+                    'zh-CN': '将代理连接到网站',
+                  },
+                },
+              ],
+            },
           ],
         },
         {
@@ -77,7 +123,64 @@ export default defineConfig({
             { label: '5. Agent skills', link: '/cli/5-agent-skills/' },
             { label: '6. Custom agents', link: '/cli/6-custom-agents/' },
             { label: '7. Slash commands', link: '/cli/7-slash-commands/' },
-            { label: '8. Review', link: '/cli/8-review/' },
+            { label: '9. Review', link: '/cli/9-review/' },
+            {
+              label: 'Optional: Incorporate Foundry',
+              translations: {
+                'es-ES': 'Opcional: incorpora Foundry',
+                'ja-JP': 'オプション: Foundry を組み込む',
+                'ko-KR': '선택 사항: Foundry 통합하기',
+                'pt-BR': 'Opcional: Incorpore o Foundry',
+                'zh-CN': '可选：集成 Foundry',
+              },
+              collapsed: true,
+              items: [
+                {
+                  label: 'Overview',
+                  link: '/cli/8-foundry-agent/',
+                  translations: {
+                    'es-ES': 'Descripción general',
+                    'ja-JP': '概要',
+                    'ko-KR': '개요',
+                    'pt-BR': 'Visão geral',
+                    'zh-CN': '概述',
+                  },
+                },
+                {
+                  label: '1. Prepare the project and model',
+                  link: '/cli/8-foundry-agent/1-project-and-model/',
+                  translations: {
+                    'es-ES': '1. Prepara el proyecto y el modelo',
+                    'ja-JP': '1. プロジェクトとモデルを準備する',
+                    'ko-KR': '1. 프로젝트와 모델 준비하기',
+                    'pt-BR': '1. Prepare o projeto e o modelo',
+                    'zh-CN': '1. 准备项目和模型',
+                  },
+                },
+                {
+                  label: '2. Build and deploy the agent',
+                  link: '/cli/8-foundry-agent/2-build-and-deploy/',
+                  translations: {
+                    'es-ES': '2. Crea y despliega el agente',
+                    'ja-JP': '2. エージェントを構築してデプロイする',
+                    'ko-KR': '2. 에이전트 빌드 및 배포하기',
+                    'pt-BR': '2. Crie e implante o agente',
+                    'zh-CN': '2. 构建并部署智能体',
+                  },
+                },
+                {
+                  label: '3. Connect the agent to the website',
+                  link: '/cli/8-foundry-agent/3-connect-to-site/',
+                  translations: {
+                    'es-ES': '3. Conecta el agente al sitio web',
+                    'ja-JP': '3. エージェントを Web サイトに接続する',
+                    'ko-KR': '3. 에이전트를 웹사이트에 연결하기',
+                    'pt-BR': '3. Conecte o agente ao site',
+                    'zh-CN': '3. 将智能体连接到网站',
+                  },
+                },
+              ],
+            },
           ],
         },
         {
@@ -86,6 +189,7 @@ export default defineConfig({
             { label: 'Overview', link: '/app/' },
             { label: '0. Prerequisites', link: '/app/0-prerequisites/' },
             { label: '1. Install the Copilot app', link: '/app/1-install-copilot-app/' },
+<<<<<<< HEAD
             { label: '2. Add star ratings', link: '/app/2-add-star-rating/' },
             { label: '3. Agent modes: Plan and Autopilot', link: '/app/3-agent-modes/' },
             { label: '4. Guiding Copilot with custom instructions', link: '/app/4-custom-instructions/' },
@@ -95,6 +199,64 @@ export default defineConfig({
             { label: '8. Create and merge the feature PR', link: '/app/8-create-pull-request/' },
             { label: '9. Create a canvas', link: '/app/9-canvases/' },
             { label: '10. Wrap-up and next steps', link: '/app/10-review/' },
+=======
+            { label: '2. Running your first agent session', link: '/app/2-add-star-rating/' },
+            { label: '3. Guiding Copilot with custom instructions', link: '/app/3-custom-instructions/' },
+            { label: '4. Building a feature with Autopilot', link: '/app/4-build-filtering/' },
+            { label: '5. Testing with Playwright MCP', link: '/app/5-mcp-playwright/' },
+            { label: '6. Merging with Agent Merge', link: '/app/6-agent-merge/' },
+            { label: '7. Planning with canvases', link: '/app/7-canvases/' },
+            { label: '9. Review', link: '/app/9-review/' },
+            {
+              label: 'Optional: Incorporate Foundry',
+              translations: {
+                'es-ES': 'Opcional: Incorporar Foundry',
+                'ja-JP': 'オプション: Foundry を組み込む',
+                'ko-KR': '선택 사항: Foundry 통합',
+                'pt-BR': 'Opcional: Incorporar o Foundry',
+                'zh-CN': '可选：集成 Foundry',
+              },
+              items: [
+                {
+                  label: 'Overview',
+                  link: '/app/8-foundry-canvas/',
+                },
+                {
+                  label: '1. Prepare the project and model',
+                  link: '/app/8-foundry-canvas/1-project-and-model/',
+                  translations: {
+                    'es-ES': '1. Preparar el proyecto y el modelo',
+                    'ja-JP': '1. プロジェクトとモデルを準備する',
+                    'ko-KR': '1. 프로젝트와 모델 준비',
+                    'pt-BR': '1. Preparar o projeto e o modelo',
+                    'zh-CN': '1. 准备项目和模型',
+                  },
+                },
+                {
+                  label: '2. Build and deploy the agent',
+                  link: '/app/8-foundry-canvas/2-build-and-deploy/',
+                  translations: {
+                    'es-ES': '2. Crear e implementar el agente',
+                    'ja-JP': '2. エージェントを構築してデプロイする',
+                    'ko-KR': '2. 에이전트 빌드 및 배포',
+                    'pt-BR': '2. Criar e implantar o agente',
+                    'zh-CN': '2. 构建并部署代理',
+                  },
+                },
+                {
+                  label: '3. Connect the agent to the site',
+                  link: '/app/8-foundry-canvas/3-connect-to-site/',
+                  translations: {
+                    'es-ES': '3. Conectar el agente al sitio',
+                    'ja-JP': '3. エージェントをサイトに接続する',
+                    'ko-KR': '3. 에이전트를 사이트에 연결',
+                    'pt-BR': '3. Conectar o agente ao site',
+                    'zh-CN': '3. 将代理连接到网站',
+                  },
+                },
+              ],
+            },
+>>>>>>> origin/main
           ],
         },
         {
