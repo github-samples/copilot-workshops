@@ -15,7 +15,7 @@ copilot-workshops/
 │   ├── first-steps/             ← Guided introductory workshops
 │   ├── real-world-development/  ← Scenario workshops organized by environment
 │   │   ├── cli/                 ← Copilot CLI lessons, including the optional 8-foundry-agent/ series
-│   │   ├── vscode/              ← VS Code lessons
+│   │   ├── vscode/              ← VS Code lessons, including the optional 7-foundry-toolkit/ series
 │   │   ├── cloud/               ← Cloud agent lessons
 │   │   └── app/                 ← GitHub Copilot app lessons
 │   ├── es-es/ ja-jp/ ...        ← Translated locale trees mirroring source paths
@@ -90,7 +90,7 @@ When you add a new harness or locale landing, name it `README.md` and set its `s
 
 ### Optional multi-module series
 
-An optional series can live in a lesson subfolder, such as `docs/real-world-development/cli/8-foundry-agent/`, with a `README.md` overview and numbered module files. The overview uses `slug: real-world-development/cli/8-foundry-agent` to preserve the series entry URL. The sidebar groups its overview and modules under the optional series title, after the core workshop's review lesson.
+An optional series can live in a lesson subfolder, such as `docs/real-world-development/cli/8-foundry-agent/` or `docs/real-world-development/vscode/7-foundry-toolkit/`, with a `README.md` overview and numbered module files. The overview slug matches the complete category, workshop, and series path. The sidebar groups its overview and modules under the optional series title after the core workshop lessons.
 
 Each module has its own objectives, story-focused scenario, numbered instructions, completion checkpoint, and next-module handoff. Shared cleanup instructions live on the overview and are linked from every module so learners can stop at any checkpoint. When moving a lesson into a subfolder, adjust image paths and navigation links for the extra directory level, and keep existing localized entry links aligned; missing module translations use the site's English fallback.
 

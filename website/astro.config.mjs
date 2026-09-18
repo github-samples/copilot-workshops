@@ -88,6 +88,52 @@ export default defineConfig({
                 { label: '4. Custom agents', link: '/real-world-development/vscode/4-custom-agents/' },
                 { label: '5. Managing agents', link: '/real-world-development/vscode/5-managing-agents/' },
                 { label: '6. Iterating', link: '/real-world-development/vscode/6-iterating/' },
+                {
+                  label: 'Optional: Incorporate Foundry',
+                  translations: {
+                    'es-ES': 'Opcional: Incorporar Foundry',
+                    'ja-JP': '省略可能: Foundry を組み込む',
+                    'ko-KR': '선택 사항: Foundry 통합',
+                    'pt-BR': 'Opcional: Incorporar o Foundry',
+                    'zh-CN': '可选：集成 Foundry',
+                  },
+                  items: [
+                    { label: 'Overview', link: '/real-world-development/vscode/7-foundry-toolkit/' },
+                    {
+                      label: 'Prepare a project and model',
+                      link: '/real-world-development/vscode/7-foundry-toolkit/1-project-and-model/',
+                      translations: {
+                        'es-ES': 'Preparar un proyecto y un modelo',
+                        'ja-JP': 'プロジェクトとモデルを準備する',
+                        'ko-KR': '프로젝트 및 모델 준비',
+                        'pt-BR': 'Preparar um projeto e um modelo',
+                        'zh-CN': '准备项目和模型',
+                      },
+                    },
+                    {
+                      label: 'Build and deploy an agent',
+                      link: '/real-world-development/vscode/7-foundry-toolkit/2-build-and-deploy/',
+                      translations: {
+                        'es-ES': 'Crear e implementar un agente',
+                        'ja-JP': 'エージェントを構築してデプロイする',
+                        'ko-KR': '에이전트 빌드 및 배포',
+                        'pt-BR': 'Criar e implantar um agente',
+                        'zh-CN': '构建并部署代理',
+                      },
+                    },
+                    {
+                      label: 'Connect the agent to the site',
+                      link: '/real-world-development/vscode/7-foundry-toolkit/3-connect-to-site/',
+                      translations: {
+                        'es-ES': 'Conectar el agente al sitio',
+                        'ja-JP': 'エージェントをサイトに接続する',
+                        'ko-KR': '사이트에 에이전트 연결',
+                        'pt-BR': 'Conectar o agente ao site',
+                        'zh-CN': '将代理连接到网站',
+                      },
+                    },
+                  ],
+                },
               ],
             },
             {
