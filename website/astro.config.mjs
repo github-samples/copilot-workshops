@@ -189,7 +189,6 @@ export default defineConfig({
             { label: 'Overview', link: '/app/' },
             { label: '0. Prerequisites', link: '/app/0-prerequisites/' },
             { label: '1. Install the Copilot app', link: '/app/1-install-copilot-app/' },
-<<<<<<< HEAD
             { label: '2. Add star ratings', link: '/app/2-add-star-rating/' },
             { label: '3. Agent modes: Plan and Autopilot', link: '/app/3-agent-modes/' },
             { label: '4. Guiding Copilot with custom instructions', link: '/app/4-custom-instructions/' },
@@ -199,14 +198,6 @@ export default defineConfig({
             { label: '8. Create and merge the feature PR', link: '/app/8-create-pull-request/' },
             { label: '9. Create a canvas', link: '/app/9-canvases/' },
             { label: '10. Wrap-up and next steps', link: '/app/10-review/' },
-=======
-            { label: '2. Running your first agent session', link: '/app/2-add-star-rating/' },
-            { label: '3. Guiding Copilot with custom instructions', link: '/app/3-custom-instructions/' },
-            { label: '4. Building a feature with Autopilot', link: '/app/4-build-filtering/' },
-            { label: '5. Testing with Playwright MCP', link: '/app/5-mcp-playwright/' },
-            { label: '6. Merging with Agent Merge', link: '/app/6-agent-merge/' },
-            { label: '7. Planning with canvases', link: '/app/7-canvases/' },
-            { label: '9. Review', link: '/app/9-review/' },
             {
               label: 'Optional: Incorporate Foundry',
               translations: {
@@ -256,7 +247,6 @@ export default defineConfig({
                 },
               ],
             },
->>>>>>> origin/main
           ],
         },
         {
