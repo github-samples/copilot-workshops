@@ -44,7 +44,7 @@ To help get things started, a set of instructions files has already been include
 1. Return to the session from the previous lesson.
 2. If the review panel is not already visible, open it by selecting **Toggle review panel** in the upper right.
 
-   ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](../_images/app-2-review-panel.png)
+   ![The GitHub Copilot app top toolbar with an arrow pointing to the Toggle review panel button to the right of Create PR](../../_images/app-2-review-panel.png)
 
 3. Select the **+** icon to "Open in panel" to open a new canvas.
 4. Select **Files**.
@@ -88,7 +88,7 @@ With the instructions file updated, let's see the impact it has on the code Copi
 
 2. Select **Changes** in the upper right to open the code changes.
 
-   ![The session panel tabs in the GitHub Copilot app with an arrow pointing to the Changes tab](../_images/app-select-changes.png)
+   ![The session panel tabs in the GitHub Copilot app with an arrow pointing to the Changes tab](../../_images/app-select-changes.png)
 
 3. Read through any TypeScript files. Note the newly generated TSDocs comments.
 

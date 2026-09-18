@@ -44,7 +44,7 @@ lastUpdated: 2026-07-09
 1. 이전 레슨의 세션으로 돌아갑니다.
 2. 검토 패널이 표시되지 않으면 오른쪽 위의 **Toggle review panel**을 선택하여 엽니다.
 
-   ![Create PR 오른쪽의 Toggle review panel 버튼을 화살표로 가리키는 GitHub Copilot app 위쪽 도구 모음](../../_images/app-2-review-panel.png)
+   ![Create PR 오른쪽의 Toggle review panel 버튼을 화살표로 가리키는 GitHub Copilot app 위쪽 도구 모음](../../../_images/app-2-review-panel.png)
 
 3. **+** 아이콘을 선택하여 새 캔버스를 패널에서 엽니다.
 4. **Files**를 선택합니다.
@@ -88,7 +88,7 @@ lastUpdated: 2026-07-09
 
 2. 오른쪽 위의 **Changes**를 선택하여 코드 변경 내용을 엽니다.
 
-   ![Changes 탭을 화살표로 가리키는 GitHub Copilot app 세션 패널 탭](../../_images/app-select-changes.png)
+   ![Changes 탭을 화살표로 가리키는 GitHub Copilot app 세션 패널 탭](../../../_images/app-select-changes.png)
 
 3. TypeScript 파일을 살펴보고 새로 생성된 TSDoc 주석을 확인합니다.
 

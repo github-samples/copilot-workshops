@@ -59,7 +59,7 @@ Tailspin Toys 的游戏目录不断扩大，访客需要按类别和发行商缩
 1. 选择 **My work**，打开 **Allow users to filter games by category and publisher**。
 2. 选择 **New session**，再选择基于更新后 `main` 的 **new working tree**。
 
-   ![GitHub Copilot app 的议题视图，箭头指向 New session 按钮](../../_images/app-new-session-from-issue.png)
+    ![GitHub Copilot app 的议题视图，箭头指向 New session 按钮](../../../_images/app-new-session-from-issue.png)
 
 3. 确认议题已附加到会话，并在模式选择器中选择 **Plan**。
 

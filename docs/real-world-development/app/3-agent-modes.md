@@ -59,7 +59,7 @@ Confirm the star-rating PR is merged and your local `main` is up to date before 
 1. Select **My work** and open **Allow users to filter games by category and publisher**.
 2. Select **New session** and choose a **new working tree** based on the updated `main`.
 
-   ![The issue view in the GitHub Copilot app with an arrow pointing to the New session button](../_images/app-new-session-from-issue.png)
+    ![The issue view in the GitHub Copilot app with an arrow pointing to the New session button](../../_images/app-new-session-from-issue.png)
 
 3. Confirm the issue is attached to the session and select **Plan** from the mode selector.
 

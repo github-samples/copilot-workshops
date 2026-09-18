@@ -44,7 +44,7 @@ Para facilitar o início, o projeto inicial já inclui um conjunto de arquivos d
 1. Volte à sessão da lição anterior.
 2. Se o painel de revisão ainda não estiver visível, abra-o selecionando **Toggle review panel** no canto superior direito.
 
-   ![Barra de ferramentas superior do aplicativo GitHub Copilot com uma seta apontando para o botão Toggle review panel à direita de Create PR](../../_images/app-2-review-panel.png)
+   ![Barra de ferramentas superior do aplicativo GitHub Copilot com uma seta apontando para o botão Toggle review panel à direita de Create PR](../../../_images/app-2-review-panel.png)
 
 3. Selecione o ícone **+** para "Open in panel" e abrir um novo canvas.
 4. Selecione **Files**.
@@ -88,7 +88,7 @@ Com o arquivo de instruções atualizado, vamos observar seu impacto sobre o có
 
 2. Selecione **Changes** no canto superior direito para abrir as alterações de código.
 
-   ![Guias do painel de sessão no aplicativo GitHub Copilot com uma seta apontando para a guia Changes](../../_images/app-select-changes.png)
+   ![Guias do painel de sessão no aplicativo GitHub Copilot com uma seta apontando para a guia Changes](../../../_images/app-select-changes.png)
 
 3. Examine os arquivos TypeScript. Observe os comentários TSDoc recém-gerados.
 

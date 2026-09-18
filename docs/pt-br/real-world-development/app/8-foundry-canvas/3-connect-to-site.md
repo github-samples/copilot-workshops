@@ -7,9 +7,7 @@ lastUpdated: 2026-09-16
 prev:
   link: /copilot-workshops/pt-br/real-world-development/app/8-foundry-canvas/2-build-and-deploy/
   label: Criar e implantar o agente
-next:
-  link: /copilot-workshops/pt-br/real-world-development/app/9-review/
-  label: Revisão e próximos passos
+next: { link: /copilot-workshops/pt-br/real-world-development/app/10-review/, label: Revisão e próximos passos }
 ---
 
 Este último módulo conecta o agente hospedado testado em [Criar e implantar o agente][previous-module] ao site da Tailspin Toys em execução local.
@@ -89,4 +87,4 @@ Quando terminar de experimentar, interrompa os dois serviços locais e [limpe os
 [project-module]: ../1-project-and-model/
 [agent-checks]: ../2-build-and-deploy/#inspecionar-o-agente-localmente
 [cleanup]: ../#limpar-seus-recursos
-[core-review]: ../../9-review/
+[core-review]: ../../10-review/

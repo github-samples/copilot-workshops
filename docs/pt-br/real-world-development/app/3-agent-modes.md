@@ -59,7 +59,7 @@ Confirme que o PR das avaliações por estrelas foi integrado e que a branch `ma
 1. Selecione **My work** e abra **Allow users to filter games by category and publisher**.
 2. Selecione **New session** e escolha uma **new working tree** baseada na `main` atualizada.
 
-   ![Visualização da issue no aplicativo GitHub Copilot com uma seta apontando para o botão New session](../../_images/app-new-session-from-issue.png)
+    ![Visualização da issue no aplicativo GitHub Copilot com uma seta apontando para o botão New session](../../../_images/app-new-session-from-issue.png)
 
 3. Confirme que a issue está anexada à sessão e selecione **Plan** no seletor de modo.
 

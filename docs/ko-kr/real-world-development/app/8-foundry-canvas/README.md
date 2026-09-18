@@ -5,9 +5,7 @@ description: "Microsoft Foundry Canvas로 카탈로그에 근거한 Backer Conci
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
-prev:
-  link: /copilot-workshops/ko-kr/real-world-development/app/9-review/
-  label: 검토 및 다음 단계
+prev: { link: /copilot-workshops/ko-kr/real-world-development/app/10-review/, label: 검토 및 다음 단계 }
 next:
   link: /copilot-workshops/ko-kr/real-world-development/app/8-foundry-canvas/1-project-and-model/
   label: 프로젝트와 모델 준비
@@ -84,7 +82,7 @@ Microsoft 문서에서는 Canvas, 호스팅 배포, 관련 권한을 설명합�
 [module-1]: ./1-project-and-model/
 [module-2]: ./2-build-and-deploy/
 [module-3]: ./3-connect-to-site/
-[core-review]: ../9-review/
+[core-review]: ../10-review/
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions

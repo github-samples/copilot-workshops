@@ -49,7 +49,7 @@ Todas as alterações geradas por IA devem ser revisadas antes do merge, mesmo a
 
 1. No canto superior direito do aplicativo, selecione **Toggle review panel**. A tela de diff será aberta com todas as alterações pendentes feitas pelo Copilot.
 
-   ![Barra de ferramentas superior do aplicativo GitHub Copilot com uma seta apontando para o botão Toggle review panel à direita de Create PR](../../_images/app-2-review-panel.png)
+    ![Barra de ferramentas superior do aplicativo GitHub Copilot com uma seta apontando para o botão Toggle review panel à direita de Create PR](../../../_images/app-2-review-panel.png)
 
 2. Você verá código adicionado a `GameCard.astro`, o arquivo principal usado para exibir os detalhes do jogo. Ele deve ser semelhante ao exemplo a seguir: um pequeno bloco que renderiza a avaliação quando ela existe e usa "No rating yet" quando `starRating` é `null`:
 

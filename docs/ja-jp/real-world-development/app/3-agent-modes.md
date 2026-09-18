@@ -59,7 +59,7 @@ Plan モードで開始し、計画をレビューしてから、Autopilot で�
 1. **My work** を選択し、**Allow users to filter games by category and publisher** を開きます。
 2. **New session** を選択し、更新済みの `main` に基づく **new working tree** を選びます。
 
-   ![GitHub Copilot app の Issue ビューで、New session ボタンを矢印で示した画面](../../_images/app-new-session-from-issue.png)
+    ![GitHub Copilot app の Issue ビューで、New session ボタンを矢印で示した画面](../../../_images/app-new-session-from-issue.png)
 
 3. Issue がセッションに添付されていることを確認し、モードセレクターで **Plan** を選択します。
 

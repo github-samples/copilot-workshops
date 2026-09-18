@@ -59,7 +59,7 @@ Antes de empezar, confirma que la PR de valoraciones por estrellas está combina
 1. Selecciona **My work** y abre **Allow users to filter games by category and publisher**.
 2. Selecciona **New session** y elige un **new working tree** basado en la rama `main` actualizada.
 
-   ![Vista de una incidencia en la aplicación GitHub Copilot con una flecha que señala el botón New session](../../_images/app-new-session-from-issue.png)
+    ![Vista de una incidencia en la aplicación GitHub Copilot con una flecha que señala el botón New session](../../../_images/app-new-session-from-issue.png)
 
 3. Confirma que la incidencia está adjunta a la sesión y selecciona **Plan** en el selector de modo.
 

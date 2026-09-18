@@ -49,7 +49,7 @@ AI가 생성한 모든 변경 내용은 작더라도 병합하기 전에 검토�
 
 1. 앱 오른쪽 위에서 **Toggle review panel**을 선택합니다. Copilot이 적용한 보류 중인 모든 변경 내용을 보여 주는 diff 화면이 열립니다.
 
-   ![Create PR 오른쪽의 Toggle review panel 버튼을 화살표로 가리키는 GitHub Copilot app 위쪽 도구 모음](../../_images/app-2-review-panel.png)
+    ![Create PR 오른쪽의 Toggle review panel 버튼을 화살표로 가리키는 GitHub Copilot app 위쪽 도구 모음](../../../_images/app-2-review-panel.png)
 
 2. 게임 세부 정보를 표시하는 핵심 파일인 `GameCard.astro`에 코드가 추가된 것을 확인합니다. 다음 코드와 비슷해야 합니다. 별점이 있으면 표시하고 `starRating`이 `null`이면 "No rating yet"으로 대체하는 작은 블록입니다.
 

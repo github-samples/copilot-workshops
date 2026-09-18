@@ -7,9 +7,7 @@ lastUpdated: 2026-09-16
 prev:
   link: /copilot-workshops/ko-kr/real-world-development/app/8-foundry-canvas/2-build-and-deploy/
   label: 에이전트 빌드 및 배포
-next:
-  link: /copilot-workshops/ko-kr/real-world-development/app/9-review/
-  label: 검토 및 다음 단계
+next: { link: /copilot-workshops/ko-kr/real-world-development/app/10-review/, label: 검토 및 다음 단계 }
 ---
 
 마지막 모듈에서는 [에이전트 빌드 및 배포][previous-module]에서 테스트한 호스팅 에이전트를 로컬에서 실행하는 Tailspin Toys 웹사이트에 연결합니다.
@@ -89,4 +87,4 @@ Azure 자격 증명에 액세스할 수 있는 코드는 프록시뿐입니다. 
 [project-module]: ../1-project-and-model/
 [agent-checks]: ../2-build-and-deploy/#로컬에서-에이전트-검사
 [cleanup]: ../#리소스-정리
-[core-review]: ../../9-review/
+[core-review]: ../../10-review/

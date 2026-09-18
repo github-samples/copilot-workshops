@@ -7,9 +7,7 @@ lastUpdated: 2026-09-16
 prev:
   link: /copilot-workshops/ja-jp/real-world-development/app/8-foundry-canvas/2-build-and-deploy/
   label: エージェントを構築してデプロイする
-next:
-  link: /copilot-workshops/ja-jp/real-world-development/app/9-review/
-  label: 振り返りと次のステップ
+next: { link: /copilot-workshops/ja-jp/real-world-development/app/10-review/, label: 振り返りと次のステップ }
 ---
 
 最後のモジュールでは、[エージェントを構築してデプロイする][previous-module]でテストしたホステッド エージェントを、ローカルで実行する Tailspin Toys Web サイトに接続します。
@@ -89,4 +87,4 @@ Azure の資格情報にアクセスできるコードは、プロキシだけ�
 [project-module]: ../1-project-and-model/
 [agent-checks]: ../2-build-and-deploy/#エージェントをローカルで検証する
 [cleanup]: ../#リソースをクリーンアップする
-[core-review]: ../../9-review/
+[core-review]: ../../10-review/

@@ -38,20 +38,11 @@ lastUpdated: 2026-07-09
 
 MCP server は、サイドバーの **Customize** で管理します。リポジトリや Copilot CLI 向けに設定されたサーバーは App でも利用できる場合があるため、重複して追加する前に確認してください。[App のカスタマイズドキュメント][customize-app]で利用可能な選択肢を確認できます。
 
-<<<<<<<< HEAD:docs/ja-jp/real-world-development/app/6-mcp-playwright.md
 1. サイドバーで **Customize** を選択します。
 2. **MCP** を選択し、**Installed** で既存の Playwright サーバーを確認します。
 3. 必要な場合は利用可能なサーバーから **Playwright** を探すか、発行元が文書化したカスタムサーバーの追加手順を使用します。
 4. 発行元、設定、インストールの確認内容をレビューしてから承認します。画面の案内に従ってサーバーを追加してください。組織のポリシーや前提条件の不足により、セットアップがブロックされる場合があります。
 5. **Interactive** モードでフィルター機能のセッションに戻り、Playwright MCP のツールが利用できることを確認します。
-========
-1. <kbd>Command</kbd>+<kbd>,</kbd> (Mac) または <kbd>Ctrl</kbd>+<kbd>,</kbd> (Windows/Linux) を押して、Copilot app の設定ページを開きます。
-2. **MCP servers** を選択します。
-3. 検索ダイアログに `Playwright` と入力します。
-4. **Popular MCP servers** の一覧から **Playwright** を選択します。
-5. **Add server** を選択し、利用可能な MCP server の一覧に追加します。
-6. <kbd>Esc</kbd> を選択して設定ダイアログを閉じます。
->>>>>>>> refs/remotes/origin/pr-185:docs/ja-jp/real-world-development/app/5-mcp-playwright.md
 
 セットアップが失敗した場合は、続行前に設定や権限の問題を解決します。
 

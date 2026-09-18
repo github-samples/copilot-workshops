@@ -44,7 +44,7 @@ lastUpdated: 2026-07-09
 1. 返回上一课使用的会话。
 2. 如果审查面板尚不可见，请选择右上角的 **Toggle review panel** 将其打开。
 
-   ![GitHub Copilot app 顶部工具栏，箭头指向 Create PR 右侧的 Toggle review panel 按钮](../../_images/app-2-review-panel.png)
+   ![GitHub Copilot app 顶部工具栏，箭头指向 Create PR 右侧的 Toggle review panel 按钮](../../../_images/app-2-review-panel.png)
 
 3. 选择 **+** 图标以“Open in panel”，打开新画布。
 4. 选择 **Files**。
@@ -88,7 +88,7 @@ lastUpdated: 2026-07-09
 
 2. 选择右上角的 **Changes**，打开代码更改。
 
-   ![GitHub Copilot app 会话面板选项卡，箭头指向 Changes 选项卡](../../_images/app-select-changes.png)
+   ![GitHub Copilot app 会话面板选项卡，箭头指向 Changes 选项卡](../../../_images/app-select-changes.png)
 
 3. 阅读所有 TypeScript 文件，注意新生成的 TSDoc 注释。
 

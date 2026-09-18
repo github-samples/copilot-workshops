@@ -5,9 +5,7 @@ description: "Microsoft Foundry Canvas を使ってカタログに基づく Back
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
-prev:
-  link: /copilot-workshops/ja-jp/real-world-development/app/9-review/
-  label: 振り返りと次のステップ
+prev: { link: /copilot-workshops/ja-jp/real-world-development/app/10-review/, label: 振り返りと次のステップ }
 next:
   link: /copilot-workshops/ja-jp/real-world-development/app/8-foundry-canvas/1-project-and-model/
   label: プロジェクトとモデルを準備する
@@ -84,7 +82,7 @@ Microsoft のドキュメントで、Canvas、ホステッド エージェント
 [module-1]: ./1-project-and-model/
 [module-2]: ./2-build-and-deploy/
 [module-3]: ./3-connect-to-site/
-[core-review]: ../9-review/
+[core-review]: ../10-review/
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions

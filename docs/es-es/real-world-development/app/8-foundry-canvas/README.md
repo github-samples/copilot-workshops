@@ -5,9 +5,7 @@ description: "Crea un Backer Concierge basado en el catálogo con Microsoft Foun
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
-prev:
-  link: /copilot-workshops/es-es/real-world-development/app/9-review/
-  label: Repaso y pasos siguientes
+prev: { link: /copilot-workshops/es-es/real-world-development/app/10-review/, label: Repaso y pasos siguientes }
 next:
   link: /copilot-workshops/es-es/real-world-development/app/8-foundry-canvas/1-project-and-model/
   label: Preparar el proyecto y el modelo
@@ -84,7 +82,7 @@ La documentación de Microsoft describe Canvas, las implementaciones hospedadas 
 [module-1]: ./1-project-and-model/
 [module-2]: ./2-build-and-deploy/
 [module-3]: ./3-connect-to-site/
-[core-review]: ../9-review/
+[core-review]: ../10-review/
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions

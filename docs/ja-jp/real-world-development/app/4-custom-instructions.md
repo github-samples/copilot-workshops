@@ -44,7 +44,7 @@ lastUpdated: 2026-07-09
 1. 前のレッスンのセッションに戻ります。
 2. レビューパネルが表示されていない場合は、右上の **Toggle review panel** を選択して開きます。
 
-   ![Create PR の右側にある Toggle review panel ボタンを矢印で示した GitHub Copilot app の上部ツールバー](../../_images/app-2-review-panel.png)
+   ![Create PR の右側にある Toggle review panel ボタンを矢印で示した GitHub Copilot app の上部ツールバー](../../../_images/app-2-review-panel.png)
 
 3. **+** アイコンの「Open in panel」を選択し、新しいキャンバスを開きます。
 4. **Files** を選択します。
@@ -88,7 +88,7 @@ lastUpdated: 2026-07-09
 
 2. 右上の **Changes** を選択してコードの変更を開きます。
 
-   ![GitHub Copilot app のセッションパネルにあるタブで、Changes タブを矢印で示した画面](../../_images/app-select-changes.png)
+   ![GitHub Copilot app のセッションパネルにあるタブで、Changes タブを矢印で示した画面](../../../_images/app-select-changes.png)
 
 3. TypeScript ファイルを確認します。新しく生成された TSDoc コメントに注目してください。
 

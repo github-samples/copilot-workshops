@@ -59,7 +59,7 @@ Plan 모드에서 시작하여 계획을 검토한 다음 Autopilot으로 구현
 1. **My work**를 선택하고 **Allow users to filter games by category and publisher**를 엽니다.
 2. **New session**을 선택하고 업데이트된 `main`을 기반으로 하는 **new working tree**를 선택합니다.
 
-   ![New session 버튼을 화살표로 가리키는 GitHub Copilot app 이슈 보기](../../_images/app-new-session-from-issue.png)
+    ![New session 버튼을 화살표로 가리키는 GitHub Copilot app 이슈 보기](../../../_images/app-new-session-from-issue.png)
 
 3. 세션에 이슈가 첨부되었는지 확인하고 모드 선택기에서 **Plan**을 선택합니다.
 

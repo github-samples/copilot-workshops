@@ -5,9 +5,7 @@ description: "使用 Microsoft Foundry Canvas 构建以目录为依据的 Backer
 authors:
   - juliamuiruri4
 lastUpdated: 2026-09-16
-prev:
-  link: /copilot-workshops/zh-cn/real-world-development/app/9-review/
-  label: 回顾与后续步骤
+prev: { link: /copilot-workshops/zh-cn/real-world-development/app/10-review/, label: 回顾与后续步骤 }
 next:
   link: /copilot-workshops/zh-cn/real-world-development/app/8-foundry-canvas/1-project-and-model/
   label: 准备项目和模型
@@ -84,7 +82,7 @@ Microsoft 文档介绍了 Canvas、托管部署及其权限。
 [module-1]: ./1-project-and-model/
 [module-2]: ./2-build-and-deploy/
 [module-3]: ./3-connect-to-site/
-[core-review]: ../9-review/
+[core-review]: ../10-review/
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions

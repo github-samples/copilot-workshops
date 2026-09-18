@@ -7,9 +7,7 @@ lastUpdated: 2026-09-16
 prev:
   link: /copilot-workshops/real-world-development/app/8-foundry-canvas/2-build-and-deploy/
   label: Build and deploy the agent
-next:
-  link: /copilot-workshops/real-world-development/app/9-review/
-  label: Review and next steps
+next: { link: /copilot-workshops/real-world-development/app/10-review/, label: Review and next steps }
 ---
 
 This final module connects the tested hosted agent from [Build and deploy the agent][previous-module] to the locally running Tailspin Toys website.
@@ -89,4 +87,4 @@ When you're finished experimenting, stop both local services and [clean up your 
 [project-module]: ../1-project-and-model/
 [agent-checks]: ../2-build-and-deploy/#inspect-the-agent-locally
 [cleanup]: ../#clean-up-your-resources
-[core-review]: ../../9-review/
+[core-review]: ../../10-review/
