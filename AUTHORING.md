@@ -12,11 +12,13 @@ This is the entry point for **content authors and maintainers** of **Copilot Wor
 copilot-workshops/
 ├── docs/                        ← Markdown source. EDIT HERE. Browsable on github.com.
 │   ├── README.md                ← Workshop landing page (also site home via slug: index)
-│   ├── cli/                     ← Copilot CLI lessons, including the optional 8-foundry-agent/ series
-│   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
-│   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
-│   ├── app/                     ← GitHub Copilot app lessons (setup folded into Exercise 1)
-│   ├── es-es/ ja-jp/ ...        ← Translated locale trees (app harness and selected VS Code content)
+│   ├── first-steps/             ← Guided introductory workshops
+│   ├── real-world-development/  ← Scenario workshops organized by environment
+│   │   ├── cli/                 ← Copilot CLI lessons, including the optional 8-foundry-agent/ series
+│   │   ├── vscode/              ← VS Code lessons, including the optional 7-foundry-toolkit/ series
+│   │   ├── cloud/               ← Cloud agent lessons
+│   │   └── app/                 ← GitHub Copilot app lessons
+│   ├── es-es/ ja-jp/ ...        ← Translated locale trees mirroring source paths
 │   └── _images/                 ← Screenshots and diagrams (shared across locales)
 ├── website/                     ← Optional Astro + Starlight publisher
 │   ├── astro.config.mjs         ← Site URL, base path, locales, sidebar
@@ -31,7 +33,7 @@ copilot-workshops/
 
 ### Add a new lesson
 
-1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`). A longer optional exercise can use `N-name/README.md` for its overview and numbered modules inside that folder. Preserve the entry URL with the overview's `slug`, keep the core review as the default next destination, and place the optional sidebar group after it.
+1. **Pick a category, workshop, and number.** Lessons live under `docs/<category>/<workshop>/N-name.md`. `N` is the next available integer in that workshop; the number drives the URL slug (`/real-world-development/cli/3-agent-modes/`). A longer optional exercise can use `N-name/README.md` for its overview and numbered modules inside that folder. Preserve the entry URL with the overview's `slug`, keep the core review as the default next destination, and place the optional sidebar group after it.
 2. **Create the file** with frontmatter:
    ```markdown
    ---
@@ -44,8 +46,8 @@ copilot-workshops/
 3. **Write the body.** Follow the [lesson pattern](#lesson-pattern), using Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
 4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
    ```markdown
-   [previous-lesson]: ../2-custom-instructions/
-   [next-lesson]: ../4-mcp/
+   [previous-lesson]: ../2-add-star-rating/
+   [next-lesson]: ../4-custom-instructions/
    ```
    Then surface them in the body using **the same style as the other lessons in your path** — don't mix styles within a path:
    - **Woven into prose** (common in the CLI path): end the lesson with a sentence like ``the next step is to [create the PR][next-lesson]``.
@@ -79,22 +81,23 @@ Prerequisite modules use setup goals and a readiness check instead of an artific
 Every folder's landing page is a `README.md` so it renders directly when someone browses that folder on github.com. Because Starlight normally derives a folder's index route from an `index.md`, each landing carries an explicit `slug:` in its frontmatter that reproduces the route:
 
 - `docs/README.md` → `slug: index` (site home `/`).
-- `docs/<harness>/README.md` → `slug: <harness>` (e.g. `slug: app` → `/app/`).
+- `docs/<category>/README.md` → `slug: <category>` (e.g. `slug: first-steps` → `/first-steps/`).
+- `docs/<category>/<workshop>/README.md` → `slug: <category>/<workshop>` (e.g. `slug: real-world-development/app` → `/real-world-development/app/`).
 - `docs/<locale>/README.md` → `slug: <locale>` (e.g. `slug: es-es` → `/es-es/`).
-- `docs/<locale>/<harness>/README.md` → `slug: <locale>/<harness>` (e.g. `slug: es-es/app` → `/es-es/app/`).
-- Nested lesson overviews follow the same rule: `docs/app/8-foundry-canvas/README.md` → `slug: app/8-foundry-canvas` and `docs/vscode/7-foundry-toolkit/README.md` → `slug: vscode/7-foundry-toolkit`; localized copies use the corresponding `slug: <locale>/<harness>/<lesson>` path. Numbered modules live beside the overview and retain nested routes. Links between lessons resolve from the published route, while image paths resolve from the Markdown source file.
+- `docs/<locale>/<category>/<workshop>/README.md` → `slug: <locale>/<category>/<workshop>` (e.g. `slug: es-es/real-world-development/app` → `/es-es/real-world-development/app/`).
+- Nested lesson overviews follow the same rule: `docs/real-world-development/app/8-foundry-canvas/README.md` → `slug: real-world-development/app/8-foundry-canvas`; localized copies include the locale prefix. Numbered modules live beside the overview and retain nested routes. Links between lessons resolve from the published route, while image paths resolve from the Markdown source file.
 
 When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
 
 ### Optional multi-module series
 
-An optional series can live in a lesson subfolder, such as `docs/cli/8-foundry-agent/`, with a `README.md` overview and numbered module files. The overview uses `slug: cli/8-foundry-agent` to preserve the series entry URL. The sidebar groups its overview and modules under the optional series title, after the core workshop's review lesson.
+An optional series can live in a lesson subfolder, such as `docs/real-world-development/cli/8-foundry-agent/`, `docs/real-world-development/vscode/7-foundry-toolkit/`, or `docs/real-world-development/app/8-foundry-canvas/`, with a `README.md` overview and numbered module files. The overview slug matches the complete category, workshop, and series path. The sidebar groups its overview and modules under the optional series title after the core workshop lessons.
 
 Each module has its own objectives, story-focused scenario, numbered instructions, completion checkpoint, and next-module handoff. Shared cleanup instructions live on the overview and are linked from every module so learners can stop at any checkpoint. When moving a lesson into a subfolder, adjust image paths and navigation links for the extra directory level, and keep existing localized entry links aligned; missing module translations use the site's English fallback.
 
 ### Add an image
 
-1. **Drop the file** in `docs/_images/` (or a path-scoped `cli/_images/` etc. when the image is path-specific). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple harnesses.
+1. **Drop the file** in `docs/_images/` (or a workshop-scoped `_images/` directory when the image is specific to one workshop). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple workshops.
 2. **Reference it** with a relative path from the consuming Markdown page:
    ```markdown
    ![Description of the screenshot](../_images/my-screenshot.png)
@@ -104,7 +107,7 @@ Each module has its own objectives, story-focused scenario, numbered instruction
 
 ### Edit an existing lesson
 
-1. **Find the file** under `docs/` (use the published URL as a hint — `/cli/3-generating-code/` lives at `docs/cli/3-generating-code.md`).
+1. **Find the file** under `docs/` (use the published URL as a hint — `/real-world-development/cli/3-agent-modes/` lives at `docs/real-world-development/cli/3-agent-modes.md`).
 2. **Edit the Markdown.** Same conventions apply — see **Style essentials** below.
 3. **Preview** with `npm run dev` in `website/`.
 4. **Commit, PR, merge.**
