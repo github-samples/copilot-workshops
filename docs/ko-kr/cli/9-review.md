@@ -1,5 +1,5 @@
 ---
-title: "연습 8 - 검토 및 다음 단계"
+title: "연습 9 - 검토 및 다음 단계"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30
@@ -12,6 +12,8 @@ lastUpdated: 2026-06-30
 - 스킬을 구현해 Copilot CLI 도구 상자에 새 도구를 추가하기
 - 고급 작업과 더 복잡한 작업을 위해 커스텀 agent 호출하기
 - Slash commands를 사용해 세션을 관리하고, 선택적으로 `/delegate`를 통해 cloud agent로 다시 연결하기
+
+선택 과제에 도전하고 싶다면, 모델 설정, 에이전트 개발 및 배포, 웹사이트 통합을 다루는 3개 모듈 시리즈에서 [GitHub Copilot CLI와 Foundry로 컨시어지 빌드하기][foundry-lesson]를 진행할 수 있습니다.
 
 이제 몇 가지 slash commands, 모범 사례, 다음 단계를 정리해 보겠습니다.
 
@@ -61,6 +63,7 @@ GitHub Copilot 생태계를 더 살펴보고 싶다면 [VS Code harness](../../v
 - [MCP 사양][mcp-spec]
 
 [previous-lesson]: ../7-slash-commands/
+[foundry-lesson]: ../8-foundry-agent/
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [awesome-copilot]: https://github.com/github/awesome-copilot

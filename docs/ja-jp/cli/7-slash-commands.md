@@ -156,7 +156,7 @@ Copilot CLI の slash command を使うと、設定の変更、セッション�
 - `/model` で利用可能なモデルの一覧を確認し、必要に応じて別のモデルを選択する。
 - `/delegate` が cloud agent への任意の橋渡しになることを学ぶ。
 
-利用できる slash command はもちろんこれ以外にもあり、Copilot CLI にはまだ多くの機能があります。最後に、[ここまでに学んだことを振り返り][next-lesson]、学習を続けるための次のステップを確認して締めくくりましょう。
+利用できる slash command はもちろんこれ以外にもあり、Copilot CLI にはまだ多くの機能があります。最後に[ここまでに学んだことを振り返り][next-lesson]、学習を続けるための次のステップを確認して締めくくりましょう。締めくくる前に任意の追加課題に挑戦したい場合は、全 3 モジュールのシリーズで[GitHub Copilot CLI と Foundry を使ったコンシェルジュの構築][foundry-lesson]に取り組めます。
 
 ## リソース
 
@@ -167,7 +167,8 @@ Copilot CLI の slash command を使うと、設定の変更、セッション�
 - [Copilot CLI でモデルを選択する][selecting-models]
 
 [previous-lesson]: ../6-custom-agents/
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
+[foundry-lesson]: ../8-foundry-agent/
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [about-cloud-agent]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-cloud-agent

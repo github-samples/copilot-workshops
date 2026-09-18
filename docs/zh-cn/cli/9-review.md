@@ -1,5 +1,5 @@
 ---
-title: "练习 8 - 回顾与后续步骤"
+title: "练习 9 - 回顾与后续步骤"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30
@@ -12,6 +12,8 @@ lastUpdated: 2026-06-30
 - 实现技能，为 Copilot CLI 工具箱添加工具。
 - 调用自定义智能体处理更高级、更复杂的任务。
 - 使用斜杠命令管理会话，并可选择通过 `/delegate` 衔接回 cloud agent。
+
+如果想尝试一项可选挑战，可以[使用 GitHub Copilot CLI 和 Foundry 构建礼宾助手][foundry-lesson]，通过三个模块学习模型设置、智能体开发与部署，以及网站集成。
 
 下面再谈谈一些斜杠命令、最佳实践和后续步骤。
 
@@ -61,6 +63,7 @@ Copilot CLI 提供了一系列斜杠命令用于交互，其中包括一些可�
 - [MCP 规范][mcp-spec]
 
 [previous-lesson]: ../7-slash-commands/
+[foundry-lesson]: ../8-foundry-agent/
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [awesome-copilot]: https://github.com/github/awesome-copilot

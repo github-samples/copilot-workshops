@@ -12,7 +12,7 @@ This is the entry point for **content authors and maintainers** of **Copilot Wor
 copilot-workshops/
 ├── docs/                        ← Markdown source. EDIT HERE. Browsable on github.com.
 │   ├── README.md                ← Workshop landing page (also site home via slug: index)
-│   ├── cli/                     ← Copilot CLI lessons (0-prerequisites.md + numbered exercises)
+│   ├── cli/                     ← Copilot CLI lessons, including the optional 8-foundry-agent/ series
 │   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
 │   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
 │   ├── app/                     ← GitHub Copilot app lessons (setup folded into Exercise 1)
@@ -84,6 +84,12 @@ Every folder's landing page is a `README.md` so it renders directly when someone
 - `docs/<locale>/<harness>/README.md` → `slug: <locale>/<harness>` (e.g. `slug: es-es/app` → `/es-es/app/`).
 
 When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
+
+### Optional multi-module series
+
+An optional series can live in a lesson subfolder, such as `docs/cli/8-foundry-agent/`, with a `README.md` overview and numbered module files. The overview uses `slug: cli/8-foundry-agent` to preserve the series entry URL. The sidebar groups its overview and modules under the optional series title, after the core workshop's review lesson.
+
+Each module has its own objectives, story-focused scenario, numbered instructions, completion checkpoint, and next-module handoff. Shared cleanup instructions live on the overview and are linked from every module so learners can stop at any checkpoint. When moving a lesson into a subfolder, adjust image paths and navigation links for the extra directory level, and keep existing localized entry links aligned; missing module translations use the site's English fallback.
 
 ### Add an image
 

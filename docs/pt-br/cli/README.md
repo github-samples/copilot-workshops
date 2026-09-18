@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 O **[GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)** coloca o GitHub Copilot no seu terminal como um assistente de programação baseado em agentes. Ele explora bases de código, gera código, executa comandos e se conecta a ferramentas externas — tudo pela linha de comando, para que você mantenha o foco sem trocar para um editor gráfico.
 
-Ao longo destas lições, você instalará e autenticará o Copilot CLI, depois fornecerá contexto do projeto com instruções personalizadas antes de usar o modo plan para gerar um recurso de forma deliberada. Você conectará o servidor MCP do Playwright para testar esse recurso em um navegador real e, em seguida, ampliará o Copilot com skills de agente reutilizáveis e agentes personalizados. Por fim, você explorará comandos de barra para gerenciar contexto, modelos e compartilhamento, e concluirá com uma revisão do que criou.
+Ao longo destas lições, você instalará e autenticará o Copilot CLI, depois fornecerá contexto do projeto com instruções personalizadas antes de usar o modo plan para gerar um recurso de forma deliberada. Você conectará o servidor MCP do Playwright para testar esse recurso em um navegador real e, em seguida, ampliará o Copilot com skills de agente reutilizáveis e agentes personalizados. Por fim, você explorará comandos de barra para gerenciar contexto, modelos e compartilhamento, e concluirá com uma revisão do que criou. Você também pode seguir uma [série opcional de três módulos com GitHub Copilot CLI e Foundry][foundry] para preparar um modelo, criar e implantar um agente hospedado e integrá-lo ao site.
 
 ## Lições
 
@@ -22,7 +22,8 @@ Ao longo destas lições, você instalará e autenticará o Copilot CLI, depois 
 | [5. Skills de agente][ex5] | Skills | Aprimore o Copilot com skills especializadas |
 | [6. Agentes personalizados][ex6] | Agentes | Revise e use agentes personalizados |
 | [7. Comandos de barra][ex7] | Recursos da CLI | Explore contexto, modelos, compartilhamento e a delegação opcional para o agente de nuvem |
-| [8. Revisão][ex8] | Resumo | Revise os principais conceitos e os próximos passos |
+| [9. Revisão][ex9] | Resumo | Revise os principais conceitos e os próximos passos |
+| [Opcional: Incorpore o Foundry][foundry] | Agentes hospedados | Prepare um modelo, crie e implante um Backer Concierge baseado no catálogo e conecte-o ao site |
 
 ## Pré-requisitos
 
@@ -50,5 +51,6 @@ Antes de participar deste workshop, verifique se você tem:
 [ex5]: 5-agent-skills/
 [ex6]: 6-custom-agents/
 [ex7]: 7-slash-commands/
-[ex8]: 8-review/
+[foundry]: 8-foundry-agent/
+[ex9]: 9-review/
 [callout-student-plan-education]: https://github.com/education/students
