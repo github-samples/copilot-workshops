@@ -1,9 +1,9 @@
 ---
-slug: ja-jp
 title: "GitHub Copilot のエージェントを実践で学ぶ"
+slug: ja-jp
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-09-17
 ---
 
 GitHub Copilot に最近追加された機能は、ソフトウェア開発ライフサイクル (SDLC) 全体を通して開発者を支援する強力なツールです。GitHub の Issue や pull request を使った作業、外部サービスとの連携、そしてもちろんコードの作成も含まれます。このラボでは、実際のユースケースを通して機能を試し、ツールを最大限に活用するためのヒントを紹介します。
@@ -27,7 +27,7 @@ GitHub Copilot は、どの環境で作業していても利用できます。�
 
 ### 🤖 [Copilot App](app/)
 
-**GitHub Copilot app** は、Copilot CLI を基盤とするデスクトップ アプリケーションです。複数のエージェント セッションを並行して実行し、セッション モードの切り替え、キャンバスでの共同作業、GitHub Issue と pull request の管理をアプリ内で行えます。さらに **Agent Merge** を使用すると、リベース、レビュー フィードバックへの対応、CI の修正、マージまで、pull request の一連の作業を進められます。
+**GitHub Copilot app** は、Copilot CLI を基盤とするデスクトップアプリケーションです。アプリとリポジトリをセットアップし、星評価に対象を絞った変更を手動でマージします。次に、Issue からフィルター機能に着手し、Plan、Autopilot、カスタム指示、カスタマイズしたスキル、Model Context Protocol (MCP) を使用したブラウザー検証、品質保証 (QA) レビューまで進めます。フィルター機能の pull request には **Agent Merge** を使用し、最後に既存のデータベースキャンバスを使用して、リポジトリに保存するトリアージキャンバスを作成します。
 
 ### ☁️ [Copilot Cloud Agent](../cloud/)
 
