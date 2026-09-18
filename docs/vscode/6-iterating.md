@@ -3,10 +3,11 @@ title: "Exercise 6 - Iterating on GitHub Copilot's work"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30
+next: false
 ---
 
 | [← Previous lesson: Monitoring and managing agents][previous-lesson] |
-|:--|
+| :-- |
 
 ## Reviewing the work
 
@@ -63,12 +64,16 @@ Congratulations — you've completed the VS Code harness! Through this lab you:
 
 ## Review and next steps
 
+This wraps up the required VS Code harness. You can stop here with the workshop complete.
+
 If you'd like to expand your perspective on Copilot's agent capabilities, the other harnesses cover related scenarios through different surfaces:
 
 - 💻 **[CLI harness](../../cli/)** — work similar flows from your terminal with Copilot CLI: plan mode, agent skills, custom agents, and slash commands like `/share`, `/context`, and `/delegate`.
 - ☁️ **[Cloud agent harness](../../cloud/)** — focus on assigning issues to cloud agent, monitoring sessions through the agents page, and iterating asynchronously on pull requests.
 
 You can also keep building on what you started here. [awesome-copilot][awesome-copilot] is a great source for more instruction files, custom agents, and skills you can adapt to your own projects.
+
+For an optional extension, [Optional: Incorporate Foundry][exercise-7] uses VS Code and Microsoft Foundry Toolkit to prepare a model, deploy a Backer Concierge, and connect it to the site.
 
 ## Resources
 
@@ -84,6 +89,7 @@ You can also keep building on what you started here. [awesome-copilot][awesome-c
 [previous-lesson]: ../5-managing-agents/
 [exercise-4]: ../4-custom-agents/
 [exercise-5]: ../5-managing-agents/
+[exercise-7]: ../7-foundry-toolkit/
 [github-copilot]: https://github.com/features/copilot
 [copilot-chat-vscode]: https://code.visualstudio.com/docs/copilot/chat/copilot-chat
 [agent-mode]: https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode

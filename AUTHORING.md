@@ -16,7 +16,7 @@ copilot-workshops/
 │   ├── vscode/                  ← VS Code lessons (0-prerequisites.md + numbered exercises)
 │   ├── cloud/                   ← Cloud agent lessons (0-prerequisites.md + numbered exercises)
 │   ├── app/                     ← GitHub Copilot app lessons (setup folded into Exercise 1)
-│   ├── es-es/ ja-jp/ ...        ← Translated locale trees (currently the app harness)
+│   ├── es-es/ ja-jp/ ...        ← Translated locale trees (app harness and selected VS Code content)
 │   └── _images/                 ← Screenshots and diagrams (shared across locales)
 ├── website/                     ← Optional Astro + Starlight publisher
 │   ├── astro.config.mjs         ← Site URL, base path, locales, sidebar
@@ -82,6 +82,7 @@ Every folder's landing page is a `README.md` so it renders directly when someone
 - `docs/<harness>/README.md` → `slug: <harness>` (e.g. `slug: app` → `/app/`).
 - `docs/<locale>/README.md` → `slug: <locale>` (e.g. `slug: es-es` → `/es-es/`).
 - `docs/<locale>/<harness>/README.md` → `slug: <locale>/<harness>` (e.g. `slug: es-es/app` → `/es-es/app/`).
+- Nested lesson overviews follow the same rule: `docs/vscode/7-foundry-toolkit/README.md` → `slug: vscode/7-foundry-toolkit`; localized copies use `slug: <locale>/vscode/7-foundry-toolkit`. Numbered modules live beside the overview and retain nested routes. Links between lessons resolve from the published route, while image paths resolve from the Markdown source file.
 
 When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
 
