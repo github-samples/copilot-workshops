@@ -1,5 +1,5 @@
 ---
-title: "Ejercicio 8 - Repaso y próximos pasos"
+title: "Ejercicio 9 - Repaso y próximos pasos"
 authors:
   - geektrainer
 lastUpdated: 2026-06-30
@@ -12,6 +12,8 @@ En los últimos ejercicios, has explorado algunos de los casos de uso más habit
 - implementar habilidades para añadir herramientas al conjunto de herramientas de Copilot CLI.
 - invocar agentes personalizados para tareas avanzadas y más complejas.
 - usar comandos de barra para gestionar tu sesión y, opcionalmente, volver a conectar con cloud agent mediante `/delegate`.
+
+Si te apetece un reto opcional, puedes [crear un concierge con GitHub Copilot CLI y Foundry][foundry-lesson] en una serie de tres módulos que abarca la configuración del modelo, el desarrollo y despliegue del agente y la integración con el sitio web.
 
 Vamos a hablar de algunos comandos de barra, buenas prácticas y próximos pasos.
 
@@ -61,6 +63,7 @@ Si quieres explorar más del ecosistema de GitHub Copilot, consulta el [recorrid
 - [Especificación de MCP][mcp-spec]
 
 [previous-lesson]: ../7-slash-commands/
+[foundry-lesson]: ../8-foundry-agent/
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [awesome-copilot]: https://github.com/github/awesome-copilot

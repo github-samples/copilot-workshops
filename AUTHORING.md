@@ -14,7 +14,7 @@ copilot-workshops/
 │   ├── README.md                ← Workshop landing page (also site home via slug: index)
 │   ├── first-steps/             ← Guided introductory workshops
 │   ├── real-world-development/  ← Scenario workshops organized by environment
-│   │   ├── cli/                 ← Copilot CLI lessons
+│   │   ├── cli/                 ← Copilot CLI lessons, including the optional 8-foundry-agent/ series
 │   │   ├── vscode/              ← VS Code lessons
 │   │   ├── cloud/               ← Cloud agent lessons
 │   │   └── app/                 ← GitHub Copilot app lessons
@@ -87,6 +87,12 @@ Every folder's landing page is a `README.md` so it renders directly when someone
 - `docs/<locale>/<category>/<workshop>/README.md` → `slug: <locale>/<category>/<workshop>` (e.g. `slug: es-es/real-world-development/app` → `/es-es/real-world-development/app/`).
 
 When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
+
+### Optional multi-module series
+
+An optional series can live in a lesson subfolder, such as `docs/real-world-development/cli/8-foundry-agent/`, with a `README.md` overview and numbered module files. The overview uses `slug: real-world-development/cli/8-foundry-agent` to preserve the series entry URL. The sidebar groups its overview and modules under the optional series title, after the core workshop's review lesson.
+
+Each module has its own objectives, story-focused scenario, numbered instructions, completion checkpoint, and next-module handoff. Shared cleanup instructions live on the overview and are linked from every module so learners can stop at any checkpoint. When moving a lesson into a subfolder, adjust image paths and navigation links for the extra directory level, and keep existing localized entry links aligned; missing module translations use the site's English fallback.
 
 ### Add an image
 

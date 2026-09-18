@@ -157,7 +157,7 @@ lastUpdated: 2026-06-30
 - 使用 `/model` 查看可用模型列表，并在需要时选择新的模型。
 - 了解了 `/delegate` 作为连接 cloud agent 的可选桥梁。
 
-当然，还有更多斜杠命令可用，也还有更多 Copilot CLI 功能值得探索。最后通过[回顾已学内容][next-lesson]以及后续学习方向，为这段旅程收尾。
+当然，还有更多斜杠命令可用，也还有更多 Copilot CLI 功能值得探索。最后，通过[回顾已学内容][next-lesson]并了解后续学习方向，为这段旅程收尾。如果想在结束前尝试一项可选挑战，可以通过包含三个模块的系列课程[使用 GitHub Copilot CLI 和 Foundry 构建礼宾助手][foundry-lesson]。
 
 ## 资源
 
@@ -168,7 +168,8 @@ lastUpdated: 2026-06-30
 - [在 Copilot CLI 中选择模型][selecting-models]
 
 [previous-lesson]: ../6-custom-agents/
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
+[foundry-lesson]: ../8-foundry-agent/
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [about-cloud-agent]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-cloud-agent

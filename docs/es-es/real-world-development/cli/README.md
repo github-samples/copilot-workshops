@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 **[GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)** incorpora GitHub Copilot a tu terminal como asistente de programación con agentes. Explora bases de código, genera código, ejecuta comandos y se conecta a herramientas externas, todo desde la línea de comandos, para que puedas mantener el flujo sin cambiar a un editor gráfico.
 
-A lo largo de estos ejercicios instalarás y autenticarás Copilot CLI, y después le darás contexto del proyecto con instrucciones personalizadas antes de usar el modo de planificación para generar una funcionalidad de forma deliberada. Conectarás el servidor MCP de Playwright para probar esa funcionalidad en un navegador real y, a continuación, ampliarás Copilot con habilidades de agente reutilizables y agentes personalizados. Por último, explorarás los comandos de barra para gestionar el contexto, los modelos y el uso compartido, y terminarás con un repaso de lo que has creado.
+A lo largo de estos ejercicios instalarás y autenticarás Copilot CLI, y después le darás contexto del proyecto con instrucciones personalizadas antes de usar el modo de planificación para generar una funcionalidad de forma deliberada. Conectarás el servidor MCP de Playwright para probar esa funcionalidad en un navegador real y, a continuación, ampliarás Copilot con habilidades de agente reutilizables y agentes personalizados. Por último, explorarás los comandos de barra para gestionar el contexto, los modelos y el uso compartido, y terminarás con un repaso de lo que has creado. También puedes seguir una [serie opcional de tres módulos con GitHub Copilot CLI y Foundry][foundry] para preparar un modelo, crear y desplegar un agente hospedado e integrarlo en el sitio.
 
 ## Ejercicios
 
@@ -22,7 +22,8 @@ A lo largo de estos ejercicios instalarás y autenticarás Copilot CLI, y despu�
 | [5. Habilidades de agente][ex5] | Habilidades | Mejora Copilot con habilidades especializadas |
 | [6. Agentes personalizados][ex6] | Agentes | Revisa y usa agentes personalizados |
 | [7. Comandos de barra][ex7] | Funciones de CLI | Explora el contexto, los modelos, el uso compartido y la delegación opcional al agente en la nube |
-| [8. Repaso][ex8] | Resumen | Repasa los conceptos clave y los próximos pasos |
+| [9. Repaso][ex9] | Resumen | Repasa los conceptos clave y los próximos pasos |
+| [Opcional: incorpora Foundry][foundry] | Agentes hospedados | Prepara un modelo, crea y despliega el concierge y conéctalo al sitio web en tres módulos |
 
 ## Requisitos previos
 
@@ -52,4 +53,5 @@ Antes de asistir a este taller, asegúrate de tener:
 [ex5]: 5-agent-skills/
 [ex6]: 6-custom-agents/
 [ex7]: 7-slash-commands/
-[ex8]: 8-review/
+[foundry]: 8-foundry-agent/
+[ex9]: 9-review/

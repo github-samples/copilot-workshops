@@ -156,7 +156,7 @@ Copilot CLI의 slash commands를 사용하면 구성을 변경하고, 세션을 
 - `/model`로 사용 가능한 모델 목록을 살펴보고 원한다면 새 모델을 선택할 수 있음을 확인했습니다.
 - `/delegate`를 cloud agent로 연결하는 선택적 브리지로 학습했습니다.
 
-물론 더 많은 slash commands가 있으며, Copilot CLI로 탐색할 내용도 더 많습니다. 마지막으로 [학습한 내용을 검토하고][next-lesson] 학습을 계속하기 위한 다음 단계를 살펴보며 여정을 마무리하겠습니다.
+물론 더 많은 slash commands가 있으며, Copilot CLI로 탐색할 내용도 더 많습니다. 마지막으로 [학습한 내용을 검토하고][next-lesson] 학습을 계속하기 위한 다음 단계를 살펴보며 여정을 마무리하겠습니다. 마무리하기 전에 선택 과제에 도전하고 싶다면, 3개 모듈로 구성된 시리즈에서 [GitHub Copilot CLI와 Foundry로 컨시어지 빌드하기][foundry-lesson]를 진행할 수 있습니다.
 
 ## 리소스
 
@@ -167,7 +167,8 @@ Copilot CLI의 slash commands를 사용하면 구성을 변경하고, 세션을 
 - [Copilot CLI에서 모델 선택하기][selecting-models]
 
 [previous-lesson]: ../6-custom-agents/
-[next-lesson]: ../8-review/
+[next-lesson]: ../9-review/
+[foundry-lesson]: ../8-foundry-agent/
 [using-copilot-cli]: https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli
 [about-copilot-cli]: https://docs.github.com/copilot/concepts/agents/about-copilot-cli
 [about-cloud-agent]: https://docs.github.com/copilot/concepts/agents/cloud-agent/about-cloud-agent

@@ -8,7 +8,7 @@ lastUpdated: 2026-06-30
 
 [**GitHub Copilot CLI**](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)는 터미널에서 GitHub Copilot을 에이전트형 코딩 도우미로 사용할 수 있게 해줍니다. 코드베이스를 탐색하고, 코드를 생성하고, 명령을 실행하고, 외부 도구에 연결하는 작업을 모두 명령줄에서 처리하므로 그래픽 편집기로 전환하지 않고도 작업 흐름을 유지할 수 있습니다.
 
-이 연습 전체에서 Copilot CLI를 설치하고 인증한 다음, 커스텀 지침으로 프로젝트 컨텍스트를 제공한 뒤 plan mode를 사용해 의도적으로 기능을 생성합니다. 이어서 Playwright MCP server를 연결해 실제 브라우저에서 해당 기능을 테스트하고, 재사용 가능한 agent skills와 custom agents로 Copilot을 확장합니다. 마지막으로 slash commands로 컨텍스트, 모델, 공유를 관리하는 방법을 살펴보고, 완성한 내용을 검토합니다.
+이 연습 전체에서 Copilot CLI를 설치하고 인증한 다음, 커스텀 지침으로 프로젝트 컨텍스트를 제공한 뒤 plan mode를 사용해 의도적으로 기능을 생성합니다. 이어서 Playwright MCP server를 연결해 실제 브라우저에서 해당 기능을 테스트하고, 재사용 가능한 agent skills와 custom agents로 Copilot을 확장합니다. 마지막으로 slash commands로 컨텍스트, 모델, 공유를 관리하는 방법을 살펴보고, 완성한 내용을 검토합니다. 또한 선택 사항으로, [GitHub Copilot CLI와 Foundry를 사용하는 3개 모듈 시리즈][foundry]에서 모델을 준비하고, 호스트된 에이전트를 빌드 및 배포한 뒤 사이트에 통합할 수 있습니다.
 
 ## 연습
 
@@ -22,7 +22,8 @@ lastUpdated: 2026-06-30
 | [5. 에이전트 스킬][ex5] | 스킬 | 특화된 스킬로 Copilot을 강화합니다 |
 | [6. 커스텀 에이전트][ex6] | 에이전트 | 커스텀 에이전트를 검토하고 사용합니다 |
 | [7. 슬래시 명령][ex7] | CLI 기능 | 컨텍스트, 모델, 공유, 그리고 선택적으로 cloud agent 위임을 살펴봅니다 |
-| [8. 검토][ex8] | 요약 | 핵심 개념과 다음 단계를 검토합니다 |
+| [9. 검토][ex9] | 요약 | 핵심 개념과 다음 단계를 검토합니다 |
+| [선택 사항: Foundry 통합하기][foundry] | 호스트된 에이전트 | 모델을 준비하고, 카탈로그 기반 Backer Concierge를 빌드 및 배포한 뒤 웹사이트에 연결합니다 |
 
 ## 사전 준비
 
@@ -52,4 +53,5 @@ lastUpdated: 2026-06-30
 [ex5]: 5-agent-skills/
 [ex6]: 6-custom-agents/
 [ex7]: 7-slash-commands/
-[ex8]: 8-review/
+[foundry]: 8-foundry-agent/
+[ex9]: 9-review/

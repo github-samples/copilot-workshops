@@ -102,7 +102,64 @@ export default defineConfig({
                 { label: '5. Agent skills', link: '/real-world-development/cli/5-agent-skills/' },
                 { label: '6. Custom agents', link: '/real-world-development/cli/6-custom-agents/' },
                 { label: '7. Slash commands', link: '/real-world-development/cli/7-slash-commands/' },
-                { label: '8. Review', link: '/real-world-development/cli/8-review/' },
+                { label: '9. Review', link: '/real-world-development/cli/9-review/' },
+                {
+                  label: 'Optional: Incorporate Foundry',
+                  translations: {
+                    'es-ES': 'Opcional: incorpora Foundry',
+                    'ja-JP': 'オプション: Foundry を組み込む',
+                    'ko-KR': '선택 사항: Foundry 통합하기',
+                    'pt-BR': 'Opcional: Incorpore o Foundry',
+                    'zh-CN': '可选：集成 Foundry',
+                  },
+                  collapsed: true,
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: '/real-world-development/cli/8-foundry-agent/',
+                      translations: {
+                        'es-ES': 'Descripción general',
+                        'ja-JP': '概要',
+                        'ko-KR': '개요',
+                        'pt-BR': 'Visão geral',
+                        'zh-CN': '概述',
+                      },
+                    },
+                    {
+                      label: '1. Prepare the project and model',
+                      link: '/real-world-development/cli/8-foundry-agent/1-project-and-model/',
+                      translations: {
+                        'es-ES': '1. Prepara el proyecto y el modelo',
+                        'ja-JP': '1. プロジェクトとモデルを準備する',
+                        'ko-KR': '1. 프로젝트와 모델 준비하기',
+                        'pt-BR': '1. Prepare o projeto e o modelo',
+                        'zh-CN': '1. 准备项目和模型',
+                      },
+                    },
+                    {
+                      label: '2. Build and deploy the agent',
+                      link: '/real-world-development/cli/8-foundry-agent/2-build-and-deploy/',
+                      translations: {
+                        'es-ES': '2. Crea y despliega el agente',
+                        'ja-JP': '2. エージェントを構築してデプロイする',
+                        'ko-KR': '2. 에이전트 빌드 및 배포하기',
+                        'pt-BR': '2. Crie e implante o agente',
+                        'zh-CN': '2. 构建并部署智能体',
+                      },
+                    },
+                    {
+                      label: '3. Connect the agent to the website',
+                      link: '/real-world-development/cli/8-foundry-agent/3-connect-to-site/',
+                      translations: {
+                        'es-ES': '3. Conecta el agente al sitio web',
+                        'ja-JP': '3. エージェントを Web サイトに接続する',
+                        'ko-KR': '3. 에이전트를 웹사이트에 연결하기',
+                        'pt-BR': '3. Conecte o agente ao site',
+                        'zh-CN': '3. 将智能体连接到网站',
+                      },
+                    },
+                  ],
+                },
               ],
             },
             {
