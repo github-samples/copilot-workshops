@@ -17,7 +17,7 @@ You'll explore the following with Copilot cloud agent:
 - the importance of clearly scoped issues.
 - assigning issues to Copilot.
 
-## Scenarios
+## Scenario
 
 Tailspin Toys has some tech debt they'd like to address. The contractors initially hired to create the first version of the site left the documentation in an unideal state - and by that you'll notice it's completely lacking. As a first step, they'd like to see TSDoc doc comments added to all exported functions in the application.
 

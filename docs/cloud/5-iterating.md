@@ -8,13 +8,18 @@ lastUpdated: 2026-06-30
 | [← Previous lesson: Managing agents][previous-lesson] |
 |:--|
 
-## Reviewing the work
-
 Throughout this lab you've worked with GitHub Copilot on several tasks focused on improving the user experience and adding functionality. You asked Copilot to add documentation to your code, build a related games feature for the design team to iterate on, and implement accessibility features including high-contrast and light mode toggles. Let's explore the code changes and, if necessary, provide feedback to Copilot to improve its work.
 
-### Scenario
+In this exercise, you will:
+
+- review the documentation, related-games, and accessibility pull requests.
+- request focused changes and inspect updated diffs and checks.
+- prepare reviewed work for the team's normal review and merge process.
+
+## Scenario
 
 As has been highlighted numerous times, the fundamentals of software design and DevOps do not change with the addition of generative AI. We always want to review the code generated, and work through our normal DevOps process. With that in mind, let's review the suggestions from GitHub Copilot for creating the documentation, the related games feature, and accessibility features before we turn on review for the rest of our team.
+
 ## Security and GitHub Copilot cloud agent
 
 Because Copilot cloud agent performs its tasks asynchronously and without supervision, certain security constraints have been put in place to ensure everything remains safe. These include:
@@ -98,7 +103,7 @@ Copilot has built the related games feature! Just as before, you can work iterat
 
 ## Review the accessibility features
 
-Finally, let's review the accessibility features that were implemented using the custom accessibility agent. This PR should include both the high-contrast mode you assigned in Exercise 3, and the light mode that was requested in mission control in Exercise 4.
+Finally, let's review the accessibility features that were implemented using the custom accessibility agent. The profile was added to the default branch before assignment in Exercise 3; this feature PR should include both the high-contrast mode assigned there and the light mode requested in mission control in Exercise 4. Confirm the PR description identifies the accessibility agent, and review its reported npm check results rather than treating agent selection alone as verification.
 
 1. Return to your repository in GitHub.com.
 2. Select the **Pull Requests** tab.

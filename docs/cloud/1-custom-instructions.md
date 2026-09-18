@@ -17,9 +17,7 @@ In this exercise, you will:
 > [!NOTE]
 > Unlike the VS Code and CLI harnesses, you won't run a *before/after* prompt here — Copilot cloud agent works asynchronously on GitHub issues, so the impact is harder to demonstrate side-by-side in real time. You'll see your instruction file's influence later in this harness when you review the pull requests cloud agent produces.
 
-## Instruction files
-
-### Scenario
+## Scenario
 
 As any good dev shop, Tailspin Toys has a set of guidelines and requirements for development practices. These include:
 
@@ -29,6 +27,8 @@ As any good dev shop, Tailspin Toys has a set of guidelines and requirements for
 - A block of comments should be added to the head of each file describing what the file does.
 
 Through the use of instruction files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
+
+## Instruction files
 
 ### Custom instructions
 

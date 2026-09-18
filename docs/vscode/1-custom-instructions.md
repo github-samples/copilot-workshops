@@ -20,9 +20,7 @@ In this exercise, you will:
 > [!CAUTION]
 > Generated code may diverge from some of the standards you set. Copilot is non-deterministic. The point of this exercise is to see the *trend* in behavior change after updating the instructions, not to match output character-for-character.
 
-## Instruction files
-
-### Scenario
+## Scenario
 
 As any good dev shop, Tailspin Toys has a set of guidelines and requirements for development practices. These include:
 
@@ -32,6 +30,8 @@ As any good dev shop, Tailspin Toys has a set of guidelines and requirements for
 - A block of comments should be added to the head of each file describing what the file does.
 
 Through the use of instruction files you'll ensure Copilot has the right information to perform the tasks in alignment with the practices highlighted.
+
+## Instruction files
 
 ### Custom instructions
 

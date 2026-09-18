@@ -16,6 +16,10 @@ In this exercise, you will:
 - ask Copilot to use it to manually test your filtering feature in a browser,
 - publish your branch and open a pull request for the filtering work.
 
+## Scenario
+
+Tailspin Toys' filtering feature is ready for browser review. The team needs to see whether selecting categories and publishers produces the expected games, not just whether the code compiles. You'll use Playwright MCP to gather browser observations before handing the feature to reviewers in a PR.
+
 ## What is Model Context Protocol (MCP)?
 
 Agent mode becomes far more powerful when it can reach beyond your editor. Model Context Protocol (MCP) is how Copilot does that — it's a standard way for the agent to talk to external tools and services.

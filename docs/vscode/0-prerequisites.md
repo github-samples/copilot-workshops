@@ -7,6 +7,11 @@ lastUpdated: 2026-06-30
 
 Before you start the VS Code exercises, you need to get everything ready. You'll create your own copy of the Tailspin Toys repository, spin up a [codespace][codespaces] to work in, and confirm GitHub Copilot Chat is up and running in your editor.
 
+In this exercise, you will:
+
+- create your own repository from the Tailspin Toys template.
+- open a codespace and confirm Copilot Chat is ready.
+
 ## Setting up the lab repository
 
 To create a copy of the repository for the code you'll create, you'll make an instance from the [template][template-repository]. The new instance will contain all of the necessary files for the lab, and you'll use it as you work through the exercises.
