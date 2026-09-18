@@ -17,22 +17,26 @@ The skill takes input content and a list of target locales. It then translates t
 .
 └── docs/                         ← workshop content (source + locale outputs)
     ├── README.md                 ← landing page (source; slug: index)
-    ├── <harness>/                ← English lessons (source)
-    │   ├── README.md             ← harness landing (source; slug: <harness>)
-    │   └── *.md
-    ├── _images/                  ← shared assets (not localized)
-    └── <locale>/                 ← localized output, direct child of docs/
-        ├── README.md             ← locale landing (slug: <locale>)
-        └── <harness>/
-            ├── README.md         ← localized harness landing (slug: <locale>/<harness>)
-            └── *.md
+    ├── <category>/               ← English workshop category
+    │   ├── README.md             ← category landing (source; slug: <category>)
+    │   └── <workshop>/
+    │       ├── README.md         ← workshop landing (source; slug: <category>/<workshop>)
+    │       └── *.md
+    ├── _images/              ← shared assets (not localized)
+    └── <locale>/             ← localized output, direct child of docs/
+        ├── README.md         ← locale landing (slug: <locale>)
+        └── <category>/
+            ├── README.md         ← localized category landing (slug: <locale>/<category>)
+            └── <workshop>/
+                ├── README.md     ← localized workshop landing (slug: <locale>/<category>/<workshop>)
+                └── *.md
 ```
 
 ### Input contents
 
 Here are the contents in scope for localization:
 
-- All English Markdown files under `docs/` **and its subdirectories** — the workshop landing (`docs/README.md`) and the per-harness lessons (`docs/<harness>/**/*.md`).
+- All English Markdown files under `docs/` **and its subdirectories** — the site landing (`docs/README.md`), category landings, and workshop lessons (`docs/<category>/<workshop>/**/*.md`).
 
 Do **not** treat `_images/` (shared assets) or any configured locale-root directory as source input.
 
@@ -66,7 +70,7 @@ The process runs in two passes. First, the content is analyzed to identify key p
 
 Regardless of locale, the following must be preserved exactly and **not** translated:
 
-- YAML frontmatter **keys** (translate values only where appropriate, e.g. a `title`). **Exception — the `slug` key on landing pages (`README.md`):** the site routes each folder landing via its `slug`, so a localized landing must carry a **locale-prefixed** slug rather than the English one. Rewrite it: a locale root (`docs/<locale>/README.md`) uses `slug: <locale>`, and a localized harness landing (`docs/<locale>/<harness>/README.md`) uses `slug: <locale>/<harness>`. Never copy the English `slug: index` / `slug: <harness>` verbatim into a localized file — that would collide with the English route.
+- YAML frontmatter **keys** (translate values only where appropriate, e.g. a `title`). **Exception — the `slug` key on landing pages (`README.md`):** the site routes each folder landing via its `slug`, so a localized landing must carry a **locale-prefixed** slug rather than the English one. Rewrite it: a locale root (`docs/<locale>/README.md`) uses `slug: <locale>`, a localized category landing uses `slug: <locale>/<category>`, and a localized workshop landing uses `slug: <locale>/<category>/<workshop>`. Never copy an English landing slug verbatim into a localized file because it would collide with the English route.
 - Fenced and inline code, including variable, function, and command names.
 - URLs and external link targets.
 - HTML tags, Markdown structure, tables, and admonition markers.
@@ -75,7 +79,7 @@ Translate human-language prose, including comments inside code blocks where they
 
 **Heading anchors follow the localized text.** When a heading is translated, its auto-generated anchor/slug changes with it—this is expected. The requirement is that **same-document anchor links keep resolving**: whenever you translate a heading, update every in-page link that targets it (`](#...)`) to the localized heading's new slug. Do not leave a link pointing at the original English slug once the heading is translated, and do not preserve an English anchor that no longer matches its heading. Anchors that point into **non-localized** files (or external URLs) keep their original target.
 
-**Image and asset paths point to the original assets unless a localized asset exists.** Because localized files live under `docs/<locale>/`, rewrite source-relative paths as needed so they still resolve to the shared asset (for example, an app lesson at `docs/<locale>/app/2-foo.md` uses `../../_images/x.png` to reach `docs/_images/`). Only point at a localized asset when a corresponding translated image actually exists under the locale tree. Either way, the link must resolve to a real file.
+**Image and asset paths point to the original assets unless a localized asset exists.** Because localized files live under `docs/<locale>/`, rewrite source-relative paths as needed so they still resolve to the shared asset (for example, a lesson at `docs/<locale>/real-world-development/app/2-foo.md` uses `../../../_images/x.png` to reach `docs/_images/`). Only point at a localized asset when a corresponding translated image actually exists under the locale tree. Either way, the link must resolve to a real file.
 
 ### Translator agent
 
@@ -97,4 +101,3 @@ The evaluator scores the localized document against the locale's **Evaluator Sco
 - **Don't** treat configured locale-root directories as source input.
 - **Don't** reorder or restructure content; keep headings and their order stable.
 - **Don't** translate code, commands, or identifiers; translate explanatory prose and code comments only.
-
