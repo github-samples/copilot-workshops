@@ -39,7 +39,7 @@ Don't hard-code URLs. The built `dist/` is the source of truth for what routes e
 find website/dist -name index.html | grep -v 404 | sed 's#website/dist#/copilot-workshops#; s#/index.html#/#'
 ```
 
-Validate a **representative sample** that covers every layout and harness: the landing page (`/copilot-workshops/`), a per-harness prerequisites page (e.g. `cli/0-prerequisites/`), and at least one lesson from each of `cli/`, `vscode/`, `cloud/`, and `app/`. For a release pass or a change that touches shared layout/components, validate **all** routes.
+Validate a **representative sample** that covers every category and workshop: the landing page (`/copilot-workshops/`), a first-steps lesson, and at least one real-world development lesson from each of `cli/`, `vscode/`, `cloud/`, and `app/`. For a release pass or a change that touches shared layout/components, validate **all** routes.
 
 ## 3. Validate each route
 

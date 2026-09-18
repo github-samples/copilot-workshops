@@ -50,8 +50,8 @@ Inspect the pull request diff, restricted to `docs/**`. For each changed lesson,
 
 Search the rest of `docs/**` for passages that should stay in sync with each change. Focus on three drift categories:
 
-1. **Formerly-shared copies.** Short callouts and steps that used to be shared partials are now copied verbatim into multiple lessons (for example, the Copilot CLI "Allow all" approval callout, and the "Approve and run workflows" step in `cloud/5-iterating.md` and `vscode/6-iterating.md`). Quote a distinctive phrase from the change and grep for it across all lessons.
-2. **Parallel concepts across harnesses.** The same idea is taught once per harness in `cli/`, `vscode/`, `app/`, and `cloud/`. A conceptual change usually needs the same correction in the sibling lessons of the other harnesses.
+1. **Formerly-shared copies.** Short callouts and steps that used to be shared partials are now copied verbatim into multiple lessons (for example, the Copilot CLI "Allow all" approval callout, and the "Approve and run workflows" step in `real-world-development/cloud/5-iterating.md` and `real-world-development/vscode/6-iterating.md`). Quote a distinctive phrase from the change and grep for it across all lessons.
+2. **Parallel concepts across workshops.** The same idea may be taught in the `cli/`, `vscode/`, `app/`, and `cloud/` workshops under `real-world-development/`. A conceptual change usually needs the same correction in sibling lessons.
 3. **Cross-references and shared facts.** Reference-style links to a renamed/retitled lesson, lesson numbers in prose, the published URL shape, the `github.com/github-samples/tailspin-toys/...` demo-app URL, tool/library names, and shared screenshots.
 
 Exclude the files already changed in this PR from your candidate list.
