@@ -155,7 +155,7 @@ You completed the Cloud agent harness. Across these lessons you:
 You've completed the Cloud agent harness. If you'd like to keep exploring, the other harnesses complement what you practiced here:
 
 - 🖥️ **[VS Code harness](../../vscode/)** — explore Copilot Chat agent mode and MCP integration directly from your IDE.
-- 💻 **[CLI harness](../../cli/)** — work the same flows from your terminal with Copilot CLI: plan mode, agent skills, custom agents, and slash commands like `/delegate` to bridge back to the cloud agent you used here.
+- 💻 **[CLI harness](../../cli/)** — deliver two reviewed changes from your terminal with Plan and Autopilot modes, agent skills, a custom QA agent, Playwright MCP, Agent Merge, and an optional `/delegate` bridge back to cloud agent.
 
 In your own repository, try these follow-up ideas:
 

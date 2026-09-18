@@ -39,7 +39,7 @@ The modules build on one another in the same Tailspin Toys repository, branch, a
 > This series creates billable Azure resources, including a model deployment and a hosted agent. Resource creation requires a review of the selected subscription, region, quota, and estimated cost. The [cleanup instructions][cleanup] apply even if you stop after the first or second module.
 
 1. To begin the optional series, continue to [Prepare the project and model][project-model]. Setup instructions are included there.
-2. If you'd rather finish the core workshop, continue to [Review and next steps][review].
+2. If you'd rather finish the core workshop, continue to [Wrap-up and next steps][review].
 
 ## Clean up your resources
 
@@ -74,7 +74,7 @@ When you're done experimenting at any checkpoint, remove the Azure resources to 
 [project-model]: 1-project-and-model/
 [build-deploy]: 2-build-and-deploy/
 [connect-site]: 3-connect-to-site/
-[review]: ../9-review/
+[review]: ../10-review/
 [cleanup]: #clean-up-your-resources
 [azure-skills]: https://github.com/microsoft/azure-skills#github-copilot-cli
 [foundry-skill]: https://learn.microsoft.com/azure/foundry/how-to/develop/use-microsoft-foundry-skill?tabs=copilot-cli

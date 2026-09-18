@@ -33,7 +33,7 @@ copilot-workshops/
 
 ### Add a new lesson
 
-1. **Pick a category, workshop, and number.** Lessons live under `docs/<category>/<workshop>/N-name.md`. `N` is the next available integer in that workshop; the number drives the URL slug (`/real-world-development/cli/3-generating-code/`). A longer optional exercise can use `N-name/README.md` for its overview and numbered modules inside that folder. Preserve the entry URL with the overview's `slug`, keep the core review as the default next destination, and place the optional sidebar group after it.
+1. **Pick a category, workshop, and number.** Lessons live under `docs/<category>/<workshop>/N-name.md`. `N` is the next available integer in that workshop; the number drives the URL slug (`/real-world-development/cli/3-agent-modes/`). A longer optional exercise can use `N-name/README.md` for its overview and numbered modules inside that folder. Preserve the entry URL with the overview's `slug`, keep the core review as the default next destination, and place the optional sidebar group after it.
 2. **Create the file** with frontmatter:
    ```markdown
    ---
@@ -46,8 +46,8 @@ copilot-workshops/
 3. **Write the body.** Follow the [lesson pattern](#lesson-pattern), using Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
 4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
    ```markdown
-   [previous-lesson]: ../2-custom-instructions/
-   [next-lesson]: ../4-mcp/
+   [previous-lesson]: ../2-add-star-rating/
+   [next-lesson]: ../4-custom-instructions/
    ```
    Then surface them in the body using **the same style as the other lessons in your path** — don't mix styles within a path:
    - **Woven into prose** (common in the CLI path): end the lesson with a sentence like ``the next step is to [create the PR][next-lesson]``.
@@ -107,7 +107,7 @@ Each module has its own objectives, story-focused scenario, numbered instruction
 
 ### Edit an existing lesson
 
-1. **Find the file** under `docs/` (use the published URL as a hint — `/real-world-development/cli/3-generating-code/` lives at `docs/real-world-development/cli/3-generating-code.md`).
+1. **Find the file** under `docs/` (use the published URL as a hint — `/real-world-development/cli/3-agent-modes/` lives at `docs/real-world-development/cli/3-agent-modes.md`).
 2. **Edit the Markdown.** Same conventions apply — see **Style essentials** below.
 3. **Preview** with `npm run dev` in `website/`.
 4. **Commit, PR, merge.**

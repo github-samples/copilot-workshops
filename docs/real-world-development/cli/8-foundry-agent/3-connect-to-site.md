@@ -67,7 +67,7 @@ The proxy gives the browser a safe way to reach the concierge. You'll now add a 
     ```
 
 2. Keep the local Function running and start the Astro site in another terminal using the command provided by Copilot.
-3. Return to Copilot CLI. The Playwright MCP server you added in [Exercise 4][playwright-lesson] is already available. Ask Copilot to test the widget:
+3. Return to Copilot CLI. The Playwright MCP server you inspected or added in [Lesson 6][playwright-lesson] is already available. Ask Copilot to test the widget:
 
     ```text
     Use the Playwright MCP server to test the Backer Concierge widget end to end in the running Tailspin Toys site. Verify its core chat flow, conversation continuity, accessibility, error handling, grounding boundaries, and secure use of the local proxy. Report the results and include evidence for any failures.
@@ -87,10 +87,10 @@ You've reached the final checkpoint: a working concierge in your local website. 
 
 You connected the hosted Backer Concierge to Tailspin Toys through a local server-side proxy and an accessible chat widget. Across the series, you used GitHub Copilot CLI and Foundry to prepare a model, build and deploy an agent, and verify a complete website integration.
 
-Continue to [Review and next steps][review] to close out the CLI workshop.
+Continue to [Wrap-up and next steps][review] to close out the CLI workshop.
 
 [overview]: ../
 [previous-lesson]: ../2-build-and-deploy/
-[review]: ../../9-review/
-[playwright-lesson]: ../../4-mcp/
+[review]: ../../10-review/
+[playwright-lesson]: ../../6-mcp-playwright/
 [cleanup]: ../#clean-up-your-resources

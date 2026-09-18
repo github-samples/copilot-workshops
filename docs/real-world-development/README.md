@@ -22,7 +22,7 @@ Use GitHub Copilot in Visual Studio Code and GitHub Codespaces. Work with Copilo
 
 ### [Copilot CLI][cli]
 
-Use the agentic assistant in your terminal. Connect MCP servers, generate code with plan mode, and build skills, custom agents, and slash commands.
+Use the agentic assistant in your terminal. Work with Plan and Autopilot modes, instructions, skills, custom agents, Playwright MCP, Agent Merge, and practical slash commands.
 
 ### [GitHub Copilot app][app]
 

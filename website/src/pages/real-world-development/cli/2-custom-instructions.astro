@@ -1,0 +1,18 @@
+---
+const target = `${import.meta.env.BASE_URL}real-world-development/cli/4-custom-instructions/`;
+const canonical = new URL(target, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en" data-pagefind-ignore>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <title>Redirecting to Guide Copilot with custom instructions</title>
+  </head>
+  <body>
+    <a href={target}>This lesson moved. Continue to Guide Copilot with custom instructions.</a>
+  </body>
+</html>

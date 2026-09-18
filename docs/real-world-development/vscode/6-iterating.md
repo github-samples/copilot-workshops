@@ -68,7 +68,7 @@ This wraps up the required VS Code harness. You can stop here with the workshop 
 
 If you'd like to expand your perspective on Copilot's agent capabilities, the other harnesses cover related scenarios through different surfaces:
 
-- 💻 **[CLI harness](../../cli/)** — work similar flows from your terminal with Copilot CLI: plan mode, agent skills, custom agents, and slash commands like `/share`, `/context`, and `/delegate`.
+- 💻 **[CLI harness](../../cli/)** — deliver two reviewed changes from your terminal with Plan and Autopilot modes, skills, a custom QA agent, Playwright MCP, Agent Merge, and context-aware handoffs.
 - ☁️ **[Cloud agent harness](../../cloud/)** — focus on assigning issues to cloud agent, monitoring sessions through the agents page, and iterating asynchronously on pull requests.
 
 You can also keep building on what you started here. [awesome-copilot][awesome-copilot] is a great source for more instruction files, custom agents, and skills you can adapt to your own projects.
