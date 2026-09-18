@@ -8,11 +8,12 @@ This repo hosts the **workshop content** for **Copilot Workshops**, published as
 
 - `docs/` — **Source Markdown for all lessons. Edit here.** Browsable directly on github.com; no build required.
   - `README.md` — Workshop landing page (also the site home via `slug: index` frontmatter).
-  - `cli/`, `vscode/`, `cloud/`, `app/` — Per-harness lessons (Copilot CLI / VS Code / Cloud agent / GitHub Copilot app). Each folder's landing page is a `README.md` (routed via a `slug:` matching the folder path). Each harness opens with its own `0-prerequisites.md` setup lesson; the CLI and VS Code harnesses set up a codespace, while the app and cloud harnesses cover the setup their flow needs (for the app, installing Node.js locally and creating the project from the template).
+  - `first-steps/` — Guided introductory workshops. Each workshop has its own folder and `README.md` landing page.
+  - `real-world-development/` — Scenario-based workshops organized by environment (`cli/`, `vscode/`, `cloud/`, and `app/`). Each environment's landing page is a `README.md` routed via a slug matching the full category path. Each workshop opens with its own `0-prerequisites.md` setup lesson.
   - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Localized content at the locale-root paths required by Starlight. Translated pages mirror the English path beneath each locale directory; untranslated pages use Starlight's English fallback.
   - `_images/` — Screenshots and diagrams (shared across all locales).
 - `website/` — Optional Astro + Starlight site that publishes `docs/` to GitHub Pages (loader `base: '../docs'`). Only needed to self-host or preview the rendered site.
-  - `astro.config.mjs` — Site config including the manually maintained sidebar and the `locales` block. The legacy `/shared/0-prereqs/` → home (`/`) redirect is a full-HTML redirect page at `src/pages/shared/0-prereqs.astro` (not an `astro.config.mjs` `redirects` entry, which would emit a stub with no `<html>` element that Pagefind can't index). Prerequisites are now per-harness (`/<harness>/0-prerequisites/`), so the old shared-prereqs URL forwards to the home page.
+  - `astro.config.mjs` — Site config including the manually maintained sidebar and the `locales` block. The legacy `/shared/0-prereqs/` → home (`/`) redirect is a full-HTML redirect page at `src/pages/shared/0-prereqs.astro` (not an `astro.config.mjs` `redirects` entry, which would emit a stub with no `<html>` element that Pagefind can't index). Prerequisites are now per workshop (`/<category>/<workshop>/0-prerequisites/`), so the old shared-prereqs URL forwards to the home page.
   - `src/content.config.ts` — Custom content loader (`base: '../docs'`) that excludes underscore-prefixed support directories so `_images/` is not routed as content.
 - `AUTHORING.md` — Author entry point (recipes for adding lessons and images).
 - `CONTRIBUTING.md` — Short pointer to AUTHORING.md + PR/CI rules.
@@ -28,7 +29,7 @@ This repo hosts the **workshop content** for **Copilot Workshops**, published as
 
 ### Reusing prose across paths
 
-When the same prose applies to multiple harnesses (CLI, VS Code, cloud), copy it inline into each per-harness `.md` lesson. There is no import-based shared content system; the host page owns frontmatter, headings, navigation, and body prose.
+When the same prose applies to multiple workshops (CLI, VS Code, cloud), copy it inline into each workshop's `.md` lesson. There is no import-based shared content system; the host page owns frontmatter, headings, navigation, and body prose.
 
 Because inline copies can drift, run the `check-content-alignment` skill after editing duplicated sections. The `.github/workflows/content-alignment.md` agentic workflow performs the same analysis on PRs as a safety net, but do not rely on it as a substitute for updating all affected lessons.
 
