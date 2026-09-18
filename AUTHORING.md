@@ -31,7 +31,7 @@ copilot-workshops/
 
 ### Add a new lesson
 
-1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`).
+1. **Pick a path and number.** Lessons live under `docs/{cli,vscode,app,cloud}/N-name.md`. `N` is the next available integer in that path; the number drives the URL slug (`/cli/3-generating-code/`). A longer optional exercise can use `N-name/README.md` for its overview and numbered modules inside that folder. Preserve the entry URL with the overview's `slug`, keep the core review as the default next destination, and place the optional sidebar group after it.
 2. **Create the file** with frontmatter:
    ```markdown
    ---
@@ -82,7 +82,7 @@ Every folder's landing page is a `README.md` so it renders directly when someone
 - `docs/<harness>/README.md` → `slug: <harness>` (e.g. `slug: app` → `/app/`).
 - `docs/<locale>/README.md` → `slug: <locale>` (e.g. `slug: es-es` → `/es-es/`).
 - `docs/<locale>/<harness>/README.md` → `slug: <locale>/<harness>` (e.g. `slug: es-es/app` → `/es-es/app/`).
-- Nested lesson overviews follow the same rule: `docs/vscode/7-foundry-toolkit/README.md` → `slug: vscode/7-foundry-toolkit`; localized copies use `slug: <locale>/vscode/7-foundry-toolkit`. Numbered modules live beside the overview and retain nested routes. Links between lessons resolve from the published route, while image paths resolve from the Markdown source file.
+- Nested lesson overviews follow the same rule: `docs/app/8-foundry-canvas/README.md` → `slug: app/8-foundry-canvas` and `docs/vscode/7-foundry-toolkit/README.md` → `slug: vscode/7-foundry-toolkit`; localized copies use the corresponding `slug: <locale>/<harness>/<lesson>` path. Numbered modules live beside the overview and retain nested routes. Links between lessons resolve from the published route, while image paths resolve from the Markdown source file.
 
 When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
 
