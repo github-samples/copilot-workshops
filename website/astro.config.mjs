@@ -36,6 +36,7 @@ export default defineConfig({
         'es-es': { label: 'Español', lang: 'es-ES' },
         'ja-jp': { label: '日本語', lang: 'ja-JP' },
         'ko-kr': { label: '한국어', lang: 'ko-KR' },
+        'pl-pl': { label: 'Polski', lang: 'pl-PL' },
         'pt-br': { label: 'Português (Brasil)', lang: 'pt-BR' },
         'zh-cn': { label: '简体中文', lang: 'zh-CN' },
       },
