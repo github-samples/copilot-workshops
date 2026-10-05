@@ -3,7 +3,7 @@ title: "Lesson 0 - Prerequisites and setup"
 description: "Verify the workshop prerequisites, install the GitHub Copilot app, and get familiar with its workspace."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Before you build the Space Quiz, confirm that you have what you need, install the GitHub Copilot app, and get familiar with its workspace.
@@ -20,7 +20,8 @@ In this lesson, you will:
 
 You need:
 
-- a GitHub account with a [Copilot plan][copilot-plans].
+- a GitHub account. [Create a GitHub account][github-signup], or use your existing account.
+- an active Copilot plan. [Activate Copilot Free or a paid Copilot plan][copilot-plans]. If your organization already provides Copilot access, use that account.
 - a computer running macOS, Windows, or Linux.
 
 The app ships with Git, so there is nothing else to install.
@@ -50,9 +51,11 @@ Model availability depends on your plan, organization policy, and product versio
 The app brings the development workflow into one place:
 
 - **New**: Start a session on a project, or choose **Chat** for a quick question.
-- **My work**: Browse your GitHub issues and pull requests.
+- **Pull requests**: Review and track your pull requests across every repository.
+- **Issues**: Find issues assigned to you, created by you, or mentioning you.
 - **Automations**: Schedule recurring agent work on a repository.
 - **Customize**: Change themes and models, and manage Canvas extensions.
+- **Projects**: Open your repositories, with each one's sessions listed underneath.
 
 ## Try a quick chat
 
@@ -68,6 +71,7 @@ How does the GitHub Copilot app use worktrees?
 
 You verified the prerequisites, installed the app, chose a model, and explored its main work areas. Continue to [Lesson 1: Create the Space Quiz workspace][next-lesson].
 
+[github-signup]: https://github.com/signup
 [copilot-plans]: https://github.com/features/copilot/plans
 [download-app]: https://gh.io/app
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing

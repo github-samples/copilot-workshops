@@ -67,19 +67,12 @@
 <rect class="stroke" x="84" y="20" width="18" height="16" rx="3"/><path class="stroke" d="M91 20v16"/>
 <circle class="stroke" cx="130" cy="28" r="6"/><path class="stroke" d="m135 33 4 4"/>
 <path class="stroke" d="M162 22l-6 6 6 6M180 22l6 6-6 6"/>
-<path class="stroke" d="M28 66h16M36 58v16"/><text class="t-sm txt" x="56" y="71">New</text>
-<path class="stroke" d="M28 96h6v6h-6zM28 106h6v4h-6zM40 99h10M40 108h10"/>
-<text class="t-sm mut" x="58" y="105">My work</text>
-<rect class="card sel" x="14" y="118" width="184" height="30" rx="8"/>
-<rect class="stroke" x="27" y="126" width="15" height="13" rx="2.5"/><path class="stroke" d="M27 130h15M31 124v4M38 124v4"/>
-<text class="t-sm txt" x="58" y="137">Automations</text>
-<rect class="stroke" x="27" y="158" width="7" height="7" rx="1.5"/><rect class="stroke" x="36" y="158" width="7" height="7" rx="1.5"/><rect class="stroke" x="27" y="167" width="7" height="7" rx="1.5"/>
-<text class="t-sm mut" x="58" y="170">Customize</text>
-<path class="rule" d="M14 194h184"/>
-<text class="t-xs mut" x="28" y="218">Projects</text>
-<path class="stroke" d="M158 213h12M160 217h8M162 221h4M180 217h12M186 211v12"/>
-<rect class="card" x="14" y="232" width="184" height="26" rx="7"/>
-<text class="t-xs mut" x="28" y="249">space-quiz</text>
+<path class="stroke" d="M29 57h14M36 50v14"/><text class="t-sm txt" x="58" y="62">New</text><circle class="stroke" cx="31" cy="79" r="2.2"/><circle class="stroke" cx="31" cy="91" r="2.2"/><circle class="stroke" cx="41" cy="91" r="2.2"/><path class="stroke" d="M31 81.2v7.6M41 88.8V82a3 3 0 0 0-3-3h-3.5m2.5-2.5-2.5 2.5 2.5 2.5"/><text class="t-sm mut" x="58" y="90">Pull requests</text><circle class="stroke" cx="36" cy="113" r="7"/><circle class="stroke" cx="36" cy="113" r="1.5"/><text class="t-sm mut" x="58" y="118">Issues</text><rect class="card sel" x="14" y="128" width="184" height="26" rx="8"/><rect class="stroke" x="27" y="135" width="15" height="13" rx="2.5"/><path class="stroke" d="M27 139h15M31 133v4M38 133v4"/><text class="t-sm txt" x="58" y="146">Automations</text><rect class="stroke" x="27" y="162" width="7" height="7" rx="1.5"/><rect class="stroke" x="36" y="162" width="7" height="7" rx="1.5"/><rect class="stroke" x="27" y="171" width="7" height="7" rx="1.5"/><text class="t-sm mut" x="58" y="174">Customize</text><circle class="stroke" cx="29" cy="197" r="1.2"/><circle class="stroke" cx="36" cy="197" r="1.2"/><circle class="stroke" cx="43" cy="197" r="1.2"/><text class="t-sm mut" x="58" y="202">More</text>
+<path class="rule" d="M14 216h184"/>
+<text class="t-xs mut" x="28" y="236">Projects</text>
+<path class="stroke" d="M158 231h12M160 235h8M162 239h4M180 235h12M186 229v12"/>
+<rect class="card" x="14" y="248" width="184" height="26" rx="7"/>
+<text class="t-xs mut" x="28" y="265">space-quiz</text>
 <text class="t-sm txt" x="236" y="34">Automations</text>
 <rect class="chip" x="430" y="18" width="88" height="24" rx="7"/><text class="t-xs txt" x="474" y="34" text-anchor="middle">Templates</text>
 <rect class="cta" x="526" y="18" width="110" height="24" rx="7"/><text class="t-xs inv" x="581" y="34" text-anchor="middle">New automation</text>

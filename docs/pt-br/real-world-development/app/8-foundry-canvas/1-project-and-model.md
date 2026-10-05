@@ -3,7 +3,7 @@ title: "Preparar o projeto e o modelo"
 description: "Exporte o catálogo da Tailspin, crie um projeto do Foundry e uma implantação de modelo e valide ambos no Canvas."
 authors:
   - juliamuiruri4
-lastUpdated: 2026-09-16
+lastUpdated: 2026-10-05
 prev:
   link: /copilot-workshops/pt-br/real-world-development/app/8-foundry-canvas/
   label: "Opcional: Incorporar o Foundry"
@@ -36,7 +36,7 @@ A configuração conecta o aplicativo GitHub Copilot ao Azure e mantém todo o t
    ![Instalar o plugin Microsoft Foundry](../../../../_images/app-8-install-foundry-plugin.png)
 
 5. Em **Customize**, selecione **Plugins**, pesquise por `azure` ou selecione-o na lista **Featured** e selecione **Install** para o plugin Azure.
-6. Na aba **My work**, encontre e abra a issue intitulada **Add a Backer Concierge assistant for catalog questions** no repositório Tailspin Toys. Selecione **New session** para iniciar uma sessão vinculada à issue em um novo worktree. Mantenha este repositório, branch do worktree e sessão da issue nos três módulos.
+6. Selecione **Issues** na barra lateral e, em seguida, encontre e abra a issue intitulada **Add a Backer Concierge assistant for catalog questions** no repositório Tailspin Toys. Selecione **New session** para iniciar uma sessão vinculada à issue em um novo worktree. Mantenha este repositório, branch do worktree e sessão da issue nos três módulos.
 7. Digite `/microsoft-foundry` e depois `/azure` para confirmar que as duas skills estão instaladas e disponíveis; não envie prompts ainda. Se um plugin não aparecer imediatamente, reinicie o aplicativo, volte para esta mesma sessão da issue e verifique novamente.
 
 ## Gerar a exportação do catálogo

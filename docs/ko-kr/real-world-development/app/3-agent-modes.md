@@ -3,7 +3,7 @@ title: "레슨 3 - 에이전트 모드: Plan 및 Autopilot"
 description: "에이전트 모드를 살펴봅니다. Plan으로 접근 방식에 합의하고, Autopilot으로 이슈의 필터링 기능을 구축하고, Interactive로 결과를 검토하고 검증합니다."
 authors:
   - geektrainer
-lastUpdated: 2026-07-13
+lastUpdated: 2026-10-05
 ---
 
 프로젝트에 작은 기능을 추가하는 것으로 시작했습니다. 하지만 더 큰 변경에는 더 견고한 프로세스가 필요합니다. 다행히 GitHub Copilot app은 조직의 기존 흐름에 맞춰 올바른 대상을 올바른 방식으로 구축하도록 설계되어 있습니다. 이 레슨부터 여러 레슨에 걸쳐 일반적인 에이전트 기반 개발 프로세스를 따릅니다. 이슈를 바탕으로 새 기능을 생성하고, 코드가 유효하며 기능이 예상대로 동작하는지 확인한 뒤, 최종적으로 프로젝트에 성공적으로 병합합니다.
@@ -56,7 +56,7 @@ Plan 모드에서 시작하여 계획을 검토한 다음 Autopilot으로 구현
 
 시작하기 전에 별점 PR이 병합되었고 로컬 `main`이 최신 상태인지 확인합니다.
 
-1. **My work**를 선택하고 **Allow users to filter games by category and publisher**를 엽니다.
+1. **Issues**를 선택하고 **Allow users to filter games by category and publisher**를 엽니다.
 2. **New session**을 선택하고 업데이트된 `main`을 기반으로 하는 **new working tree**를 선택합니다.
 
     ![New session 버튼을 화살표로 가리키는 GitHub Copilot app 이슈 보기](../../../_images/app-new-session-from-issue.png)

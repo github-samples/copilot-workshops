@@ -3,7 +3,7 @@ title: "Lesson 0 - Prerequisites and setup"
 description: "Verify the workshop prerequisites, confirm Copilot Chat in VS Code, add the GitHub Pull Requests and Issues extension, and choose a model."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Bring Copilot into the editor. Copilot ships with VS Code, so there is nothing to install for chat. Add the GitHub extension, then open an empty folder.
@@ -19,7 +19,8 @@ In this lesson, you will:
 
 You need:
 
-- a GitHub account with a [Copilot plan][copilot-plans].
+- a GitHub account. [Create a GitHub account][github-signup], or use your existing account.
+- an active Copilot plan. [Activate Copilot Free or a paid Copilot plan][copilot-plans]. If your organization already provides Copilot access, use that account.
 - [Visual Studio Code][vscode].
 - [Git][git] installed. Run `git --version` in a terminal to verify it.
 
@@ -44,6 +45,7 @@ Model availability depends on your plan, organization policy, and product versio
 
 VS Code is ready with Copilot Chat, the GitHub extension, and an empty `space-quiz` folder. Continue to [Lesson 1: Build in the workspace][next-lesson].
 
+[github-signup]: https://github.com/signup
 [copilot-plans]: https://github.com/features/copilot/plans
 [vscode]: https://code.visualstudio.com/
 [git]: https://git-scm.com/downloads

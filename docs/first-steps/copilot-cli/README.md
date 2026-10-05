@@ -4,7 +4,7 @@ description: "Take a guided, terminal-first tour of GitHub Copilot CLI by buildi
 slug: first-steps/copilot-cli
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Take a beginner-friendly, hands-on tour of GitHub Copilot CLI. You will build a colorful Space Quiz from an empty folder and learn the terminal-first loop: build and review diffs before Git writes anything, run sessions side by side, plan before you edit, then create and merge the pull request without leaving your shell.
@@ -25,7 +25,7 @@ The workshop takes approximately 60 to 90 minutes. Your project uses a single HT
 | [4. Work on issues in parallel][lesson-4] | Implement | Create a backlog, add an issue to chat, review with `/diff`, and start a second session in a worktree |
 | [5. Plan before you edit][lesson-5] | Plan | Use `/plan` to agree on an approach for the second issue |
 | [6. Know what the agent can see][lesson-6] | Context | Inspect and reset context with `/context` and `/clear` |
-| [7. Resume and go remote][lesson-7] | Resume | Leave and return to sessions with `/resume`, and optionally continue with `/remote` |
+| [7. Resume and go remote][lesson-7] | Resume | Leave and return to sessions with `/resume`, and optionally follow a local session from another device with `/remote` |
 | [8. Create, review, and merge][lesson-8] | Review | Create and merge a pull request with `/pr create` and `/pr agentmerge` |
 | [9. Delegate work][lesson-9] | Delegate | Hand a new feature to `/delegate` and follow a cloud session |
 | [10. Review and next steps][lesson-10] | Review | Recap the workflow and continue learning |

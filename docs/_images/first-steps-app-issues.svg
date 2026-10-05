@@ -1,5 +1,5 @@
 <!-- Adapted from First Steps with GitHub Copilot by James Montemagno (MIT License): https://github.com/jamesmontemagno/first-steps-with-github-copilot -->
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" class="art" viewBox="0 0 640 300" role="img" aria-label="The My work view in the Copilot app with the sidebar and a list of pull requests"><title>The My work view in the Copilot app with the sidebar and a list of pull requests</title><style>svg { --bg: #080b12; --bg-elevated: #0d111a; --surface: #121824; --surface-2: #171e2c; --border: #283043; --border-soft: #1d2636; --text: #f1f5fb; --muted: #9ca8ba; --subtle: #6d788b; --purple: #a371f7; --purple-bright: #bf8cff; --blue: #58a6ff; --cyan: #56d4dd; --green: #3fb950; --yellow: #d29922; }
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="300" class="art" viewBox="0 0 640 300" role="img" aria-label="The Issues view in the Copilot app with the sidebar and a list of issues assigned to you"><title>The Issues view in the Copilot app with the sidebar and a list of issues assigned to you</title><style>svg { --bg: #080b12; --bg-elevated: #0d111a; --surface: #121824; --surface-2: #171e2c; --border: #283043; --border-soft: #1d2636; --text: #f1f5fb; --muted: #9ca8ba; --subtle: #6d788b; --purple: #a371f7; --purple-bright: #bf8cff; --blue: #58a6ff; --cyan: #56d4dd; --green: #3fb950; --yellow: #d29922; }
 @media (prefers-color-scheme: light) { svg { --bg: #f7f8fb; --bg-elevated: #fff; --surface: #fff; --surface-2: #f1f3f8; --border: #d5dae5; --border-soft: #e7eaf0; --text: #161b26; --muted: #536071; --subtle: #727c8c; --purple: #6f42c1; --purple-bright: #8250df; --blue: #0969da; --cyan: #087e8b; --green: #1a7f37; --yellow: #9a6700; } }
 .art .plate { fill: var(--bg-elevated); stroke: var(--border); }
 .art .panel { fill: var(--surface); }
@@ -67,38 +67,30 @@
 <rect class="stroke" x="84" y="20" width="18" height="16" rx="3"/><path class="stroke" d="M91 20v16"/>
 <circle class="stroke" cx="130" cy="28" r="6"/><path class="stroke" d="m135 33 4 4"/>
 <path class="stroke" d="M162 22l-6 6 6 6M180 22l6 6-6 6"/>
-<path class="stroke" d="M28 66h16M36 58v16"/><text class="t-sm txt" x="56" y="71">New</text>
-<rect class="card sel" x="14" y="86" width="184" height="30" rx="8"/>
-<path class="stroke" d="M28 96h6v6h-6zM28 106h6v4h-6z"/><path class="stroke" d="M40 99h10M40 108h10"/>
-<text class="t-sm txt" x="58" y="105">My work</text>
-<rect class="stroke" x="27" y="126" width="15" height="13" rx="2.5"/><path class="stroke" d="M27 130h15M31 124v4M38 124v4"/>
-<text class="t-sm mut" x="58" y="137">Automations</text>
-<rect class="stroke" x="27" y="158" width="7" height="7" rx="1.5"/><rect class="stroke" x="36" y="158" width="7" height="7" rx="1.5"/><rect class="stroke" x="27" y="167" width="7" height="7" rx="1.5"/>
-<text class="t-sm mut" x="58" y="170">Customize</text>
-<path class="rule" d="M14 194h184"/>
-<text class="t-xs mut" x="28" y="218">Projects</text>
-<path class="stroke" d="M158 213h12M160 217h8M162 221h4"/>
-<path class="stroke" d="M180 217h12M186 211v12"/>
-<rect class="card" x="14" y="232" width="184" height="26" rx="7"/>
-<text class="t-xs mut" x="28" y="249">space-quiz</text>
-<text class="t-sm txt" x="236" y="34">My work</text>
-<rect class="chip sel" x="236" y="52" width="46" height="24" rx="8"/><text class="t-xs accent" x="259" y="68" text-anchor="middle">All</text>
-<text class="t-xs mut" x="298" y="68">Active</text>
-<text class="t-xs mut" x="352" y="68">Review requests</text>
-<text class="t-xs mut" x="464" y="68">Done</text>
-<path class="stroke" d="M508 64h12M514 58v12"/>
-<path class="rule" d="M224 88h416"/>
-<g>
-<circle class="ok-stroke" cx="242" cy="112" r="3"/><circle class="ok-stroke" cx="242" cy="128" r="3"/><circle class="ok-stroke" cx="256" cy="112" r="3"/><path class="ok-stroke" d="M242 115v10M256 115v8a5 5 0 0 1-5 5h-6"/>
-<text class="t-sm txt" x="272" y="116">Move the route picker into the lab</text><text class="t-sm mut" x="512" y="116">#5</text>
-<text class="t-xs mut" x="272" y="134">jamesmontemagno/first-steps-with-github-copilot</text>
-<text class="t-xs mut" x="272" y="150">10m ago</text>
-</g>
-<g>
-<circle class="alt-stroke" cx="242" cy="186" r="3"/><circle class="alt-stroke" cx="242" cy="202" r="3"/><circle class="alt-stroke" cx="256" cy="194" r="3"/><path class="alt-stroke" d="M242 189v10M245 193h8"/>
-<text class="t-sm txt" x="272" y="190">Polish the multi-product lab</text><text class="t-sm mut" x="470" y="190">#4</text>
-<text class="t-xs mut" x="272" y="208">jamesmontemagno/first-steps-with-github-copilot</text>
-<text class="t-xs mut" x="272" y="224">3h ago</text>
-</g>
-<text class="t-xs accent" x="236" y="266">Every issue and pull request you care about, without leaving the app.</text>
+<path class="stroke" d="M29 57h14M36 50v14"/><text class="t-sm txt" x="58" y="62">New</text><circle class="stroke" cx="31" cy="79" r="2.2"/><circle class="stroke" cx="31" cy="91" r="2.2"/><circle class="stroke" cx="41" cy="91" r="2.2"/><path class="stroke" d="M31 81.2v7.6M41 88.8V82a3 3 0 0 0-3-3h-3.5m2.5-2.5-2.5 2.5 2.5 2.5"/><text class="t-sm mut" x="58" y="90">Pull requests</text><rect class="card sel" x="14" y="100" width="184" height="26" rx="8"/><circle class="stroke" cx="36" cy="113" r="7"/><circle class="stroke" cx="36" cy="113" r="1.5"/><text class="t-sm txt" x="58" y="118">Issues</text><rect class="stroke" x="27" y="135" width="15" height="13" rx="2.5"/><path class="stroke" d="M27 139h15M31 133v4M38 133v4"/><text class="t-sm mut" x="58" y="146">Automations</text><rect class="stroke" x="27" y="162" width="7" height="7" rx="1.5"/><rect class="stroke" x="36" y="162" width="7" height="7" rx="1.5"/><rect class="stroke" x="27" y="171" width="7" height="7" rx="1.5"/><text class="t-sm mut" x="58" y="174">Customize</text><circle class="stroke" cx="29" cy="197" r="1.2"/><circle class="stroke" cx="36" cy="197" r="1.2"/><circle class="stroke" cx="43" cy="197" r="1.2"/><text class="t-sm mut" x="58" y="202">More</text>
+<path class="rule" d="M14 216h184"/>
+<text class="t-xs mut" x="28" y="236">Projects</text>
+<path class="stroke" d="M158 231h12M160 235h8M162 239h4M180 235h12M186 229v12"/>
+<rect class="card" x="14" y="248" width="184" height="26" rx="7"/>
+<text class="t-xs mut" x="28" y="265">space-quiz</text>
+<text class="t-sm txt" x="236" y="34">Issues</text>
+<rect class="chip" x="432" y="18" width="112" height="24" rx="7"/><text class="t-xs txt" x="488" y="34" text-anchor="middle">All repositories ⌄</text>
+<rect class="chip" x="552" y="18" width="84" height="24" rx="7"/><text class="t-xs txt" x="594" y="34" text-anchor="middle">New issue</text>
+<rect class="chip sel" x="236" y="52" width="86" height="24" rx="8"/><text class="t-xs accent" x="279" y="68" text-anchor="middle">Assigned to me</text>
+<text class="t-xs mut" x="336" y="68">Created by me</text>
+<text class="t-xs mut" x="420" y="68">Mentioning me</text>
+<text class="t-xs mut" x="508" y="68">Done</text>
+<path class="stroke" d="M548 64h12M554 58v12"/>
+<rect class="input" x="236" y="86" width="120" height="22" rx="7"/>
+<circle class="stroke" cx="250" cy="96" r="4"/><path class="stroke" d="m253 99 3 3"/>
+<text class="t-xs mut" x="262" y="101">Search…</text>
+<rect class="chip" x="364" y="86" width="96" height="22" rx="7"/>
+<text class="t-xs mut" x="374" y="101">State is</text><circle class="ok-stroke" cx="420" cy="97" r="4"/><text class="t-xs txt" x="428" y="101">Open</text>
+<rect class="chip" x="468" y="86" width="98" height="22" rx="7"/>
+<text class="t-xs mut" x="478" y="101">Assignee is</text><text class="t-xs txt" x="534" y="101">@me</text>
+<path class="rule" d="M224 120h416"/>
+<rect class="stroke" x="236" y="132" width="10" height="10" rx="2"/><circle class="ok-stroke" cx="262" cy="138" r="6"/><circle class="ok-fill" cx="262" cy="138" r="2"/><text class="t-sm txt" x="276" y="142">Add a per-question timer <tspan class="mut">#12</tspan></text><text class="t-xs mut" x="276" y="160">jamesmontemagno/space-quiz · 5m ago</text>
+<rect class="stroke" x="236" y="176" width="10" height="10" rx="2"/><circle class="ok-stroke" cx="262" cy="182" r="6"/><circle class="ok-fill" cx="262" cy="182" r="2"/><text class="t-sm txt" x="276" y="186">Show a review screen after the last question <tspan class="mut">#13</tspan></text><text class="t-xs mut" x="276" y="204">jamesmontemagno/space-quiz · 5m ago</text>
+<rect class="stroke" x="236" y="220" width="10" height="10" rx="2"/><circle class="ok-stroke" cx="262" cy="226" r="6"/><circle class="ok-fill" cx="262" cy="226" r="2"/><text class="t-sm txt" x="276" y="230">Save a local high score board <tspan class="mut">#14</tspan></text><text class="t-xs mut" x="276" y="248">jamesmontemagno/space-quiz · 5m ago</text>
+<text class="t-xs accent" x="236" y="280">Open any issue and start a session on it without leaving the app.</text>
 </svg>

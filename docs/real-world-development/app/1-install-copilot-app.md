@@ -3,7 +3,7 @@ title: "Lesson 1 - Installing the GitHub Copilot app"
 description: "Install the GitHub Copilot app, connect the repository you created from the template, get oriented in the workspace, and try a quick chat."
 authors:
   - geektrainer
-lastUpdated: 2026-07-09
+lastUpdated: 2026-10-05
 ---
 
 The **[GitHub Copilot app][about-copilot-app]** is a desktop application for agent-driven development. It is built on GitHub Copilot CLI and integrates natively with GitHub, so your repositories, branches, and CI pipelines work out of the box. It's designed for workflows where you direct several agents in parallel — each in its own isolated workspace — rather than doing all of the work yourself, and automating repetitive tasks. With Node.js installed and your copy of the project ready, the next step is to install the app and connect that repository.
@@ -42,7 +42,8 @@ To use the GitHub Copilot app the first step, as you might imagine, is to instal
 With your project connected, take a moment to learn your way around. The app organizes everything into a few areas in the sidebar:
 
 - **New** - like you might expect, you can start a new chat session with Copilot here!
-- **My work** - your issues and pull requests, surfaced through the app's native GitHub integration. From here you can browse and filter issues and pull requests, check CI status, start a session from an issue, and review pull requests — all without leaving the app.
+- **Pull requests** - your pull requests, surfaced through the app's native GitHub integration. From here you can browse and filter pull requests, check CI status, and review pull requests — all without leaving the app.
+- **Issues** - your issues, surfaced the same way. From here you can browse and filter issues and start a session from an issue.
 - **Automations** — saved agent tasks that run on a schedule or on demand. These are great for managing todo lists, regular project maintenance, or other bits of tedium you'd like to offload. The wrap-up links to these as a next step, not another workshop exercise.
 - **Customize** - add features and functions to the Copilot app in the form of MCP servers, plugins, skills, and other components. You'll use it to configure Playwright MCP.
 - **Chats** — lightweight conversations for questions and brainstorming that don't need a branch or workspace of their own. You'll try one at the end of this lesson.
@@ -57,7 +58,7 @@ As you work through the workshop, you'll explore the workspace!
 
 There's likely not a single project without a backlog, and Tailspin Toys isn't any different. Let's explore the backlog that currently exists, which was created when you created your template.
 
-1. Select **My work** in the sidebar.
+1. Select **Issues** in the sidebar.
 2. Find these issues by title rather than assuming their issue numbers:
 
    - Allow users to filter games by category and publisher
@@ -66,7 +67,7 @@ There's likely not a single project without a backlog, and Tailspin Toys isn't a
 3. Select an issue to read its details. Each issue is also a launch point for an agent session. You'll start from the filtering issue after completing a quick first change.
 
 > [!NOTE]
-> The list of items in My work is automatically filtered to only display items from the repositories you've added to Copilot app. Want to see work items from other repos? Add those repos to the app!
+> The lists of items in **Issues** and **Pull requests** are automatically filtered to only display items from the repositories you've added to Copilot app. Want to see work items from other repos? Add those repos to the app!
 
 ## Try a quick chat
 
@@ -87,7 +88,7 @@ Congratulations! You've installed the GitHub Copilot app, connected your project
 
 - install the app and sign in to GitHub.
 - add a project from its GitHub repository.
-- get oriented in the workspace and find your seeded backlog in **My work**.
+- get oriented in the workspace and find your seeded backlog in **Issues**.
 - use a quick chat to ask a fast, throwaway question.
 
 Next, you'll [start your first agent session][next-lesson] and use it to show a star rating on the game cards.
