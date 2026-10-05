@@ -3,7 +3,7 @@ title: "Lesson 9 - Delegate work once you trust the loop"
 description: "Hand a new Space Quiz feature to /delegate, keep working while it runs, and follow a cloud session from the CLI."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 You have shipped a feature. Now that you know what good output looks like, a whole new idea is worth running beside you rather than in front of you. In this lesson, you delegate a **shareable mission report** that turns a finished run into a card the player can post.
@@ -13,6 +13,9 @@ In this lesson, you will:
 - delegate a new feature with `/delegate`.
 - keep working in your primary session while the delegated work runs.
 - compare the delegated result before accepting it.
+
+> [!NOTE]
+> `/delegate` and cloud sessions require an eligible paid Copilot plan. Business and Enterprise access may also need to be enabled by an administrator.
 
 ## Delegate a new feature
 

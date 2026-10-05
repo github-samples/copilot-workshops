@@ -3,7 +3,7 @@ title: "Lesson 9 - Hand the next idea to a cloud session"
 description: "Switch the Copilot Chat harness from Local to Cloud and delegate a self-contained feature that arrives as a pull request."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 You have done the whole loop locally, so you now know what good output looks like. That is the right moment to let something run without you. Copilot Chat can switch the harness it runs on from your machine to GitHub.
@@ -13,6 +13,9 @@ In this lesson, you will:
 - switch the Copilot Chat harness from **Local** to **Cloud**.
 - delegate a self-contained feature with clear acceptance criteria.
 - review the resulting pull request.
+
+> [!NOTE]
+> Cloud sessions require an eligible paid Copilot plan. Business and Enterprise access may also need to be enabled by an administrator.
 
 ## Delegate to the cloud
 
