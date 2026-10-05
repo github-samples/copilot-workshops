@@ -3,7 +3,7 @@ title: "Lesson 0 - Prerequisites and setup"
 description: "Verify the workshop prerequisites, install the GitHub Copilot app, and get familiar with its workspace."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Before you build the Space Quiz, confirm that you have what you need, install the GitHub Copilot app, and get familiar with its workspace.
@@ -50,9 +50,11 @@ Model availability depends on your plan, organization policy, and product versio
 The app brings the development workflow into one place:
 
 - **New**: Start a session on a project, or choose **Chat** for a quick question.
-- **My work**: Browse your GitHub issues and pull requests.
+- **Pull requests**: Review and track your pull requests across every repository.
+- **Issues**: Find issues assigned to you, created by you, or mentioning you.
 - **Automations**: Schedule recurring agent work on a repository.
 - **Customize**: Change themes and models, and manage Canvas extensions.
+- **Projects**: Open your repositories, with each one's sessions listed underneath.
 
 ## Try a quick chat
 

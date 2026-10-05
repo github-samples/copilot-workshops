@@ -3,7 +3,7 @@ title: "Lesson 11 - Explore a Canvas"
 description: "Install a Repository Issues Kanban Canvas and start a session from an issue card."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 A **Canvas** is a shared, bidirectional surface where you and an agent can update the same plan, board, checklist, or dashboard. Explore a Kanban Canvas that turns repository issues into a visual workflow.
@@ -37,7 +37,7 @@ In this lesson, you will:
 When you drop a card into a lane, the Canvas hands that issue to a new session with the issue already loaded.
 
 > [!NOTE]
-> The current Repository Issues Kanban extension moves cards with pointer-based drag and drop. If you cannot use that interaction, note the issue number on the board, open the issue in **My work**, then select **New session**. This creates the same issue-grounded session without moving the card.
+> The current Repository Issues Kanban extension moves cards with pointer-based drag and drop. If you cannot use that interaction, note the issue number on the board, open the issue from **Issues**, then select **New session**. This creates the same issue-grounded session without moving the card.
 
 The Canvas provides a visual way to select and begin work while keeping the agent grounded in the issue.
 

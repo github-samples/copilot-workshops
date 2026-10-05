@@ -3,7 +3,7 @@ title: "Lesson 6 - Work with issues and sessions"
 description: "Create a focused backlog, select an issue, implement it in an isolated worktree, and review the diff yourself."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Ask the agent to suggest focused product improvements, turn those ideas into GitHub issues, and implement one issue in an isolated session.
@@ -11,11 +11,11 @@ Ask the agent to suggest focused product improvements, turn those ideas into Git
 In this lesson, you will:
 
 - create three focused issues for the Space Quiz.
-- browse the issues in **My work**.
+- browse your backlog in **Issues**.
 - start a session from an issue in a new worktree.
 - review the diff in the **Changes** tab and verify the feature.
 
-## Build a backlog in My work
+## Build a backlog in Issues
 
 Send the following prompt:
 
@@ -23,15 +23,15 @@ Send the following prompt:
 Review the space quiz and suggest three focused feature ideas that could each be completed in a short session. Create a separate GitHub issue for each idea with a clear title, user-focused description, and acceptance criteria. Do not implement them yet.
 ```
 
-Open **My work**, review the three issues, and choose one that has clear value and a manageable scope.
+Open **Issues**, review the three issues, and choose one that has clear value and a manageable scope.
 
-![Illustration of the Copilot app My work view. The sidebar lists New, My work, Automations, Customize, and the space-quiz project. The main area has All, Active, Review requests, and Done filters above a list of pull requests.](../../_images/first-steps-app-my-work.svg)
+![Illustration of the Copilot app Issues view. The sidebar lists New, Pull requests, Issues, Automations, Customize, More, and the space-quiz project. The main area has Assigned to me, Created by me, Mentioning me, and Done tabs, a search box, State and Assignee filters, and a list of three open issues in the space-quiz repository.](../../_images/first-steps-app-issues.svg)
 
-**My work** pulls your GitHub issues and pull requests into the app, filtered by **All**, **Active**, **Review requests**, and **Done**.
+**Issues** pulls your GitHub issues from every repository into the app, filtered by **Assigned to me**, **Created by me**, **Mentioning me**, and **Done**. If the new issues are not listed under **Assigned to me**, select **Created by me**.
 
 ## Implement an issue
 
-1. Open the selected issue in **My work**.
+1. Open the selected issue from **Issues**.
 2. Select **New session**.
 3. Choose a **new worktree** when prompted.
 4. Use **Interactive** mode and your preferred model.

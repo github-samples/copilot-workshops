@@ -3,7 +3,7 @@ title: "Lesson 7 - Plan before you edit"
 description: "Use Plan mode on a second issue so the agent researches the project and proposes an approach before it changes any files."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Not every issue should start with edits. Plan mode researches the project, proposes an approach, and waits for your approval before any code changes.
@@ -16,7 +16,7 @@ In this lesson, you will:
 
 ## Agree on the approach before any code changes
 
-1. Open a **second issue** from **My work** and select **New session**.
+1. Open a **second issue** from **Issues** and select **New session**.
 2. In the session configuration, choose **Plan** instead of **Interactive** or **Autopilot**.
 3. Send the following prompt and let the agent investigate without changing files:
 
