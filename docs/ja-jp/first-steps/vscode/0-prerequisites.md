@@ -24,6 +24,9 @@ lastUpdated: 2026-10-05
 - [Visual Studio Code][vscode]。
 - インストール済みの [Git][git]。ターミナルで `git --version` を実行して確認します。
 
+> [!IMPORTANT]
+> Copilot Free には、プルリクエスト向けの Copilot コードレビューは含まれません。[レッスン 8][review-lesson]でレビューを依頼するには、[Copilot コードレビューへのアクセス][code-review]が必要です。アクセスできない場合は、そのレッスンにある手動レビューの手順に従います。
+
 ## VS Code のセットアップ
 
 1. [VS Code][vscode] をインストールし、GitHub にサインインします。Copilot と Copilot Chat は組み込まれているため、タイトルバーから **Chat** ビューを開き、応答することを確認します。
@@ -51,4 +54,6 @@ VS Code に Copilot Chat、GitHub 拡張機能、空の `space-quiz` フォル�
 [git]: https://git-scm.com/downloads
 [pr-extension]: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-and-merge/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-build-and-polish/

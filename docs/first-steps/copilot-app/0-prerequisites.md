@@ -24,6 +24,9 @@ You need:
 - an active Copilot plan. [Activate Copilot Free or a paid Copilot plan][copilot-plans]. If your organization already provides Copilot access, use that account.
 - a computer running macOS, Windows, or Linux.
 
+> [!IMPORTANT]
+> Copilot Free does not include Copilot code review for pull requests. The review request in [Lesson 8][review-lesson] requires [access to Copilot code review][code-review]. If you do not have access, follow that lesson's manual-review alternative.
+
 The app ships with Git, so there is nothing else to install.
 
 > [!NOTE]
@@ -75,4 +78,6 @@ You verified the prerequisites, installed the app, chose a model, and explored i
 [copilot-plans]: https://github.com/features/copilot/plans
 [download-app]: https://gh.io/app
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-loop/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-create-workspace/

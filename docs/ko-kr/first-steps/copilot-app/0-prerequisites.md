@@ -24,6 +24,9 @@ Space Quiz를 만들기 전에 필요한 사항을 확인하고, GitHub Copilot 
 - 활성 Copilot 플랜. [Copilot Free 또는 유료 Copilot 플랜을 활성화합니다][copilot-plans]. 조직에서 이미 Copilot 액세스를 제공한다면 해당 계정을 사용합니다.
 - macOS, Windows 또는 Linux를 실행하는 컴퓨터.
 
+> [!IMPORTANT]
+> Copilot Free에는 풀 리퀘스트용 Copilot 코드 검토가 포함되지 않습니다. [레슨 8][review-lesson]에서 검토를 요청하려면 [Copilot 코드 검토 액세스][code-review]가 필요합니다. 액세스할 수 없다면 해당 레슨의 수동 검토 대안을 따릅니다.
+
 앱에 Git이 포함되어 있으므로 다른 도구를 설치할 필요가 없습니다.
 
 > [!NOTE]
@@ -75,4 +78,6 @@ How does the GitHub Copilot app use worktrees?
 [copilot-plans]: https://github.com/features/copilot/plans
 [download-app]: https://gh.io/app
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-loop/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-create-workspace/
