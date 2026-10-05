@@ -3,10 +3,10 @@ title: "Lesson 12 - Review and next steps"
 description: "Review the GitHub Copilot app workflow and find resources for continued learning."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
-You directed an agent through a complete development workflow, from an empty folder to planned work, an isolated implementation, code review, automation, a remote session, and a visual Canvas.
+You directed an agent through a complete development workflow, from an empty folder to planned work, an isolated implementation, code review, automation, remote access to a session, and a visual Canvas.
 
 ## What you completed
 
@@ -22,7 +22,7 @@ You:
 - planned a second issue before any code changed.
 - shipped an issue through pull request review and Agent Merge.
 - automated weekly issue triage.
-- continued a session remotely.
+- followed a local session remotely.
 - explored a shared Kanban Canvas.
 
 ## Keep exploring

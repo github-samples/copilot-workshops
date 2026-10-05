@@ -4,7 +4,7 @@ description: "Take a guided tour of the GitHub Copilot app by building and shipp
 slug: first-steps/copilot-app
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Take a beginner-friendly, hands-on tour of the GitHub Copilot app. You will build a colorful Space Quiz from an empty folder and take it through the complete development loop, from your first prompt to a reviewed pull request.
@@ -28,7 +28,7 @@ The workshop takes approximately 60 to 90 minutes. Your project uses a single HT
 | [7. Plan before you edit][lesson-7] | Plan | Use Plan mode to agree on an approach for a second issue |
 | [8. Complete the review loop][lesson-8] | Review | Open a pull request, address Copilot review feedback, and use Agent Merge |
 | [9. Automate issue triage][lesson-9] | Automate | Schedule and run a weekly issue-triage automation |
-| [10. Continue a session remotely][lesson-10] | Remote (optional) | Continue an in-progress session on GitHub with `/remote` |
+| [10. Continue a session remotely][lesson-10] | Remote (optional) | Follow an in-progress local session from the web or mobile with `/remote` |
 | [11. Explore a Canvas][lesson-11] | Canvas | Start work from a Repository Issues Kanban Canvas |
 | [12. Review and next steps][lesson-12] | Review | Recap the workflow and continue learning |
 
