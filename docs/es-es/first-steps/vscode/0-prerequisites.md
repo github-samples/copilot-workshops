@@ -24,6 +24,9 @@ Necesitas:
 - [Visual Studio Code][vscode].
 - [Git][git] instalado. Ejecuta `git --version` en una terminal para comprobarlo.
 
+> [!IMPORTANT]
+> Copilot Free no incluye la revisión de código de Copilot para solicitudes de incorporación de cambios. La solicitud de revisión de la [lección 8][review-lesson] requiere [acceso a la revisión de código de Copilot][code-review]. Si no tienes acceso, sigue la alternativa de revisión manual de esa lección.
+
 ## Configura VS Code
 
 1. Instala [VS Code][vscode] e inicia sesión en GitHub. Copilot y Copilot Chat están integrados, así que abre la vista **Chat** desde la barra de título y confirma que responde.
@@ -51,4 +54,6 @@ VS Code está listo con Copilot Chat, la extensión de GitHub y una carpeta `spa
 [git]: https://git-scm.com/downloads
 [pr-extension]: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-and-merge/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-build-and-polish/

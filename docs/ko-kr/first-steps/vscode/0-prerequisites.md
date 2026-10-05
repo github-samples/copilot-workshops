@@ -24,6 +24,9 @@ lastUpdated: 2026-10-05
 - [Visual Studio Code][vscode].
 - 설치된 [Git][git]. 터미널에서 `git --version`을 실행하여 확인합니다.
 
+> [!IMPORTANT]
+> Copilot Free에는 풀 리퀘스트용 Copilot 코드 검토가 포함되지 않습니다. [레슨 8][review-lesson]에서 검토를 요청하려면 [Copilot 코드 검토 액세스][code-review]가 필요합니다. 액세스할 수 없다면 해당 레슨의 수동 검토 대안을 따릅니다.
+
 ## VS Code 설정
 
 1. [VS Code][vscode]를 설치하고 GitHub에 로그인합니다. Copilot과 Copilot Chat은 기본 제공되므로 제목 표시줄에서 **Chat** 보기를 열고 응답하는지 확인합니다.
@@ -51,4 +54,6 @@ VS Code에 Copilot Chat, GitHub 확장, 빈 `space-quiz` 폴더가 준비되었�
 [git]: https://git-scm.com/downloads
 [pr-extension]: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-and-merge/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-build-and-polish/

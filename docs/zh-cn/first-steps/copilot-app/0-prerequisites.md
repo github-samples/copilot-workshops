@@ -24,6 +24,9 @@ lastUpdated: 2026-10-05
 - 有效的 Copilot 计划。[启用 Copilot Free 或付费 Copilot 计划][copilot-plans]。如果组织已提供 Copilot 访问权限，使用对应账户。
 - 一台运行 macOS、Windows 或 Linux 的计算机。
 
+> [!IMPORTANT]
+> Copilot Free 不包含针对拉取请求的 Copilot 代码审查。[第 8 课][review-lesson]中的审查请求需要 [Copilot 代码审查访问权限][code-review]。如果没有访问权限，按照该课的手动审查替代方案操作。
+
 应用自带 Git，无需再安装其他软件。
 
 > [!NOTE]
@@ -75,4 +78,6 @@ How does the GitHub Copilot app use worktrees?
 [copilot-plans]: https://github.com/features/copilot/plans
 [download-app]: https://gh.io/app
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-loop/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-create-workspace/

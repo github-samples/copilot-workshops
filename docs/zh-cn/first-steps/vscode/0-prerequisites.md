@@ -24,6 +24,9 @@ lastUpdated: 2026-10-05
 - [Visual Studio Code][vscode]。
 - 已安装 [Git][git]。在终端中运行 `git --version` 验证。
 
+> [!IMPORTANT]
+> Copilot Free 不包含针对拉取请求的 Copilot 代码审查。[第 8 课][review-lesson]中的审查请求需要 [Copilot 代码审查访问权限][code-review]。如果没有访问权限，按照该课的手动审查替代方案操作。
+
 ## 设置 VS Code
 
 1. 安装 [VS Code][vscode] 并登录 GitHub。Copilot 和 Copilot Chat 已内置，因此从标题栏打开 **Chat** 视图，确认它能正常响应。
@@ -51,4 +54,6 @@ VS Code 已准备就绪，具备 Copilot Chat、GitHub 扩展和空的 `space-qu
 [git]: https://git-scm.com/downloads
 [pr-extension]: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-and-merge/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-build-and-polish/

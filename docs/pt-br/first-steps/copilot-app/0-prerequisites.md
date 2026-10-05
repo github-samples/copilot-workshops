@@ -24,6 +24,9 @@ Você precisa de:
 - um plano ativo do Copilot. [Ative o Copilot Free ou um plano pago do Copilot][copilot-plans]. Se sua organização já oferece acesso ao Copilot, use essa conta.
 - um computador com macOS, Windows ou Linux.
 
+> [!IMPORTANT]
+> O Copilot Free não inclui a revisão de código do Copilot para pull requests. A solicitação de revisão na [Lição 8][review-lesson] exige [acesso à revisão de código do Copilot][code-review]. Se não tiver acesso, siga a alternativa de revisão manual dessa lição.
+
 O aplicativo vem com o Git, então não é necessário instalar mais nada.
 
 > [!NOTE]
@@ -75,4 +78,6 @@ Você verificou os pré-requisitos, instalou o aplicativo, escolheu um modelo e 
 [copilot-plans]: https://github.com/features/copilot/plans
 [download-app]: https://gh.io/app
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing
+[review-lesson]: ../8-review-loop/
+[code-review]: https://docs.github.com/copilot/concepts/agents/code-review
 [next-lesson]: ../1-create-workspace/
