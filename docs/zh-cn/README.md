@@ -37,7 +37,7 @@ lastUpdated: 2026-09-28
 >
 > 如果在讲师指导的研讨会中遇到无法正常运行的内容，请向导师求助。
 
-[first-steps-app]: ../first-steps/copilot-app/
-[first-steps-cli]: ../first-steps/copilot-cli/
-[first-steps-vscode]: ../first-steps/vscode/
+[first-steps-app]: first-steps/copilot-app/
+[first-steps-cli]: first-steps/copilot-cli/
+[first-steps-vscode]: first-steps/vscode/
 [real-world-development]: ../real-world-development/

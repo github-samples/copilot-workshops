@@ -37,7 +37,7 @@ GitHub Copilot CLI, GitHub Copilot 앱, GitHub Copilot 클라우드 에이전트
 >
 > 강사가 진행하는 워크숍에서 무언가 제대로 작동하지 않는다면 멘토에게 문의하십시오.
 
-[first-steps-app]: ../first-steps/copilot-app/
-[first-steps-cli]: ../first-steps/copilot-cli/
-[first-steps-vscode]: ../first-steps/vscode/
+[first-steps-app]: first-steps/copilot-app/
+[first-steps-cli]: first-steps/copilot-cli/
+[first-steps-vscode]: first-steps/vscode/
 [real-world-development]: ../real-world-development/
