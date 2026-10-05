@@ -20,7 +20,8 @@ In this lesson, you will:
 
 You need:
 
-- a GitHub account with a [Copilot plan][copilot-plans].
+- a GitHub account. [Create a GitHub account][github-signup], or use your existing account.
+- an active Copilot plan. [Activate Copilot Free or a paid Copilot plan][copilot-plans]. If your organization already provides Copilot access, use that account.
 - a computer running macOS, Windows, or Linux.
 
 The app ships with Git, so there is nothing else to install.
@@ -70,6 +71,7 @@ How does the GitHub Copilot app use worktrees?
 
 You verified the prerequisites, installed the app, chose a model, and explored its main work areas. Continue to [Lesson 1: Create the Space Quiz workspace][next-lesson].
 
+[github-signup]: https://github.com/signup
 [copilot-plans]: https://github.com/features/copilot/plans
 [download-app]: https://gh.io/app
 [active-models]: https://docs.github.com/copilot/reference/copilot-billing/models-and-pricing

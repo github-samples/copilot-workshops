@@ -3,7 +3,7 @@ title: "Lesson 0 - Prerequisites and setup"
 description: "Verify the workshop prerequisites, install GitHub Copilot CLI, sign in, and choose a model from an empty project folder."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-05
 ---
 
 Put an agent in your terminal. Confirm that you have what you need, install GitHub Copilot CLI, sign in, and get ready to make your first request from an empty folder.
@@ -19,7 +19,8 @@ In this lesson, you will:
 
 You need:
 
-- a GitHub account with a [Copilot plan][copilot-plans].
+- a GitHub account. [Create a GitHub account][github-signup], or use your existing account.
+- an active Copilot plan. [Activate Copilot Free or a paid Copilot plan][copilot-plans]. If your organization already provides Copilot access, use that account.
 - [Git][git] installed. Run `git --version` to verify it.
 - a computer running macOS, Windows, or Linux.
 
@@ -62,6 +63,7 @@ Model availability depends on your plan, organization policy, and product versio
 
 Copilot CLI is installed, signed in, and running in an empty `space-quiz` folder. Continue to [Lesson 1: Build the quiz from the terminal][next-lesson].
 
+[github-signup]: https://github.com/signup
 [copilot-plans]: https://github.com/features/copilot/plans
 [git]: https://git-scm.com/downloads
 [gh-cli]: https://cli.github.com/
