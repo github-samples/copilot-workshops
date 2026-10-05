@@ -3,7 +3,7 @@ title: "프로젝트와 모델 준비"
 description: "Tailspin 카탈로그를 내보내고, Foundry 프로젝트와 모델 배포를 만든 다음 Canvas에서 검증합니다."
 authors:
   - juliamuiruri4
-lastUpdated: 2026-09-16
+lastUpdated: 2026-10-05
 prev:
   link: /copilot-workshops/ko-kr/real-world-development/app/8-foundry-canvas/
   label: "선택 사항: Foundry 통합"
@@ -36,7 +36,7 @@ Tailspin Toys 후원자는 카테고리와 퍼블리셔로 게임을 필터링�
    ![Microsoft Foundry 플러그인 설치](../../../../_images/app-8-install-foundry-plugin.png)
 
 5. **Customize**에서 **Plugins**를 선택하고 `azure`를 검색하거나 **Featured** 목록에서 선택한 다음, Azure 플러그인의 **Install**을 선택합니다.
-6. **My work** 탭에서 Tailspin Toys 리포지토리의 **Add a Backer Concierge assistant for catalog questions** 이슈를 찾아 엽니다. **New session**을 선택하여 새 워크트리(Worktree)에서 이슈에 연결된 세션을 시작합니다. 세 모듈 모두에서 이 리포지토리, 워크트리 브랜치, 이슈 세션을 유지합니다.
+6. 사이드바에서 **Issues**를 선택한 다음 Tailspin Toys 리포지토리의 **Add a Backer Concierge assistant for catalog questions** 이슈를 찾아 엽니다. **New session**을 선택하여 새 워크트리(Worktree)에서 이슈에 연결된 세션을 시작합니다. 세 모듈 모두에서 이 리포지토리, 워크트리 브랜치, 이슈 세션을 유지합니다.
 7. `/microsoft-foundry`를 입력한 다음 `/azure`를 입력하여 두 스킬이 모두 설치되어 사용할 수 있는지 확인합니다. 아직 프롬프트를 보내지는 않습니다. 플러그인이 바로 나타나지 않으면 앱을 다시 시작하고 동일한 이슈 세션으로 돌아와 다시 확인합니다.
 
 ## 카탈로그 내보내기 파일 생성

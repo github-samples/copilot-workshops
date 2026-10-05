@@ -3,7 +3,7 @@ title: "レッスン 3 - エージェントモード: Plan と Autopilot"
 description: "エージェントモードを確認します。Plan でアプローチに合意し、Autopilot で Issue からフィルター機能を構築して、Interactive で結果をレビューおよび検証します。"
 authors:
   - geektrainer
-lastUpdated: 2026-07-13
+lastUpdated: 2026-10-05
 ---
 
 まず、プロジェクトに小さな機能を追加しました。しかし、より大規模な変更には、さらに堅牢なプロセスが必要です。GitHub Copilot app は組織の既存のフローに沿って作業できるように設計されており、適切なものを適切な方法で構築できます。このレッスンから数回にわたり、一般的なエージェント主導の開発プロセスを実践します。Issue を使って新機能を生成するところから始め、コードが有効で機能が期待どおりに動作することを確認し、最終的にプロジェクトへのマージを成功させます。
@@ -56,7 +56,7 @@ Plan モードで開始し、計画をレビューしてから、Autopilot で�
 
 開始前に、星評価の PR がマージされ、ローカルの `main` が最新であることを確認します。
 
-1. **My work** を選択し、**Allow users to filter games by category and publisher** を開きます。
+1. **Issues** を選択し、**Allow users to filter games by category and publisher** を開きます。
 2. **New session** を選択し、更新済みの `main` に基づく **new working tree** を選びます。
 
     ![GitHub Copilot app の Issue ビューで、New session ボタンを矢印で示した画面](../../../_images/app-new-session-from-issue.png)

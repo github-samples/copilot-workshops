@@ -3,7 +3,7 @@ title: "プロジェクトとモデルを準備する"
 description: "Tailspin のカタログをエクスポートし、Foundry プロジェクトとモデルデプロイを作成して、Canvas で検証します。"
 authors:
   - juliamuiruri4
-lastUpdated: 2026-09-16
+lastUpdated: 2026-10-05
 prev:
   link: /copilot-workshops/ja-jp/real-world-development/app/8-foundry-canvas/
   label: "オプション: Foundry を組み込む"
@@ -36,7 +36,7 @@ Tailspin Toys の支援者は、カテゴリやパブリッシャーでゲーム
    ![Microsoft Foundry プラグインのインストール](../../../../_images/app-8-install-foundry-plugin.png)
 
 5. **Customize** で **Plugins** を選択し、`azure` を検索するか、**Featured** 一覧から選択します。次に、Azure プラグインの **Install** を選択します。
-6. **My work** タブで、Tailspin Toys リポジトリの **Add a Backer Concierge assistant for catalog questions** というタイトルの Issue を探して開きます。**New session** を選択し、新しい worktree で Issue にリンクされたセッションを開始します。3 つのモジュールすべてで、このリポジトリ、worktree ブランチ、Issue セッションを使い続けてください。
+6. サイドバーで **Issues** を選択し、Tailspin Toys リポジトリの **Add a Backer Concierge assistant for catalog questions** というタイトルの Issue を探して開きます。**New session** を選択し、新しい worktree で Issue にリンクされたセッションを開始します。3 つのモジュールすべてで、このリポジトリ、worktree ブランチ、Issue セッションを使い続けてください。
 7. `/microsoft-foundry`、続いて `/azure` と入力し、両方のスキルがインストールされ、利用可能であることを確認します。まだプロンプトは送信しないでください。プラグインがすぐに表示されない場合は、アプリを再起動し、同じ Issue セッションに戻って再確認します。
 
 ## カタログをエクスポートする

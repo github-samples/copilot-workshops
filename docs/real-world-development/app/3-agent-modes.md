@@ -3,7 +3,7 @@ title: "Lesson 3 - Agent modes: Plan and Autopilot"
 description: "Explore agent modes: use Plan to agree on an approach, Autopilot to build filtering from an issue, and Interactive to review and verify the result."
 authors:
   - geektrainer
-lastUpdated: 2026-07-13
+lastUpdated: 2026-10-05
 ---
 
 We started by adding a small feature into our project. But larger changes require a more robust process. Fortunately, the GitHub Copilot app is built to work with an organization's existing flow, ensuring we build the right things the right way. This is the first of several lessons where you will follow a typical agent-driven development process, starting by using an issue to generate a new feature, ensuring the code is valid, the feature behaves as expected, and eventually merged successfully into the project.
@@ -56,7 +56,7 @@ Start in Plan mode, review the plan, then use Autopilot to implement it.
 
 Confirm the star-rating PR is merged and your local `main` is up to date before starting.
 
-1. Select **My work** and open **Allow users to filter games by category and publisher**.
+1. Select **Issues** and open **Allow users to filter games by category and publisher**.
 2. Select **New session** and choose a **new working tree** based on the updated `main`.
 
     ![The issue view in the GitHub Copilot app with an arrow pointing to the New session button](../../_images/app-new-session-from-issue.png)

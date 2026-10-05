@@ -3,7 +3,7 @@ title: "准备项目和模型"
 description: "导出 Tailspin 目录，创建 Foundry 项目和模型部署，并在 Canvas 中验证。"
 authors:
   - juliamuiruri4
-lastUpdated: 2026-09-16
+lastUpdated: 2026-10-05
 prev:
   link: /copilot-workshops/zh-cn/real-world-development/app/8-foundry-canvas/
   label: "可选：集成 Foundry"
@@ -36,7 +36,7 @@ Tailspin Toys 的支持者可以按类别和发行商筛选游戏，但*哪些�
    ![安装 Microsoft Foundry 插件](../../../../_images/app-8-install-foundry-plugin.png)
 
 5. 在 **Customize** 中选择 **Plugins**，搜索 `azure` 或从 **Featured** 列表中选择它，然后为 Azure 插件选择 **Install**。
-6. 在 **My work** 选项卡中，找到并打开 Tailspin Toys 存储库中标题为 **Add a Backer Concierge assistant for catalog questions** 的议题。选择 **New session**，在新工作树中启动关联该议题的会话。三个模块均使用此存储库、工作树分支和议题会话。
+6. 在侧边栏中选择 **Issues**，然后找到并打开 Tailspin Toys 存储库中标题为 **Add a Backer Concierge assistant for catalog questions** 的议题。选择 **New session**，在新工作树中启动关联该议题的会话。三个模块均使用此存储库、工作树分支和议题会话。
 7. 输入 `/microsoft-foundry`，然后输入 `/azure`，确认两个技能均已安装且可用；暂时不要发送任何提示词。如果插件未立即出现，请重启应用，返回同一个议题会话并再次检查。
 
 ## 生成目录导出文件

@@ -3,7 +3,7 @@ title: "Lição 3 - Modos de agente: Plan e Autopilot"
 description: "Explore os modos de agente: use Plan para definir uma abordagem, Autopilot para criar a filtragem a partir de uma issue e Interactive para revisar e verificar o resultado."
 authors:
   - geektrainer
-lastUpdated: 2026-07-13
+lastUpdated: 2026-10-05
 ---
 
 Começamos adicionando um pequeno recurso ao projeto. No entanto, alterações maiores exigem um processo mais robusto. Felizmente, o aplicativo GitHub Copilot foi desenvolvido para trabalhar com o fluxo existente de uma organização, garantindo que as soluções certas sejam criadas da maneira correta. Esta é a primeira de várias lições nas quais você seguirá um processo típico de desenvolvimento orientado por agentes: começará usando uma issue para gerar um novo recurso, garantirá que o código seja válido e que o recurso se comporte como esperado e, por fim, fará o merge dele no projeto.
@@ -56,7 +56,7 @@ Comece no modo Plan, revise o plano e use o Autopilot para implementá-lo.
 
 Confirme que o PR das avaliações por estrelas foi integrado e que a branch `main` local está atualizada antes de começar.
 
-1. Selecione **My work** e abra **Allow users to filter games by category and publisher**.
+1. Selecione **Issues** e abra **Allow users to filter games by category and publisher**.
 2. Selecione **New session** e escolha uma **new working tree** baseada na `main` atualizada.
 
     ![Visualização da issue no aplicativo GitHub Copilot com uma seta apontando para o botão New session](../../../_images/app-new-session-from-issue.png)

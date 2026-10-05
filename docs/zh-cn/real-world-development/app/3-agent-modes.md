@@ -3,7 +3,7 @@ title: "第 3 课 - 智能体模式：Plan 和 Autopilot"
 description: "探索智能体模式：使用 Plan 确定方案，使用 Autopilot 根据议题构建筛选功能，再使用 Interactive 审查并验证结果。"
 authors:
   - geektrainer
-lastUpdated: 2026-07-13
+lastUpdated: 2026-10-05
 ---
 
 我们先为项目添加了一项小功能，但更复杂的更改需要更完善的流程。GitHub Copilot app 支持组织现有的工作流程，帮助我们用正确的方法构建所需功能。从本课开始，你将通过几节课遵循典型的智能体驱动开发流程：先使用议题生成新功能，确认代码有效且功能行为符合预期，最终将更改成功合并到项目中。
@@ -56,7 +56,7 @@ Tailspin Toys 的游戏目录不断扩大，访客需要按类别和发行商缩
 
 开始前，确认星级评分 PR 已合并，并且本地 `main` 已更新。
 
-1. 选择 **My work**，打开 **Allow users to filter games by category and publisher**。
+1. 选择 **Issues**，打开 **Allow users to filter games by category and publisher**。
 2. 选择 **New session**，再选择基于更新后 `main` 的 **new working tree**。
 
     ![GitHub Copilot app 的议题视图，箭头指向 New session 按钮](../../../_images/app-new-session-from-issue.png)
