@@ -27,7 +27,7 @@ Open **Issues**, review the three issues, and choose one that has clear value an
 
 ![Illustration of the Copilot app Issues view. The sidebar lists New, Pull requests, Issues, Automations, Customize, More, and the space-quiz project. The main area has Assigned to me, Created by me, Mentioning me, and Done tabs, a search box, State and Assignee filters, and a list of three open issues in the space-quiz repository.](../../_images/first-steps-app-issues.svg)
 
-**Issues** pulls your GitHub issues from every repository into the app, filtered by **Assigned to me**, **Created by me**, **Mentioning me**, and **Done**. If the new issues are not listed under **Assigned to me**, select **Created by me**.
+**Issues** pulls your GitHub issues from every repository into the app, filtered by **Assigned to me**, **Created by me**, **Mentioning me**, and **Done**.
 
 ## Implement an issue
 
