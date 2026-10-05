@@ -37,7 +37,7 @@ GitHub Copilot CLI、GitHub Copilot app、GitHub Copilot cloud agent、Visual St
 >
 > 講師が進行するワークショップで正しく動作しない場合は、メンターに相談してください。
 
-[first-steps-app]: ../first-steps/copilot-app/
-[first-steps-cli]: ../first-steps/copilot-cli/
-[first-steps-vscode]: ../first-steps/vscode/
+[first-steps-app]: first-steps/copilot-app/
+[first-steps-cli]: first-steps/copilot-cli/
+[first-steps-vscode]: first-steps/vscode/
 [real-world-development]: ../real-world-development/
