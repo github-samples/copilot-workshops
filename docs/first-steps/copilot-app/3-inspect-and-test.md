@@ -58,10 +58,11 @@ Run a browser-level smoke test for the quiz in the integrated browser. Check key
 2. If anything fails, let the agent fix it and rerun the test until everything passes.
 3. Move on only when the build and test are green.
 
-Nothing has been written to Git yet. The next step is `/init`, which reads the project as it stands, so it is worth making sure the project works first.
+Nothing has been written to Git yet. In the next lesson, you will run `/init create simple rules for the project`, which reads the project as it stands, so it is worth making sure the project works first.
 
 ## Summary and next steps
 
 You confirmed the session's project and usage details, then verified the quiz with a browser-level smoke test. Continue to [Lesson 4: Capture project instructions][next-lesson].
 
 [next-lesson]: ../4-project-instructions/
+[publish-lesson]: ../5-publish/

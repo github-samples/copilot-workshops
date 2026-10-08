@@ -37,7 +37,7 @@ Elige entre GitHub Copilot CLI, la aplicación GitHub Copilot, el agente de GitH
 >
 > Si algo parece no funcionar correctamente durante un taller dirigido por un instructor, pide ayuda a un mentor.
 
-[first-steps-app]: ../first-steps/copilot-app/
-[first-steps-cli]: ../first-steps/copilot-cli/
-[first-steps-vscode]: ../first-steps/vscode/
+[first-steps-app]: first-steps/copilot-app/
+[first-steps-cli]: first-steps/copilot-cli/
+[first-steps-vscode]: first-steps/vscode/
 [real-world-development]: ../real-world-development/
