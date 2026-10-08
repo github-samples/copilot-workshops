@@ -21,7 +21,7 @@ The workshop takes approximately 60 to 90 minutes. Your project uses a single HT
 | [0. Prerequisites and setup][lesson-0] | Setup | Verify prerequisites, install the app, choose a model, and explore the workspace |
 | [1. Create the workspace][lesson-1] | Create | Start an Interactive session in an empty local folder |
 | [2. Build and polish][lesson-2] | Build | Create the quiz and refine it in the integrated browser |
-| [3. Inspect and test][lesson-3] | Context and test | Read the session details and run a browser-level smoke test |
+| [3. Inspect and test][lesson-3] | Context and test | Review the project and usage details, then run a browser-level smoke test |
 | [4. Capture project instructions][lesson-4] | Instructions | Generate and tailor agent instructions with `/init` |
 | [5. Publish the project][lesson-5] | Publish | Create a public GitHub repository from the local project |
 | [6. Work with issues and sessions][lesson-6] | Implement | Create a backlog, implement one issue in an isolated worktree, and review the diff |

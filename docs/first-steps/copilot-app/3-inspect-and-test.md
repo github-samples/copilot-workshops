@@ -1,35 +1,50 @@
 ---
 title: "Lesson 3 - Inspect the session and test the quiz"
-description: "Read the session details to confirm what the agent is working on, then run a browser-level smoke test before Git writes anything."
+description: "Review the project and usage details for the session, then run a browser-level smoke test before Git writes anything."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-09-28
+lastUpdated: 2026-10-08
 ---
 
 Now that your session has done real work, there is something to inspect. Confirm what the agent is pointed at, then let it drive the quiz in the integrated browser and report what actually happened rather than what it intended.
 
 In this lesson, you will:
 
-- read the session details panel.
-- check the session's project, path, branch, changes, and context usage.
+- review the project and session controls in the title menu.
+- check the plan, session usage, tokens, and context in the usage menu.
 - run a browser-level smoke test and fix any failures.
 
-## Read the session details
+## Review the project details
 
-The session details tell you exactly what the agent is working on. You do not need to watch this panel constantly, but everything in it matters when a result surprises you.
+Select **Build a space quiz** in the title bar to open the project and session menu.
 
-![Illustration of the Copilot app session details panel for the Space Quiz build session. It shows the main branch from origin/main, the path, project, session name, session ID, and agent, one file changed, token counts, context usage at 27 percent, session spend, and options to enable remote control, rename, view insights, share as a secret gist, or archive the session.](../../_images/first-steps-app-session-details.svg)
+![Illustration of the Build a space quiz title menu. It identifies the space-quiz folder session and provides controls for the path, remote control, name, nested sessions, session ID, sharing, archiving, and deletion.](../../_images/first-steps-app-project-details.svg)
 
-The panel shows where the work is happening, what has changed, and how full the context window is. There is no model row, because you choose the model for each request in the composer.
+This menu identifies the project that the session is working in and provides controls for managing the session.
 
-1. Confirm that the **project**, **path**, and **branch** are the ones you think you are editing.
-2. Read **Changes** to see whether this session has touched anything yet.
-3. Check **context usage**. As it climbs, the agent has less room for your actual task, and that is your cue to start a fresh session.
+1. Confirm that the folder session is for the `space-quiz` project.
+2. Select **Path** to confirm that the session is working in the folder you expect.
+3. Notice the controls for remote control, renaming, nested sessions, sharing, archiving, and deletion.
+
+## Review the usage details
+
+Select the usage control next to **Send** to open the plan and session usage menu.
+
+![Illustration of the usage menu next to the Send button. It shows plan visibility, session AI credits, input and output token counts, and context usage at 16 percent of 400 thousand tokens.](../../_images/first-steps-app-usage-details.svg)
+
+This menu separates account and session usage from the project controls:
+
+- **Plan** shows plan-level usage when that information is available.
+- **Session** shows the AI credits used by the current session.
+- **Tokens** shows input, cached, output, and reasoning token counts.
+- **Context** shows how much of the context window the session has used.
+
+Check **Context** as the session grows. As it fills, the agent has less room for your task, and that is your cue to start a fresh session.
 
 > [!TIP]
 > **Most bad results are context problems**
 >
-> A wrong branch, a wrong folder, or a nearly full context window explains far more surprises than a bad prompt does.
+> A wrong folder or a nearly full context window explains far more surprises than a bad prompt does.
 
 ## Test before Git writes anything
 
@@ -47,6 +62,6 @@ Nothing has been written to Git yet. The next step is `/init`, which reads the p
 
 ## Summary and next steps
 
-You confirmed what the session is working on and verified the quiz with a browser-level smoke test. Continue to [Lesson 4: Capture project instructions][next-lesson].
+You confirmed the session's project and usage details, then verified the quiz with a browser-level smoke test. Continue to [Lesson 4: Capture project instructions][next-lesson].
 
 [next-lesson]: ../4-project-instructions/
