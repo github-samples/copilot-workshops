@@ -4,7 +4,7 @@ description: "Realiza un recorrido guiado por la aplicación GitHub Copilot crea
 slug: es-es/first-steps/copilot-app
 authors:
   - jamesmontemagno
-lastUpdated: 2026-10-05
+lastUpdated: 2026-10-08
 ---
 
 Realiza un recorrido práctico por la aplicación GitHub Copilot, pensado para principiantes. Crearás un Space Quiz lleno de color desde una carpeta vacía y recorrerás todo el ciclo de desarrollo, desde el primer prompt hasta una solicitud de incorporación de cambios revisada.
@@ -21,7 +21,7 @@ El taller dura aproximadamente entre 60 y 90 minutos. El proyecto utiliza un ún
 | [0. Requisitos previos y configuración][lesson-0] | Configuración | Comprueba los requisitos previos, instala la aplicación, elige un modelo y explora el área de trabajo |
 | [1. Crear el área de trabajo][lesson-1] | Creación | Inicia una sesión Interactive en una carpeta local vacía |
 | [2. Crear y perfeccionar][lesson-2] | Creación | Crea el cuestionario y perfecciónalo en el explorador integrado |
-| [3. Inspeccionar y probar][lesson-3] | Contexto y pruebas | Lee los detalles de la sesión y ejecuta una prueba de humo en el explorador |
+| [3. Inspeccionar y probar][lesson-3] | Contexto y pruebas | Revisa los detalles del proyecto y del uso y, después, ejecuta una prueba de humo en el explorador |
 | [4. Recoger las instrucciones del proyecto][lesson-4] | Instrucciones | Genera y adapta las instrucciones del agente con `/init` |
 | [5. Publicar el proyecto][lesson-5] | Publicación | Crea un repositorio público de GitHub a partir del proyecto local |
 | [6. Trabajar con incidencias y sesiones][lesson-6] | Implementación | Crea un backlog, implementa una incidencia en un árbol de trabajo aislado y revisa las diferencias |

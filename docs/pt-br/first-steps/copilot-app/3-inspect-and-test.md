@@ -1,33 +1,45 @@
 ---
 title: "Lição 3 - Inspecionar a sessão e testar o quiz"
-description: "Leia os detalhes da sessão para confirmar em que o agente está trabalhando e execute um teste básico de funcionamento no navegador antes de qualquer gravação no Git."
+description: "Revise os detalhes do projeto e do uso da sessão e execute um teste básico de funcionamento no navegador antes de qualquer gravação no Git."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-10-05
+lastUpdated: 2026-10-08
 ---
 
 Agora que a sessão realizou trabalho de verdade, há algo para inspecionar. Confirme qual é o alvo do trabalho do agente e, depois, deixe que ele opere o quiz no navegador integrado e relate o que realmente aconteceu, em vez do que pretendia fazer.
 
 Nesta lição, você vai:
 
-- ler o painel de detalhes da sessão.
-- verificar o projeto, o caminho e o uso de contexto da sessão.
+- revisar os controles do projeto e da sessão no menu de título.
+- verificar o plano, o uso da sessão, os tokens e o contexto no menu de uso.
 - executar um teste básico de funcionamento no navegador e corrigir eventuais falhas.
 
-## Ler os detalhes da sessão
+## Revisar os detalhes do projeto
 
-Os detalhes da sessão mostram exatamente em que o agente está trabalhando. Você não precisa observar esse painel o tempo todo, mas tudo nele importa quando um resultado surpreende você.
+Selecione **Build a space quiz** na barra de título para abrir o menu do projeto e da sessão.
 
-Neste momento, o Space Quiz ainda é uma pasta local, não um repositório Git. Verifique o projeto, o caminho e o uso de contexto. Depois de [publicar o projeto na Lição 5][publish-lesson], as sessões que usam Git mostram detalhes adicionais, como a branch e **Changes**.
+![Ilustração do menu de título Build a space quiz. Ele identifica a sessão de pasta do projeto space-quiz e fornece controles para o caminho, controle remoto, nome, sessões aninhadas, ID da sessão, compartilhamento, arquivamento e exclusão.](../../../_images/first-steps-app-project-details.svg)
 
-A ilustração abaixo mostra uma sessão posterior que usa Git. Os campos de branch e **Changes** ainda não estão disponíveis na sessão de pasta local.
+Esse menu identifica o projeto em que a sessão está trabalhando e fornece controles para gerenciar a sessão.
 
-![Ilustração do painel de detalhes de uma sessão do Space Quiz que usa Git no aplicativo Copilot. Ele mostra a branch main a partir de origin/main, o caminho, o projeto, o nome da sessão, o ID da sessão e o agente, um arquivo alterado, contagens de tokens, uso de contexto de 27%, gasto da sessão e opções para habilitar o controle remoto, renomear, ver informações, compartilhar como um gist secreto ou arquivar a sessão.](../../../_images/first-steps-app-session-details.svg)
+1. Confirme se a sessão de pasta é do projeto `space-quiz`.
+2. Selecione **Path** para confirmar se a sessão está trabalhando na pasta esperada.
+3. Observe os controles de acesso remoto, renomeação, sessões aninhadas, compartilhamento, arquivamento e exclusão.
 
-O painel mostra onde o trabalho acontece e quanto da janela de contexto está ocupado. Não há uma linha de modelo, porque você escolhe o modelo para cada solicitação na caixa de composição.
+## Revisar os detalhes de uso
 
-1. Confirme que **project** e **path** correspondem ao que você acredita estar editando.
-2. Verifique **context usage**. Conforme o uso aumenta, o agente tem menos espaço para a tarefa em si, e esse é o sinal para iniciar uma nova sessão.
+Selecione o controle de uso ao lado de **Send** para abrir o menu de plano e uso da sessão.
+
+![Ilustração do menu de uso ao lado do botão Send. Ele mostra o plano GitHub Copilot Pro+, os créditos de IA da sessão, as contagens de tokens de entrada e saída e o uso de contexto em 16% de 400 mil tokens.](../../../_images/first-steps-app-usage-details.svg)
+
+Esse menu separa o uso da conta e da sessão dos controles do projeto:
+
+- **Plan** mostra o uso no nível do plano quando essa informação está disponível.
+- **Session** mostra os créditos de IA usados pela sessão atual.
+- **Tokens** mostra as contagens de tokens de entrada, armazenados em cache, de saída e de raciocínio.
+- **Context** mostra quanto da janela de contexto a sessão usou.
+
+Verifique **Context** à medida que a sessão avança. Conforme o contexto é preenchido, o agente tem menos espaço para a tarefa em si, e esse é o sinal para iniciar uma nova sessão.
 
 > [!TIP]
 > **A maioria dos resultados ruins vem de problemas de contexto**
@@ -50,7 +62,6 @@ Nada foi gravado no Git ainda. Na próxima lição, você executará `/init crea
 
 ## Resumo e próximos passos
 
-Você confirmou em que a sessão está trabalhando e verificou o quiz com um teste básico de funcionamento no navegador. Continue com a [Lição 4: Registrar instruções do projeto][next-lesson].
+Você confirmou os detalhes do projeto e do uso da sessão e verificou o quiz com um teste básico de funcionamento no navegador. Continue com a [Lição 4: Registrar instruções do projeto][next-lesson].
 
 [next-lesson]: ../4-project-instructions/
-[publish-lesson]: ../5-publish/

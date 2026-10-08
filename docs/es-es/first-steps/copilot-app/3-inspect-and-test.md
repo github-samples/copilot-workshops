@@ -1,33 +1,45 @@
 ---
 title: "Lección 3 - Inspeccionar la sesión y probar el cuestionario"
-description: "Lee los detalles de la sesión para confirmar en qué trabaja el agente y ejecuta una prueba de humo en el explorador antes de que Git escriba nada."
+description: "Revisa los detalles del proyecto y del uso de la sesión y, después, ejecuta una prueba de humo en el explorador antes de que Git escriba nada."
 authors:
   - jamesmontemagno
-lastUpdated: 2026-10-05
+lastUpdated: 2026-10-08
 ---
 
 Ahora que la sesión ha realizado trabajo real, ya hay algo que inspeccionar. Confirma sobre qué está trabajando el agente y, después, deja que maneje el cuestionario en el explorador integrado e informe de lo que ha ocurrido realmente, no de lo que pretendía hacer.
 
 En esta lección:
 
-- leerás el panel de detalles de la sesión.
-- comprobarás el proyecto, la ruta y el uso del contexto de la sesión.
+- revisarás el proyecto y los controles de la sesión en el menú del título.
+- comprobarás el plan, el uso de la sesión, los tokens y el contexto en el menú de uso.
 - ejecutarás una prueba de humo en el explorador y corregirás los fallos.
 
-## Lee los detalles de la sesión
+## Revisa los detalles del proyecto
 
-Los detalles de la sesión te indican exactamente en qué trabaja el agente. No necesitas vigilar este panel constantemente, pero todo lo que contiene importa cuando un resultado te sorprende.
+Selecciona **Build a space quiz** en la barra de título para abrir el menú del proyecto y de la sesión.
 
-En este momento, Space Quiz sigue siendo una carpeta local, no un repositorio de Git. Comprueba el proyecto, la ruta y el uso del contexto. Después de [publicar el proyecto en la lección 5][publish-lesson], las sesiones vinculadas a Git muestran detalles adicionales, como la rama y **Changes**.
+![Ilustración del menú de título Build a space quiz. Identifica la sesión de carpeta del proyecto space-quiz y proporciona controles para la ruta, el control remoto, el nombre, las sesiones anidadas, el ID de sesión, el uso compartido, el archivado y la eliminación.](../../../_images/first-steps-app-project-details.svg)
 
-La ilustración siguiente muestra una sesión posterior vinculada a Git. Los campos de rama y **Changes** todavía no están disponibles en tu sesión de carpeta local.
+Este menú identifica el proyecto en el que trabaja la sesión y proporciona controles para administrar la sesión.
 
-![Ilustración del panel de detalles de la aplicación Copilot para una sesión de Space Quiz vinculada a Git. Muestra la rama main desde origin/main, la ruta, el proyecto, el nombre y el ID de la sesión, el agente, un archivo modificado, los recuentos de tokens, un uso del contexto del 27 %, el gasto de la sesión y opciones para habilitar el control remoto, cambiar el nombre, ver información, compartir como gist secreto o archivar la sesión.](../../../_images/first-steps-app-session-details.svg)
+1. Confirma que la sesión de carpeta corresponde al proyecto `space-quiz`.
+2. Selecciona **Path** para confirmar que la sesión trabaja en la carpeta esperada.
+3. Observa los controles de acceso remoto, cambio de nombre, sesiones anidadas, uso compartido, archivado y eliminación.
 
-El panel muestra dónde se realiza el trabajo y cuánto se ha llenado la ventana de contexto. No hay ninguna fila de modelo, porque eliges el modelo para cada solicitud en el cuadro de redacción.
+## Revisa los detalles de uso
 
-1. Confirma que **project** y **path** corresponden al proyecto y la ruta que crees estar editando.
-2. Comprueba **context usage**. A medida que aumenta, al agente le queda menos espacio para tu tarea, y esa es la señal para iniciar una sesión nueva.
+Selecciona el control de uso junto a **Send** para abrir el menú del plan y del uso de la sesión.
+
+![Ilustración del menú de uso junto al botón Send. Muestra el plan GitHub Copilot Pro+, los créditos de IA de la sesión, los recuentos de tokens de entrada y salida y un uso del contexto del 16 % de 400 mil tokens.](../../../_images/first-steps-app-usage-details.svg)
+
+Este menú separa el uso de la cuenta y de la sesión de los controles del proyecto:
+
+- **Plan** muestra el uso del plan cuando esa información está disponible.
+- **Session** muestra los créditos de IA utilizados por la sesión actual.
+- **Tokens** muestra los recuentos de tokens de entrada, almacenados en caché, de salida y de razonamiento.
+- **Context** muestra cuánto de la ventana de contexto ha utilizado la sesión.
+
+Comprueba **Context** a medida que crece la sesión. Cuando se llena, al agente le queda menos espacio para la tarea, y esa es la señal para iniciar una sesión nueva.
 
 > [!TIP]
 > **La mayoría de los malos resultados son problemas de contexto**
@@ -50,7 +62,6 @@ Todavía no se ha escrito nada en Git. En la siguiente lección ejecutarás `/in
 
 ## Resumen y pasos siguientes
 
-Has confirmado en qué trabaja la sesión y comprobado el cuestionario con una prueba de humo en el explorador. Continúa con la [lección 4: Recoger las instrucciones del proyecto][next-lesson].
+Has confirmado los detalles del proyecto y del uso de la sesión y, después, has comprobado el cuestionario con una prueba de humo en el explorador. Continúa con la [lección 4: Recoger las instrucciones del proyecto][next-lesson].
 
 [next-lesson]: ../4-project-instructions/
-[publish-lesson]: ../5-publish/
