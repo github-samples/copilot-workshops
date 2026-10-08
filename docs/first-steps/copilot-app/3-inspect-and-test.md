@@ -30,7 +30,7 @@ This menu identifies the project that the session is working in and provides con
 
 Select the usage control next to **Send** to open the plan and session usage menu.
 
-![Illustration of the usage menu next to the Send button. It shows plan visibility, session AI credits, input and output token counts, and context usage at 16 percent of 400 thousand tokens.](../../_images/first-steps-app-usage-details.svg)
+![Illustration of the usage menu next to the Send button. It shows the GitHub Copilot Pro+ plan, session AI credits, input and output token counts, and context usage at 16 percent of 400 thousand tokens.](../../_images/first-steps-app-usage-details.svg)
 
 This menu separates account and session usage from the project controls:
 
