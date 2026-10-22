@@ -23,7 +23,7 @@ For PR/CI rules, see **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
   - `README.md` — Workshop landing page (also the published site's home via `slug: index`).
   - `first-steps/` — Guided introductory workshops for the GitHub Copilot app, GitHub Copilot CLI, and VS Code, adapted from James Montemagno's [First Steps with GitHub Copilot](https://github.com/jamesmontemagno/first-steps-with-github-copilot) (MIT).
   - `real-world-development/` — Scenario-based workshops organized by environment: `cli/`, `vscode/`, `cloud/`, and `app/`.
-  - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Translated locale trees that mirror available English category and workshop paths.
+  - `es-es/`, `ja-jp/`, `ko-kr/`, `pl-pl/`, `pt-br/`, `zh-cn/` — Translated locale trees that mirror available English category and workshop paths.
   - `_images/` — Screenshots and diagrams (shared across all locales).
 - **`website/`** — Optional Astro + Starlight site that publishes `docs/` to GitHub Pages. Only needed to self-host or preview the rendered site.
   - `astro.config.mjs` — Site URL, base path, `locales` block, sidebar.
