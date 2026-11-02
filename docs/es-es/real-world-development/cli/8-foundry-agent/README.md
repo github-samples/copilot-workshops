@@ -15,6 +15,12 @@ En esta serie:
 - generarás la estructura de un agente Backer Concierge hospedado, lo probarás y lo desplegarás.
 - conectarás el agente al sitio web mediante un proxy local del lado del servidor y un widget de chat.
 
+## Tutorial en vídeo
+
+Sigue el [tutorial en vídeo de Copilot CLI y Foundry en YouTube][video-walkthrough] junto con los módulos escritos que aparecen a continuación.
+
+<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="Tutorial en vídeo: crea un Backer Concierge con Copilot CLI y Microsoft Foundry" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## Escenario
 
 Quienes apoyan los juegos de Tailspin Toys pueden explorarlos por categoría y editorial, pero esos filtros no ayudan a todo el mundo a encontrar su próximo juego. Algunas personas tienen preguntas como *¿Qué juegos serían adecuados para alguien a quien le encantan los juegos de palabras sobre Git?* Esas preguntas no se responden con un menú desplegable.
@@ -80,3 +86,4 @@ Cuando termines de experimentar en cualquiera de los puntos de comprobación, el
 [foundry-skill]: https://learn.microsoft.com/azure/foundry/how-to/develop/use-microsoft-foundry-skill?tabs=copilot-cli
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=foundry-skills
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=l37ZnSjKRxo

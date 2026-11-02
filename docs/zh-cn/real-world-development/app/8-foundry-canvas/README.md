@@ -13,6 +13,12 @@ next:
 
 在这一可选学习流程中，将使用 GitHub Copilot app 中的 Microsoft Foundry Canvas，为 Tailspin Toys 添加 **Backer Concierge**。整个流程从以目录为依据的模型实验开始，逐步构建托管代理，最后集成到本地网站。
 
+## 视频演示
+
+请结合下方的文字模块观看 [Copilot app 和 Foundry Canvas视频演示（YouTube）][video-walkthrough]。
+
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="视频演示：使用Copilot app 和 Microsoft Foundry Canvas构建 Backer Concierge" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## 学习流程
 
 每个模块最后都设有检查点，可在此安全暂停。整个流程始终使用同一个 Tailspin Toys 存储库、工作树分支、关联议题的会话、Foundry 项目和模型部署。
@@ -86,3 +92,4 @@ Microsoft 文档介绍了 Canvas、托管部署及其权限。
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=AT3EltQ4gTM

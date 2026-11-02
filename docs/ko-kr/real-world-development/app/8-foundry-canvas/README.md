@@ -13,6 +13,12 @@ next:
 
 이 선택 실습 과정에서는 GitHub Copilot app의 Microsoft Foundry Canvas를 사용하여 Tailspin Toys에 **Backer Concierge**를 추가합니다. 카탈로그에 근거한 모델 실험으로 시작하여 호스팅 에이전트를 구축한 다음 로컬 웹사이트에 통합합니다.
 
+## 동영상 안내
+
+아래의 문서 모듈과 함께 [Copilot app 및 Foundry Canvas YouTube 동영상 안내][video-walkthrough]를 따라 해 보세요.
+
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="동영상 안내: Copilot app 및 Microsoft Foundry Canvas로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## 실습 과정
 
 각 모듈은 체크포인트와 안전하게 작업을 마칠 수 있는 지점으로 끝납니다. 전체 과정에서 동일한 Tailspin Toys 리포지토리, 워크트리(Worktree) 브랜치, 이슈에 연결된 세션, Foundry 프로젝트, 모델 배포를 계속 사용합니다.
@@ -86,3 +92,4 @@ Microsoft 문서에서는 Canvas, 호스팅 배포, 관련 권한을 설명합�
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=AT3EltQ4gTM
