@@ -12,6 +12,12 @@ lastUpdated: 2026-09-16
 
 必須の VS Code コースは演習 6 で完了です。この省略可能な拡張演習では、VS Code の GitHub Copilot Chat と Microsoft Foundry Toolkit を使って Tailspin のカタログを Backer Concierge に活用し、ホスト型エージェントとしてデプロイして、ローカルプロキシ経由でサイトに接続します。
 
+## 動画チュートリアル
+
+以下の各モジュールの手順と合わせて、[VS Code と Foundry Toolkit の動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
+
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="動画チュートリアル: VS Code と Microsoft Foundry Toolkit で Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## シナリオ
 
 支援者からは、フィルターでは答えられない質問が寄せられます。git の言葉遊びが好きな人に合うゲームはどれか、あるパズルゲームが別のゲームより自分に向いている理由は何か、といった質問です。Tailspin Toys には、カタログに実在するタイトルを勧め、必要に応じて確認の質問をし、資金調達額などの情報がないときはそのことを率直に伝えて信頼を得るコンシェルジュが必要です。
@@ -95,3 +101,4 @@ lastUpdated: 2026-09-16
 [cleanup]: #リソースをクリーンアップする
 [foundry-toolkit]: https://code.visualstudio.com/docs/intelligentapps/overview
 [foundry-extension]: https://learn.microsoft.com/azure/developer/azure-developer-cli/extensions/azure-ai-foundry-extension
+[video-walkthrough]: https://www.youtube.com/watch?v=rfBulzrp5wY

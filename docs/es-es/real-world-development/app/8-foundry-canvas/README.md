@@ -13,6 +13,12 @@ next:
 
 Este recorrido opcional añade un **Backer Concierge** a Tailspin Toys mediante Microsoft Foundry Canvas en la aplicación GitHub Copilot. Parte de un experimento con un modelo basado en el catálogo, continúa con un agente hospedado y termina con una integración local en el sitio web.
 
+## Tutorial en vídeo
+
+Sigue el [tutorial en vídeo de la aplicación GitHub Copilot y Foundry Canvas en YouTube][video-walkthrough] junto con los módulos escritos que aparecen a continuación.
+
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="Tutorial en vídeo: crea un Backer Concierge con la aplicación GitHub Copilot y Microsoft Foundry Canvas" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## El recorrido
 
 Cada módulo termina con un punto de control y un punto seguro para detenerte. Durante todo el recorrido se mantienen el mismo repositorio de Tailspin Toys, la misma rama del worktree, la misma sesión vinculada a la incidencia, el mismo proyecto de Foundry y la misma implementación del modelo.
@@ -86,3 +92,4 @@ La documentación de Microsoft describe Canvas, las implementaciones hospedadas 
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=AT3EltQ4gTM

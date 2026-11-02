@@ -12,6 +12,12 @@ lastUpdated: 2026-09-16
 
 完成练习 6 后，VS Code 学习路径的必修部分就结束了。本可选扩展使用 VS Code 中的 GitHub Copilot Chat 和 Microsoft Foundry Toolkit，将 Tailspin 目录转化为 Backer Concierge，将其部署为托管代理，并通过本地代理服务连接到网站。
 
+## 视频演示
+
+可结合下方的文字模块，观看 [VS Code 和 Foundry Toolkit 视频演示（YouTube）][video-walkthrough]。
+
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="视频演示：使用 VS Code 和 Microsoft Foundry Toolkit 构建 Backer Concierge" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## 场景
 
 支持者提出的问题，往往不是筛选器能够回答的：哪款游戏适合喜欢 git 双关语的人？一款解谜游戏为什么比另一款更适合自己？Tailspin Toys 需要一位推荐助手，能够推荐目录中真实存在的游戏，在必要时提出澄清问题，并在缺少筹款金额或其他信息时坦诚说明，以此赢得信任。
@@ -95,3 +101,4 @@ lastUpdated: 2026-09-16
 [cleanup]: #清理资源
 [foundry-toolkit]: https://code.visualstudio.com/docs/intelligentapps/overview
 [foundry-extension]: https://learn.microsoft.com/azure/developer/azure-developer-cli/extensions/azure-ai-foundry-extension
+[video-walkthrough]: https://www.youtube.com/watch?v=rfBulzrp5wY

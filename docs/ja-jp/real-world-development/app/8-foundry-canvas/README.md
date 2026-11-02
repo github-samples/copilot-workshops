@@ -13,6 +13,12 @@ next:
 
 このオプションの学習では、GitHub Copilot app の Microsoft Foundry Canvas を使い、Tailspin Toys に **Backer Concierge** を追加します。カタログに基づくモデルの実験から始め、ホステッド エージェントの構築、ローカル Web サイトへの統合へと進みます。
 
+## 動画チュートリアル
+
+以下の各モジュールの手順と合わせて、[GitHub Copilot app と Foundry Canvas の動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
+
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="動画チュートリアル: GitHub Copilot app と Microsoft Foundry Canvas で Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## 学習の流れ
 
 各モジュールの最後にはチェックポイントがあり、安全に中断できます。学習全体を通じて、同じ Tailspin Toys リポジトリ、worktree ブランチ、Issue にリンクされたセッション、Foundry プロジェクト、モデルデプロイを使用します。
@@ -86,3 +92,4 @@ Microsoft のドキュメントで、Canvas、ホステッド エージェント
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=AT3EltQ4gTM

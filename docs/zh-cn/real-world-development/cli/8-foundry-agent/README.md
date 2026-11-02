@@ -15,6 +15,12 @@ lastUpdated: 2026-09-16
 - 为托管的 Backer Concierge 智能体生成脚手架，进行测试并部署。
 - 通过本地服务端代理和聊天组件，将智能体连接到网站。
 
+## 视频演示
+
+可结合下方的文字模块，观看 [Copilot CLI 和 Foundry 视频演示（YouTube）][video-walkthrough]。
+
+<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="视频演示：使用 Copilot CLI 和 Microsoft Foundry 构建 Backer Concierge" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## 场景
 
 Tailspin Toys 支持者可以按类别和发行商浏览游戏，但这些筛选条件无法帮助所有人找到下一款游戏。有些支持者会问：*喜欢 Git 双关语的人适合哪些游戏？* 下拉选项无法回答这类问题。
@@ -80,3 +86,4 @@ Tailspin Toys 希望打造一个 **Backer Concierge** 礼宾助手，通过对�
 [foundry-skill]: https://learn.microsoft.com/azure/foundry/how-to/develop/use-microsoft-foundry-skill?tabs=copilot-cli
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=foundry-skills
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=l37ZnSjKRxo
