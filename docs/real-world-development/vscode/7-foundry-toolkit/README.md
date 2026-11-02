@@ -14,7 +14,7 @@ The required VS Code harness is complete after Exercise 6. This optional extensi
 
 ## Video walkthrough
 
-Follow the [VS Code and Foundry Toolkit video walkthrough on YouTube][video-walkthrough] alongside the written modules below. You can also use that link if the embedded player is unavailable.
+Follow the [VS Code and Foundry Toolkit video walkthrough on YouTube][video-walkthrough] alongside the written modules below.
 
 <iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="Video walkthrough: Build a Backer Concierge with VS Code and Microsoft Foundry Toolkit" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 

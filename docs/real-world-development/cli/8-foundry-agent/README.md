@@ -17,7 +17,7 @@ In this series, you will:
 
 ## Video walkthrough
 
-Follow the [Copilot CLI and Foundry video walkthrough on YouTube][video-walkthrough] alongside the written modules below. You can also use that link if the embedded player is unavailable.
+Follow the [Copilot CLI and Foundry video walkthrough on YouTube][video-walkthrough] alongside the written modules below.
 
 <iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="Video walkthrough: Build a Backer Concierge with Copilot CLI and Microsoft Foundry" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
