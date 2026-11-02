@@ -108,6 +108,14 @@ Each module has its own objectives, story-focused scenario, numbered instruction
 3. **Always include alt text.** Starlight treats the alt text as required.
 4. **Preview locally** to confirm the image resolves.
 
+### Add a tutorial video
+
+Keep videos optional and retain the written instructions. Add a `## Video walkthrough` section with a descriptive reference-style YouTube link and an HTML `<iframe>`; the link also serves readers on github.com, which does not render embedded players, and readers whose networks block YouTube.
+
+Use the privacy-enhanced URL `https://www.youtube-nocookie.com/embed/VIDEO_ID?cc_load_policy=1`, a descriptive `title`, `loading="lazy"`, `referrerpolicy="strict-origin-when-cross-origin"`, `allowfullscreen`, and `style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"`. Do not enable autoplay. Privacy-enhanced mode still contacts YouTube when the player loads; it is not a consent gate.
+
+Before publishing, confirm the video allows embedding and has accurate captions in YouTube Studio. The `cc_load_policy=1` parameter requests captions when available; it does not create them. Check playback on the rendered site and at a narrow viewport.
+
 ### Edit an existing lesson
 
 1. **Find the file** under `docs/` (use the published URL as a hint — `/real-world-development/cli/3-agent-modes/` lives at `docs/real-world-development/cli/3-agent-modes.md`).

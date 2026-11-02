@@ -15,6 +15,12 @@ In this series, you will:
 - scaffold, test, and deploy a hosted Backer Concierge agent.
 - connect the agent to the website through a local server-side proxy and chat widget.
 
+## Video walkthrough
+
+Follow the [Copilot CLI and Foundry video walkthrough on YouTube][video-walkthrough] alongside the written modules below. You can also use that link if the embedded player is unavailable.
+
+<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="Video walkthrough: Build a Backer Concierge with Copilot CLI and Microsoft Foundry" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## Scenario
 
 Tailspin Toys backers can browse games by category and publisher, but those filters don't help everyone find their next game. Some backers have questions such as *Which games would suit someone who loves Git puns?* Those questions don't have dropdown answers.
@@ -76,6 +82,7 @@ When you're done experimenting at any checkpoint, remove the Azure resources to 
 [connect-site]: 3-connect-to-site/
 [review]: ../10-review/
 [cleanup]: #clean-up-your-resources
+[video-walkthrough]: https://www.youtube.com/watch?v=l37ZnSjKRxo
 [azure-skills]: https://github.com/microsoft/azure-skills#github-copilot-cli
 [foundry-skill]: https://learn.microsoft.com/azure/foundry/how-to/develop/use-microsoft-foundry-skill?tabs=copilot-cli
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=foundry-skills
