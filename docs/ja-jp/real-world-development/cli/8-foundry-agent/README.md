@@ -17,9 +17,9 @@ lastUpdated: 2026-09-16
 
 ## 動画チュートリアル
 
-以下の手順ページと合わせて、[Copilot CLI と Foundryの動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
+以下の各モジュールの手順と合わせて、[Copilot CLI と Foundry の動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
 
-<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="動画チュートリアル: Copilot CLI と Microsoft Foundryで Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="動画チュートリアル: Copilot CLI と Microsoft Foundry で Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## シナリオ
 

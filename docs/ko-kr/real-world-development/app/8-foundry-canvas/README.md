@@ -15,9 +15,9 @@ next:
 
 ## 동영상 안내
 
-아래의 문서 모듈과 함께 [Copilot app 및 Foundry Canvas YouTube 동영상 안내][video-walkthrough]를 따라 해 보세요.
+아래 문서 모듈과 함께 [GitHub Copilot app 및 Foundry Canvas YouTube 동영상 안내][video-walkthrough]를 따라 진행합니다.
 
-<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="동영상 안내: Copilot app 및 Microsoft Foundry Canvas로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="동영상 안내: GitHub Copilot app 및 Microsoft Foundry Canvas로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## 실습 과정
 

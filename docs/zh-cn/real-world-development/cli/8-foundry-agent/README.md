@@ -17,9 +17,9 @@ lastUpdated: 2026-09-16
 
 ## 视频演示
 
-请结合下方的文字模块观看 [Copilot CLI 和 Foundry视频演示（YouTube）][video-walkthrough]。
+可结合下方的文字模块，观看 [Copilot CLI 和 Foundry 视频演示（YouTube）][video-walkthrough]。
 
-<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="视频演示：使用Copilot CLI 和 Microsoft Foundry构建 Backer Concierge" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="视频演示：使用 Copilot CLI 和 Microsoft Foundry 构建 Backer Concierge" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## 场景
 

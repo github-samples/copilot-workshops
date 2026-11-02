@@ -14,9 +14,9 @@ lastUpdated: 2026-09-16
 
 ## 동영상 안내
 
-아래의 문서 모듈과 함께 [VS Code 및 Foundry Toolkit YouTube 동영상 안내][video-walkthrough]를 따라 해 보세요.
+아래 문서 모듈과 함께 [VS Code 및 Foundry Toolkit YouTube 동영상 안내][video-walkthrough]를 따라 진행합니다.
 
-<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="동영상 안내: VS Code 및 Microsoft Foundry Toolkit로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="동영상 안내: VS Code 및 Microsoft Foundry Toolkit으로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## 시나리오
 

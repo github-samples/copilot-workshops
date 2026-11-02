@@ -17,7 +17,7 @@ lastUpdated: 2026-09-16
 
 ## 동영상 안내
 
-아래의 문서 모듈과 함께 [Copilot CLI 및 Foundry YouTube 동영상 안내][video-walkthrough]를 따라 해 보세요.
+아래 문서 모듈과 함께 [Copilot CLI 및 Foundry YouTube 동영상 안내][video-walkthrough]를 따라 진행합니다.
 
 <iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="동영상 안내: Copilot CLI 및 Microsoft Foundry로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 

@@ -15,9 +15,9 @@ Este percurso opcional adiciona um **Backer Concierge** à Tailspin Toys usando 
 
 ## Passo a passo em vídeo
 
-Acompanhe o [passo a passo em vídeo de Copilot app e Foundry Canvas no YouTube][video-walkthrough] junto com os módulos escritos abaixo.
+Acompanhe o [passo a passo em vídeo do aplicativo GitHub Copilot e do Foundry Canvas no YouTube][video-walkthrough] junto com os módulos escritos abaixo.
 
-<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="Passo a passo em vídeo: crie um Backer Concierge com Copilot app e Microsoft Foundry Canvas" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="Passo a passo em vídeo: crie um Backer Concierge com o aplicativo GitHub Copilot e o Microsoft Foundry Canvas" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## O percurso
 

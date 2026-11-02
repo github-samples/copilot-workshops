@@ -14,9 +14,9 @@ A trilha obrigatória do VS Code está concluída após o Exercício 6. Esta ext
 
 ## Passo a passo em vídeo
 
-Acompanhe o [passo a passo em vídeo de VS Code e Foundry Toolkit no YouTube][video-walkthrough] junto com os módulos escritos abaixo.
+Acompanhe o [passo a passo em vídeo do VS Code e do Foundry Toolkit no YouTube][video-walkthrough] junto com os módulos escritos abaixo.
 
-<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="Passo a passo em vídeo: crie um Backer Concierge com VS Code e Microsoft Foundry Toolkit" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="Passo a passo em vídeo: crie um Backer Concierge com o VS Code e o Microsoft Foundry Toolkit" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## Cenário
 

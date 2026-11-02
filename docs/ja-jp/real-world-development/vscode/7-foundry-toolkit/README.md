@@ -14,9 +14,9 @@ lastUpdated: 2026-09-16
 
 ## 動画チュートリアル
 
-以下の手順ページと合わせて、[VS Code と Foundry Toolkitの動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
+以下の各モジュールの手順と合わせて、[VS Code と Foundry Toolkit の動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
 
-<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="動画チュートリアル: VS Code と Microsoft Foundry Toolkitで Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="動画チュートリアル: VS Code と Microsoft Foundry Toolkit で Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## シナリオ
 

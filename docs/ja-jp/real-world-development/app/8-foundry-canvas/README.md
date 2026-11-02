@@ -15,9 +15,9 @@ next:
 
 ## 動画チュートリアル
 
-以下の手順ページと合わせて、[Copilot app と Foundry Canvasの動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
+以下の各モジュールの手順と合わせて、[GitHub Copilot app と Foundry Canvas の動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
 
-<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="動画チュートリアル: Copilot app と Microsoft Foundry Canvasで Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="動画チュートリアル: GitHub Copilot app と Microsoft Foundry Canvas で Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
 
 ## 学習の流れ
 
