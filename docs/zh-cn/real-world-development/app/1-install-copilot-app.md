@@ -29,7 +29,10 @@ lastUpdated: 2026-10-05
 1. 在浏览器中打开 [GitHub Copilot app 产品页面][download-app]。
 2. 下载适用于当前平台的应用，并按照产品页面上的说明进行安装。
 3. 安装完成后打开应用。
-4. 选择 **Sign in to GitHub**，并按照提示完成身份验证。如果使用 GitHub Enterprise Server，请选择 **Use GitHub Enterprise**，并在提示时输入服务器地址。
+4. 选择 **Sign in to GitHub**，并按照提示使用 GitHub.com 或 GHE.com 账户登录。如果使用支持数据驻留的 GitHub Enterprise Cloud，选择 **GitHub Enterprise Cloud**，并在提示时输入 `*.ghe.com` 主机名。
+
+   如果使用 GitHub Enterprise Server，先使用云账户完成初始设置。然后打开 **Settings**，依次选择 **Accounts**、**Add account** 和 **GitHub Enterprise Server**。按照 [Enterprise Server 登录指南][ghes-sign-in]中的提示，在浏览器中授权应用。
+
 5. 身份验证后，系统会询问要连接哪些存储库。选择刚创建的 Tailspin Toys 存储库，其名称应为 `<YOUR_GITHUB_HANDLE>/tailspin-toys`。
 6. 选择 **Continue** 继续加入流程。
 7. 系统提示选择主题时，选择最喜欢的主题，再选择 **Finish**。
@@ -104,3 +107,4 @@ lastUpdated: 2026-10-05
 [getting-started]: https://docs.github.com/copilot/how-tos/github-copilot-app/getting-started
 [agent-sessions]: https://docs.github.com/copilot/how-tos/github-copilot-app/agent-sessions
 [download-app]: https://gh.io/app
+[ghes-sign-in]: https://docs.github.com/enterprise-server@3.22/copilot/copilot-on-ghes/sign-in-on-copilot-app

@@ -16,14 +16,14 @@ lastUpdated: 2026-10-05
 
 ## 发布存储库
 
+> [!WARNING]
+> 根据审批设置，智能体可能在创建存储库或推送代码前要求确认，也可能自动批准这些操作。启用 **Approve all** 时，不要指望出现单独的确认提示。发送发布提示词前，先审查设置、请求的操作和目标位置。
+
 发送以下提示词：
 
 ```plaintext
 Initialize this folder as a Git repository, create an initial commit, and create a new public GitHub repository named space-quiz in my account. Push the current branch and set it as the default branch. Refresh the project within this app so the GitHub project is linked.
 ```
-
-> [!WARNING]
-> 根据审批设置，智能体可能在创建存储库或推送代码前要求确认，也可能自动批准这些操作。启用 **Approve all** 时，不要指望出现单独的确认提示。发送发布提示词前，先审查设置、请求的操作和目标位置。
 
 智能体完成后：
 
