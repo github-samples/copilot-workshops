@@ -39,8 +39,8 @@ Hay muchos otros servidores MCP que proporcionan acceso a distintas herramientas
 Los servidores MCP se gestionan desde **Customize** en la barra lateral. Los servidores configurados para tus repositorios o Copilot CLI pueden estar ya disponibles en la aplicación, así que compruébalo antes de añadir un duplicado. La [documentación de personalización de la aplicación][customize-app] explica las opciones disponibles.
 
 1. Selecciona **Customize** en la barra lateral.
-2. Selecciona **MCP** y comprueba en **Installed** si ya existe un servidor de Playwright.
-3. Si es necesario, busca **Playwright** entre los servidores disponibles o utiliza el procedimiento de servidor personalizado documentado por el editor.
+2. Abre el menú desplegable **All types**, selecciona **MCP** y comprueba en **Installed** si ya existe un servidor de Playwright.
+3. Si Playwright no está instalado todavía, busca **Playwright** entre los servidores disponibles y, a continuación, selecciona **Add server**.
 4. Revisa el editor, la configuración y cualquier solicitud de instalación antes de aprobarla. Sigue las indicaciones para añadir el servidor; las directivas de la organización o la falta de requisitos previos pueden bloquear la configuración.
 5. Vuelve a la sesión de filtrado en modo **Interactive** y confirma que las herramientas MCP de Playwright están disponibles.
 

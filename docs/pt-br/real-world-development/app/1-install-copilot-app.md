@@ -20,7 +20,7 @@ Nesta lição, você vai:
 Sua equipe está adotando agentes de IA para trabalhar em um backlog crescente. O aplicativo Copilot oferece um único lugar para orientar esse trabalho: selecionar issues, executar agentes, revisar alterações e fazer merge de pull requests. Nesta lição, você instalará e conectará o aplicativo e aprenderá a iniciar uma conversa sobre o projeto.
 
 > [!NOTE]
-> É necessário ter um plano elegível do Copilot: Copilot Student ou qualquer plano pago (Pro, Pro+, Business ou Enterprise). Se você usa o Copilot Business ou o Copilot Enterprise, o administrador deve habilitar a política **Copilot CLI** para que o aplicativo funcione.
+> É necessário ter um plano elegível do Copilot: Copilot Free, Copilot Student ou qualquer plano pago (Pro, Pro+, Business ou Enterprise). Se você usa o Copilot Business ou o Copilot Enterprise, o administrador deve manter a política do **aplicativo GitHub Copilot** habilitada.
 
 ## Instalar e configurar o aplicativo GitHub Copilot
 
@@ -33,12 +33,11 @@ Como você pode imaginar, a primeira etapa para usar o aplicativo GitHub Copilot
 
    Se você usa o GitHub Enterprise Server, primeiro conclua a integração com sua conta na nuvem. Depois, abra **Settings**, selecione **Accounts**, selecione **Add account** e escolha **GitHub Enterprise Server**. Siga as instruções para autorizar o aplicativo no navegador, conforme o [guia de login no Enterprise Server][ghes-sign-in].
 
-5. Após a autenticação, o aplicativo perguntará sobre a conexão dos seus repositórios. Selecione o repositório Tailspin Toys que você acabou de criar, cujo nome deve ser `<YOUR_GITHUB_HANDLE>/tailspin-toys`.
-6. Selecione **Continue** para continuar a integração.
-7. Quando o aplicativo solicitar um tema, selecione aquele que mais lhe agrada e depois selecione **Finish**.
-
-> [!NOTE]
-> Se a sua cópia do Tailspin Toys não aparecer automaticamente na lista, você poderá adicioná-la depois de concluir a integração no aplicativo. Ao final, o aplicativo Copilot exibirá a tela inicial. Nela, selecione **Choose from GitHub**, pesquise o repositório pelo nome (\<YOUR_GITHUB_HANDLE\>/tailspin-toys) e selecione-o. O repositório será adicionado ao aplicativo Copilot.
+5. Se a integração oferecer a seleção de repositório, selecione o repositório Tailspin Toys que você criou a partir do modelo. Você também pode pular a seleção de repositório e adicionar o projeto depois de concluir a integração.
+6. Escolha um tema quando solicitado e conclua a integração.
+7. Procure seu repositório em **Sessions**, na barra lateral. Se ele já estiver listado, não é necessário adicioná-lo novamente.
+8. Se o repositório ainda não estiver conectado, selecione **+** ao lado de **Sessions** para criar uma nova sessão e, em seguida, selecione **Add GitHub repository**. Use o proprietário e o nome do repositório que você registrou na lição de pré-requisitos.
+9. Confirme se o repositório aparece na barra lateral. No layout usado aqui, as pastas de repositório, como `tailspin-toys`, são agrupadas em **Sessions**, com as sessões individuais abaixo de cada repositório.
 
 ## Conhecer o espaço de trabalho
 
@@ -49,8 +48,8 @@ Com o projeto conectado, reserve um momento para conhecer o espaço de trabalho.
 - **Issues**: suas issues, exibidas da mesma forma. Nessa área, você pode procurar e filtrar issues e iniciar uma sessão a partir de uma issue.
 - **Automations**: tarefas de agente salvas que são executadas em uma agenda ou sob demanda. São ótimas para gerenciar listas de tarefas, a manutenção regular do projeto ou outras atividades repetitivas que você queira delegar. O encerramento traz links para elas como próximo passo, não como outro exercício do workshop.
 - **Customize**: adicione recursos e funções ao aplicativo Copilot na forma de servidores MCP, plugins, skills e outros componentes. Você usará essa área para configurar o MCP do Playwright.
-- **Chats**: conversas leves para perguntas e brainstorming que não precisam de branch ou espaço de trabalho próprios. Você experimentará uma ao final desta lição.
-- **Sessions**: onde os agentes trabalham. Cada sessão é executada em seu próprio espaço de trabalho isolado, permitindo executar várias sessões ao mesmo tempo sem que as alterações entrem em conflito. Você iniciará sua primeira sessão ao adicionar avaliações por estrelas.
+- **Chats**: conversas leves para perguntas e brainstorming que não precisam de uma branch ou espaço de trabalho próprios. Essa seção aparece depois que você inicia seu primeiro chat. Se ela não estiver visível, selecione **+** ao lado de **Sessions** para iniciar seu primeiro chat.
+- **Sessions**: agrupa as pastas de repositório e as sessões de agente correspondentes. Selecione o nome de um repositório, como `tailspin-toys`, para abrir sua visualização de repositório, ou selecione uma sessão abaixo dele para retornar a essa conversa. Cada sessão é executada em seu próprio espaço de trabalho isolado, o que permite executar várias ao mesmo tempo sem que as alterações entrem em conflito. Você iniciará sua primeira sessão ao adicionar avaliações por estrelas.
 
 Ao longo do workshop, você explorará o espaço de trabalho!
 
@@ -61,7 +60,7 @@ Ao longo do workshop, você explorará o espaço de trabalho!
 
 Provavelmente não existe projeto sem backlog, e o Tailspin Toys não é diferente. Vamos explorar o backlog existente, gerado quando você criou sua cópia a partir do modelo.
 
-1. Selecione **Issues** na barra lateral.
+1. Em **Sessions**, na barra lateral, selecione a pasta do repositório Tailspin Toys, não uma sessão individual abaixo dela. Em seguida, selecione **Issues** na navegação superior do repositório.
 2. Encontre estas issues pelo título em vez de presumir seus números:
 
    - Allow users to filter games by category and publisher
@@ -76,7 +75,7 @@ Provavelmente não existe projeto sem backlog, e o Tailspin Toys não é diferen
 
 Uma ótima maneira de se familiarizar com o aplicativo é usá-lo para saber mais sobre o *próprio aplicativo*, e um **chat rápido** é a ferramenta ideal. Os chats rápidos permitem fazer perguntas ou brainstorming sem criar uma branch ou worktree. Por isso, são perfeitos para perguntas rápidas e descartáveis, sem exigir uma sessão.
 
-1. Na barra lateral, selecione **+** ao lado de **Chats** para abrir um novo chat.
+1. Na barra lateral, selecione **+** ao lado de **Chats** para abrir um novo chat. Se **Chats** ainda não estiver visível, selecione **+** ao lado de **Sessions** para iniciar seu primeiro chat; **Chats** aparecerá em seguida.
 2. Pergunte ao aplicativo como funcionam as próprias sessões:
 
    ```plaintext
