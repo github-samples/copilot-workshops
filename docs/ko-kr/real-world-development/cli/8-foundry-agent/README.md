@@ -15,6 +15,12 @@ lastUpdated: 2026-09-16
 - 호스트된 Backer Concierge 에이전트를 스캐폴드(Scaffold)하고 테스트 및 배포합니다.
 - 로컬 서버 측 프록시(Proxy)와 채팅 위젯을 통해 에이전트를 웹사이트에 연결합니다.
 
+## 동영상 안내
+
+아래 문서 모듈과 함께 [Copilot CLI 및 Foundry YouTube 동영상 안내][video-walkthrough]를 따라 진행합니다.
+
+<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="동영상 안내: Copilot CLI 및 Microsoft Foundry로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## 시나리오
 
 Tailspin Toys의 후원자는 카테고리와 퍼블리셔별로 게임을 탐색할 수 있지만, 이러한 필터만으로는 모든 후원자가 다음에 즐길 게임을 찾기 어렵습니다. *Git 말장난을 좋아하는 사람에게는 어떤 게임이 어울릴까요?* 같은 질문을 하는 후원자도 있습니다. 이런 질문에는 드롭다운으로 답할 수 없습니다.
@@ -80,3 +86,4 @@ Tailspin Toys는 후원자가 대화를 통해 게임을 찾도록 돕는 **Back
 [foundry-skill]: https://learn.microsoft.com/azure/foundry/how-to/develop/use-microsoft-foundry-skill?tabs=copilot-cli
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=foundry-skills
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=l37ZnSjKRxo

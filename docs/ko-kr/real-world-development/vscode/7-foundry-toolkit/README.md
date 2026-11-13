@@ -12,6 +12,12 @@ lastUpdated: 2026-09-16
 
 필수 VS Code 과정은 실습 6에서 완료됩니다. 이 선택 확장 과정에서는 VS Code의 GitHub Copilot Chat과 Microsoft Foundry Toolkit을 사용하여 Tailspin 카탈로그를 기반으로 Backer Concierge를 만들고, 호스팅 에이전트(Hosted agent)로 배포한 뒤 로컬 프록시(Proxy)를 통해 사이트에 연결합니다.
 
+## 동영상 안내
+
+아래 문서 모듈과 함께 [VS Code 및 Foundry Toolkit YouTube 동영상 안내][video-walkthrough]를 따라 진행합니다.
+
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="동영상 안내: VS Code 및 Microsoft Foundry Toolkit으로 Backer Concierge 구축하기" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## 시나리오
 
 후원자는 필터만으로는 답할 수 없는 질문을 합니다. git 말장난을 좋아하는 사람에게 어떤 게임이 어울리는지, 특정 퍼즐 게임이 다른 게임보다 더 잘 맞는 이유는 무엇인지 궁금해합니다. Tailspin Toys에는 실제 카탈로그의 게임을 추천하고, 필요할 때 명확히 하기 위한 질문을 하며, 모금액이나 기타 정보를 알 수 없을 때 이를 솔직히 인정하여 신뢰를 얻는 안내 도우미가 필요합니다.
@@ -95,3 +101,4 @@ lastUpdated: 2026-09-16
 [cleanup]: #리소스-정리
 [foundry-toolkit]: https://code.visualstudio.com/docs/intelligentapps/overview
 [foundry-extension]: https://learn.microsoft.com/azure/developer/azure-developer-cli/extensions/azure-ai-foundry-extension
+[video-walkthrough]: https://www.youtube.com/watch?v=rfBulzrp5wY

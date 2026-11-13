@@ -15,6 +15,12 @@ lastUpdated: 2026-09-16
 - ホスト型の Backer Concierge エージェントのひな形を作成し、テストしてデプロイする。
 - ローカルのサーバー側プロキシとチャット ウィジェットを通じて、エージェントを Web サイトに接続する。
 
+## 動画チュートリアル
+
+以下の各モジュールの手順と合わせて、[Copilot CLI と Foundry の動画チュートリアル（YouTube）][video-walkthrough]をご覧ください。
+
+<iframe src="https://www.youtube-nocookie.com/embed/l37ZnSjKRxo?cc_load_policy=1" title="動画チュートリアル: Copilot CLI と Microsoft Foundry で Backer Concierge を構築する" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## シナリオ
 
 Tailspin Toys の支援者はカテゴリやパブリッシャーでゲームを探せますが、それらのフィルターだけでは、誰もが次に遊ぶゲームを見つけられるとは限りません。たとえば、*Git の言葉遊びが好きな人には、どのゲームが向いているだろう？*と考える支援者もいます。こうした質問には、ドロップダウンの選択肢だけでは答えられません。
@@ -80,3 +86,4 @@ Tailspin Toys は、会話を通じて支援者がゲームを見つけられる
 [foundry-skill]: https://learn.microsoft.com/azure/foundry/how-to/develop/use-microsoft-foundry-skill?tabs=copilot-cli
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=foundry-skills
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
+[video-walkthrough]: https://www.youtube.com/watch?v=l37ZnSjKRxo

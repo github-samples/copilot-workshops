@@ -12,6 +12,12 @@ lastUpdated: 2026-09-16
 
 The required VS Code harness is complete after Exercise 6. This optional extension uses GitHub Copilot Chat and Microsoft Foundry Toolkit in VS Code to turn the Tailspin catalog into a Backer Concierge, deploy it as a hosted agent, and connect it to the site through a local proxy.
 
+## Video walkthrough
+
+Follow the [VS Code and Foundry Toolkit video walkthrough on YouTube][video-walkthrough] alongside the written modules below.
+
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="Video walkthrough: Build a Backer Concierge with VS Code and Microsoft Foundry Toolkit" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## Scenario
 
 Backers ask questions that filters cannot answer: which game suits someone who loves git puns, or what makes one puzzle game a better fit than another? Tailspin Toys needs a concierge that recommends real catalog titles, asks a clarifying question when needed, and earns trust by admitting when funding numbers or other facts are unavailable.
@@ -93,5 +99,6 @@ When you're done experimenting at any checkpoint, remove the Azure resources to 
 [module-2]: 2-build-and-deploy/
 [module-3]: 3-connect-to-site/
 [cleanup]: #clean-up-your-resources
+[video-walkthrough]: https://www.youtube.com/watch?v=rfBulzrp5wY
 [foundry-toolkit]: https://code.visualstudio.com/docs/intelligentapps/overview
 [foundry-extension]: https://learn.microsoft.com/azure/developer/azure-developer-cli/extensions/azure-ai-foundry-extension

@@ -12,6 +12,12 @@ lastUpdated: 2026-09-16
 
 El itinerario obligatorio de VS Code termina con el ejercicio 6. Esta ampliación opcional utiliza GitHub Copilot Chat y Microsoft Foundry Toolkit en VS Code para convertir el catálogo de Tailspin en un Backer Concierge, implementarlo como agente hospedado y conectarlo al sitio a través de un proxy local.
 
+## Tutorial en vídeo
+
+Sigue el [tutorial en vídeo de VS Code y Foundry Toolkit en YouTube][video-walkthrough] junto con los módulos escritos que aparecen a continuación.
+
+<iframe src="https://www.youtube-nocookie.com/embed/rfBulzrp5wY?cc_load_policy=1" title="Tutorial en vídeo: crea un Backer Concierge con VS Code y Microsoft Foundry Toolkit" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## Escenario
 
 Los patrocinadores hacen preguntas que los filtros no pueden responder: ¿qué juego encaja con alguien a quien le encantan los juegos de palabras sobre git, o qué hace que un juego de puzles sea más adecuado que otro? Tailspin Toys necesita un asistente que recomiende títulos reales del catálogo, haga una pregunta aclaratoria cuando sea necesario y se gane la confianza de los usuarios al reconocer que las cifras de financiación u otros datos no están disponibles.
@@ -95,3 +101,4 @@ Cuando termines de experimentar en cualquier punto de control, elimina los recur
 [cleanup]: #eliminar-los-recursos
 [foundry-toolkit]: https://code.visualstudio.com/docs/intelligentapps/overview
 [foundry-extension]: https://learn.microsoft.com/azure/developer/azure-developer-cli/extensions/azure-ai-foundry-extension
+[video-walkthrough]: https://www.youtube.com/watch?v=rfBulzrp5wY

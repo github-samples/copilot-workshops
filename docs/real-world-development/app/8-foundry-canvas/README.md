@@ -13,6 +13,12 @@ next:
 
 This optional journey adds a **Backer Concierge** to Tailspin Toys using Microsoft Foundry Canvas in the GitHub Copilot app. It moves from a catalog-grounded model experiment to a hosted agent and then a local website integration.
 
+## Video walkthrough
+
+Follow the [Copilot app and Foundry Canvas video walkthrough on YouTube][video-walkthrough] alongside the written modules below.
+
+<iframe src="https://www.youtube-nocookie.com/embed/AT3EltQ4gTM?cc_load_policy=1" title="Video walkthrough: Build a Backer Concierge with the Copilot app and Microsoft Foundry Canvas" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0;"></iframe>
+
 ## The journey
 
 Each module ends with a checkpoint and a safe stopping point. The same Tailspin Toys repository, worktree branch, issue-linked session, Foundry project, and model deployment carry through the journey.
@@ -83,6 +89,7 @@ The Microsoft documentation describes Canvas, hosted deployments, and their perm
 [module-2]: ./2-build-and-deploy/
 [module-3]: ./3-connect-to-site/
 [core-review]: ../10-review/
+[video-walkthrough]: https://www.youtube.com/watch?v=AT3EltQ4gTM
 [foundry-canvas]: https://learn.microsoft.com/azure/foundry/agents/concepts/foundry-canvas
 [hosted-agent-quickstart]: https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-hosted-agent?pivots=canvas
 [hosted-agent-permissions]: https://learn.microsoft.com/azure/foundry/agents/concepts/hosted-agent-permissions
