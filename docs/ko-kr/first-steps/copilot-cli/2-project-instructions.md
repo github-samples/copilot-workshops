@@ -16,7 +16,7 @@ lastUpdated: 2026-10-05
 
 ## `/init`으로 규칙 기록하기
 
-`/init` 뒤에 프롬프트를 입력합니다. 명령만 보내면 `Command input required`가 표시될 수 있습니다.
+Copilot CLI에서는 `/init`만으로 실행할 수 있습니다. [CLI 명령 참조][cli-init]에 설명된 대로 생성할 내용을 안내하는 지침을 추가할 수도 있습니다. 이 예제에서는 간단한 프로젝트 규칙을 요청합니다.
 
 1. 세션에서 `/init create simple rules for the project`를 실행합니다.
 2. 생성된 지침 파일을 수락하기 전에 검토합니다.
@@ -36,3 +36,4 @@ lastUpdated: 2026-10-05
 이제 프로젝트에 실제 코드를 바탕으로 작성한 에이전트 지침이 있습니다. [레슨 3: 프로젝트 게시][next-lesson]를 계속 진행합니다.
 
 [next-lesson]: ../3-publish/
+[cli-init]: https://docs.github.com/copilot/reference/copilot-cli-reference/cli-command-reference#project-initialization-for-copilot

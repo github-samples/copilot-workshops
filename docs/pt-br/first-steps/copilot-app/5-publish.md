@@ -16,14 +16,14 @@ Nesta lição, você vai:
 
 ## Publicar o repositório
 
+> [!WARNING]
+> Dependendo das configurações de aprovação, o agente pode pedir confirmação antes de criar um repositório ou enviar código, ou essas ações podem ser aprovadas automaticamente. Com **Approve all**, não espere um prompt de confirmação separado. Revise as configurações, a ação solicitada e o destino antes de enviar o prompt de publicação.
+
 Envie o seguinte prompt:
 
 ```plaintext
 Initialize this folder as a Git repository, create an initial commit, and create a new public GitHub repository named space-quiz in my account. Push the current branch and set it as the default branch. Refresh the project within this app so the GitHub project is linked.
 ```
-
-> [!WARNING]
-> Dependendo das configurações de aprovação, o agente pode pedir confirmação antes de criar um repositório ou enviar código, ou essas ações podem ser aprovadas automaticamente. Com **Approve all**, não espere um prompt de confirmação separado. Revise as configurações, a ação solicitada e o destino antes de enviar o prompt de publicação.
 
 Quando o agente terminar:
 
